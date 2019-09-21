@@ -11,7 +11,10 @@ C:\Users\dgdam\source\repos\WindowsFormsApp15\WindowsFormsApp15\obj\Debug\Window
 C:\Users\janwe\Source\Repos\GangsOfCsharp\WindowsFormsApp15\obj\Debug\WindowsFormsApp15.exe
 C:\Users\janwe\Source\Repos\GangsOfCsharp\WindowsFormsApp15\obj\Debug\WindowsFormsApp15.pdb
 C:\Users\janwe\Source\Repos\GangsOfCsharp\WindowsFormsApp15\obj\Debug\WindowsFormsApp15.csprojAssemblyReference.cache
-C:\Users\janwe\Source\Repos\GangsOfCsharp\WindowsFormsApp15\obj\Debug\WindowsFormsApp15.Form1.resources
 C:\Users\janwe\Source\Repos\GangsOfCsharp\WindowsFormsApp15\obj\Debug\WindowsFormsApp15.Properties.Resources.resources
 C:\Users\janwe\Source\Repos\GangsOfCsharp\WindowsFormsApp15\obj\Debug\WindowsFormsApp15.csproj.GenerateResource.cache
 C:\Users\janwe\Source\Repos\GangsOfCsharp\WindowsFormsApp15\obj\Debug\WindowsFormsApp15.csproj.CoreCompileInputs.cache
+C:\Users\janwe\source\repos\GangsOfCsharp\WindowsFormsApp15\bin\Debug\WindowsFormsApp15.exe.config
+C:\Users\janwe\source\repos\GangsOfCsharp\WindowsFormsApp15\bin\Debug\WindowsFormsApp15.exe
+C:\Users\janwe\source\repos\GangsOfCsharp\WindowsFormsApp15\bin\Debug\WindowsFormsApp15.pdb
+C:\Users\janwe\source\repos\GangsOfCsharp\WindowsFormsApp15\obj\Debug\WindowsFormsApp15.MainWindow.resources
