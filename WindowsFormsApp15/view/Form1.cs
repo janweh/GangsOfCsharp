@@ -36,5 +36,10 @@ namespace WindowsFormsApp15
         {
 
         }
+
+        private void Button10_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
