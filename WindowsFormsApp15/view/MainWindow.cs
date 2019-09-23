@@ -93,7 +93,16 @@ namespace WindowsFormsApp15
                 ProfessorSearchResultWindow results = new ProfessorSearchResultWindow(testLecturer);
                 results.Show();
                 label9.Visible = false;
-            } 
+            }
+            else if (universityComboBox.SelectedItem == null && majorComboBox.SelectedItem != null &&
+             professorComboBox.SelectedItem == null && courseNameTextBox.Text.Equals(""))
+            {
+                University testUni = new University("Vilnius University", new List<Lecturer>(), new List<Course>());
+                Major testMajor = new Major(testUni, "Computer Sience");
+                MajorSearchResultWindow results = new MajorSearchResultWindow(testMajor);
+                results.Show();
+                label9.Visible = false;
+            }
 
 
         }

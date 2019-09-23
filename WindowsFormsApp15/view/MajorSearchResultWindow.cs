@@ -7,14 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp15.model;
 
 namespace WindowsFormsApp15.view
 {
     public partial class MajorSearchResultWindow : Form
     {
-        public MajorSearchResultWindow()
+        private Major major;
+        public MajorSearchResultWindow(Major major)
         {
             InitializeComponent();
+            this.major = major;
+            label1.Text = major.Name;
         }
     }
 }
