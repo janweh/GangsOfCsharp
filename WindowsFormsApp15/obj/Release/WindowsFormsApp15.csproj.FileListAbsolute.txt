@@ -1,0 +1,14 @@
+C:\Users\janwe\source\repos\GangsOfCsharp\WindowsFormsApp15\bin\Release\WindowsFormsApp15.exe.config
+C:\Users\janwe\source\repos\GangsOfCsharp\WindowsFormsApp15\bin\Release\WindowsFormsApp15.exe
+C:\Users\janwe\source\repos\GangsOfCsharp\WindowsFormsApp15\bin\Release\WindowsFormsApp15.pdb
+C:\Users\janwe\source\repos\GangsOfCsharp\WindowsFormsApp15\bin\Release\System.Data.SQLite.dll
+C:\Users\janwe\source\repos\GangsOfCsharp\WindowsFormsApp15\bin\Release\System.Data.SQLite.xml
+C:\Users\janwe\source\repos\GangsOfCsharp\WindowsFormsApp15\bin\Release\System.Data.SQLite.dll.config
+C:\Users\janwe\source\repos\GangsOfCsharp\WindowsFormsApp15\obj\Release\WindowsFormsApp15.csprojAssemblyReference.cache
+C:\Users\janwe\source\repos\GangsOfCsharp\WindowsFormsApp15\obj\Release\WindowsFormsApp15.MainWindow.resources
+C:\Users\janwe\source\repos\GangsOfCsharp\WindowsFormsApp15\obj\Release\WindowsFormsApp15.Properties.Resources.resources
+C:\Users\janwe\source\repos\GangsOfCsharp\WindowsFormsApp15\obj\Release\WindowsFormsApp15.csproj.GenerateResource.cache
+C:\Users\janwe\source\repos\GangsOfCsharp\WindowsFormsApp15\obj\Release\WindowsFormsApp15.csproj.CoreCompileInputs.cache
+C:\Users\janwe\source\repos\GangsOfCsharp\WindowsFormsApp15\obj\Release\WindowsFormsApp15.csproj.CopyComplete
+C:\Users\janwe\source\repos\GangsOfCsharp\WindowsFormsApp15\obj\Release\WindowsFormsApp15.exe
+C:\Users\janwe\source\repos\GangsOfCsharp\WindowsFormsApp15\obj\Release\WindowsFormsApp15.pdb

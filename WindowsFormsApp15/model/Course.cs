@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using WindowsFormsApp15.model;
 
 namespace GangsOfCsharp
 {
-    class Course
+    public class Course
     {
         private string name;
         private University university;
@@ -12,6 +13,7 @@ namespace GangsOfCsharp
         private string since;
         private int numberOfRatings;
         private List<Rating> ratings;
+        private Major major;
 
         private double averageOverallRating;
         private double averageContactHours;
@@ -39,7 +41,8 @@ namespace GangsOfCsharp
         /// <param name="lecturer">cannot be null</param>
         /// <param name="ratings">will be set as an empty List for input null</param>
         /// <param name="since">cannot be null</param>
-        public Course(string name, University university, Lecturer lecturer, List<Rating> ratings, string since)
+        /// <param name="major">cannot be null</param>
+        public Course(string name, University university, Lecturer lecturer, List<Rating> ratings, string since, Major major)
         {
             if (name == null)
                 throw new ArgumentNullException("name cannot be null.");
@@ -49,10 +52,13 @@ namespace GangsOfCsharp
                 throw new ArgumentNullException("lecturer cannot be null.");
             if (since == null)
                 throw new ArgumentNullException("since cannot be null.");
+            if (major == null)
+                throw new ArgumentNullException("major cannot be null.");
             this.name = name;
             this.university = university;
             this.lecturer = lecturer;
             this.since = since;
+            this.major = major;
             if(ratings == null)
             {
                 this.ratings = new List<Rating>();
@@ -85,6 +91,7 @@ namespace GangsOfCsharp
         public University University { get => university; }
         public Lecturer Lecturer { get => lecturer; }
         public List<Rating> Ratings { get => ratings; }
+        public Major Major { get => major; }
         public double AverageOverallRating { get => averageOverallRating; }
         public double AverageContactHours { get => averageContactHours; }
         public double AverageSelfStudyHours { get => averageSelfStudyHours; }
@@ -125,44 +132,27 @@ namespace GangsOfCsharp
         /// <param name="rating">the new rating</param>
         private void updateRatings(Rating rating)
         {
-            if (rating.OverallRating != null)
+            if (rating != null)
             {
                 this.averageOverallRating = ((this.amountOverallRating * this.averageOverallRating) + rating.OverallRating) / (this.amountOverallRating + 1);
                 this.amountOverallRating++;
-            }
-            if (rating.ContactHours != null)
-            {
                 averageContactHours = ((amountContactHours * averageContactHours) + rating.ContactHours) / (amountContactHours + 1);
                 amountContactHours++;
-            }
-            if (rating.SelfStudyHours != null)
-            {
                 averageSelfStudyHours = ((amountSelfStudyHours * averageSelfStudyHours) + rating.SelfStudyHours) / (amountSelfStudyHours + 1);
                 amountSelfStudyHours++;
-            }
-            if (rating.Organized!= null)
-            {
                 averageOrganized = ((amountOrganized * averageOrganized) + rating.Organized) / (amountOrganized + 1);
                 amountOrganized++;
-            }
-            if (rating.Learned != null)
-            {
                 averageLearned = ((amountLearned * averageLearned) + rating.Learned) / (amountLearned + 1);
                 amountLearned++;
-            }
-            if (rating.Interesting != null)
-            {
                 averageInteresting = ((amountInteresting * averageInteresting) + rating.Interesting) / (amountInteresting + 1);
                 amountInteresting++;
-            }
-            if (rating.Presentation != null)
-            {
                 averagePresentation = ((amountPresentation * averagePresentation) + rating.Presentation) / (amountPresentation + 1);
                 amountPresentation++;
-            }
-            if (rating.Comment != null)
-            {
                 allComment.Add(rating.Comment);
+            }
+            else
+            {
+                throw new ArgumentNullException("Rating cannot be null");
             }
         }
 

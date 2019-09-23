@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GangsOfCsharp
 {
-    class Rating
+    public class Rating
     {
         private University university;
         private Student student;

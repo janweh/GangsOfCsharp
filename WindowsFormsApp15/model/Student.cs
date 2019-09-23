@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GangsOfCsharp
 {
-    class Student
+    public class Student
     {
         private string firstName;
         private string lastName;
@@ -97,8 +97,6 @@ namespace GangsOfCsharp
         public int Semester { get => semester; }
         public void setSemester(int semester)
         {
-            if (semester == null)
-                throw new ArgumentNullException("semester cannot be set to null.");
             this.semester = semester;
         }
         public List<Rating> GivenRatings { get => givenRatings; }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GangsOfCsharp
 {
-    class Lecturer
+    public class Lecturer
     {
         private string firstName;
         private string lastName;
@@ -115,41 +115,20 @@ namespace GangsOfCsharp
             }
             else
             {
-                if (rating.OverallRating != null)
-                {
                     this.averageOverallRating = ((this.amountOverallRating * this.averageOverallRating) + rating.OverallRating) / (this.amountOverallRating + 1);
                     this.amountOverallRating++;
-                }
-                if (rating.ContactHours != null)
-                {
                     averageContactHours = ((amountContactHours * averageContactHours) + rating.ContactHours) / (amountContactHours + 1);
                     amountContactHours++;
-                }
-                if (rating.SelfStudyHours != null)
-                {
                     averageSelfStudyHours = ((amountSelfStudyHours * averageSelfStudyHours) + rating.SelfStudyHours) / (amountSelfStudyHours + 1);
                     amountSelfStudyHours++;
-                }
-                if (rating.Organized != null)
-                {
                     averageOrganized = ((amountOrganized * averageOrganized) + rating.Organized) / (amountOrganized + 1);
                     amountOrganized++;
-                }
-                if (rating.Learned != null)
-                {
                     averageLearned = ((amountLearned * averageLearned) + rating.Learned) / (amountLearned + 1);
                     amountLearned++;
-                }
-                if (rating.Interesting != null)
-                {
                     averageInteresting = ((amountInteresting * averageInteresting) + rating.Interesting) / (amountInteresting + 1);
                     amountInteresting++;
-                }
-                if (rating.Presentation != null)
-                {
                     averagePresentation = ((amountPresentation * averagePresentation) + rating.Presentation) / (amountPresentation + 1);
                     amountPresentation++;
-                }
             }
         }
 

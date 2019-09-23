@@ -37,15 +37,14 @@
             this.universitiesButton = new System.Windows.Forms.Button();
             this.homeButton = new System.Windows.Forms.Button();
             this.topHeaderPanel = new System.Windows.Forms.Panel();
-            this.backToSearchButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.registerButton = new System.Windows.Forms.Button();
             this.loginButton = new System.Windows.Forms.Button();
             this.bottomGangsOfCsharpPanel = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
-            this.searchResultsPanel = new System.Windows.Forms.Panel();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.overallSearchPanel = new System.Windows.Forms.Panel();
             this.searchPanel = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.courseNameTextBox = new System.Windows.Forms.TextBox();
@@ -57,10 +56,12 @@
             this.majorComboBox = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.universityComboBox = new System.Windows.Forms.ComboBox();
+            this.searchResultPanel = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
             this.leftSidebarPanel.SuspendLayout();
             this.topHeaderPanel.SuspendLayout();
             this.bottomGangsOfCsharpPanel.SuspendLayout();
-            this.searchResultsPanel.SuspendLayout();
+            this.overallSearchPanel.SuspendLayout();
             this.searchPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,7 +78,7 @@
             this.leftSidebarPanel.Location = new System.Drawing.Point(0, 0);
             this.leftSidebarPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.leftSidebarPanel.Name = "leftSidebarPanel";
-            this.leftSidebarPanel.Size = new System.Drawing.Size(268, 795);
+            this.leftSidebarPanel.Size = new System.Drawing.Size(268, 1000);
             this.leftSidebarPanel.TabIndex = 0;
             this.leftSidebarPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -100,7 +101,7 @@
             this.contactButton.ForeColor = System.Drawing.Color.White;
             this.contactButton.Image = ((System.Drawing.Image)(resources.GetObject("contactButton.Image")));
             this.contactButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.contactButton.Location = new System.Drawing.Point(4, 554);
+            this.contactButton.Location = new System.Drawing.Point(0, 554);
             this.contactButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.contactButton.Name = "contactButton";
             this.contactButton.Size = new System.Drawing.Size(266, 68);
@@ -172,7 +173,6 @@
             // topHeaderPanel
             // 
             this.topHeaderPanel.BackColor = System.Drawing.Color.SteelBlue;
-            this.topHeaderPanel.Controls.Add(this.backToSearchButton);
             this.topHeaderPanel.Controls.Add(this.label2);
             this.topHeaderPanel.Controls.Add(this.label1);
             this.topHeaderPanel.Controls.Add(this.registerButton);
@@ -184,18 +184,6 @@
             this.topHeaderPanel.Size = new System.Drawing.Size(1166, 98);
             this.topHeaderPanel.TabIndex = 1;
             this.topHeaderPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.TopHeaderPanel_Paint);
-            // 
-            // backToSearchButton
-            // 
-            this.backToSearchButton.AccessibleName = "BackToSearchButton";
-            this.backToSearchButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.backToSearchButton.Location = new System.Drawing.Point(47, 27);
-            this.backToSearchButton.Name = "backToSearchButton";
-            this.backToSearchButton.Size = new System.Drawing.Size(145, 41);
-            this.backToSearchButton.TabIndex = 5;
-            this.backToSearchButton.Text = "Back to Search";
-            this.backToSearchButton.UseVisualStyleBackColor = true;
-            this.backToSearchButton.Click += new System.EventHandler(this.Button3_Click);
             // 
             // label2
             // 
@@ -249,7 +237,7 @@
             this.bottomGangsOfCsharpPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.bottomGangsOfCsharpPanel.Controls.Add(this.label8);
             this.bottomGangsOfCsharpPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.bottomGangsOfCsharpPanel.Location = new System.Drawing.Point(268, 758);
+            this.bottomGangsOfCsharpPanel.Location = new System.Drawing.Point(268, 963);
             this.bottomGangsOfCsharpPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.bottomGangsOfCsharpPanel.Name = "bottomGangsOfCsharpPanel";
             this.bottomGangsOfCsharpPanel.Size = new System.Drawing.Size(1166, 37);
@@ -266,25 +254,25 @@
             this.label8.TabIndex = 12;
             this.label8.Text = "Created by GANGS OF C#";
             // 
-            // searchResultsPanel
-            // 
-            this.searchResultsPanel.Controls.Add(this.textBox2);
-            this.searchResultsPanel.Location = new System.Drawing.Point(0, 3);
-            this.searchResultsPanel.Name = "searchResultsPanel";
-            this.searchResultsPanel.Size = new System.Drawing.Size(1166, 659);
-            this.searchResultsPanel.TabIndex = 1;
-            this.searchResultsPanel.Visible = false;
-            // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(468, 345);
+            this.textBox2.Location = new System.Drawing.Point(154, 118);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 26);
             this.textBox2.TabIndex = 0;
             // 
+            // overallSearchPanel
+            // 
+            this.overallSearchPanel.Controls.Add(this.searchPanel);
+            this.overallSearchPanel.Controls.Add(this.searchResultPanel);
+            this.overallSearchPanel.Location = new System.Drawing.Point(268, 96);
+            this.overallSearchPanel.Name = "overallSearchPanel";
+            this.overallSearchPanel.Size = new System.Drawing.Size(1166, 869);
+            this.overallSearchPanel.TabIndex = 3;
+            // 
             // searchPanel
             // 
-            this.searchPanel.BackColor = System.Drawing.Color.Gainsboro;
+            this.searchPanel.Controls.Add(this.label9);
             this.searchPanel.Controls.Add(this.label3);
             this.searchPanel.Controls.Add(this.courseNameTextBox);
             this.searchPanel.Controls.Add(this.searchButton);
@@ -295,53 +283,49 @@
             this.searchPanel.Controls.Add(this.majorComboBox);
             this.searchPanel.Controls.Add(this.label4);
             this.searchPanel.Controls.Add(this.universityComboBox);
-            this.searchPanel.Controls.Add(this.searchResultsPanel);
-            this.searchPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.searchPanel.Location = new System.Drawing.Point(268, 98);
-            this.searchPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.searchPanel.Location = new System.Drawing.Point(0, 0);
             this.searchPanel.Name = "searchPanel";
-            this.searchPanel.Size = new System.Drawing.Size(1166, 660);
+            this.searchPanel.Size = new System.Drawing.Size(1166, 869);
             this.searchPanel.TabIndex = 0;
-            this.searchPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel5_Paint);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(404, 87);
+            this.label3.Location = new System.Drawing.Point(531, 194);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(330, 37);
-            this.label3.TabIndex = 23;
+            this.label3.TabIndex = 33;
             this.label3.Text = "QUICK SEARCHING";
             // 
             // courseNameTextBox
             // 
-            this.courseNameTextBox.Location = new System.Drawing.Point(411, 353);
+            this.courseNameTextBox.Location = new System.Drawing.Point(538, 460);
             this.courseNameTextBox.Name = "courseNameTextBox";
             this.courseNameTextBox.Size = new System.Drawing.Size(349, 26);
-            this.courseNameTextBox.TabIndex = 22;
+            this.courseNameTextBox.TabIndex = 32;
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(499, 513);
+            this.searchButton.Location = new System.Drawing.Point(626, 620);
             this.searchButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(162, 55);
-            this.searchButton.TabIndex = 21;
+            this.searchButton.TabIndex = 31;
             this.searchButton.Text = " SEARCH";
             this.searchButton.UseVisualStyleBackColor = true;
-            this.searchButton.Click += new System.EventHandler(this.SearchButton_Click);
+            this.searchButton.Click += new System.EventHandler(this.SearchButton_Click_1);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label7.Location = new System.Drawing.Point(152, 420);
+            this.label7.Location = new System.Drawing.Point(279, 527);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(167, 33);
-            this.label7.TabIndex = 20;
+            this.label7.TabIndex = 30;
             this.label7.Text = "Professor :";
             // 
             // professorComboBox
@@ -354,32 +338,32 @@
             "Prof. Dr. Jonas Šiaulys (Institute of Mathematics)",
             " Prof. Dr. Julius Žilinskas (Institute of Data Science and Digital Technologies)",
             " Prof. Dr. Arvydas Kregždė (Institute of Applied Mathematics)"});
-            this.professorComboBox.Location = new System.Drawing.Point(411, 420);
+            this.professorComboBox.Location = new System.Drawing.Point(538, 527);
             this.professorComboBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.professorComboBox.Name = "professorComboBox";
             this.professorComboBox.Size = new System.Drawing.Size(349, 28);
-            this.professorComboBox.TabIndex = 19;
+            this.professorComboBox.TabIndex = 29;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label6.Location = new System.Drawing.Point(152, 282);
+            this.label6.Location = new System.Drawing.Point(279, 389);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(102, 33);
-            this.label6.TabIndex = 18;
+            this.label6.TabIndex = 28;
             this.label6.Text = "Major:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.Location = new System.Drawing.Point(152, 353);
+            this.label5.Location = new System.Drawing.Point(279, 460);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(224, 33);
-            this.label5.TabIndex = 17;
+            this.label5.TabIndex = 27;
             this.label5.Text = "Course Name :";
             // 
             // majorComboBox
@@ -397,21 +381,21 @@
             "Business",
             "Journalism",
             "Military Sciences"});
-            this.majorComboBox.Location = new System.Drawing.Point(411, 280);
+            this.majorComboBox.Location = new System.Drawing.Point(538, 387);
             this.majorComboBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.majorComboBox.Name = "majorComboBox";
             this.majorComboBox.Size = new System.Drawing.Size(349, 28);
-            this.majorComboBox.TabIndex = 16;
+            this.majorComboBox.TabIndex = 26;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.Location = new System.Drawing.Point(152, 210);
+            this.label4.Location = new System.Drawing.Point(279, 317);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(255, 33);
-            this.label4.TabIndex = 15;
+            this.label4.TabIndex = 25;
             this.label4.Text = "University Name:";
             // 
             // universityComboBox
@@ -426,24 +410,43 @@
             "Munich Technical University",
             "Berlin Technical University",
             "Heidelberg University"});
-            this.universityComboBox.Location = new System.Drawing.Point(411, 214);
+            this.universityComboBox.Location = new System.Drawing.Point(538, 321);
             this.universityComboBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.universityComboBox.Name = "universityComboBox";
             this.universityComboBox.Size = new System.Drawing.Size(349, 28);
-            this.universityComboBox.TabIndex = 14;
+            this.universityComboBox.TabIndex = 24;
             // 
-            // Form1
+            // searchResultPanel
+            // 
+            this.searchResultPanel.Location = new System.Drawing.Point(0, 0);
+            this.searchResultPanel.Name = "searchResultPanel";
+            this.searchResultPanel.Size = new System.Drawing.Size(1431, 962);
+            this.searchResultPanel.TabIndex = 1;
+            this.searchResultPanel.Visible = false;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.Crimson;
+            this.label9.Location = new System.Drawing.Point(534, 577);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(353, 20);
+            this.label9.TabIndex = 34;
+            this.label9.Text = "Please select at least one field before Searching!";
+            this.label9.Visible = false;
+            // 
+            // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1434, 795);
-            this.Controls.Add(this.searchPanel);
+            this.ClientSize = new System.Drawing.Size(1434, 1000);
+            this.Controls.Add(this.overallSearchPanel);
             this.Controls.Add(this.bottomGangsOfCsharpPanel);
             this.Controls.Add(this.topHeaderPanel);
             this.Controls.Add(this.leftSidebarPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "Form1";
+            this.Name = "MainWindow";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.leftSidebarPanel.ResumeLayout(false);
@@ -451,8 +454,7 @@
             this.topHeaderPanel.PerformLayout();
             this.bottomGangsOfCsharpPanel.ResumeLayout(false);
             this.bottomGangsOfCsharpPanel.PerformLayout();
-            this.searchResultsPanel.ResumeLayout(false);
-            this.searchResultsPanel.PerformLayout();
+            this.overallSearchPanel.ResumeLayout(false);
             this.searchPanel.ResumeLayout(false);
             this.searchPanel.PerformLayout();
             this.ResumeLayout(false);
@@ -464,8 +466,6 @@
         private System.Windows.Forms.Panel leftSidebarPanel;
         private System.Windows.Forms.Panel topHeaderPanel;
         private System.Windows.Forms.Panel logoPanel;
-        private System.Windows.Forms.Panel searchResultsPanel;
-        private System.Windows.Forms.Panel searchPanel;
         private System.Windows.Forms.Panel bottomGangsOfCsharpPanel;
         private System.Windows.Forms.Button contactButton;
         private System.Windows.Forms.Button faqButton;
@@ -474,21 +474,24 @@
         private System.Windows.Forms.Button homeButton;
         private System.Windows.Forms.Button registerButton;
         private System.Windows.Forms.Button loginButton;
-        private System.Windows.Forms.Button backToSearchButton;
-        private System.Windows.Forms.Button searchButton;
-        private System.Windows.Forms.ComboBox universityComboBox;
-        private System.Windows.Forms.ComboBox professorComboBox;
-        private System.Windows.Forms.ComboBox majorComboBox;
-        private System.Windows.Forms.TextBox courseNameTextBox;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Panel overallSearchPanel;
+        private System.Windows.Forms.Panel searchPanel;
+        private System.Windows.Forms.Panel searchResultPanel;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox courseNameTextBox;
+        private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox professorComboBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox majorComboBox;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox universityComboBox;
+        private System.Windows.Forms.Label label9;
     }
 }
 

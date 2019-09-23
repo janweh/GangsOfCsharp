@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GangsOfCsharp;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp15.model;
+using WindowsFormsApp15.view;
 
 namespace WindowsFormsApp15
 {
@@ -45,8 +48,7 @@ namespace WindowsFormsApp15
         private void Button3_Click(object sender, EventArgs e)
         {
             searchPanel.Visible = true;
-            searchResultsPanel.Visible = false;
-            backToSearchButton.Visible = false;
+            searchResultPanel.Visible = false;
 
         }
 
@@ -60,11 +62,41 @@ namespace WindowsFormsApp15
 
         }
 
-        private void SearchButton_Click(object sender, EventArgs e)
+        private void SearchButton_Click_1(object sender, EventArgs e)
         {
-            searchPanel.Visible = false;
-            searchResultsPanel.Visible = true;
-            backToSearchButton.Visible = true;
+            if(universityComboBox.SelectedItem == null && majorComboBox.SelectedItem == null &&
+                professorComboBox.SelectedItem == null && courseNameTextBox.Text.Equals(""))
+            {
+                //this should be a pop up window or a red text being displayed
+                label9.Visible = true;
+            } else if(universityComboBox.SelectedItem != null && majorComboBox.SelectedItem == null &&
+                professorComboBox.SelectedItem == null && courseNameTextBox.Text.Equals(""))
+            {
+                //this is how it will work when Universities are bound to the comboBox
+                //UniSearchResultWindow results = new UniSearchResultWindow(universityComboBox.SelectedItem);
+                University testUni = new University("Vilnius University", new List<Lecturer>(), new List<Course>());
+                UniSearchResultWindow results = new UniSearchResultWindow(testUni);
+                results.Show();
+                label9.Visible = false;
+            } else if (universityComboBox.SelectedItem != null && majorComboBox.SelectedItem != null &&
+               professorComboBox.SelectedItem == null && courseNameTextBox.Text.Equals(""))
+            {
+                University testUni = new University("Vilnius University", new List<Lecturer>(), new List<Course>());
+                Major testMajor = new Major(testUni, "Computer Sience");
+                CourseSearchResultWindow results = new CourseSearchResultWindow(testUni, testMajor);
+                results.Show();
+                label9.Visible = false;
+            } else if (professorComboBox.SelectedItem != null && courseNameTextBox.Text.Equals(""))
+            {
+                University testUni = new University("Vilnius University", new List<Lecturer>(), new List<Course>());
+                Lecturer testLecturer = new Lecturer("Romas", "Baronas", testUni, new List<Course>());
+                ProfessorSearchResultWindow results = new ProfessorSearchResultWindow(testLecturer);
+                results.Show();
+                label9.Visible = false;
+            } 
+
+
         }
     }
 }
+    
