@@ -2,8 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\WindowsFormsApp15",
-    "\\WindowsFormsApp15\\Documents"
+    "\\WindowsFormsApp15\\Documents",
+    "\\WindowsFormsApp15\\SQLite"
   ],
-  "SelectedNode": "\\WindowsFormsApp15\\Program.cs",
   "PreviewInSolutionExplorer": false
 }

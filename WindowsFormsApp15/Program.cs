@@ -1,22 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp15.model;
 
 namespace WindowsFormsApp15
 {
     static class Program
     {
+
         /// <summary>
         /// Uygulamanın ana girdi noktası.
         /// </summary>
         [STAThread]
         static void Main()
         {
+            //DataSearch dS = new DataSearch();
+            //dS.Initialize();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new MainWindow());
+            
         }
     }
 }
