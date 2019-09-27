@@ -39,7 +39,8 @@ namespace WindowsFormsApp15
             ds.store(testCourse);
             ds.store(testLecturer);
             ds.store(testRating);
-            List<University> found = ds.getAllUniversities();*/
+            List<Student> found = ds.getAllStudents();
+            Student student = ds.getStudentByID(2);*/
 
         }
 

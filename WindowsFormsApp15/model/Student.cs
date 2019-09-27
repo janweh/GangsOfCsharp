@@ -26,7 +26,8 @@ namespace GangsOfCsharp
         /// <param name="password">cannot be null</param>
         /// <param name="areaOfStudies">can be null</param>
         /// <param name="semester">can be null</param>
-        public Student(int studentID, string userName, string password, string studentName, University university, Major major, string areaOfStudies, int semester)
+        public Student(int studentID, string userName, string password, string studentName, University university, 
+            Major major, string areaOfStudies, int semester)
         {
             if (userName == null) {
                 throw new ArgumentNullException("UserName cannot be null");

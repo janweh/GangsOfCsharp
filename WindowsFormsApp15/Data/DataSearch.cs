@@ -4,8 +4,6 @@ using System.Collections.Generic;
 using System.Data.SQLite;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WindowsFormsApp15.model
 {
@@ -17,8 +15,6 @@ namespace WindowsFormsApp15.model
         private string ratingPath;
         private string studentPath;
         private string universitiesPath;
-        //unneeded
-        private SQLiteConnection m_dbConnection;
         public DataSearch()
         {
             //initializes all the paths to the folders which hold the data
@@ -30,6 +26,9 @@ namespace WindowsFormsApp15.model
             studentPath = Path.Combine(folder, @"Data\", "StudentStorage.txt");
             universitiesPath = Path.Combine(folder, @"Data\", "UniversityStorage.txt");
         }
+
+
+        ////////////////////////////////UNIVERSITY////////////////////////////////
 
         /// <summary>
         /// Stores the university in a file with all the other universities.
@@ -63,18 +62,19 @@ namespace WindowsFormsApp15.model
         /// Finds the University with the given id by iterating through the UniversityStorage file.
         /// </summary>
         /// <param name="id"></param>
-        /// <exception cref="KeyNotFoundException">id does not match any of the universityIDs in the file or the id occurs multiple times</exception>
+        /// <exception cref="KeyNotFoundException">id does not match any of the universityIDs in the file</exception>
+        /// <exception cref="DuplicateWaitObjectException">the id occurs multiple times</exception>
         /// <returns>the university with the given ID</returns>
-        public University getByUniversityID(int id)
+        public University getUniversityByID(int id)
         {
             Func<string[], bool> matches = (x) => x[0].Equals(id.ToString());
             List<string[]> matchingLines = getAllMatchingLines(matches, universitiesPath);
-            if(matchingLines == null)
+            if(matchingLines.Count == 0)
             {
                 throw new KeyNotFoundException("id did not match any universityID in the file.");
             } else if(matchingLines.Count != 1)
             {
-                throw new KeyNotFoundException("id occured multiple times in the file.");
+                throw new DuplicateWaitObjectException("id occured multiple times in the file.");
             }
             string[] r = matchingLines.First();
             University university = new University(Int32.Parse(r[0]), r[1]);
@@ -97,6 +97,10 @@ namespace WindowsFormsApp15.model
             }
             return unis;
         }
+
+
+
+        ////////////////////////////////LECTURER////////////////////////////////
 
         /// <summary>
         /// Stores the lecturer in a file with all the other lecturers.
@@ -128,6 +132,51 @@ namespace WindowsFormsApp15.model
         }
 
         /// <summary>
+        /// Finds the lecturer with the given id by iterating through the LecturerStorage file.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <exception cref="KeyNotFoundException">id does not match any of the lecturerIDs in the file</exception>
+        /// <exception cref="DuplicateWaitObjectException">the id occurs multiple times</exception>
+        /// <returns>the lecturer with the given ID</returns>
+        public Lecturer getLecturerByID(int id)
+        {
+            Func<string[], bool> matches = (x) => x[0].Equals(id.ToString());
+            List<string[]> matchingLines = getAllMatchingLines(matches, lecturerPath);
+            if (matchingLines.Count == 0)
+            {
+                throw new KeyNotFoundException("id did not match any lecturerID in the file.");
+            }
+            else if (matchingLines.Count != 1)
+            {
+                throw new DuplicateWaitObjectException("id occured multiple times in the file.");
+            }
+            string[] r = matchingLines.First();
+            Lecturer lecturer = new Lecturer(Int32.Parse(r[0]), r[1], getUniversityByID(Int32.Parse(r[2])));
+            return lecturer;
+        }
+
+        /// <summary>
+        /// Returns all stored lecturers
+        /// </summary>
+        /// <returns>All lecturers in the LecturerStorage file</returns>
+        public List<Lecturer> getAllLecturers()
+        {
+            List<Lecturer> lecturers = new List<Lecturer>();
+            Func<string[], bool> matches = (x) => true;
+            List<string[]> matchingLines = getAllMatchingLines(matches, lecturerPath);
+            foreach (string[] r in matchingLines)
+            {
+                Lecturer lecturer = new Lecturer(Int32.Parse(r[0]), r[1], getUniversityByID(Int32.Parse(r[2])));
+                lecturers.Add(lecturer);
+            }
+            return lecturers;
+        }
+
+
+
+        ////////////////////////////////COURSE////////////////////////////////
+
+        /// <summary>
         /// Stores the course in a file with all the other courses.
         /// Format of storage: "courseID;courseName;universityID;majorID;lecturerID;since"
         /// </summary>
@@ -139,9 +188,9 @@ namespace WindowsFormsApp15.model
             string info = course.CourseID.ToString() + ";" +
                 course.Name + ";" +
                 course.University.UniversityID.ToString() + ";" +
-                course.Major.MajorID.ToString() + ";" +
                 course.Lecturer.LecturerID.ToString() + ";" +
-                course.Since + "\n";
+                course.Since + ";" +
+                course.Major.MajorID.ToString() + "\n";
             File.AppendAllText(coursePath, info);
         }
 
@@ -158,6 +207,53 @@ namespace WindowsFormsApp15.model
                 }
             }
         }
+
+        /// <summary>
+        /// Finds the course with the given id by iterating through the CourseStorage file.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <exception cref="KeyNotFoundException">id does not match any of the courseIDs in the file</exception>
+        /// <exception cref="DuplicateWaitObjectException">the id occurs multiple times</exception>
+        /// <returns>the course with the given ID</returns>
+        public Course getCourseByID(int id)
+        {
+            Func<string[], bool> matches = (x) => x[0].Equals(id.ToString());
+            List<string[]> matchingLines = getAllMatchingLines(matches, coursePath);
+            if (matchingLines.Count == 0)
+            {
+                throw new KeyNotFoundException("id did not match any courseID in the file.");
+            }
+            else if (matchingLines.Count != 1)
+            {
+                throw new DuplicateWaitObjectException("id occured multiple times in the file.");
+            }
+            string[] r = matchingLines.First();
+            Course course = new Course(Int32.Parse(r[0]), r[1], getUniversityByID(Int32.Parse(r[2])),
+                getLecturerByID(Int32.Parse(r[3])), r[4], getMajorByID(Int32.Parse(r[5])));
+            return course;
+        }
+
+        /// <summary>
+        /// Returns all stored courses
+        /// </summary>
+        /// <returns>All courses in the courseStorage file</returns>
+        public List<Course> getAllCourses()
+        {
+            List<Course> courses = new List<Course>();
+            Func<string[], bool> matches = (x) => true;
+            List<string[]> matchingLines = getAllMatchingLines(matches, coursePath);
+            foreach (string[] r in matchingLines)
+            {
+                Course course = new Course(Int32.Parse(r[0]), r[1], getUniversityByID(Int32.Parse(r[2])),
+                    getLecturerByID(Int32.Parse(r[3])), r[4], getMajorByID(Int32.Parse(r[5])));
+                courses.Add(course);
+            }
+            return courses;
+        }
+
+
+
+        ////////////////////////////////RATING////////////////////////////////
 
         /// <summary>
         /// Stores the rating in a file with all the other ratings.
@@ -200,6 +296,57 @@ namespace WindowsFormsApp15.model
         }
 
         /// <summary>
+        /// Finds the rating with the given id by iterating through the RatingStorage file.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <exception cref="KeyNotFoundException">id does not match any of the ratingIDs in the file</exception>
+        /// <exception cref="DuplicateWaitObjectException">the id occurs multiple times</exception>
+        /// <returns>the rating with the given ID</returns>
+        public Rating getRatingByID(int id)
+        {
+            Func<string[], bool> matches = (x) => x[0].Equals(id.ToString());
+            List<string[]> matchingLines = getAllMatchingLines(matches, ratingPath);
+            if (matchingLines.Count == 0)
+            {
+                throw new KeyNotFoundException("id did not match any ratingID in the file.");
+            }
+            else if (matchingLines.Count != 1)
+            {
+                throw new DuplicateWaitObjectException("id occured multiple times in the file.");
+            }
+            string[] r = matchingLines.First();
+            Rating rating = new Rating(Int32.Parse(r[0]), getStudentByID(Int32.Parse(r[1])), 
+                getCourseByID(Int32.Parse(r[2])), r[3], Int32.Parse(r[4]), Int32.Parse(r[5]), 
+                Int32.Parse(r[6]), Int32.Parse(r[7]), Int32.Parse(r[8]), Int32.Parse(r[9]), 
+                Int32.Parse(r[10]), r[11]);
+            return rating;
+        }
+
+        /// <summary>
+        /// Returns all stored ratings
+        /// </summary>
+        /// <returns>All ratings in the RatingStorage file</returns>
+        public List<Rating> getAllRatings()
+        {
+            List<Rating> ratings = new List<Rating>();
+            Func<string[], bool> matches = (x) => true;
+            List<string[]> matchingLines = getAllMatchingLines(matches, ratingPath);
+            foreach (string[] r in matchingLines)
+            {
+                Rating rating = new Rating(Int32.Parse(r[0]), getStudentByID(Int32.Parse(r[1])),
+                getCourseByID(Int32.Parse(r[2])), r[3], Int32.Parse(r[4]), Int32.Parse(r[5]),
+                Int32.Parse(r[6]), Int32.Parse(r[7]), Int32.Parse(r[8]), Int32.Parse(r[9]),
+                Int32.Parse(r[10]), r[11]);
+                ratings.Add(rating);
+            }
+            return ratings;
+        }
+
+
+
+        ////////////////////////////////STUDENT////////////////////////////////
+
+        /// <summary>
         /// Stores the student in a file with all the other students.
         /// Format of storage: "studentID;universityID;majorID;studentName;
         /// userName;password;areaOfStudies;currentSemester"
@@ -210,11 +357,11 @@ namespace WindowsFormsApp15.model
         {
             checkDuplicateID(student);
             string info = student.StudentID.ToString() + ";" +
-                student.University.UniversityID.ToString() + ";" +
-                student.Major.MajorID.ToString() + ";" +
-                student.StudentName + ";" +
                 student.UserName + ";" +
                 student.Password + ";" +
+                student.StudentName + ";" +
+                student.University.UniversityID.ToString() + ";" +
+                student.Major.MajorID.ToString() + ";" +
                 student.AreaOfStudies + ";" +
                 student.Semester.ToString() +"\n";
             File.AppendAllText(studentPath, info);
@@ -233,6 +380,53 @@ namespace WindowsFormsApp15.model
                 }
             }
         }
+
+        /// <summary>
+        /// Finds the student with the given id by iterating through the StudentStorage file.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <exception cref="KeyNotFoundException">id does not match any of the studentIDs in the file</exception>
+        /// <exception cref="DuplicateWaitObjectException">the id occurs multiple times</exception>
+        /// <returns>the student with the given ID</returns>
+        public Student getStudentByID(int id)
+        {
+            Func<string[], bool> matches = (x) => x[0].Equals(id.ToString());
+            List<string[]> matchingLines = getAllMatchingLines(matches, studentPath);
+            if (matchingLines.Count == 0)
+            {
+                throw new KeyNotFoundException("id did not match any studentID in the file.");
+            }
+            else if (matchingLines.Count != 1)
+            {
+                throw new DuplicateWaitObjectException("id occured multiple times in the file.");
+            }
+            string[] r = matchingLines.First();
+            Student student = new Student(Int32.Parse(r[0]), r[1], r[2], r[3], getUniversityByID(Int32.Parse(r[4])), 
+                getMajorByID(Int32.Parse(r[5])), r[6], Int32.Parse(r[7]));
+            return student;
+        }
+
+        /// <summary>
+        /// Returns all stored students
+        /// </summary>
+        /// <returns>All students in the studentStorage file</returns>
+        public List<Student> getAllStudents()
+        {
+            List<Student> students = new List<Student>();
+            Func<string[], bool> matches = (x) => true;
+            List<string[]> matchingLines = getAllMatchingLines(matches, studentPath);
+            foreach (string[] r in matchingLines)
+            {
+                Student student = new Student(Int32.Parse(r[0]), r[1], r[2], r[3], getUniversityByID(Int32.Parse(r[4])),
+                getMajorByID(Int32.Parse(r[5])), r[6], Int32.Parse(r[7]));
+                students.Add(student);
+            }
+            return students;
+        }
+
+
+
+        ////////////////////////////////MAJOR////////////////////////////////
 
         /// <summary>
         /// Stores the major in a file with all the other majors.
@@ -262,6 +456,51 @@ namespace WindowsFormsApp15.model
                 }
             }
         }
+
+        /// <summary>
+        /// Finds the major with the given id by iterating through the MajorStorage file.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <exception cref="KeyNotFoundException">id does not match any of the majorIDs in the file</exception>
+        /// <exception cref="DuplicateWaitObjectException">the id occurs multiple times</exception>
+        /// <returns>the major with the given ID</returns>
+        public Major getMajorByID(int id)
+        {
+            Func<string[], bool> matches = (x) => x[0].Equals(id.ToString());
+            List<string[]> matchingLines = getAllMatchingLines(matches, lecturerPath);
+            if (matchingLines.Count == 0)
+            {
+                throw new KeyNotFoundException("id did not match any majorID in the file.");
+            }
+            else if (matchingLines.Count != 1)
+            {
+                throw new DuplicateWaitObjectException("id occured multiple times in the file.");
+            }
+            string[] r = matchingLines.First();
+            Major major = new Major(Int32.Parse(r[0]), r[1], getUniversityByID(Int32.Parse(r[2])));
+            return major;
+        }
+
+        /// <summary>
+        /// Returns all stored majors
+        /// </summary>
+        /// <returns>All majors in the majorStorage file</returns>
+        public List<Major> getAllMajors()
+        {
+            List<Major> majors = new List<Major>();
+            Func<string[], bool> matches = (x) => true;
+            List<string[]> matchingLines = getAllMatchingLines(matches, majorPath);
+            foreach (string[] r in matchingLines)
+            {
+                Major major = new Major(Int32.Parse(r[0]), r[1], getUniversityByID(Int32.Parse(r[2])));
+                majors.Add(major);
+            }
+            return majors;
+        }
+
+
+
+
 
         //this is old code but i left it in there because we may need it when we create a database
         /*public void Initialize()
