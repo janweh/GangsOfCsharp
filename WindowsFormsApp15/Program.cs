@@ -17,8 +17,6 @@ namespace WindowsFormsApp15
         [STAThread]
         static void Main()
         {
-            //DataSearch dS = new DataSearch();
-            //dS.Initialize();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainWindow());

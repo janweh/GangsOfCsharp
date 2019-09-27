@@ -7,42 +7,25 @@ namespace GangsOfCsharp
 {
     public class Course
     {
-        private string name;
+        private int courseID;
+        private string courseName;
         private University university;
+        private Major major;
         private Lecturer lecturer;
         private string since;
-        private int numberOfRatings;
-        private List<Rating> ratings;
-        private Major major;
 
-        private double averageOverallRating;
-        private double averageContactHours;
-        private double averageSelfStudyHours;
-        private double averageOrganized;
-        private double averageLearned;
-        private double averageInteresting;
-        private double averagePresentation;
-        private List<string> allComment;
-
-        private int amountOverallRating;
-        private int amountContactHours;
-        private int amountSelfStudyHours;
-        private int amountOrganized;
-        private int amountLearned;
-        private int amountInteresting;
-        private int amountPresentation;
 
         /// <summary>
         /// Construtor for the class Course.
         /// Averages and amounts of rating categories will be set to 0.
         /// </summary>
-        /// <param name="name">cannot be null</param>
+        /// <param name="courseID">cannot be null</param>
+        /// <param name="courseName">cannot be null</param>
         /// <param name="university">cannot be null</param>
         /// <param name="lecturer">cannot be null</param>
-        /// <param name="ratings">will be set as an empty List for input null</param>
         /// <param name="since">cannot be null</param>
         /// <param name="major">cannot be null</param>
-        public Course(string name, University university, Lecturer lecturer, List<Rating> ratings, string since, Major major)
+        public Course(int courseID, string name, University university, Lecturer lecturer, string since, Major major)
         {
             if (name == null)
                 throw new ArgumentNullException("name cannot be null.");
@@ -54,111 +37,19 @@ namespace GangsOfCsharp
                 throw new ArgumentNullException("since cannot be null.");
             if (major == null)
                 throw new ArgumentNullException("major cannot be null.");
-            this.name = name;
+            this.courseID = courseID;
+            this.courseName = name;
             this.university = university;
             this.lecturer = lecturer;
             this.since = since;
             this.major = major;
-            if(ratings == null)
-            {
-                this.ratings = new List<Rating>();
-            }
-            else
-            {
-                this.ratings = ratings;
-            }
+        }
 
-            this.averageOverallRating = 0;
-            this.averageContactHours = 0;
-            this.averageSelfStudyHours = 0;
-            this.averageOrganized = 0;
-            this.averageLearned = 0;
-            this.averageInteresting = 0;
-            this.averagePresentation = 0;
-            this.allComment = new List<string>();
-
-            this.amountOverallRating = 0;
-            this.amountContactHours = 0;
-            this.amountSelfStudyHours = 0;
-            this.amountOrganized = 0;
-            this.amountLearned = 0;
-            this.amountInteresting = 0;
-            this.amountPresentation = 0;
-    }
-
-        public string Name { get => name; }
+        public string Name { get => courseName; }
         public string Since { get => since; }
         public University University { get => university; }
         public Lecturer Lecturer { get => lecturer; }
-        public List<Rating> Ratings { get => ratings; }
         public Major Major { get => major; }
-        public double AverageOverallRating { get => averageOverallRating; }
-        public double AverageContactHours { get => averageContactHours; }
-        public double AverageSelfStudyHours { get => averageSelfStudyHours; }
-        public double AverageOrganized { get => averageOrganized; }
-        public double AverageLearned { get => averageLearned; }
-        public double AverageInteresting { get => averageInteresting; }
-        public double AveragePresentation { get => averagePresentation; }
-        public List<string> AllComment { get => allComment; }
-        /// <summary>
-        /// adds the new rating and updates averages
-        /// </summary>
-        /// <param name="rating">the rating to be added</param>
-        public void addRating(Rating rating)
-        {
-            if (rating == null)
-            {
-                throw new ArgumentNullException("rating cannot be null.");
-            }
-            else
-            {
-                //TODO only one of these 2 methods to store ratings is really needed. Still have to choose which is better
-                //not sure whether its smarter to calculate the averages out of all ratings every time the average is requested
-                //or have the averages stored and always update them when changes occur
-                //the same discussion concerns Lecturer and University
-                //1
-                ratings.Add(rating);
-                numberOfRatings++;
-                //2
-                updateRatings(rating);
-            }
-        }
-
-        
-        /// <summary>
-        /// Updates all the average ratings of the course to include the new rating based on the old average 
-        /// rating and the amount of ratings
-        /// </summary>
-        /// <param name="rating">the new rating</param>
-        private void updateRatings(Rating rating)
-        {
-            if (rating != null)
-            {
-                this.averageOverallRating = ((this.amountOverallRating * this.averageOverallRating) + rating.OverallRating) / (this.amountOverallRating + 1);
-                this.amountOverallRating++;
-                averageContactHours = ((amountContactHours * averageContactHours) + rating.ContactHours) / (amountContactHours + 1);
-                amountContactHours++;
-                averageSelfStudyHours = ((amountSelfStudyHours * averageSelfStudyHours) + rating.SelfStudyHours) / (amountSelfStudyHours + 1);
-                amountSelfStudyHours++;
-                averageOrganized = ((amountOrganized * averageOrganized) + rating.Organized) / (amountOrganized + 1);
-                amountOrganized++;
-                averageLearned = ((amountLearned * averageLearned) + rating.Learned) / (amountLearned + 1);
-                amountLearned++;
-                averageInteresting = ((amountInteresting * averageInteresting) + rating.Interesting) / (amountInteresting + 1);
-                amountInteresting++;
-                averagePresentation = ((amountPresentation * averagePresentation) + rating.Presentation) / (amountPresentation + 1);
-                amountPresentation++;
-                allComment.Add(rating.Comment);
-            }
-            else
-            {
-                throw new ArgumentNullException("Rating cannot be null");
-            }
-        }
-
-        
-
-
-
+        public int CourseID { get => courseID; }
     }
 }

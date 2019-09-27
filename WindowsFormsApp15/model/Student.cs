@@ -6,65 +6,54 @@ namespace GangsOfCsharp
 {
     public class Student
     {
-        private string firstName;
-        private string lastName;
+        private int studentID;
+        private string studentName;
+        private University university;
+        private Major major;
         private string userName;
-        private string email;
         private string password;
         private string areaOfStudies;
-        private int semester;
-        private List<Rating> givenRatings;
+        private int currentSemester;
 
         /// <summary>
         /// Constructor for class Student
         /// </summary>
+        /// <param name="studentID">cannot be null</param>
+        /// <param name="studentName">cannot be null</param>
+        /// <param name="university">cannot be null</param>
+        /// <param name="major">cannot be null</param>
         /// <param name="userName">cannot be null</param>
-        /// <param name="email">cannot be null</param>
         /// <param name="password">cannot be null</param>
-        /// <param name="firstName">can be null</param>
-        /// <param name="lastName">can be null</param>
         /// <param name="areaOfStudies">can be null</param>
         /// <param name="semester">can be null</param>
-        /// <param name="givenRatings">will be set as an empty List for input null</param>
-        public Student(string userName, string email, string password, string firstName, 
-            string lastName, string areaOfStudies, int semester)
+        public Student(int studentID, string userName, string password, string studentName, University university, Major major, string areaOfStudies, int semester)
         {
             if (userName == null) {
                 throw new ArgumentNullException("UserName cannot be null");
-            }
-            if (email == null)
-            {
-                throw new ArgumentNullException("email cannot be null");
             }
             if (password == null)
             {
                 throw new ArgumentNullException("password cannot be null");
             }
-            
-            this.givenRatings = new List<Rating>();
-            
+            if (university == null) { throw new ArgumentNullException("university cannot be null!");  }
+            if (major == null) { throw new ArgumentNullException("major cannot be null!"); }
+
+            this.studentID = studentID;
             this.userName = userName;
-            this.email = email;
             this.password = password;
-            this.firstName = firstName;
-            this.lastName = lastName;
+            this.studentName = studentName;
+            this.university = university;
+            this.major = major;
             this.areaOfStudies = areaOfStudies;
-            this.semester = semester;
+            this.currentSemester = semester;
         }
 
-        public string FirstName { get => firstName;}
-        public void setFirstName(string firstName)
+        public string StudentName { get => studentName;}
+        public void setStudentName(string studentName)
         {
-            if (firstName == null)
-                throw new ArgumentNullException("firstName cannot be set to null.");
-            this.firstName = firstName;
-        }
-        public string LastName { get => lastName; }
-        public void setLastName(string lastName)
-        {
-            if (lastName == null)
-                throw new ArgumentNullException("lastName cannot be set to null.");
-            this.lastName = lastName;
+            if (studentName == null)
+                throw new ArgumentNullException("studentName cannot be set to null.");
+            this.studentName = studentName;
         }
         public string UserName { get => userName; }
         public void setUserName(string userName)
@@ -72,13 +61,6 @@ namespace GangsOfCsharp
             if (userName == null)
                 throw new ArgumentNullException("userName cannot be set to null.");
             this.userName = userName;
-        }
-        public string Email { get => email; }
-        public void setEmail(string email)
-        {
-            if (email == null)
-                throw new ArgumentNullException("email cannot be set to null.");
-            this.email = email;
         }
         public string Password { get => password; }
         public void setPassword(string password)
@@ -94,17 +76,14 @@ namespace GangsOfCsharp
                 throw new ArgumentNullException("areaOfStudies cannot be set to null.");
             this.areaOfStudies = areaOfStudies;
         }
-        public int Semester { get => semester; }
+        public int Semester { get => currentSemester; }
+        public int StudentID { get => studentID; }
+        public University University { get => university; }
+        public Major Major { get => major; }
+
         public void setSemester(int semester)
         {
-            this.semester = semester;
-        }
-        public List<Rating> GivenRatings { get => givenRatings; }
-        public void addRating(Rating rating)
-        {
-            if (rating == null)
-                throw new ArgumentNullException("givenRatings cannot be set to null.");
-            this.givenRatings.Add(rating);
+            this.currentSemester = semester;
         }
     }
 }

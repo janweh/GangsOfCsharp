@@ -6,9 +6,8 @@ namespace GangsOfCsharp
 {
     public class Rating
     {
-        private University university;
+        private int ratingID;
         private Student student;
-        private Lecturer lecturer;
         private Course course;
 
         //TODO: maybe make an enum out of this
@@ -44,9 +43,8 @@ namespace GangsOfCsharp
         /// <summary>
         /// Constructor for the class Rating
         /// </summary>
-        /// <param name="university">cannot be null</param>
+        /// <param name="ratingID">cannot be null</param>
         /// <param name="student">cannot be null</param>
-        /// <param name="lecturer">cannot be null</param>
         /// <param name="course">cannot be null</param>
         /// <param name="semester">cannot be null</param>
         /// <param name="overallRating">Number between 1-10. can be null</param>
@@ -57,13 +55,12 @@ namespace GangsOfCsharp
         /// <param name="interesting">Number between 1-5. can be null</param>
         /// <param name="presentation">Number bewteen 1-5. can be null</param>
         /// <param name="comment">Number between 1-5. can be null</param>
-        public Rating(University university, Student student, Lecturer lecturer, Course course, 
+        public Rating(int ratingID, Student student, Course course, 
             string semester, int overallRating, int contactHours, int selfStudyHours, int organized, 
             int learned, int interesting, int presentation, string comment)
         {
-            if (university == null) { throw new ArgumentNullException("university cannot be null"); }
+                        if (student == null) { throw new ArgumentNullException("student cannot be null"); }
             if (student == null) { throw new ArgumentNullException("student cannot be null"); }
-            if (lecturer == null) { throw new ArgumentNullException("lecturer cannot be null"); }
             if (course == null) { throw new ArgumentNullException("course cannot be null"); }
             if (semester == null) { throw new ArgumentNullException("semester cannot be null"); }
 
@@ -74,12 +71,10 @@ namespace GangsOfCsharp
             if (learned < 1 || learned > 5) { throw new ArgumentException("learned has to be between 1-5"); }
             if (interesting < 1 || interesting > 5) { throw new ArgumentException("interesting has to be between 1-5"); }
             if (presentation < 1 || presentation > 5) { throw new ArgumentException("presentation has to be between 1-5"); }
-            if (lecturer != course.Lecturer) { throw new ArgumentException("the lecturer has to match the lecturer of the rated course."); }
             //TODO: check whether semester is smaller or equal the attribute since (semester)
 
-            this.university = university;
+            this.ratingID = ratingID;
             this.student = student;
-            this.lecturer = lecturer;
             this.course = course;
             this.semester = semester;
             this.overallRating = overallRating;
@@ -90,11 +85,6 @@ namespace GangsOfCsharp
             this.interesting = interesting;
             this.presentation = presentation;
             this.comment = comment;
-
-            this.course.addRating(this);
-            this.lecturer.addRating(this);
-            this.university.addRating(this);
-            this.student.addRating(this);
         }
 
         public string Semester { get => semester; set => semester = value; }
@@ -106,12 +96,6 @@ namespace GangsOfCsharp
         public int Interesting { get => interesting; set => interesting = value; }
         public int Presentation { get => presentation; set => presentation = value; }
         public string Comment { get => comment; set => comment = value; }
-        public University University { get => university; }
-        public void setUniversity(University university) {
-            if (university == null)
-                throw new ArgumentNullException("university cannot be null.");
-            this.university = university;
-        }
         public Student Student { get => student; }
         public void setStudent(Student student)
         {
@@ -119,14 +103,9 @@ namespace GangsOfCsharp
                 throw new ArgumentNullException("student cannot be null.");
             this.student = student;
         }
-        public Lecturer Lecturer { get => lecturer; }
-        public void setLecturer(Lecturer lecturer)
-        {
-            if (lecturer == null)
-                throw new ArgumentNullException("lecturer cannot be null.");
-            this.lecturer = lecturer;
-        }
         public Course Course { get => course; }
+        public int RatingID { get => ratingID; }
+
         public void setCourse(Course course)
         {
             if (course == null)

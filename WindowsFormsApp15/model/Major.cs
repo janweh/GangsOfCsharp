@@ -5,24 +5,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WindowsFormsApp15.model
+namespace GangsOfCsharp
 {
     public class Major
     {
-        public University university;
+        private University university;
         private int majorID;
-        private string name;
+        private string majorName;
 
-        public Major(University uni, string name)
+        public Major(int majorID, string name, University university)
         {
-
-
-            this.university = uni;
-            this.name = name;
-            DataSearch ds = new DataSearch();
-            this.majorID = ds.AddMajor(this);
+            if (university == null)
+                throw new ArgumentNullException("university cannot be null!");
+            if (name == null)
+                throw new ArgumentNullException("name cannot be null!");
+            this.majorName = name;
+            this.majorID = majorID;
+            this.university = university;
         }
         public int MajorID { get => majorID; }
-        public string Name { get => name; }
+        public string Name { get => majorName; }
+        public University University { get => university; }
     }
 }

@@ -23,7 +23,7 @@ namespace WindowsFormsApp15.view
             this.ds = new DataSearch();
             this.university = university;
             this.major = major;
-            label1.Text = university.Name + ": " + major.Name;
+            label1.Text = university.UniversityName + ": " + major.Name;
             label2.Text =  ds.CalculateAverageRatingForMajor(major).ToString("0.0");
 
 

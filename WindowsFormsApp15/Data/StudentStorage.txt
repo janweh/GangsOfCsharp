@@ -1,0 +1,1 @@
+﻿1;1;1;Jan Wehner;germanCodeMachine;password1;Informatics;6
