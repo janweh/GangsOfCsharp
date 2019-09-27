@@ -17,14 +17,14 @@ namespace WindowsFormsApp15
     {
         public MainWindow()
         {
-            //testDataStuff();
+            testDataStuff();
             InitializeComponent();
         }
 
         private void testDataStuff()
         {
             DataSearch ds = new DataSearch();
-            University testUni = new University(1, "Vilnius University");
+            /*University testUni = new University(1, "Vilnius University");
             Major testMajor = new Major(1, "Computer Sience", testUni);
             Lecturer testLecturer = new Lecturer(1, "Prof. Dr. Max Mustermann", testUni);
             Student testStudent = new Student(1, "germanCodeMachine", "password1", "Jan Wehner",
@@ -39,6 +39,8 @@ namespace WindowsFormsApp15
             ds.store(testCourse);
             ds.store(testLecturer);
             ds.store(testRating);
+            List<University> found = ds.getAllUniversities();*/
+
         }
 
         private void Form1_Load(object sender, EventArgs e)

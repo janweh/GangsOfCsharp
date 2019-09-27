@@ -34,10 +34,9 @@ namespace WindowsFormsApp15.model
         /// <summary>
         /// Stores the university in a file with all the other universities.
         /// Format of storage: "universityID;universityName"
-        /// Will throw a ArgumentException if the universityID allready excists in the file!!!
-        /// This ArgumentException should be handled with try/catch!
         /// </summary>
         /// <param name="university"></param>
+        /// <exception cref="ArgumentException">universityID allready exists in the file.</exception>
         public void store(University university)
         {
             checkDuplicateID(university);
@@ -60,14 +59,51 @@ namespace WindowsFormsApp15.model
             }
         }
 
+        /// <summary>
+        /// Finds the University with the given id by iterating through the UniversityStorage file.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <exception cref="KeyNotFoundException">id does not match any of the universityIDs in the file or the id occurs multiple times</exception>
+        /// <returns>the university with the given ID</returns>
+        public University getByUniversityID(int id)
+        {
+            Func<string[], bool> matches = (x) => x[0].Equals(id.ToString());
+            List<string[]> matchingLines = getAllMatchingLines(matches, universitiesPath);
+            if(matchingLines == null)
+            {
+                throw new KeyNotFoundException("id did not match any universityID in the file.");
+            } else if(matchingLines.Count != 1)
+            {
+                throw new KeyNotFoundException("id occured multiple times in the file.");
+            }
+            string[] r = matchingLines.First();
+            University university = new University(Int32.Parse(r[0]), r[1]);
+            return university;
+        }
+
+        /// <summary>
+        /// Returns all stored universities
+        /// </summary>
+        /// <returns>All universities in the UniversityStorage file</returns>
+        public List<University> getAllUniversities()
+        {
+            List<University> unis = new List<University>();
+            Func<string[], bool> matches = (x) => true;
+            List<string[]> matchingLines = getAllMatchingLines(matches, universitiesPath);
+            foreach(string[] r in matchingLines)
+            {
+                University uni = new University(Int32.Parse(r[0]), r[1]);
+                unis.Add(uni);
+            }
+            return unis;
+        }
 
         /// <summary>
         /// Stores the lecturer in a file with all the other lecturers.
         /// Format of storage: "lecturerID;titleAndName;universityID"
-        /// Will throw a ArgumentException if the lecturerID allready excists in the file!!!
-        /// This ArgumentException should be handled with try/catch!
         /// </summary>
         /// <param name="lecturer"></param>
+        /// <exception cref="ArgumentException">lecturerID allready exists in the file.</exception>
         public void store(Lecturer lecturer)
         {
             checkDuplicateID(lecturer);
@@ -94,10 +130,9 @@ namespace WindowsFormsApp15.model
         /// <summary>
         /// Stores the course in a file with all the other courses.
         /// Format of storage: "courseID;courseName;universityID;majorID;lecturerID;since"
-        /// Will throw a ArgumentException if the courseID allready excists in the file!!!
-        /// This ArgumentException should be handled with try/catch!
         /// </summary>
         /// <param name="course"></param>
+        /// <exception cref="ArgumentException">courseID allready exists in the file.</exception>
         public void store(Course course)
         {
             checkDuplicateID(course);
@@ -129,10 +164,9 @@ namespace WindowsFormsApp15.model
         /// Format of storage: "ratingID;studentID;courseID;ratedSemester;overallRating;
         /// contactHours;selfStudyHours;organized;learned;interesting;
         /// presentation;comment"
-        /// Will throw a ArgumentException if the ratingID allready excists in the file!!!
-        /// This ArgumentException should be handled with try/catch!
         /// </summary>
         /// <param name="rating"></param>
+        /// <exception cref="ArgumentException">ratingID allready exists in the file.</exception>
         public void store(Rating rating)
         {
             checkDuplicateID(rating);
@@ -169,10 +203,9 @@ namespace WindowsFormsApp15.model
         /// Stores the student in a file with all the other students.
         /// Format of storage: "studentID;universityID;majorID;studentName;
         /// userName;password;areaOfStudies;currentSemester"
-        /// Will throw a ArgumentException if the studentID allready excists in the file!!!
-        /// This ArgumentException should be handled with try/catch!
         /// </summary>
         /// <param name="student"></param>
+        /// <exception cref="ArgumentException">studentID allready exists in the file.</exception>
         public void store(Student student)
         {
             checkDuplicateID(student);
@@ -204,10 +237,9 @@ namespace WindowsFormsApp15.model
         /// <summary>
         /// Stores the major in a file with all the other majors.
         /// Format of storage: "majorID;majorName;universityID"
-        /// Will throw a ArgumentException if the majorID allready excists in the file!!!
-        /// This ArgumentException should be handled with try/catch!
         /// </summary>
         /// <param name="major"></param>
+        /// <exception cref="ArgumentException">majorID allready exists in the file.</exception>
         public void store(Major major)
         {
             checkDuplicateID(major);
@@ -260,12 +292,6 @@ namespace WindowsFormsApp15.model
 
         }*/
 
-        internal List<Major> getUniversitiesMajors(University university)
-        {
-            //select major from universities where universityID = university.ID
-            return null;
-        }
-
         public object[] UniversityNameSearch()
         {
             return new object[] {
@@ -292,6 +318,23 @@ namespace WindowsFormsApp15.model
         {
             //iterate through all courses with this lecturer and calculate average
             return 4.5;
+        }
+
+        private List<string[]> getAllMatchingLines(Func<string[], bool> match, string path)
+        {
+            List<string[]> results = new List<string[]>();
+            using (StreamReader sr = File.OpenText(path))
+            {
+                string line;
+                while ((line = sr.ReadLine()) != null)
+                {
+                    string[] splitLine = line.Split(';');
+                    if (match(splitLine))
+                        results.Add(splitLine);
+
+                }
+            }
+            return results;
         }
     }
 }
