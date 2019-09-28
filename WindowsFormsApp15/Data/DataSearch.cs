@@ -98,13 +98,36 @@ namespace WindowsFormsApp15.model
             return unis;
         }
 
+        /// <summary>
+        /// Finds all universities which offer a certain major.
+        /// </summary>
+        /// <param name="major"></param>
+        /// <returns></returns>
+        public List<University> getUniversitiesWithMajor(Major major)
+        {
+            List<University> unis = new List<University>();
+            Func<string[], bool> matches = (x) => x[1].Equals(major.Name);
+            List<string[]> matchingLines = getAllMatchingLines(matches, majorPath);
+            List<int> foundUnis = new List<int>();
+            foreach(string[] r in matchingLines)
+            {
+                foundUnis.Add(Int32.Parse(r[2]));
+            }
+            foundUnis = foundUnis.Distinct().ToList();
+            foreach(int uniID in foundUnis)
+            {
+                unis.Add(getUniversityByID(uniID));
+            }
+            return unis;
+        }
+
 
 
         ////////////////////////////////LECTURER////////////////////////////////
 
         /// <summary>
         /// Stores the lecturer in a file with all the other lecturers.
-        /// Format of storage: "lecturerID;titleAndName;universityID"
+        /// Format of storage: "lecturerID;titleAndName;universityID;majorID"
         /// </summary>
         /// <param name="lecturer"></param>
         /// <exception cref="ArgumentException">lecturerID allready exists in the file.</exception>
@@ -113,7 +136,8 @@ namespace WindowsFormsApp15.model
             checkDuplicateID(lecturer);
             string info = lecturer.LecturerID.ToString() + ";" +
                 lecturer.TitleAndName + ";" +
-                lecturer.University.UniversityID.ToString() + "\n";
+                lecturer.University.UniversityID.ToString() + ";" +
+                lecturer.Major.MajorID.ToString() + "\n";
             File.AppendAllText(lecturerPath, info);
         }
 
@@ -151,7 +175,8 @@ namespace WindowsFormsApp15.model
                 throw new DuplicateWaitObjectException("id occured multiple times in the file.");
             }
             string[] r = matchingLines.First();
-            Lecturer lecturer = new Lecturer(Int32.Parse(r[0]), r[1], getUniversityByID(Int32.Parse(r[2])));
+            Lecturer lecturer = new Lecturer(Int32.Parse(r[0]), r[1], getUniversityByID(Int32.Parse(r[2])), 
+                getMajorByID(Int32.Parse(r[3])));
             return lecturer;
         }
 
@@ -166,7 +191,45 @@ namespace WindowsFormsApp15.model
             List<string[]> matchingLines = getAllMatchingLines(matches, lecturerPath);
             foreach (string[] r in matchingLines)
             {
-                Lecturer lecturer = new Lecturer(Int32.Parse(r[0]), r[1], getUniversityByID(Int32.Parse(r[2])));
+                Lecturer lecturer = new Lecturer(Int32.Parse(r[0]), r[1], getUniversityByID(Int32.Parse(r[2])),
+                    getMajorByID(Int32.Parse(r[3])));
+                lecturers.Add(lecturer);
+            }
+            return lecturers;
+        }
+
+        /// <summary>
+        /// Gets all the lecturers who teach at a certain university.
+        /// </summary>
+        /// <param name="university"></param>
+        /// <returns></returns>
+        public List<Lecturer> getLecturersFromUniversity(University university)
+        {
+            List<Lecturer> lecturers = new List<Lecturer>();
+            Func<string[], bool> matches = (x) => x[2].Equals(university.UniversityID.ToString());
+            List<string[]> matchingLines = getAllMatchingLines(matches, lecturerPath);
+            foreach (string[] r in matchingLines)
+            {
+                Lecturer lecturer = new Lecturer(Int32.Parse(r[0]), r[1], university, getMajorByID(Int32.Parse(r[3])));
+                lecturers.Add(lecturer);
+            }
+            return lecturers;
+        }
+
+        /// <summary>
+        /// Gets all the lecturers who teach a certain major.
+        /// </summary>
+        /// <param name="major"></param>
+        /// <returns></returns>
+        public List<Lecturer> getLecturersFromMajor(Major major)
+        {
+            List<Lecturer> lecturers = new List<Lecturer>();
+            Func<string[], bool> matches = (x) => x[3].Equals(major.MajorID.ToString());
+            List<string[]> matchingLines = getAllMatchingLines(matches, lecturerPath);
+            foreach (string[] r in matchingLines)
+            {
+                Lecturer lecturer = new Lecturer(Int32.Parse(r[0]), r[1], getUniversityByID(Int32.Parse(r[2])), 
+                    major);
                 lecturers.Add(lecturer);
             }
             return lecturers;
@@ -241,6 +304,67 @@ namespace WindowsFormsApp15.model
         {
             List<Course> courses = new List<Course>();
             Func<string[], bool> matches = (x) => true;
+            List<string[]> matchingLines = getAllMatchingLines(matches, coursePath);
+            foreach (string[] r in matchingLines)
+            {
+                Course course = new Course(Int32.Parse(r[0]), r[1], getUniversityByID(Int32.Parse(r[2])),
+                    getLecturerByID(Int32.Parse(r[3])), r[4], getMajorByID(Int32.Parse(r[5])));
+                courses.Add(course);
+            }
+            return courses;
+        }
+
+        /// <summary>
+        /// Gets all the courses that match the keyword.
+        /// Also includes courses where the keyword appears in the middle of the name (not only the ones
+        /// where it occurs at the beginning).
+        /// Is not case sensitive.
+        /// </summary>
+        /// <param name="keyword"></param>
+        /// <returns></returns>
+        public List<Course> getCoursesByKeyword(string keyword)
+        {
+            List<Course> courses = new List<Course>();
+            //putting both strings as ToUpper() will make the search case insensitive
+            Func<string[], bool> matches = (x) => x[1].ToUpper().Contains(keyword.ToUpper());
+            List<string[]> matchingLines = getAllMatchingLines(matches, coursePath);
+            foreach (string[] r in matchingLines)
+            {
+                Course course = new Course(Int32.Parse(r[0]), r[1], getUniversityByID(Int32.Parse(r[2])),
+                    getLecturerByID(Int32.Parse(r[3])), r[4], getMajorByID(Int32.Parse(r[5])));
+                courses.Add(course);
+            }
+            return courses;
+        }
+
+        /// <summary>
+        /// Gets all the courses in this major
+        /// </summary>
+        /// <param name="major"></param>
+        /// <returns></returns>
+        public List<Course> getCoursesByMajor(Major major)
+        {
+            List<Course> courses = new List<Course>();
+            Func<string[], bool> matches = (x) => x[5].Equals(major.MajorID.ToString());
+            List<string[]> matchingLines = getAllMatchingLines(matches, coursePath);
+            foreach (string[] r in matchingLines)
+            {
+                Course course = new Course(Int32.Parse(r[0]), r[1], getUniversityByID(Int32.Parse(r[2])),
+                    getLecturerByID(Int32.Parse(r[3])), r[4], getMajorByID(Int32.Parse(r[5])));
+                courses.Add(course);
+            }
+            return courses;
+        }
+        
+        /// <summary>
+        /// Gets all Courses that are held by this lecturer.
+        /// </summary>
+        /// <param name="lecturer"></param>
+        /// <returns></returns>
+        public List<Course> getCoursesByLecturer(Lecturer lecturer)
+        {
+            List<Course> courses = new List<Course>();
+            Func<string[], bool> matches = (x) => x[3].Equals(lecturer.LecturerID.ToString());
             List<string[]> matchingLines = getAllMatchingLines(matches, coursePath);
             foreach (string[] r in matchingLines)
             {
@@ -330,6 +454,27 @@ namespace WindowsFormsApp15.model
         {
             List<Rating> ratings = new List<Rating>();
             Func<string[], bool> matches = (x) => true;
+            List<string[]> matchingLines = getAllMatchingLines(matches, ratingPath);
+            foreach (string[] r in matchingLines)
+            {
+                Rating rating = new Rating(Int32.Parse(r[0]), getStudentByID(Int32.Parse(r[1])),
+                getCourseByID(Int32.Parse(r[2])), r[3], Int32.Parse(r[4]), Int32.Parse(r[5]),
+                Int32.Parse(r[6]), Int32.Parse(r[7]), Int32.Parse(r[8]), Int32.Parse(r[9]),
+                Int32.Parse(r[10]), r[11]);
+                ratings.Add(rating);
+            }
+            return ratings;
+        }
+
+        /// <summary>
+        /// Gets all the ratings that were given for a certain course.
+        /// </summary>
+        /// <param name="course"></param>
+        /// <returns></returns>
+        public List<Rating> getRatingsByCourse(Course course)
+        {
+            List<Rating> ratings = new List<Rating>();
+            Func<string[], bool> matches = (x) => x[2].Equals(course.CourseID.ToString());
             List<string[]> matchingLines = getAllMatchingLines(matches, ratingPath);
             foreach (string[] r in matchingLines)
             {
@@ -467,7 +612,7 @@ namespace WindowsFormsApp15.model
         public Major getMajorByID(int id)
         {
             Func<string[], bool> matches = (x) => x[0].Equals(id.ToString());
-            List<string[]> matchingLines = getAllMatchingLines(matches, lecturerPath);
+            List<string[]> matchingLines = getAllMatchingLines(matches, majorPath);
             if (matchingLines.Count == 0)
             {
                 throw new KeyNotFoundException("id did not match any majorID in the file.");
@@ -493,6 +638,24 @@ namespace WindowsFormsApp15.model
             foreach (string[] r in matchingLines)
             {
                 Major major = new Major(Int32.Parse(r[0]), r[1], getUniversityByID(Int32.Parse(r[2])));
+                majors.Add(major);
+            }
+            return majors;
+        }
+
+        /// <summary>
+        /// Gets all the majors offered by a university by iterating thorgh MajorStorage file.
+        /// </summary>
+        /// <param name="university"></param>
+        /// <returns>List of majors of the university</returns>
+        public List<Major> getMajorsOfUniversity(University university)
+        {
+            List<Major> majors = new List<Major>();
+            Func<string[], bool> matches = (x) => x[2].Equals(university.UniversityID.ToString());
+            List<string[]> matchingLines = getAllMatchingLines(matches, majorPath);
+            foreach (string[] r in matchingLines)
+            {
+                Major major = new Major(Int32.Parse(r[0]), r[1], university);
                 majors.Add(major);
             }
             return majors;

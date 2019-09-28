@@ -17,14 +17,15 @@ namespace WindowsFormsApp15
     {
         public MainWindow()
         {
-            testDataStuff();
+            //testDataStuff();
             InitializeComponent();
         }
 
         private void testDataStuff()
         {
             DataSearch ds = new DataSearch();
-            /*University testUni = new University(1, "Vilnius University");
+            /*
+            University testUni = new University(1, "Vilnius University");
             Major testMajor = new Major(1, "Computer Sience", testUni);
             Lecturer testLecturer = new Lecturer(1, "Prof. Dr. Max Mustermann", testUni);
             Student testStudent = new Student(1, "germanCodeMachine", "password1", "Jan Wehner",
@@ -33,15 +34,12 @@ namespace WindowsFormsApp15
                 testLecturer, "SS16", testMajor);
             Rating testRating = new Rating(1, testStudent, testCourse, "SS18", 8, 4, 8, 4, 5, 4, 3, 
                 "great course!");
-            ds.store(testUni);
-            ds.store(testMajor);
-            ds.store(testStudent);
-            ds.store(testCourse);
-            ds.store(testLecturer);
-            ds.store(testRating);
-            List<Student> found = ds.getAllStudents();
-            Student student = ds.getStudentByID(2);*/
-
+                */
+            University testUni = new University(3, "Vilnius University");
+            Major testMajor = new Major(1, "Computer Sience", testUni);
+            //ds.store(new Lecturer(1, "Dr. Dovenschmirz", testUni, testMajor));
+            //ds.store(new Lecturer(2, "XXXXXXXXXXXX", testUni, testMajor));
+            List<Course> courses = ds.getCoursesByLecturer(ds.getLecturerByID(2));
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -116,7 +114,8 @@ namespace WindowsFormsApp15
             else if (professorComboBox.SelectedItem != null && courseNameTextBox.Text.Equals(""))
             {
                 University testUni = new University(1, "Vilnius University");
-                Lecturer testLecturer = new Lecturer(1, "Prof. Dr. Romas Baronas", testUni);
+                Major testMajor = new Major(1, "Computer Sience", testUni);
+                Lecturer testLecturer = new Lecturer(1, "Prof. Dr. Romas Baronas", testUni, testMajor);
                 ProfessorSearchResultWindow results = new ProfessorSearchResultWindow(testLecturer);
                 results.Show();
                 label9.Visible = false;
