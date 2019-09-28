@@ -17,7 +17,7 @@ namespace WindowsFormsApp15
     {
         public MainWindow()
         {
-            //testDataStuff();
+            testDataStuff();
             InitializeComponent();
         }
 
@@ -39,7 +39,8 @@ namespace WindowsFormsApp15
             Major testMajor = new Major(1, "Computer Sience", testUni);
             //ds.store(new Lecturer(1, "Dr. Dovenschmirz", testUni, testMajor));
             //ds.store(new Lecturer(2, "XXXXXXXXXXXX", testUni, testMajor));
-            List<Course> courses = ds.getCoursesByLecturer(ds.getLecturerByID(2));
+            //List<Course> courses = ds.getCoursesByLecturer(ds.getLecturerByID(2));
+            ds.store(new University("Kaunas University"));
         }
 
         private void Form1_Load(object sender, EventArgs e)

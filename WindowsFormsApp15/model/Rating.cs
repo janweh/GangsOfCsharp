@@ -41,7 +41,33 @@ namespace GangsOfCsharp
         private string comment;
 
         /// <summary>
-        /// Constructor for the class Rating
+        /// Constructor for the class Rating without giving a ratingID.
+        /// ID will be generated automatically.
+        /// Should be used when creating a truly new object that is not yet stored.
+        /// </summary>
+        /// <param name="student">cannot be null</param>
+        /// <param name="course">cannot be null</param>
+        /// <param name="semester">cannot be null</param>
+        /// <param name="overallRating">Number between 1-10. can be null</param>
+        /// <param name="contactHours">Positive number. can be null</param>
+        /// <param name="selfStudyHours">Positive number. can be null</param>
+        /// <param name="organized">Number bewteesn 1-5. can be null</param>
+        /// <param name="learned">Number between 1-5. can be null</param>
+        /// <param name="interesting">Number between 1-5. can be null</param>
+        /// <param name="presentation">Number bewteen 1-5. can be null</param>
+        /// <param name="comment">Number between 1-5. can be null</param>
+        public Rating(Student student, Course course, 
+            string semester, int overallRating, int contactHours, int selfStudyHours, int organized, 
+            int learned, int interesting, int presentation, string comment)
+        {
+            WindowsFormsApp15.model.DataSearch ds = new WindowsFormsApp15.model.DataSearch();
+            init(ds.getNextRatingID(), student, course, semester, overallRating, contactHours, selfStudyHours,
+                organized, learned, interesting, presentation, comment);
+        }
+
+        /// <summary>
+        /// Constructor for the class Rating with manually assignung ratingID.
+        /// Should be used when recreating an object from the datafile
         /// </summary>
         /// <param name="ratingID">cannot be null</param>
         /// <param name="student">cannot be null</param>
@@ -55,36 +81,12 @@ namespace GangsOfCsharp
         /// <param name="interesting">Number between 1-5. can be null</param>
         /// <param name="presentation">Number bewteen 1-5. can be null</param>
         /// <param name="comment">Number between 1-5. can be null</param>
-        public Rating(int ratingID, Student student, Course course, 
-            string semester, int overallRating, int contactHours, int selfStudyHours, int organized, 
+        public Rating(int ratingID, Student student, Course course,
+            string semester, int overallRating, int contactHours, int selfStudyHours, int organized,
             int learned, int interesting, int presentation, string comment)
         {
-                        if (student == null) { throw new ArgumentNullException("student cannot be null"); }
-            if (student == null) { throw new ArgumentNullException("student cannot be null"); }
-            if (course == null) { throw new ArgumentNullException("course cannot be null"); }
-            if (semester == null) { throw new ArgumentNullException("semester cannot be null"); }
-
-            if (overallRating < 1 || overallRating > 10) { throw new ArgumentException("overallRating has to be between 1-10."); }
-            if (contactHours < 0) { throw new ArgumentException("contactHours has to be positive"); }
-            if (selfStudyHours < 0) { throw new ArgumentException("selfStudyHours has to be positive"); }
-            if (organized < 1 || organized > 5) { throw new ArgumentException("organized has to be between 1-5"); }
-            if (learned < 1 || learned > 5) { throw new ArgumentException("learned has to be between 1-5"); }
-            if (interesting < 1 || interesting > 5) { throw new ArgumentException("interesting has to be between 1-5"); }
-            if (presentation < 1 || presentation > 5) { throw new ArgumentException("presentation has to be between 1-5"); }
-            //TODO: check whether semester is smaller or equal the attribute since (semester)
-
-            this.ratingID = ratingID;
-            this.student = student;
-            this.course = course;
-            this.semester = semester;
-            this.overallRating = overallRating;
-            this.contactHours = contactHours;
-            this.selfStudyHours = selfStudyHours;
-            this.organized = organized;
-            this.learned = learned;
-            this.interesting = interesting;
-            this.presentation = presentation;
-            this.comment = comment;
+            init(ratingID, student, course, semester, overallRating, contactHours, selfStudyHours,
+                organized, learned, interesting, presentation, comment);
         }
 
         public string Semester { get => semester; set => semester = value; }
@@ -111,6 +113,38 @@ namespace GangsOfCsharp
             if (course == null)
                 throw new ArgumentNullException("course cannot be null.");
             this.course = course;
+        }
+
+        private void init(int ratingID, Student student, Course course,
+            string semester, int overallRating, int contactHours, int selfStudyHours, int organized,
+            int learned, int interesting, int presentation, string comment)
+        {
+            if (student == null) { throw new ArgumentNullException("student cannot be null"); }
+            if (student == null) { throw new ArgumentNullException("student cannot be null"); }
+            if (course == null) { throw new ArgumentNullException("course cannot be null"); }
+            if (semester == null) { throw new ArgumentNullException("semester cannot be null"); }
+
+            if (overallRating < 1 || overallRating > 10) { throw new ArgumentException("overallRating has to be between 1-10."); }
+            if (contactHours < 0) { throw new ArgumentException("contactHours has to be positive"); }
+            if (selfStudyHours < 0) { throw new ArgumentException("selfStudyHours has to be positive"); }
+            if (organized < 1 || organized > 5) { throw new ArgumentException("organized has to be between 1-5"); }
+            if (learned < 1 || learned > 5) { throw new ArgumentException("learned has to be between 1-5"); }
+            if (interesting < 1 || interesting > 5) { throw new ArgumentException("interesting has to be between 1-5"); }
+            if (presentation < 1 || presentation > 5) { throw new ArgumentException("presentation has to be between 1-5"); }
+            //TODO: check whether semester is smaller or equal the attribute since (semester)
+
+            this.ratingID = ratingID;
+            this.student = student;
+            this.course = course;
+            this.semester = semester;
+            this.overallRating = overallRating;
+            this.contactHours = contactHours;
+            this.selfStudyHours = selfStudyHours;
+            this.organized = organized;
+            this.learned = learned;
+            this.interesting = interesting;
+            this.presentation = presentation;
+            this.comment = comment;
         }
     }
 }

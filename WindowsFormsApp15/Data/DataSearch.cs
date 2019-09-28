@@ -121,6 +121,16 @@ namespace WindowsFormsApp15.model
             return unis;
         }
 
+        /// <summary>
+        /// Finds and returns the next free ID in the datafile.
+        /// If there are no files yet it will return 1;
+        /// </summary>
+        /// <returns></returns>
+        public int getNextUniversityID()
+        {
+            return findID(universitiesPath);
+        }
+
 
 
         ////////////////////////////////LECTURER////////////////////////////////
@@ -233,6 +243,16 @@ namespace WindowsFormsApp15.model
                 lecturers.Add(lecturer);
             }
             return lecturers;
+        }
+
+        /// <summary>
+        /// Finds and returns the next free ID in the datafile.
+        /// If there are no files yet it will return 1;
+        /// </summary>
+        /// <returns></returns>
+        public int getNextLecturerID()
+        {
+            return findID(lecturerPath);
         }
 
 
@@ -375,6 +395,16 @@ namespace WindowsFormsApp15.model
             return courses;
         }
 
+        /// <summary>
+        /// Finds and returns the next free ID in the datafile.
+        /// If there are no files yet it will return 1;
+        /// </summary>
+        /// <returns></returns>
+        public int getNextCourseID()
+        {
+            return findID(coursePath);
+        }
+
 
 
         ////////////////////////////////RATING////////////////////////////////
@@ -487,6 +517,16 @@ namespace WindowsFormsApp15.model
             return ratings;
         }
 
+        /// <summary>
+        /// Finds and returns the next free ID in the datafile.
+        /// If there are no files yet it will return 1;
+        /// </summary>
+        /// <returns></returns>
+        public int getNextRatingID()
+        {
+            return findID(ratingPath);
+        }
+
 
 
         ////////////////////////////////STUDENT////////////////////////////////
@@ -528,6 +568,7 @@ namespace WindowsFormsApp15.model
 
         /// <summary>
         /// Finds the student with the given id by iterating through the StudentStorage file.
+        /// Should be used when creating a truly new object that is not yet stored.
         /// </summary>
         /// <param name="id"></param>
         /// <exception cref="KeyNotFoundException">id does not match any of the studentIDs in the file</exception>
@@ -567,6 +608,16 @@ namespace WindowsFormsApp15.model
                 students.Add(student);
             }
             return students;
+        }
+
+        /// <summary>
+        /// Finds and returns the next free ID in the datafile.
+        /// If there are no files yet it will return 1;
+        /// </summary>
+        /// <returns></returns>
+        public int getNextStudentID()
+        {
+            return findID(studentPath);
         }
 
 
@@ -661,6 +712,16 @@ namespace WindowsFormsApp15.model
             return majors;
         }
 
+        /// <summary>
+        /// Finds and returns the next free ID in the datafile.
+        /// If there are no files yet it will return 1;
+        /// </summary>
+        /// <returns></returns>
+        public int getNextMajorID()
+        {
+            return findID(majorPath );
+        }
+
 
 
 
@@ -737,6 +798,23 @@ namespace WindowsFormsApp15.model
                 }
             }
             return results;
+        }
+
+        private int findID(string path)
+        {
+            int newID = 1;
+            using (StreamReader sr = File.OpenText(path))
+            {
+                string line;
+                while ((line = sr.ReadLine()) != null)
+                {
+                    string[] splitLine = line.Split(';');
+                    int oldID = Int32.Parse(splitLine[0]);
+                    if (oldID >= newID)
+                        newID = oldID + 1;
+                }
+            }
+            return newID;
         }
     }
 }
