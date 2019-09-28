@@ -58,7 +58,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.universityComboBox = new System.Windows.Forms.ComboBox();
             this.searchResultPanel = new System.Windows.Forms.Panel();
-            
+            this.leftSidebarPanel.SuspendLayout();
+            this.topHeaderPanel.SuspendLayout();
+            this.bottomGangsOfCsharpPanel.SuspendLayout();
+            this.overallSearchPanel.SuspendLayout();
+            this.searchPanel.SuspendLayout();
+            this.SuspendLayout();
             // 
             // leftSidebarPanel
             // 
@@ -352,13 +357,6 @@
             // professorComboBox
             // 
             this.professorComboBox.FormattingEnabled = true;
-            this.professorComboBox.Items.AddRange(new object[] {
-            " Prof. Dr. Romas Baronas (Institute of Computer Science)",
-            "Prof. Dr. Paulius Drungilas (Institute of Mathematics, dean of the faculty)",
-            " Prof. Habil. Dr. Artūras Dubickas (Institute of Mathematics)",
-            "Prof. Dr. Jonas Šiaulys (Institute of Mathematics)",
-            " Prof. Dr. Julius Žilinskas (Institute of Data Science and Digital Technologies)",
-            " Prof. Dr. Arvydas Kregždė (Institute of Applied Mathematics)"});
             this.professorComboBox.Location = new System.Drawing.Point(243, 235);
             this.professorComboBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.professorComboBox.Name = "professorComboBox";
@@ -395,6 +393,7 @@
             this.majorComboBox.Name = "majorComboBox";
             this.majorComboBox.Size = new System.Drawing.Size(175, 28);
             this.majorComboBox.TabIndex = 26;
+            this.majorComboBox.SelectedIndexChanged += new System.EventHandler(this.MajorComboBox_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -415,6 +414,7 @@
             this.universityComboBox.Name = "universityComboBox";
             this.universityComboBox.Size = new System.Drawing.Size(175, 28);
             this.universityComboBox.TabIndex = 24;
+            this.universityComboBox.SelectedIndexChanged += new System.EventHandler(this.UniversityComboBox_SelectedIndexChanged);
             // 
             // searchResultPanel
             // 
