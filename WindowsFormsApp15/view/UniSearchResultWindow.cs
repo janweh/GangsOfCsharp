@@ -26,9 +26,9 @@ namespace WindowsFormsApp15.view
             this.university = uni;
             InitializeComponent();
             ds = new DataSearch();
-            this.label1.Text = uni.Name;
+            this.label1.Text = uni.UniversityName;
             label2.Text = ds.CalculateAverageRatingForUniversity(uni).ToString("0.0");
-            this.majors = ds.getUniversitiesMajors(this.university);
+            //this.majors = ds.getUniversitiesMajors(this.university);
         }
 
         internal University University { get => university; set => university = value; }

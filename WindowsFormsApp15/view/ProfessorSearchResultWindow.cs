@@ -21,7 +21,7 @@ namespace WindowsFormsApp15.view
             InitializeComponent();
             this.ds = new DataSearch();
             this.lecturer = lecturer;
-            this.label1.Text = lecturer.FirstName + " " + lecturer.LastName;
+            this.label1.Text = lecturer.TitleAndName;
             this.label2.Text = ds.CalculateAverageRatingForLecturer(lecturer).ToString("0.0");
         }
     }

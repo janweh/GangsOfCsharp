@@ -103,7 +103,7 @@
             // 
             // majorBindingSource
             // 
-            this.majorBindingSource.DataSource = typeof(WindowsFormsApp15.model.Major);
+            this.majorBindingSource.DataSource = typeof(GangsOfCsharp.Major);
             // 
             // MajorColumn
             // 
