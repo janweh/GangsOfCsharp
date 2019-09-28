@@ -15,15 +15,36 @@ namespace WindowsFormsApp15
 {
     public partial class MainWindow : Form
     {
+        DataSearch ds = new DataSearch();
+        University noSelectedUniversity;
+        Major noSelectedMajor;
+        Lecturer noSelectedLecturer;
         public MainWindow()
         {
-            testDataStuff();
+            //testDataStuff();
             InitializeComponent();
+            initComboBoxes();
+        }
+
+        private void initComboBoxes()
+        {
+            List<University> unis = ds.getAllUniversities();
+            noSelectedUniversity = new University(0, "");
+            noSelectedMajor = new Major(0, "", noSelectedUniversity);
+            //noSelectedLecturer = new Lecturer(0, "", noSelectedUniversity, noSelectedMajor);
+            unis.Insert(0, noSelectedUniversity);
+            universityComboBox.DataSource = unis;
+            universityComboBox.ValueMember = "UniversityID";
+            universityComboBox.DisplayMember = "UniversityName";
+            List<Major> majors = ds.getAllMajors();
+            majors.Insert(0, noSelectedMajor);
+            majorComboBox.DataSource = majors;
+            majorComboBox.ValueMember = "MajorID";
+            majorComboBox.DisplayMember = "Name";
         }
 
         private void testDataStuff()
         {
-            DataSearch ds = new DataSearch();
             /*
             University testUni = new University(1, "Vilnius University");
             Major testMajor = new Major(1, "Computer Sience", testUni);
