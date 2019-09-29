@@ -21,9 +21,15 @@ namespace WindowsFormsApp15
         Lecturer noSelectedLecturer;
         public MainWindow()
         {
-            //testDataStuff();
+            addData();
             InitializeComponent();
             initComboBoxes();
+        }
+
+        private void addData()
+        {
+            ds = new DataSearch();
+            //new Objects can be created here and can be stored with ds.store(Object);
         }
 
         private void initComboBoxes()
@@ -42,27 +48,6 @@ namespace WindowsFormsApp15
             majorComboBox.DisplayMember = "Name";
 
             professorComboBox.Enabled = false;
-        }
-
-        private void testDataStuff()
-        {
-            /*
-            University testUni = new University(1, "Vilnius University");
-            Major testMajor = new Major(1, "Computer Sience", testUni);
-            Lecturer testLecturer = new Lecturer(1, "Prof. Dr. Max Mustermann", testUni);
-            Student testStudent = new Student(1, "germanCodeMachine", "password1", "Jan Wehner",
-                testUni, testMajor, "Informatics", 6);
-            Course testCourse = new Course(1, "Applied Object Oriented Programming", testUni,
-                testLecturer, "SS16", testMajor);
-            Rating testRating = new Rating(1, testStudent, testCourse, "SS18", 8, 4, 8, 4, 5, 4, 3, 
-                "great course!");
-                */
-            University testUni = new University(3, "Vilnius University");
-            Major testMajor = new Major(1, "Computer Sience", testUni);
-            //ds.store(new Lecturer(1, "Dr. Dovenschmirz", testUni, testMajor));
-            //ds.store(new Lecturer(2, "XXXXXXXXXXXX", testUni, testMajor));
-            //List<Course> courses = ds.getCoursesByLecturer(ds.getLecturerByID(2));
-            ds.store(new University("Kaunas University"));
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -107,6 +92,12 @@ namespace WindowsFormsApp15
 
         }
 
+        /// <summary>
+        /// Gets called when the SearchButton is clicked.
+        /// Will either open up a new window or display an error message.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SearchButton_Click_1(object sender, EventArgs e)
         {
             //nothing selected
@@ -144,10 +135,11 @@ namespace WindowsFormsApp15
                 label9.Visible = false;
             }
             //professor selected
-            else if ((professorComboBox.SelectedItem != null  ||
-                professorComboBox.SelectedValue == noSelectedLecturer) &&
+            else if ((professorComboBox.SelectedItem != null || 
+                professorComboBox.SelectedValue != noSelectedLecturer) &&
                 courseNameTextBox.Text.Equals(""))
             {
+                Object o = professorComboBox.SelectedItem;
                 ProfessorSearchResultWindow results = new ProfessorSearchResultWindow(
                     (Lecturer) professorComboBox.SelectedItem);
                 results.Show();
