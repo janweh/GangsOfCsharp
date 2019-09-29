@@ -35,10 +35,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.majorBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.MajorColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OverallRatingColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NumberOfCoursesColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NumberOfProfessorsColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.majorBindingSource)).BeginInit();
@@ -58,11 +54,6 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.MajorColumn,
-            this.OverallRatingColumn,
-            this.NumberOfCoursesColumn,
-            this.NumberOfProfessorsColumn});
             this.dataGridView1.Location = new System.Drawing.Point(0, 60);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
@@ -105,35 +96,6 @@
             // 
             this.majorBindingSource.DataSource = typeof(GangsOfCsharp.Major);
             // 
-            // MajorColumn
-            // 
-            this.MajorColumn.DataPropertyName = "majors.Name";
-            this.MajorColumn.HeaderText = "Major";
-            this.MajorColumn.MinimumWidth = 8;
-            this.MajorColumn.Name = "MajorColumn";
-            this.MajorColumn.Width = 150;
-            // 
-            // OverallRatingColumn
-            // 
-            this.OverallRatingColumn.HeaderText = "Rating";
-            this.OverallRatingColumn.MinimumWidth = 8;
-            this.OverallRatingColumn.Name = "OverallRatingColumn";
-            this.OverallRatingColumn.Width = 150;
-            // 
-            // NumberOfCoursesColumn
-            // 
-            this.NumberOfCoursesColumn.HeaderText = "Number of Courses";
-            this.NumberOfCoursesColumn.MinimumWidth = 8;
-            this.NumberOfCoursesColumn.Name = "NumberOfCoursesColumn";
-            this.NumberOfCoursesColumn.Width = 150;
-            // 
-            // NumberOfProfessorsColumn
-            // 
-            this.NumberOfProfessorsColumn.HeaderText = "Number of Professors";
-            this.NumberOfProfessorsColumn.MinimumWidth = 8;
-            this.NumberOfProfessorsColumn.Name = "NumberOfProfessorsColumn";
-            this.NumberOfProfessorsColumn.Width = 150;
-            // 
             // UniSearchResultWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -159,9 +121,5 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource majorBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MajorColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OverallRatingColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NumberOfCoursesColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NumberOfProfessorsColumn;
     }
 }

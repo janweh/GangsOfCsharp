@@ -30,11 +30,6 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.CourseColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OverallRatingColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NumberOfRatingsColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProfessorColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MajorColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -56,53 +51,12 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CourseColumn,
-            this.OverallRatingColumn,
-            this.NumberOfRatingsColumn,
-            this.ProfessorColumn,
-            this.MajorColumn});
             this.dataGridView1.Location = new System.Drawing.Point(0, 60);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
             this.dataGridView1.Size = new System.Drawing.Size(983, 484);
             this.dataGridView1.TabIndex = 3;
-            // 
-            // CourseColumn
-            // 
-            this.CourseColumn.HeaderText = "Course";
-            this.CourseColumn.MinimumWidth = 8;
-            this.CourseColumn.Name = "CourseColumn";
-            this.CourseColumn.Width = 150;
-            // 
-            // OverallRatingColumn
-            // 
-            this.OverallRatingColumn.HeaderText = "Overall Rating";
-            this.OverallRatingColumn.MinimumWidth = 8;
-            this.OverallRatingColumn.Name = "OverallRatingColumn";
-            this.OverallRatingColumn.Width = 150;
-            // 
-            // NumberOfRatingsColumn
-            // 
-            this.NumberOfRatingsColumn.HeaderText = "Number of Ratings";
-            this.NumberOfRatingsColumn.MinimumWidth = 8;
-            this.NumberOfRatingsColumn.Name = "NumberOfRatingsColumn";
-            this.NumberOfRatingsColumn.Width = 150;
-            // 
-            // ProfessorColumn
-            // 
-            this.ProfessorColumn.HeaderText = "Professors";
-            this.ProfessorColumn.MinimumWidth = 8;
-            this.ProfessorColumn.Name = "ProfessorColumn";
-            this.ProfessorColumn.Width = 150;
-            // 
-            // MajorColumn
-            // 
-            this.MajorColumn.HeaderText = "Major";
-            this.MajorColumn.MinimumWidth = 8;
-            this.MajorColumn.Name = "MajorColumn";
-            this.MajorColumn.Width = 150;
             // 
             // label3
             // 
@@ -156,10 +110,5 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CourseColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OverallRatingColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NumberOfRatingsColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProfessorColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MajorColumn;
     }
 }

@@ -726,6 +726,7 @@ namespace WindowsFormsApp15.model
 
 
 
+
         //this is old code but i left it in there because we may need it when we create a database
         /*public void Initialize()
         {
@@ -768,19 +769,150 @@ namespace WindowsFormsApp15.model
             "Heidelberg University"};
         }
 
-        public double CalculateAverageRatingForUniversity(University uni)
+        /// <summary>
+        /// Calculates the average overallRating of the Course by iterating over all Ratings for the course.
+        /// </summary>
+        /// <param name="course"></param>
+        /// <returns></returns>
+        public double averageRatingForCourse(Course course)
         {
-            return 4.5;
+            double sum = 0;
+            Func<string[], bool> matches = (x) => x[2].Equals(course.CourseID.ToString());
+            List<string[]> matchingLines = getAllMatchingLines(matches, ratingPath);
+            foreach (string[] r in matchingLines)
+            {
+                sum += Int32.Parse(r[4]);
+            }
+            return sum/matchingLines.Count;
         }
 
-        public double CalculateAverageRatingForMajor(Major major)
+        /// <summary>
+        /// Calculates the average overallRating of the courses in this major 
+        /// by iterating over all courses and getting their average overallRating.
+        /// </summary>
+        /// <param name="major"></param>
+        /// <returns></returns>
+        public double averageRatingForMajor(Major major)
         {
-            return 4.5;
+            double sum = 0;
+            List<Course> courses = getCoursesByMajor(major);
+            foreach(Course course in courses)
+            {
+                sum += averageRatingForCourse(course);
+            }
+            return sum / courses.Count;
         }
-        public double CalculateAverageRatingForLecturer(Lecturer lecturer)
+
+        /// <summary>
+        /// Calculates the average overallRating of the majors at this university
+        /// by iterating over all majors and getting their average overallRating.
+        /// </summary>
+        /// <param name="university"></param>
+        /// <returns></returns>
+        public double averageRatingForUniversity(University university)
         {
-            //iterate through all courses with this lecturer and calculate average
-            return 4.5;
+            double sum = 0;
+            List<Major> majors = getMajorsOfUniversity(university);
+            foreach (Major major in majors)
+            {
+                sum += averageRatingForMajor(major);
+            }
+            return sum / majors.Count;
+        }
+
+        /// <summary>
+        /// Calculates the average overallRating of the courses by this lecturer 
+        /// by iterating over all courses and getting their average overallRating.
+        /// </summary>
+        /// <param name="lecturer"></param>
+        /// <returns></returns>
+        public double averageRatingForLecturer(Lecturer lecturer)
+        {
+            double sum = 0;
+            List<Course> courses = getCoursesByLecturer(lecturer);
+            foreach (Course course in courses)
+            {
+                sum += averageRatingForCourse(course);
+            }
+            return sum / courses.Count;
+        }
+
+        /// <summary>
+        /// Returns the average overallRating of all courses in this major, the amount
+        /// of courses in this major and the amount of lecturers in this major;
+        /// Should only be used by UniSearchWindow!!!
+        /// </summary>
+        /// <param name="major"></param>
+        /// <returns></returns>
+        public Tuple<double, int, int> averageRatingAmountCoursesAmountLecturersForMajor(Major major)
+        {
+            double sumCourses = 0;
+            List<Course> courses = getCoursesByMajor(major);
+            foreach (Course course in courses)
+            {
+                sumCourses += averageRatingForCourse(course);
+            }
+
+            Func<string[], bool> matches = (x) => x[3].Equals(major.MajorID.ToString());
+            int foundLecturers = getNumberOfMatchingLines(matches, lecturerPath);
+
+            return new Tuple<double, int, int>(sumCourses/courses.Count, courses.Count, foundLecturers);
+        }
+
+        /// <summary>
+        /// Returns the average overallRating of this course and the amount of ratings the course has.
+        /// Should only be used by ProfessorSearchResultWindow and CoursewSearchResultWindow!!!
+        /// </summary>
+        /// <param name="course"></param>
+        /// <returns></returns>
+        public Tuple<double, int> averageRatingAmountRatingsForCourse(Course course)
+        {
+            double sum = 0;
+            Func<string[], bool> matches = (x) => x[2].Equals(course.CourseID.ToString());
+            List<string[]> matchingLines = getAllMatchingLines(matches, ratingPath);
+            foreach (string[] r in matchingLines)
+            {
+                sum += Int32.Parse(r[4]);
+            }
+            return new Tuple<double, int>(sum / matchingLines.Count, matchingLines.Count);
+        }
+
+        /// <summary>
+        /// Calculates the average overallRating of all courses at the university, as well as the
+        /// number of professors teaching there and the amount of courses and majors offered.
+        /// Should only be used by MajorSearchResultWindow!!!
+        /// </summary>
+        /// <param name="university"></param>
+        /// <returns></returns>
+        public Tuple<double, int, int, int> averageRatingAmountCoursesMajorsProfessors(University university)
+        {
+            double sumUniversity = 0;
+            Func<string[], bool> matchesMajor = (x) => x[2].Equals(university.UniversityID.ToString());
+            List<string[]> matchingMajors = getAllMatchingLines(matchesMajor, majorPath);
+
+            Func<string[], bool> matchesProfessor = (x) => x[2].Equals(university.UniversityID.ToString());
+            int amountProfessors = getNumberOfMatchingLines(matchesProfessor, lecturerPath);
+            double ratingSum = 0;
+            int countRatings = 0;
+            int countCourses = 0;
+            foreach(string[] major in matchingMajors)
+            {
+                Func<string[], bool> matchesCourse = (x) => x[2].Equals(major);
+                List<string[]> matchingCourses = getAllMatchingLines(matchesCourse, coursePath);
+                countCourses += matchingCourses.Count;
+                foreach(string[] course in matchingCourses)
+                {
+                    Func<string[], bool> matchesRating = (x) => x[2].Equals(course[0]);
+                    List<string[]> matchingRatings = getAllMatchingLines(matchesRating, ratingPath);
+                    countRatings += matchingRatings.Count;
+                    foreach(string[] rating in matchingRatings)
+                    {
+                        ratingSum += Int32.Parse(rating[4]);
+                    }
+                }
+            }
+            return new Tuple<double, int, int, int>(ratingSum/countRatings ,countCourses , 
+                matchingMajors.Count, amountProfessors);
         }
 
         private List<string[]> getAllMatchingLines(Func<string[], bool> match, string path)
@@ -799,6 +931,23 @@ namespace WindowsFormsApp15.model
             }
             return results;
         }
+
+        private int getNumberOfMatchingLines(Func<string[], bool> match, string path)
+        {
+            int number = 0;
+            using (StreamReader sr = File.OpenText(path))
+            {
+                string line;
+                while ((line = sr.ReadLine()) != null)
+                {
+                    string[] splitLine = line.Split(';');
+                    if (match(splitLine))
+                        number++;
+
+                }
+            }
+            return number;
+    }
 
         private int findID(string path)
         {

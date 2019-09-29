@@ -15,32 +15,39 @@ namespace WindowsFormsApp15
 {
     public partial class MainWindow : Form
     {
+        DataSearch ds = new DataSearch();
+        University noSelectedUniversity;
+        Major noSelectedMajor;
+        Lecturer noSelectedLecturer;
         public MainWindow()
         {
-            testDataStuff();
+            addData();
             InitializeComponent();
+            initComboBoxes();
         }
 
-        private void testDataStuff()
+        private void addData()
         {
-            DataSearch ds = new DataSearch();
-            /*
-            University testUni = new University(1, "Vilnius University");
-            Major testMajor = new Major(1, "Computer Sience", testUni);
-            Lecturer testLecturer = new Lecturer(1, "Prof. Dr. Max Mustermann", testUni);
-            Student testStudent = new Student(1, "germanCodeMachine", "password1", "Jan Wehner",
-                testUni, testMajor, "Informatics", 6);
-            Course testCourse = new Course(1, "Applied Object Oriented Programming", testUni,
-                testLecturer, "SS16", testMajor);
-            Rating testRating = new Rating(1, testStudent, testCourse, "SS18", 8, 4, 8, 4, 5, 4, 3, 
-                "great course!");
-                */
-            University testUni = new University(3, "Vilnius University");
-            Major testMajor = new Major(1, "Computer Sience", testUni);
-            //ds.store(new Lecturer(1, "Dr. Dovenschmirz", testUni, testMajor));
-            //ds.store(new Lecturer(2, "XXXXXXXXXXXX", testUni, testMajor));
-            //List<Course> courses = ds.getCoursesByLecturer(ds.getLecturerByID(2));
-            ds.store(new University("Kaunas University"));
+            ds = new DataSearch();
+            //new Objects can be created here and can be stored with ds.store(Object);
+        }
+
+        private void initComboBoxes()
+        {
+            List<University> unis = ds.getAllUniversities();
+            noSelectedUniversity = new University(0, "");
+            //noSelectedLecturer = new Lecturer(0, "", noSelectedUniversity, noSelectedMajor);
+            unis.Insert(0, noSelectedUniversity);
+            universityComboBox.DataSource = unis;
+            universityComboBox.DisplayMember = "UniversityName";
+
+            List<Major> majors = ds.getAllMajors();
+            noSelectedMajor = new Major(0, "", noSelectedUniversity);
+            majors.Insert(0, noSelectedMajor);
+            majorComboBox.DataSource = majors;
+            majorComboBox.DisplayMember = "Name";
+
+            professorComboBox.Enabled = false;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -85,53 +92,113 @@ namespace WindowsFormsApp15
 
         }
 
+        /// <summary>
+        /// Gets called when the SearchButton is clicked.
+        /// Will either open up a new window or display an error message.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SearchButton_Click_1(object sender, EventArgs e)
         {
-            if (universityComboBox.SelectedItem == null && majorComboBox.SelectedItem == null &&
-                professorComboBox.SelectedItem == null && courseNameTextBox.Text.Equals(""))
+            //nothing selected
+            if (universityComboBox.SelectedItem == noSelectedUniversity && 
+                majorComboBox.SelectedItem == noSelectedMajor &&
+                (professorComboBox.SelectedItem == null || professorComboBox.SelectedValue == noSelectedLecturer)
+                && courseNameTextBox.Text.Equals(""))
             {
                 //this should be a pop up window or a red text being displayed
                 label9.Visible = true;
             }
-            else if (universityComboBox.SelectedItem != null && majorComboBox.SelectedItem == null &&
-              professorComboBox.SelectedItem == null && courseNameTextBox.Text.Equals(""))
+            //only university selected
+            else if (universityComboBox.SelectedItem != noSelectedUniversity && 
+                majorComboBox.SelectedItem == noSelectedMajor &&
+                (professorComboBox.SelectedItem == null || professorComboBox.SelectedValue == noSelectedLecturer)
+                && courseNameTextBox.Text.Equals(""))
             {
                 //this is how it will work when Universities are bound to the comboBox
                 //UniSearchResultWindow results = new UniSearchResultWindow(universityComboBox.SelectedItem);
-                University testUni = new University(1, "Vilnius University");
-                UniSearchResultWindow results = new UniSearchResultWindow(testUni);
+                UniSearchResultWindow results = new UniSearchResultWindow(
+                    (University) universityComboBox.SelectedItem);
                 results.Show();
                 label9.Visible = false;
             }
-            else if (universityComboBox.SelectedItem != null && majorComboBox.SelectedItem != null &&
-             professorComboBox.SelectedItem == null && courseNameTextBox.Text.Equals(""))
+            //university and major selected
+            else if (universityComboBox.SelectedItem != noSelectedUniversity && 
+                majorComboBox.SelectedItem != noSelectedMajor&&
+                (professorComboBox.SelectedItem == null || professorComboBox.SelectedValue == noSelectedLecturer) 
+                && courseNameTextBox.Text.Equals(""))
             {
-                University testUni = new University(1, "Vilnius University");
-                Major testMajor = new Major(1, "Computer Sience", testUni);
-                CourseSearchResultWindow results = new CourseSearchResultWindow(testUni, testMajor);
+                CourseSearchResultWindow results = new CourseSearchResultWindow(
+                    (University) universityComboBox.SelectedItem,
+                    (Major) majorComboBox.SelectedItem);
                 results.Show();
                 label9.Visible = false;
             }
-            else if (professorComboBox.SelectedItem != null && courseNameTextBox.Text.Equals(""))
+            //professor selected
+            else if ((professorComboBox.SelectedItem != null || 
+                professorComboBox.SelectedValue != noSelectedLecturer) &&
+                courseNameTextBox.Text.Equals(""))
             {
-                University testUni = new University(1, "Vilnius University");
-                Major testMajor = new Major(1, "Computer Sience", testUni);
-                Lecturer testLecturer = new Lecturer(1, "Prof. Dr. Romas Baronas", testUni, testMajor);
-                ProfessorSearchResultWindow results = new ProfessorSearchResultWindow(testLecturer);
+                Object o = professorComboBox.SelectedItem;
+                ProfessorSearchResultWindow results = new ProfessorSearchResultWindow(
+                    (Lecturer) professorComboBox.SelectedItem);
                 results.Show();
                 label9.Visible = false;
             }
-            else if (universityComboBox.SelectedItem == null && majorComboBox.SelectedItem != null &&
-             professorComboBox.SelectedItem == null && courseNameTextBox.Text.Equals(""))
+            //only major selected
+            else if (universityComboBox.SelectedItem == noSelectedUniversity && 
+                majorComboBox.SelectedItem != noSelectedMajor &&
+                (professorComboBox.SelectedItem == null || professorComboBox.SelectedValue == noSelectedLecturer) 
+                && courseNameTextBox.Text.Equals(""))
             {
-                University testUni = new University(1, "Vilnius University");
-                Major testMajor = new Major(1, "Computer Sience", testUni);
-                MajorSearchResultWindow results = new MajorSearchResultWindow(testMajor);
+                MajorSearchResultWindow results = new MajorSearchResultWindow(
+                    (Major) majorComboBox.SelectedItem);
                 results.Show();
                 label9.Visible = false;
+            } else if (!courseNameTextBox.Text.Equals(""))
+            {
+                //open window with courses
             }
 
 
+        }
+
+        private void UniversityComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(universityComboBox.SelectedValue != noSelectedUniversity && 
+                majorComboBox.SelectedValue != noSelectedMajor)
+            {
+                List<Lecturer> lecturers = ds.getLecturersFromMajor((Major) majorComboBox.SelectedValue);
+                noSelectedLecturer = new Lecturer(0, "", noSelectedUniversity, noSelectedMajor);
+                lecturers.Insert(0, noSelectedLecturer);
+                professorComboBox.DataSource = lecturers;
+                professorComboBox.DisplayMember = "TitleAndName";
+                professorComboBox.Enabled = true;
+            }
+            else
+            {
+                professorComboBox.Enabled = false;
+                professorComboBox.SelectedItem = noSelectedLecturer;
+            }
+        }
+
+        private void MajorComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (universityComboBox.SelectedValue != noSelectedUniversity &&
+                majorComboBox.SelectedValue != noSelectedMajor)
+            {
+                List<Lecturer> lecturers = ds.getLecturersFromMajor((Major)majorComboBox.SelectedValue);
+                noSelectedLecturer = new Lecturer(0, "", noSelectedUniversity, noSelectedMajor);
+                lecturers.Insert(0, noSelectedLecturer);
+                professorComboBox.DataSource = lecturers;
+                professorComboBox.DisplayMember = "TitleAndName";
+                professorComboBox.Enabled = true;
+            }
+            else
+            {
+                professorComboBox.Enabled = false;
+                professorComboBox.SelectedItem = noSelectedLecturer;
+            }
         }
     }
 }

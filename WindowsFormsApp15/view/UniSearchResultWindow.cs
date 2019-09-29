@@ -27,8 +27,38 @@ namespace WindowsFormsApp15.view
             InitializeComponent();
             ds = new DataSearch();
             this.label1.Text = uni.UniversityName;
-            label2.Text = ds.CalculateAverageRatingForUniversity(uni).ToString("0.0");
-            //this.majors = ds.getUniversitiesMajors(this.university);
+            label2.Text = ds.averageRatingForUniversity(uni).ToString("0.0");
+            addDataToTable();
+        }
+
+        private void addDataToTable()
+        {
+            this.majors = ds.getMajorsOfUniversity(this.university);
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Major");
+            dt.Columns.Add("Rating");
+            dt.Columns.Add("Number of Courses");
+            dt.Columns.Add("Number of Professors");
+            foreach (Major major in majors)
+            {
+                DataRow row = dt.NewRow();
+                Tuple<double, int, int> t = ds.averageRatingAmountCoursesAmountLecturersForMajor(major);
+                row[0] = major.Name;
+                if (!(t.Item1 >= 0 && t.Item1 <= 10))
+                {
+                    row[1] = t.Item1.ToString("0.0");
+                }
+                else
+                {
+                    row[1] = t.Item1.ToString("0.0") + "/10";
+                }   
+                row[2] = t.Item2;
+                row[3] = t.Item3;
+                dt.Rows.Add(row);
+            }
+            BindingSource bs = new BindingSource();
+            bs.DataSource = dt;
+            dataGridView1.DataSource = bs;
         }
 
         internal University University { get => university; set => university = value; }
