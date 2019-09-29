@@ -26,3 +26,4 @@ C:\Users\janwe\source\repos\GangsOfCsharp\WindowsFormsApp15\obj\Debug\WindowsFor
 C:\Users\janwe\source\repos\GangsOfCsharp\WindowsFormsApp15\obj\Debug\WindowsFormsApp15.view.CourseSearchResultWindow.resources
 C:\Users\janwe\source\repos\GangsOfCsharp\WindowsFormsApp15\obj\Debug\WindowsFormsApp15.view.MajorSearchResultWindow.resources
 C:\Users\janwe\source\repos\GangsOfCsharp\WindowsFormsApp15\obj\Debug\WindowsFormsApp15.view.ProfessorSearchResultWindow.resources
+C:\Users\janwe\source\repos\GangsOfCsharp\WindowsFormsApp15\obj\Debug\WindowsFormsApp15.view.CourseNameSearchResultWindow.resources
