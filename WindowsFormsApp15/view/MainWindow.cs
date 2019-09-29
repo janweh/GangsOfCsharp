@@ -157,7 +157,10 @@ namespace WindowsFormsApp15
                 label9.Visible = false;
             } else if (!courseNameTextBox.Text.Equals(""))
             {
-                //open window with courses
+                CourseNameSearchResultWindow results = 
+                    new CourseNameSearchResultWindow(courseNameTextBox.Text);
+                results.Show();
+                label9.Visible = false;
             }
 
 
