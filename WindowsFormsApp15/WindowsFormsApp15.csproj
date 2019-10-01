@@ -66,6 +66,18 @@
     <Compile Include="view\CourseSearchResultWindow.Designer.cs">
       <DependentUpon>CourseSearchResultWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="view\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\SignUpWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\SignUpWindow.Designer.cs">
+      <DependentUpon>SignUpWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\MajorSearchResultWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +114,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="view\CourseSearchResultWindow.resx">
       <DependentUpon>CourseSearchResultWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\SignUpWindow.resx">
+      <DependentUpon>SignUpWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
