@@ -3,7 +3,9 @@
     "",
     "\\WindowsFormsApp15",
     "\\WindowsFormsApp15\\Documents",
-    "\\WindowsFormsApp15\\SQLite"
+    "\\WindowsFormsApp15\\SQLite",
+    "\\WindowsFormsApp15\\view"
   ],
+  "SelectedNode": "\\WindowsFormsApp15\\view\\MainWindow.cs",
   "PreviewInSolutionExplorer": false
 }

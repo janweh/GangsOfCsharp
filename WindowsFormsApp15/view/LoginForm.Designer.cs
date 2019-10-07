@@ -30,13 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.txtUserName = new System.Windows.Forms.Label();
-            this.txtPassword = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtPassword = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtUserName
@@ -47,22 +46,6 @@
             this.txtUserName.Size = new System.Drawing.Size(64, 13);
             this.txtUserName.TabIndex = 0;
             this.txtUserName.Text = " Username :";
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.AutoSize = true;
-            this.txtPassword.Location = new System.Drawing.Point(169, 103);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(62, 13);
-            this.txtPassword.TabIndex = 1;
-            this.txtPassword.Text = " Password :";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(152, 84);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 3;
             // 
             // textBox1
             // 
@@ -106,6 +89,15 @@
             this.panel1.Size = new System.Drawing.Size(124, 122);
             this.panel1.TabIndex = 7;
             // 
+            // txtPassword
+            // 
+            this.txtPassword.AutoSize = true;
+            this.txtPassword.Location = new System.Drawing.Point(169, 103);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(62, 13);
+            this.txtPassword.TabIndex = 1;
+            this.txtPassword.Text = " Password :";
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -116,7 +108,6 @@
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUserName);
@@ -131,12 +122,11 @@
         #endregion
 
         private System.Windows.Forms.Label txtUserName;
-        private System.Windows.Forms.Label txtPassword;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label txtPassword;
     }
 }

@@ -203,5 +203,10 @@ namespace WindowsFormsApp15
                 professorComboBox.SelectedItem = noSelectedLecturer;
             }
         }
+
+        private void OverallSearchPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

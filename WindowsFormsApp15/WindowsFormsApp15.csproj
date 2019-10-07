@@ -72,6 +72,12 @@
     <Compile Include="view\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="view\RatingCourseWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\RatingCourseWindow.Designer.cs">
+      <DependentUpon>RatingCourseWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\SignUpWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +123,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="view\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\RatingCourseWindow.resx">
+      <DependentUpon>RatingCourseWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\SignUpWindow.resx">
       <DependentUpon>SignUpWindow.cs</DependentUpon>

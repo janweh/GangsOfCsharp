@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp15.view
 {
-    public partial class SignUpWindow : Form
+    public partial class RatingCourseWindow : Form
     {
-        public SignUpWindow()
+        public RatingCourseWindow()
         {
             InitializeComponent();
-        }
-
-        private void SignUpWindow_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
