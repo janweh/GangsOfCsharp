@@ -5,7 +5,7 @@ using System.Data.SQLite;
 using System.IO;
 using System.Linq;
 
-namespace WindowsFormsApp15.model
+namespace WindowsFormsApp15.Data
 {
     class DataSearch
     {
@@ -15,9 +15,17 @@ namespace WindowsFormsApp15.model
         private string ratingPath;
         private string studentPath;
         private string universitiesPath;
+
+        private DataUtility du;
         public DataSearch()
         {
             //initializes all the paths to the folders which hold the data
+            initPaths();
+            du = new DataUtility();
+        }
+
+        private void initPaths()
+        {
             string folder = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
             coursePath = Path.Combine(folder, @"Data\", "CourseStorage.txt");
             lecturerPath = Path.Combine(folder, @"Data\", "LecturerStorage.txt");
@@ -25,26 +33,7 @@ namespace WindowsFormsApp15.model
             ratingPath = Path.Combine(folder, @"Data\", "RatingStorage.txt");
             studentPath = Path.Combine(folder, @"Data\", "StudentStorage.txt");
             universitiesPath = Path.Combine(folder, @"Data\", "UniversityStorage.txt");
-        }
 
-        /// <summary>
-        /// Stores objects of the Type Course, Lecturer, Major, Rating, Student, University.
-        /// Will return true if successfull and false if an error occured.
-        /// </summary>
-        /// <param name="o"></param>
-        /// <returns>true when storing was successfull. Otherwise false</returns>
-        public bool store(Object o)
-        {
-            try
-            {
-                string path = getPath(o);
-                string info = o.ToString();
-                File.AppendAllText(path, info);
-                return true;
-            } catch(Exception)
-            {
-                return false;
-            }
         }
 
         /// <summary>
@@ -55,7 +44,7 @@ namespace WindowsFormsApp15.model
         /// <returns></returns>
         public T getByID<T>(Guid id)
         {
-            string path = getPath(typeof(T));
+            string path = du.getPath(typeof(T));
             Func<string[], bool> matches = (x) => x[0].Equals(id.ToString());
             List<string[]> matchingLines = getAllMatchingLines(matches, universitiesPath);
             if (matchingLines.Count == 0)
@@ -91,7 +80,7 @@ namespace WindowsFormsApp15.model
         public List<T> getAll<T>()
         {
             List<T> ts = new List<T>();
-            string path = getPath(typeof(T));
+            string path = du.getPath(typeof(T));
             Func<string[], bool> matches = (x) => true;
             List<string[]> matchingLines = getAllMatchingLines(matches, path);
             foreach(string[] r in matchingLines)
@@ -432,45 +421,6 @@ namespace WindowsFormsApp15.model
                 }
             }
             return number;
-    }
-
-        /// <summary>
-        /// Returns path where an Object should be stored.
-        /// </summary>
-        /// <param name="o"></param>
-        /// <returns></returns>
-        private string getPath(Object o)
-        {
-            switch (o)
-            {
-                case University u:
-                    return universitiesPath;
-                case Course c:
-                    return coursePath;
-                case Major m:
-                    return majorPath;
-                case Rating r:
-                    return ratingPath;
-                case Student s:
-                    return studentPath;
-                default:
-                    throw new ArgumentException(message: "Object does not match any of the storable" +
-                        "Entities", paramName: o.ToString());
-            }
-        }
-
-        private string getPath(Type t)
-        {
-            Dictionary<Type, string> dic = new Dictionary<Type, string>
-            {
-                {typeof(University), universitiesPath },
-                {typeof(Course), coursePath },
-                {typeof(Lecturer), lecturerPath },
-                {typeof(Major), majorPath },
-                {typeof(Rating), ratingPath },
-                {typeof(Student), studentPath }
-            };
-            return dic[t];
         }
     }
 }

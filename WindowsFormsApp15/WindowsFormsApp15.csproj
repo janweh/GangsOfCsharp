@@ -53,6 +53,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\DataSearch.cs" />
+    <Compile Include="Data\DataUtility.cs" />
+    <Compile Include="Data\DataWriter.cs" />
     <Compile Include="model\Major.cs" />
     <Compile Include="view\CourseNameSearchResultWindow.cs">
       <SubType>Form</SubType>
