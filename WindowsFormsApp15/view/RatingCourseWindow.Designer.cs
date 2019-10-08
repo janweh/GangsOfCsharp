@@ -28,13 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblCourseName = new System.Windows.Forms.Label();
+            this.lblUniversity = new System.Windows.Forms.Label();
+            this.lblBy = new System.Windows.Forms.Label();
+            this.lblSince = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -42,9 +41,9 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.txtBoxComments = new System.Windows.Forms.RichTextBox();
+            this.nupdContactHours = new System.Windows.Forms.NumericUpDown();
+            this.nupdSelfStudyHours = new System.Windows.Forms.NumericUpDown();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -70,7 +69,7 @@
             this.checkBox38 = new System.Windows.Forms.CheckBox();
             this.checkBox39 = new System.Windows.Forms.CheckBox();
             this.checkBox40 = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSend = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
@@ -96,49 +95,50 @@
             this.checkBox33 = new System.Windows.Forms.CheckBox();
             this.checkBox32 = new System.Windows.Forms.CheckBox();
             this.checkBox31 = new System.Windows.Forms.CheckBox();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            this.comboBoxSemester = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.nupdContactHours)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupdSelfStudyHours)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // lblCourseName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(25, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(110, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Course Name :";
+            this.lblCourseName.AutoSize = true;
+            this.lblCourseName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblCourseName.Location = new System.Drawing.Point(25, 22);
+            this.lblCourseName.Name = "lblCourseName";
+            this.lblCourseName.Size = new System.Drawing.Size(110, 16);
+            this.lblCourseName.TabIndex = 0;
+            this.lblCourseName.Text = "Course Name :";
             // 
-            // label2
+            // lblUniversity
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(25, 52);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "University :";
+            this.lblUniversity.AutoSize = true;
+            this.lblUniversity.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblUniversity.Location = new System.Drawing.Point(25, 52);
+            this.lblUniversity.Name = "lblUniversity";
+            this.lblUniversity.Size = new System.Drawing.Size(59, 13);
+            this.lblUniversity.TabIndex = 1;
+            this.lblUniversity.Text = "University :";
             // 
-            // label3
+            // lblBy
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(25, 77);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(25, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "By :";
+            this.lblBy.AutoSize = true;
+            this.lblBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblBy.Location = new System.Drawing.Point(25, 77);
+            this.lblBy.Name = "lblBy";
+            this.lblBy.Size = new System.Drawing.Size(25, 13);
+            this.lblBy.TabIndex = 2;
+            this.lblBy.Text = "By :";
             // 
-            // label4
+            // lblSince
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.Location = new System.Drawing.Point(25, 100);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(40, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Since :";
+            this.lblSince.AutoSize = true;
+            this.lblSince.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblSince.Location = new System.Drawing.Point(25, 100);
+            this.lblSince.Name = "lblSince";
+            this.lblSince.Size = new System.Drawing.Size(40, 13);
+            this.lblSince.TabIndex = 3;
+            this.lblSince.Text = "Since :";
             // 
             // label5
             // 
@@ -159,13 +159,6 @@
             this.label6.Size = new System.Drawing.Size(75, 13);
             this.label6.TabIndex = 6;
             this.label6.Text = "Overall rating :";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(212, 141);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 7;
             // 
             // label7
             // 
@@ -237,28 +230,28 @@
             this.label13.TabIndex = 14;
             this.label13.Text = "Comments :";
             // 
-            // richTextBox1
+            // txtBoxComments
             // 
-            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox1.Location = new System.Drawing.Point(28, 463);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(513, 96);
-            this.richTextBox1.TabIndex = 15;
-            this.richTextBox1.Text = "";
+            this.txtBoxComments.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBoxComments.Location = new System.Drawing.Point(28, 463);
+            this.txtBoxComments.Name = "txtBoxComments";
+            this.txtBoxComments.Size = new System.Drawing.Size(513, 96);
+            this.txtBoxComments.TabIndex = 15;
+            this.txtBoxComments.Text = "";
             // 
-            // numericUpDown1
+            // nupdContactHours
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(212, 211);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(34, 20);
-            this.numericUpDown1.TabIndex = 16;
+            this.nupdContactHours.Location = new System.Drawing.Point(212, 211);
+            this.nupdContactHours.Name = "nupdContactHours";
+            this.nupdContactHours.Size = new System.Drawing.Size(34, 20);
+            this.nupdContactHours.TabIndex = 16;
             // 
-            // numericUpDown2
+            // nupdSelfStudyHours
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(212, 240);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(34, 20);
-            this.numericUpDown2.TabIndex = 17;
+            this.nupdSelfStudyHours.Location = new System.Drawing.Point(212, 240);
+            this.nupdSelfStudyHours.Name = "nupdSelfStudyHours";
+            this.nupdSelfStudyHours.Size = new System.Drawing.Size(34, 20);
+            this.nupdSelfStudyHours.TabIndex = 17;
             // 
             // label14
             // 
@@ -490,14 +483,14 @@
             this.checkBox40.TabIndex = 58;
             this.checkBox40.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnSend
             // 
-            this.button1.Location = new System.Drawing.Point(420, 583);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 68;
-            this.button1.Text = "SEND";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSend.Location = new System.Drawing.Point(420, 583);
+            this.btnSend.Name = "btnSend";
+            this.btnSend.Size = new System.Drawing.Size(75, 23);
+            this.btnSend.TabIndex = 68;
+            this.btnSend.Text = "SEND";
+            this.btnSend.UseVisualStyleBackColor = true;
             // 
             // label19
             // 
@@ -729,13 +722,22 @@
             this.checkBox31.TabIndex = 67;
             this.checkBox31.UseVisualStyleBackColor = true;
             // 
+            // comboBoxSemester
+            // 
+            this.comboBoxSemester.FormattingEnabled = true;
+            this.comboBoxSemester.Location = new System.Drawing.Point(212, 141);
+            this.comboBoxSemester.Name = "comboBoxSemester";
+            this.comboBoxSemester.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxSemester.TabIndex = 69;
+            // 
             // RatingCourseWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(569, 618);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.comboBoxSemester);
+            this.Controls.Add(this.btnSend);
             this.Controls.Add(this.checkBox31);
             this.Controls.Add(this.checkBox32);
             this.Controls.Add(this.checkBox33);
@@ -786,9 +788,9 @@
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.numericUpDown2);
-            this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.nupdSelfStudyHours);
+            this.Controls.Add(this.nupdContactHours);
+            this.Controls.Add(this.txtBoxComments);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
@@ -796,17 +798,16 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblSince);
+            this.Controls.Add(this.lblBy);
+            this.Controls.Add(this.lblUniversity);
+            this.Controls.Add(this.lblCourseName);
             this.Name = "RatingCourseWindow";
             this.Text = "RatingCourseWindow";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupdContactHours)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nupdSelfStudyHours)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -814,13 +815,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblCourseName;
+        private System.Windows.Forms.Label lblUniversity;
+        private System.Windows.Forms.Label lblBy;
+        private System.Windows.Forms.Label lblSince;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
@@ -828,9 +828,9 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.RichTextBox txtBoxComments;
+        private System.Windows.Forms.NumericUpDown nupdContactHours;
+        private System.Windows.Forms.NumericUpDown nupdSelfStudyHours;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
@@ -856,7 +856,7 @@
         private System.Windows.Forms.CheckBox checkBox38;
         private System.Windows.Forms.CheckBox checkBox39;
         private System.Windows.Forms.CheckBox checkBox40;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSend;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
@@ -882,5 +882,6 @@
         private System.Windows.Forms.CheckBox checkBox33;
         private System.Windows.Forms.CheckBox checkBox32;
         private System.Windows.Forms.CheckBox checkBox31;
+        private System.Windows.Forms.ComboBox comboBoxSemester;
     }
 }
