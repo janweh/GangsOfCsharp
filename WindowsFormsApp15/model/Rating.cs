@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using WindowsFormsApp15.model;
 
 namespace GangsOfCsharp
 {
     public class Rating
     {
-        private int ratingID;
+        private Guid ratingID;
         private Student student;
         private Course course;
 
@@ -61,32 +62,22 @@ namespace GangsOfCsharp
             int learned, int interesting, int presentation, string comment)
         {
             WindowsFormsApp15.model.DataSearch ds = new WindowsFormsApp15.model.DataSearch();
-            init(ds.getNextRatingID(), student, course, semester, overallRating, contactHours, selfStudyHours,
+            init(Guid.NewGuid(), student, course, semester, overallRating, contactHours, selfStudyHours,
                 organized, learned, interesting, presentation, comment);
         }
 
         /// <summary>
-        /// Constructor for the class Rating with manually assignung ratingID.
-        /// Should be used when recreating an object from the datafile
+        /// Constructs a new Entity of Rating from a line from the datafiles.
+        /// Should only be used when creating objects from files!
         /// </summary>
-        /// <param name="ratingID">cannot be null</param>
-        /// <param name="student">cannot be null</param>
-        /// <param name="course">cannot be null</param>
-        /// <param name="semester">cannot be null</param>
-        /// <param name="overallRating">Number between 1-10. can be null</param>
-        /// <param name="contactHours">Positive number. can be null</param>
-        /// <param name="selfStudyHours">Positive number. can be null</param>
-        /// <param name="organized">Number bewteesn 1-5. can be null</param>
-        /// <param name="learned">Number between 1-5. can be null</param>
-        /// <param name="interesting">Number between 1-5. can be null</param>
-        /// <param name="presentation">Number bewteen 1-5. can be null</param>
-        /// <param name="comment">Number between 1-5. can be null</param>
-        public Rating(int ratingID, Student student, Course course,
-            string semester, int overallRating, int contactHours, int selfStudyHours, int organized,
-            int learned, int interesting, int presentation, string comment)
+        /// <param name="line"></param>
+        public Rating(string[] r)
         {
-            init(ratingID, student, course, semester, overallRating, contactHours, selfStudyHours,
-                organized, learned, interesting, presentation, comment);
+            DataSearch ds = new DataSearch();
+            init(Guid.Parse(r[0]), ds.getByID<Student>(Guid.Parse(r[1])),
+                ds.getByID<Course>(Guid.Parse(r[2])), r[3], Int32.Parse(r[4]), Int32.Parse(r[5]),
+                Int32.Parse(r[6]), Int32.Parse(r[7]), Int32.Parse(r[8]), Int32.Parse(r[9]),
+                Int32.Parse(r[10]), r[11]);
         }
 
         public string Semester { get => semester; set => semester = value; }
@@ -106,7 +97,7 @@ namespace GangsOfCsharp
             this.student = student;
         }
         public Course Course { get => course; }
-        public int RatingID { get => ratingID; }
+        public Guid RatingID { get => ratingID; }
 
         public void setCourse(Course course)
         {
@@ -115,7 +106,7 @@ namespace GangsOfCsharp
             this.course = course;
         }
 
-        private void init(int ratingID, Student student, Course course,
+        private void init(Guid ratingID, Student student, Course course,
             string semester, int overallRating, int contactHours, int selfStudyHours, int organized,
             int learned, int interesting, int presentation, string comment)
         {
@@ -145,6 +136,30 @@ namespace GangsOfCsharp
             this.interesting = interesting;
             this.presentation = presentation;
             this.comment = comment;
+        }
+
+        /// <summary>
+        /// Returns a string containing the objects properties in the format:
+        /// "ratingID;studentID;courseID;ratedSemester;overallRating;
+        /// contactHours;selfStudyHours;organized;learned;interesting;
+        /// presentation;comment"
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            string info = RatingID.ToString() + ";" +
+                Student.StudentID.ToString() + ";" +
+                Course.CourseID.ToString() + ";" +
+                Semester + ";" +
+                OverallRating.ToString() + ";" +
+                ContactHours.ToString() + ";" +
+                SelfStudyHours.ToString() + ";" +
+                Organized.ToString() + ";" +
+                Learned.ToString() + ";" +
+                Interesting.ToString() + ";" +
+                Presentation.ToString() + ";" +
+                Comment + "\n";
+            return info;
         }
     }
 }

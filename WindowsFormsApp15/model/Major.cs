@@ -11,7 +11,7 @@ namespace GangsOfCsharp
     public class Major
     {
         private University university;
-        private int majorID;
+        private Guid majorID;
         private string majorName;
 
         /// <summary>
@@ -24,26 +24,25 @@ namespace GangsOfCsharp
         public Major(string name, University university)
         {
             DataSearch ds = new DataSearch();
-            init(ds.getNextMajorID(), name, university);
+            init(Guid.NewGuid(), name, university);
         }
 
         /// <summary>
-        /// Constructor for the class Major with manually assigning the majorID.
-        /// Should be used when recreating an object from the datafile
+        /// Constructs a new Entity of Major from a line from the datafiles.
+        /// Should only be used when creating objects from files!
         /// </summary>
-        /// <param name="majorID"></param>
-        /// <param name="name"></param>
-        /// <param name="university"></param>
-        public Major(int majorID, string name, University university)
+        /// <param name="line"></param>
+        public Major(string[] line)
         {
-            init(majorID, name, university);
+            DataSearch ds = new DataSearch();
+            init(Guid.Parse(line[0]), line[1], ds.getByID<University>(Guid.Parse(line[2]))); ;
         }
 
-        public int MajorID { get => majorID; }
+        public Guid MajorID { get => majorID; }
         public string Name { get => majorName; }
         public University University { get => university; }
 
-        private void init(int majorID, string name, University university)
+        private void init(Guid majorID, string name, University university)
         {
             if (university == null)
                 throw new ArgumentNullException("university cannot be null!");
@@ -53,6 +52,19 @@ namespace GangsOfCsharp
             this.majorName = name;
             this.majorID = majorID;
             this.university = university;
+        }
+
+        /// <summary>
+        /// Return a string with the objects properties in the format:
+        /// "majorID;majorName;universityID".
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            string info = MajorID.ToString() + ";" +
+                Name + ";" +
+                University.UniversityID.ToString() + "\n";
+            return info;
         }
     }
 }

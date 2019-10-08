@@ -1,7 +1,1 @@
-﻿1;Vilnius University
-2;Universität Bamberg
-3;Oxford University
-5;Kaunas University
-6;Kaunas University
-7;Kaunas University
-8;Kaunas University
+﻿

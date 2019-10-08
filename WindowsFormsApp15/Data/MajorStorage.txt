@@ -1,4 +1,1 @@
-﻿1;Computer Sience;1
-3;Computer Sience;3
-2;Computer Sience;3
-4;Business Administration;1
+﻿

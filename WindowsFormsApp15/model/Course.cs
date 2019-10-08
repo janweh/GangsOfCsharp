@@ -7,7 +7,7 @@ namespace GangsOfCsharp
 {
     public class Course
     {
-        private int courseID;
+        private Guid courseID;
         private string courseName;
         private University university;
         private Major major;
@@ -29,23 +29,19 @@ namespace GangsOfCsharp
         public Course(string name, University university, Lecturer lecturer, string since, Major major)
         {
             DataSearch ds = new DataSearch();
-            init(ds.getNextCourseID(), name, university, lecturer, since, major);
+            init(Guid.NewGuid(), name, university, lecturer, since, major);
         }
 
         /// <summary>
-        /// Construtor for the class Course with manually assigning the courseID.
-        /// Averages and amounts of rating categories will be set to 0.
-        /// Should be used when recreating an object from the datafile
+        /// Constructs a new Entity of Course from a line from the datafiles.
+        /// Should only be used when creating objects from files!
         /// </summary>
-        /// <param name="courseID">cannot be null</param>
-        /// <param name="courseName">cannot be null</param>
-        /// <param name="university">cannot be null</param>
-        /// <param name="lecturer">cannot be null</param>
-        /// <param name="since">cannot be null</param>
-        /// <param name="major">cannot be null</param>
-        public Course(int courseID, string name, University university, Lecturer lecturer, string since, Major major)
+        /// <param name="line"></param>
+        public Course(string[] line)
         {
-            init(courseID, name, university, lecturer, since, major);
+            DataSearch ds = new DataSearch();
+            init(Guid.Parse(line[0]), line[1], ds.getByID<University>(Guid.Parse(line[2])),
+                ds.getByID<Lecturer>(Guid.Parse(line[3])), line[4], ds.getByID<Major>(Guid.Parse(line[5])));
         }
 
         public string Name { get => courseName; }
@@ -53,9 +49,9 @@ namespace GangsOfCsharp
         public University University { get => university; }
         public Lecturer Lecturer { get => lecturer; }
         public Major Major { get => major; }
-        public int CourseID { get => courseID; }
+        public Guid CourseID { get => courseID; }
 
-        private void init(int courseID, string name, University university, Lecturer lecturer, string since, Major major)
+        private void init(Guid courseID, string name, University university, Lecturer lecturer, string since, Major major)
         {
             if (name == null)
                 throw new ArgumentNullException("name cannot be null.");
@@ -74,6 +70,22 @@ namespace GangsOfCsharp
             this.lecturer = lecturer;
             this.since = since;
             this.major = major;
+        }
+
+        /// <summary>
+        /// Return string containing the objects properties in the format:
+        /// "courseID;courseName;universityID;majorID;lecturerID;since".
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            string resultString = CourseID.ToString() + ";" +
+                Name + ";" +
+                University.UniversityID.ToString() + ";" +
+                Lecturer.LecturerID.ToString() + ";" +
+                Since + ";" +
+                Major.MajorID.ToString() + "\n";
+            return resultString;
         }
     }
 }

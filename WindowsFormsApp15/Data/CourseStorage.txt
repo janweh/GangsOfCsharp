@@ -1,5 +1,1 @@
-﻿1;Applied Object Oriented Programming;1;1;SS16;1
-2;Applied Object Oriented Programming;1;1;SS16;1
-3;Applied Object Oriented Programming;1;1;SS16;1
-4;Applied Object Oriented Programming;1;1;SS16;2
-4;Applied Object Oriented Programming;1;2;SS16;2
+﻿

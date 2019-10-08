@@ -34,15 +34,15 @@ namespace WindowsFormsApp15
 
         private void initComboBoxes()
         {
-            List<University> unis = ds.getAllUniversities();
-            noSelectedUniversity = new University(0, "");
+            List<University> unis = ds.getAll<University>();
+            noSelectedUniversity = new University("");
             //noSelectedLecturer = new Lecturer(0, "", noSelectedUniversity, noSelectedMajor);
             unis.Insert(0, noSelectedUniversity);
             universityComboBox.DataSource = unis;
             universityComboBox.DisplayMember = "UniversityName";
 
-            List<Major> majors = ds.getAllMajors();
-            noSelectedMajor = new Major(0, "", noSelectedUniversity);
+            List<Major> majors = ds.getAll<Major>();
+            noSelectedMajor = new Major("", noSelectedUniversity);
             majors.Insert(0, noSelectedMajor);
             majorComboBox.DataSource = majors;
             majorComboBox.DisplayMember = "Name";
@@ -100,13 +100,11 @@ namespace WindowsFormsApp15
         /// <param name="e"></param>
         private void SearchButton_Click_1(object sender, EventArgs e)
         {
-            //nothing selected
-            if (universityComboBox.SelectedItem == noSelectedUniversity && 
+            if (universityComboBox.SelectedItem == noSelectedUniversity &&
                 majorComboBox.SelectedItem == noSelectedMajor &&
                 (professorComboBox.SelectedItem == null || professorComboBox.SelectedValue == noSelectedLecturer)
                 && courseNameTextBox.Text.Equals(""))
             {
-                //this should be a pop up window or a red text being displayed
                 label9.Visible = true;
             }
             //only university selected
@@ -172,7 +170,7 @@ namespace WindowsFormsApp15
                 majorComboBox.SelectedValue != noSelectedMajor)
             {
                 List<Lecturer> lecturers = ds.getLecturersFromMajor((Major) majorComboBox.SelectedValue);
-                noSelectedLecturer = new Lecturer(0, "", noSelectedUniversity, noSelectedMajor);
+                noSelectedLecturer = new Lecturer("", noSelectedUniversity, noSelectedMajor);
                 lecturers.Insert(0, noSelectedLecturer);
                 professorComboBox.DataSource = lecturers;
                 professorComboBox.DisplayMember = "TitleAndName";
@@ -191,7 +189,7 @@ namespace WindowsFormsApp15
                 majorComboBox.SelectedValue != noSelectedMajor)
             {
                 List<Lecturer> lecturers = ds.getLecturersFromMajor((Major)majorComboBox.SelectedValue);
-                noSelectedLecturer = new Lecturer(0, "", noSelectedUniversity, noSelectedMajor);
+                noSelectedLecturer = new Lecturer("", noSelectedUniversity, noSelectedMajor);
                 lecturers.Insert(0, noSelectedLecturer);
                 professorComboBox.DataSource = lecturers;
                 professorComboBox.DisplayMember = "TitleAndName";

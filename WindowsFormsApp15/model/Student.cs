@@ -6,7 +6,7 @@ namespace GangsOfCsharp
 {
     public class Student
     {
-        private int studentID;
+        private Guid studentID;
         private string studentName;
         private University university;
         private Major major;
@@ -16,22 +16,15 @@ namespace GangsOfCsharp
         private int currentSemester;
 
         /// <summary>
-        /// Constructor for class Student with giving a studentID.
-        /// ID will be automatically generated.
-        /// Should be used when creating a truly new object that is not yet stored.
+        /// Constructs a new Entity of Student from a line from the datafiles.
+        /// Should only be used when creating objects from files!
         /// </summary>
-        /// <param name="studentName">cannot be null</param>
-        /// <param name="university">cannot be null</param>
-        /// <param name="major">cannot be null</param>
-        /// <param name="userName">cannot be null</param>
-        /// <param name="password">cannot be null</param>
-        /// <param name="areaOfStudies">can be null</param>
-        /// <param name="semester">can be null</param>
-        public Student(string userName, string password, string studentName, University university, 
-            Major major, string areaOfStudies, int semester)
+        /// <param name="line"></param>
+        public Student(string[] r)
         {
             WindowsFormsApp15.model.DataSearch ds = new WindowsFormsApp15.model.DataSearch();
-            init(ds.getNextStudentID(), userName, password, studentName, university, major, areaOfStudies, semester);
+            init(Guid.Parse(r[0]), r[1], r[2], r[3], ds.getByID<University>(Guid.Parse(r[4])),
+                ds.getByID<Major>(Guid.Parse(r[5])), r[6], Int32.Parse(r[7]));
         }
 
         /// <summary>
@@ -46,7 +39,7 @@ namespace GangsOfCsharp
         /// <param name="password">cannot be null</param>
         /// <param name="areaOfStudies">can be null</param>
         /// <param name="semester">can be null</param>
-        public Student(int studentID, string userName, string password, string studentName, University university,
+        public Student(Guid studentID, string userName, string password, string studentName, University university,
             Major major, string areaOfStudies, int semester)
         {
             init(studentID, userName, password, studentName, university, major, areaOfStudies, semester);
@@ -81,7 +74,7 @@ namespace GangsOfCsharp
             this.areaOfStudies = areaOfStudies;
         }
         public int Semester { get => currentSemester; }
-        public int StudentID { get => studentID; }
+        public Guid StudentID { get => studentID; }
         public University University { get => university; }
         public Major Major { get => major; }
 
@@ -90,7 +83,7 @@ namespace GangsOfCsharp
             this.currentSemester = semester;
         }
 
-        private void init(int studentID, string userName, string password, string studentName, University university,
+        private void init(Guid studentID, string userName, string password, string studentName, University university,
             Major major, string areaOfStudies, int semester)
         {
             if (userName == null)
@@ -112,6 +105,25 @@ namespace GangsOfCsharp
             this.major = major;
             this.areaOfStudies = areaOfStudies;
             this.currentSemester = semester;
+        }
+
+        /// <summary>
+        /// Returns a string containing the objects properties in the format:
+        /// "studentID;universityID;majorID;studentName;
+        /// userName;password;areaOfStudies;currentSemester"
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            string info = StudentID.ToString() + ";" +
+                UserName + ";" +
+                Password + ";" +
+                StudentName + ";" +
+                University.UniversityID.ToString() + ";" +
+                Major.MajorID.ToString() + ";" +
+                AreaOfStudies + ";" +
+                Semester.ToString() + "\n";
+            return info;
         }
     }
 }
