@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using WindowsFormsApp15.model;
+using WindowsFormsApp15.Data;
 
-namespace GangsOfCsharp
+namespace WindowsFormsApp15.model
 {
     public class Rating
     {
@@ -61,7 +61,7 @@ namespace GangsOfCsharp
             string semester, int overallRating, int contactHours, int selfStudyHours, int organized, 
             int learned, int interesting, int presentation, string comment)
         {
-            WindowsFormsApp15.model.DataSearch ds = new WindowsFormsApp15.model.DataSearch();
+            DataSearch ds = new DataSearch();
             init(Guid.NewGuid(), student, course, semester, overallRating, contactHours, selfStudyHours,
                 organized, learned, interesting, presentation, comment);
         }

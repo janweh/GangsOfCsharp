@@ -1,10 +1,10 @@
-﻿using GangsOfCsharp;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WindowsFormsApp15.model;
 
 namespace WindowsFormsApp15.Data
 {
@@ -18,7 +18,7 @@ namespace WindowsFormsApp15.Data
         private string universitiesPath;
         public DataUtility()
         {
-
+            initPaths();
         }
         private void initPaths()
         {

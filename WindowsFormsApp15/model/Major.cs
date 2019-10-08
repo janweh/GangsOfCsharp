@@ -1,12 +1,11 @@
-﻿using GangsOfCsharp;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WindowsFormsApp15.model;
+using WindowsFormsApp15.Data;
 
-namespace GangsOfCsharp
+namespace WindowsFormsApp15.model
 {
     public class Major
     {

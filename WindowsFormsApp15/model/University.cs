@@ -1,7 +1,7 @@
 ﻿using System; 
 using System.Collections.Generic;
 
-namespace GangsOfCsharp
+namespace WindowsFormsApp15.model
 {
     public class University
     {
@@ -16,7 +16,7 @@ namespace GangsOfCsharp
         /// <param name="name">cannot be null</param>
         public University(string name)
         {
-            WindowsFormsApp15.model.DataSearch ds = new WindowsFormsApp15.model.DataSearch();
+            WindowsFormsApp15.Data.DataSearch ds = new WindowsFormsApp15.Data.DataSearch();
             init(Guid.NewGuid(), name);
         }
 

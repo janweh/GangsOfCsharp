@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using WindowsFormsApp15.Data;
 
-namespace GangsOfCsharp
+namespace WindowsFormsApp15.model
 {
     public class Student
     {
@@ -22,7 +23,7 @@ namespace GangsOfCsharp
         /// <param name="line"></param>
         public Student(string[] r)
         {
-            WindowsFormsApp15.model.DataSearch ds = new WindowsFormsApp15.model.DataSearch();
+            DataSearch ds = new DataSearch();
             init(Guid.Parse(r[0]), r[1], r[2], r[3], ds.getByID<University>(Guid.Parse(r[4])),
                 ds.getByID<Major>(Guid.Parse(r[5])), r[6], Int32.Parse(r[7]));
         }

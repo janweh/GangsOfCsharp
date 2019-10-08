@@ -1,8 +1,8 @@
-﻿using GangsOfCsharp;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
+using WindowsFormsApp15.Data;
 using WindowsFormsApp15.model;
 
 namespace WindowsFormsApp15.view

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp15.model;
 
-namespace WindowsFormsApp15
+namespace WindowsFormsApp15.view
 {
     static class Program
     {

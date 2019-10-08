@@ -1,5 +1,4 @@
-﻿using GangsOfCsharp;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,10 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp15.Data;
 using WindowsFormsApp15.model;
-using WindowsFormsApp15.view;
 
-namespace WindowsFormsApp15
+namespace WindowsFormsApp15.view
 {
     public partial class MainWindow : Form
     {

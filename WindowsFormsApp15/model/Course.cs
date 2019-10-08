@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using WindowsFormsApp15.model;
+using WindowsFormsApp15.Data;
 
-namespace GangsOfCsharp
+namespace WindowsFormsApp15.model
 {
     public class Course
     {

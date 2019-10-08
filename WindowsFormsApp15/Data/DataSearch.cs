@@ -1,9 +1,9 @@
-﻿using GangsOfCsharp;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
 using System.IO;
 using System.Linq;
+using WindowsFormsApp15.model;
 
 namespace WindowsFormsApp15.Data
 {
