@@ -161,5 +161,10 @@ namespace WindowsFormsApp15.model
                 Comment + "\n";
             return info;
         }
+
+        public Rating()
+        {
+
+        }
     }
 }

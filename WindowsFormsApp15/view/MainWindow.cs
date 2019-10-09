@@ -20,15 +20,10 @@ namespace WindowsFormsApp15.view
         Lecturer noSelectedLecturer;
         public MainWindow()
         {
-            addData();
+            //AddTestData test = new AddTestData();
             InitializeComponent();
             initComboBoxes();
-        }
 
-        private void addData()
-        {
-            ds = new DataSearch();
-            //new Objects can be created here and can be stored with ds.store(Object);
         }
 
         private void initComboBoxes()

@@ -43,33 +43,51 @@ namespace WindowsFormsApp15.Data
         /// <param name="id">The ID of the Object</param>
         /// <returns></returns>
         public T getByID<T>(Guid id)
+            where T : class, new()
         {
             string path = du.getPath(typeof(T));
             Func<string[], bool> matches = (x) => x[0].Equals(id.ToString());
             List<string[]> matchingLines = getAllMatchingLines(matches, universitiesPath);
             if (matchingLines.Count == 0)
             {
-                throw new KeyNotFoundException("id did not match any universityID in the file.");
+                throw new KeyNotFoundException("id did not match any id in the file.");
             }
             else if (matchingLines.Count != 1)
             {
                 throw new DuplicateWaitObjectException("id occured multiple times in the file.");
             }
-            return createNew<T>(matchingLines.First(), typeof(T));
+            return createNew<T>(matchingLines.First(), new T());
         }
 
-        private T createNew<T>(string[] lines, Type t)
+        private T createNew<T>(string[] lines, Object o)
         {
-            Dictionary<Type, Object> dic = new Dictionary<Type, Object>
+            T t;
+            switch (o)
             {
-                {typeof(University), new University(lines) },
-                {typeof(Course), new Course(lines) },
-                {typeof(Lecturer), new Lecturer(lines) },
-                {typeof(Major), new Major(lines) },
-                {typeof(Rating), new Rating(lines) },
-                {typeof(Student), new Student(lines) }
-            };
-            return (T) dic[t];
+                case University u:
+                    u = new University(lines);
+                    t = (T)Convert.ChangeType(u, typeof(T));
+                    return t;
+                case Course c:
+                    c = new Course(lines);
+                    t = (T)Convert.ChangeType(c, typeof(T));
+                    return t;
+                case Major m:
+                    m = new Major(lines);
+                    t = (T)Convert.ChangeType(m, typeof(T));
+                    return t;
+                case Rating r:
+                    r = new Rating(lines);
+                    t = (T)Convert.ChangeType(r, typeof(T));
+                    return t;
+                case Student s:
+                    s = new Student(lines);
+                    t = (T)Convert.ChangeType(s, typeof(T));
+                    return t;
+                default:
+                    throw new ArgumentException(message: "Object does not match any of the storable" +
+                        "Entities", paramName: o.ToString());
+            }
         }
 
         /// <summary>
@@ -78,6 +96,7 @@ namespace WindowsFormsApp15.Data
         /// <typeparam name="T">Type of Objects that should be found.</typeparam>
         /// <returns></returns>
         public List<T> getAll<T>()
+            where T : class, new()
         {
             List<T> ts = new List<T>();
             string path = du.getPath(typeof(T));
@@ -85,7 +104,7 @@ namespace WindowsFormsApp15.Data
             List<string[]> matchingLines = getAllMatchingLines(matches, path);
             foreach(string[] r in matchingLines)
             {
-                T t = createNew<T>(r, typeof(T));
+                T t = createNew<T>(r, new T());
                 ts.Add(t);
             }
             return ts;

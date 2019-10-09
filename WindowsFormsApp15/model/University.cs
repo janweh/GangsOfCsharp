@@ -53,5 +53,10 @@ namespace WindowsFormsApp15.model
                 UniversityName + "\n";
             return info;
         }
+
+        public University()
+        {
+
+        }
     }
 }

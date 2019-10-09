@@ -40,10 +40,10 @@ namespace WindowsFormsApp15.model
         /// <param name="password">cannot be null</param>
         /// <param name="areaOfStudies">can be null</param>
         /// <param name="semester">can be null</param>
-        public Student(Guid studentID, string userName, string password, string studentName, University university,
+        public Student(string userName, string password, string studentName, University university,
             Major major, string areaOfStudies, int semester)
         {
-            init(studentID, userName, password, studentName, university, major, areaOfStudies, semester);
+            init(Guid.NewGuid(), userName, password, studentName, university, major, areaOfStudies, semester);
         }
 
         public string StudentName { get => studentName;}
@@ -125,6 +125,11 @@ namespace WindowsFormsApp15.model
                 AreaOfStudies + ";" +
                 Semester.ToString() + "\n";
             return info;
+        }
+
+        public Student()
+        {
+
         }
     }
 }

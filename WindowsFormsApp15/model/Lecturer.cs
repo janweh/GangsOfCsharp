@@ -75,5 +75,10 @@ namespace WindowsFormsApp15.model
                 Major.MajorID.ToString() + "\n";
             return info;
         }
+
+        public Lecturer()
+        {
+
+        }
     }
 }

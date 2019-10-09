@@ -65,5 +65,10 @@ namespace WindowsFormsApp15.model
                 University.UniversityID.ToString() + "\n";
             return info;
         }
+
+        public Major()
+        {
+
+        }
     }
 }

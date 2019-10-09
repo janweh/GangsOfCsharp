@@ -51,6 +51,8 @@ namespace WindowsFormsApp15.Data
                     return ratingPath;
                 case Student s:
                     return studentPath;
+                case Lecturer l:
+                    return lecturerPath;
                 default:
                     throw new ArgumentException(message: "Object does not match any of the storable" +
                         "Entities", paramName: o.ToString());
