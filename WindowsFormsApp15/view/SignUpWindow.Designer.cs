@@ -29,16 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SignUpWindow));
-            this.lblName = new System.Windows.Forms.Label();
-            this.lblLastName = new System.Windows.Forms.Label();
             this.lblUniversity = new System.Windows.Forms.Label();
             this.lblStdyArea = new System.Windows.Forms.Label();
             this.lblStdyLvl = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.lblConfPassword = new System.Windows.Forms.Label();
-            this.txtBoxName = new System.Windows.Forms.TextBox();
-            this.txtBoxLastName = new System.Windows.Forms.TextBox();
             this.txtBoxUsername = new System.Windows.Forms.TextBox();
             this.txtBoxPassword = new System.Windows.Forms.TextBox();
             this.txtBoxConfPassword = new System.Windows.Forms.TextBox();
@@ -49,28 +45,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
-            // 
-            // lblName
-            // 
-            this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblName.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            this.lblName.Location = new System.Drawing.Point(233, 62);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(51, 16);
-            this.lblName.TabIndex = 0;
-            this.lblName.Text = "Name :";
-            // 
-            // lblLastName
-            // 
-            this.lblLastName.AutoSize = true;
-            this.lblLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblLastName.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            this.lblLastName.Location = new System.Drawing.Point(205, 104);
-            this.lblLastName.Name = "lblLastName";
-            this.lblLastName.Size = new System.Drawing.Size(82, 16);
-            this.lblLastName.TabIndex = 1;
-            this.lblLastName.Text = " Last Name :";
             // 
             // lblUniversity
             // 
@@ -137,20 +111,6 @@
             this.lblConfPassword.Size = new System.Drawing.Size(125, 16);
             this.lblConfPassword.TabIndex = 7;
             this.lblConfPassword.Text = " Confirm Password :";
-            // 
-            // txtBoxName
-            // 
-            this.txtBoxName.Location = new System.Drawing.Point(328, 58);
-            this.txtBoxName.Name = "txtBoxName";
-            this.txtBoxName.Size = new System.Drawing.Size(121, 20);
-            this.txtBoxName.TabIndex = 8;
-            // 
-            // txtBoxLastName
-            // 
-            this.txtBoxLastName.Location = new System.Drawing.Point(328, 100);
-            this.txtBoxLastName.Name = "txtBoxLastName";
-            this.txtBoxLastName.Size = new System.Drawing.Size(121, 20);
-            this.txtBoxLastName.TabIndex = 9;
             // 
             // txtBoxUsername
             // 
@@ -239,35 +199,27 @@
             this.Controls.Add(this.txtBoxConfPassword);
             this.Controls.Add(this.txtBoxPassword);
             this.Controls.Add(this.txtBoxUsername);
-            this.Controls.Add(this.txtBoxLastName);
-            this.Controls.Add(this.txtBoxName);
             this.Controls.Add(this.lblConfPassword);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.lblStdyLvl);
             this.Controls.Add(this.lblStdyArea);
             this.Controls.Add(this.lblUniversity);
-            this.Controls.Add(this.lblLastName);
-            this.Controls.Add(this.lblName);
             this.Name = "SignUpWindow";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.SignUpWindow_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.Label lblLastName;
         private System.Windows.Forms.Label lblUniversity;
         private System.Windows.Forms.Label lblStdyArea;
         private System.Windows.Forms.Label lblStdyLvl;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Label lblConfPassword;
-        private System.Windows.Forms.TextBox txtBoxName;
-        private System.Windows.Forms.TextBox txtBoxLastName;
         private System.Windows.Forms.TextBox txtBoxUsername;
         private System.Windows.Forms.TextBox txtBoxPassword;
         private System.Windows.Forms.TextBox txtBoxConfPassword;
