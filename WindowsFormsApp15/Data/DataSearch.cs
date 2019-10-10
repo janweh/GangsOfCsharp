@@ -47,7 +47,7 @@ namespace WindowsFormsApp15.Data
         {
             string path = du.getPath(typeof(T));
             Func<string[], bool> matches = (x) => x[0].Equals(id.ToString());
-            List<string[]> matchingLines = getAllMatchingLines(matches, universitiesPath);
+            List<string[]> matchingLines = getAllMatchingLines(matches, path);
             if (matchingLines.Count == 0)
             {
                 throw new KeyNotFoundException("id did not match any id in the file.");
@@ -61,29 +61,26 @@ namespace WindowsFormsApp15.Data
 
         private T createNew<T>(string[] lines, Object o)
         {
-            T t;
             switch (o)
             {
                 case University u:
                     u = new University(lines);
-                    t = (T)Convert.ChangeType(u, typeof(T));
-                    return t;
+                    return (T)Convert.ChangeType(u, typeof(T));
                 case Course c:
                     c = new Course(lines);
-                    t = (T)Convert.ChangeType(c, typeof(T));
-                    return t;
+                    return (T)Convert.ChangeType(c, typeof(T));
                 case Major m:
                     m = new Major(lines);
-                    t = (T)Convert.ChangeType(m, typeof(T));
-                    return t;
+                    return (T)Convert.ChangeType(m, typeof(T));
                 case Rating r:
                     r = new Rating(lines);
-                    t = (T)Convert.ChangeType(r, typeof(T));
-                    return t;
+                    return (T)Convert.ChangeType(r, typeof(T));
                 case Student s:
                     s = new Student(lines);
-                    t = (T)Convert.ChangeType(s, typeof(T));
-                    return t;
+                    return (T)Convert.ChangeType(s, typeof(T));
+                case Lecturer l:
+                    l = new Lecturer(lines);
+                    return (T)Convert.ChangeType(l, typeof(T));
                 default:
                     throw new ArgumentException(message: "Object does not match any of the storable" +
                         "Entities", paramName: o.ToString());

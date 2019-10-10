@@ -15,15 +15,37 @@ namespace WindowsFormsApp15.view
     public partial class MainWindow : Form
     {
         DataSearch ds = new DataSearch();
+        SearchConditionChecker checker;
         University noSelectedUniversity;
         Major noSelectedMajor;
         Lecturer noSelectedLecturer;
+
+        public University NoSelectedUniversity { get => noSelectedUniversity; }
+        public Major NoSelectedMajor { get => noSelectedMajor; }
+        public Lecturer NoSelectedLecturer { get => noSelectedLecturer; }
+        public University GetUniversityComboBox()
+        {
+            return (University) universityComboBox.SelectedItem;
+        }
+        public Major GetMajorComboBox()
+        {
+            return (Major) majorComboBox.SelectedItem;
+        }
+        public Lecturer GetProfessorComboBox()
+        {
+            return (Lecturer) professorComboBox.SelectedItem;
+        }
+        public string GetCourseNameTextField()
+        {
+            return courseNameTextBox.Text;
+        }
+
         public MainWindow()
         {
             //AddTestData test = new AddTestData();
+            checker = new SearchConditionChecker(this);
             InitializeComponent();
             initComboBoxes();
-
         }
 
         private void initComboBoxes()
@@ -94,31 +116,19 @@ namespace WindowsFormsApp15.view
         /// <param name="e"></param>
         private void SearchButton_Click_1(object sender, EventArgs e)
         {
-            if (universityComboBox.SelectedItem == noSelectedUniversity &&
-                majorComboBox.SelectedItem == noSelectedMajor &&
-                (professorComboBox.SelectedItem == null || professorComboBox.SelectedValue == noSelectedLecturer)
-                && courseNameTextBox.Text.Equals(""))
+
+            if (checker.NoFieldsSelected())
             {
                 label9.Visible = true;
             }
-            //only university selected
-            else if (universityComboBox.SelectedItem != noSelectedUniversity && 
-                majorComboBox.SelectedItem == noSelectedMajor &&
-                (professorComboBox.SelectedItem == null || professorComboBox.SelectedValue == noSelectedLecturer)
-                && courseNameTextBox.Text.Equals(""))
+            else if (checker.OnlyUniversitySelected())
             {
-                //this is how it will work when Universities are bound to the comboBox
-                //UniSearchResultWindow results = new UniSearchResultWindow(universityComboBox.SelectedItem);
                 UniSearchResultWindow results = new UniSearchResultWindow(
                     (University) universityComboBox.SelectedItem);
                 results.Show();
                 label9.Visible = false;
             }
-            //university and major selected
-            else if (universityComboBox.SelectedItem != noSelectedUniversity && 
-                majorComboBox.SelectedItem != noSelectedMajor&&
-                (professorComboBox.SelectedItem == null || professorComboBox.SelectedValue == noSelectedLecturer) 
-                && courseNameTextBox.Text.Equals(""))
+            else if (checker.MajorAndUniversitySelected())
             {
                 CourseSearchResultWindow results = new CourseSearchResultWindow(
                     (University) universityComboBox.SelectedItem,
@@ -126,28 +136,21 @@ namespace WindowsFormsApp15.view
                 results.Show();
                 label9.Visible = false;
             }
-            //professor selected
-            else if ((professorComboBox.SelectedItem != null || 
-                professorComboBox.SelectedValue != noSelectedLecturer) &&
-                courseNameTextBox.Text.Equals(""))
+            else if (checker.ProfessorSelected())
             {
-                Object o = professorComboBox.SelectedItem;
-                ProfessorSearchResultWindow results = new ProfessorSearchResultWindow(
-                    (Lecturer) professorComboBox.SelectedItem);
+                Lecturer l= (Lecturer) professorComboBox.SelectedItem;
+                ProfessorSearchResultWindow results = new ProfessorSearchResultWindow(l);
                 results.Show();
                 label9.Visible = false;
             }
-            //only major selected
-            else if (universityComboBox.SelectedItem == noSelectedUniversity && 
-                majorComboBox.SelectedItem != noSelectedMajor &&
-                (professorComboBox.SelectedItem == null || professorComboBox.SelectedValue == noSelectedLecturer) 
-                && courseNameTextBox.Text.Equals(""))
+            else if (checker.OnlyMajorSelected())
             {
                 MajorSearchResultWindow results = new MajorSearchResultWindow(
                     (Major) majorComboBox.SelectedItem);
                 results.Show();
                 label9.Visible = false;
-            } else if (!courseNameTextBox.Text.Equals(""))
+            }
+            else if (checker.CourseNameEntered())
             {
                 CourseNameSearchResultWindow results = 
                     new CourseNameSearchResultWindow(courseNameTextBox.Text);
@@ -160,8 +163,7 @@ namespace WindowsFormsApp15.view
 
         private void UniversityComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(universityComboBox.SelectedValue != noSelectedUniversity && 
-                majorComboBox.SelectedValue != noSelectedMajor)
+            if(checker.EnableProfessor())
             {
                 List<Lecturer> lecturers = ds.getLecturersFromMajor((Major) majorComboBox.SelectedValue);
                 noSelectedLecturer = new Lecturer("", noSelectedUniversity, noSelectedMajor);
@@ -179,8 +181,7 @@ namespace WindowsFormsApp15.view
 
         private void MajorComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (universityComboBox.SelectedValue != noSelectedUniversity &&
-                majorComboBox.SelectedValue != noSelectedMajor)
+            if (checker.EnableProfessor())
             {
                 List<Lecturer> lecturers = ds.getLecturersFromMajor((Major)majorComboBox.SelectedValue);
                 noSelectedLecturer = new Lecturer("", noSelectedUniversity, noSelectedMajor);

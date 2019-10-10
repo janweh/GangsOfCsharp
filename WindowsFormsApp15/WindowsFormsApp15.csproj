@@ -81,6 +81,7 @@
     <Compile Include="view\ProfessorSearchResultWindow.Designer.cs">
       <DependentUpon>ProfessorSearchResultWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="view\SearchConditionChecker.cs" />
     <Compile Include="view\UniSearchResultWindow.cs">
       <SubType>Form</SubType>
     </Compile>

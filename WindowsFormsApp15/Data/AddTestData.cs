@@ -20,7 +20,7 @@ namespace WindowsFormsApp15.Data
             dw.store(l);
             Course c = new Course("Applied Object Oriented Programming", u, l, "WS18/19", m);
             dw.store(c);
-            Student s = new Student("TheGermanCodeMachine", "password1", "Jan Wehner", u, m,
+            Student s = new Student("TheGermanCodeMachine", "password1", u, m,
                 "business informatics", 6);
             dw.store(s);
             Rating r = new Rating(s, c, "WS19/20", 5, 4, 8, 4, 5, 5, 4, "Nice");

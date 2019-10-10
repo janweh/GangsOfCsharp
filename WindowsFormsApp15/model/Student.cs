@@ -8,7 +8,6 @@ namespace WindowsFormsApp15.model
     public class Student
     {
         private Guid studentID;
-        private string studentName;
         private University university;
         private Major major;
         private string userName;
@@ -24,8 +23,8 @@ namespace WindowsFormsApp15.model
         public Student(string[] r)
         {
             DataSearch ds = new DataSearch();
-            init(Guid.Parse(r[0]), r[1], r[2], r[3], ds.getByID<University>(Guid.Parse(r[4])),
-                ds.getByID<Major>(Guid.Parse(r[5])), r[6], Int32.Parse(r[7]));
+            init(Guid.Parse(r[0]), r[1], r[2], ds.getByID<University>(Guid.Parse(r[3])),
+                ds.getByID<Major>(Guid.Parse(r[4])), r[5], Int32.Parse(r[6]));
         }
 
         /// <summary>
@@ -40,19 +39,12 @@ namespace WindowsFormsApp15.model
         /// <param name="password">cannot be null</param>
         /// <param name="areaOfStudies">can be null</param>
         /// <param name="semester">can be null</param>
-        public Student(string userName, string password, string studentName, University university,
+        public Student(string userName, string password, University university,
             Major major, string areaOfStudies, int semester)
         {
-            init(Guid.NewGuid(), userName, password, studentName, university, major, areaOfStudies, semester);
+            init(Guid.NewGuid(), userName, password, university, major, areaOfStudies, semester);
         }
 
-        public string StudentName { get => studentName;}
-        public void setStudentName(string studentName)
-        {
-            if (studentName == null)
-                throw new ArgumentNullException("studentName cannot be set to null.");
-            this.studentName = studentName;
-        }
         public string UserName { get => userName; }
         public void setUserName(string userName)
         {
@@ -84,7 +76,7 @@ namespace WindowsFormsApp15.model
             this.currentSemester = semester;
         }
 
-        private void init(Guid studentID, string userName, string password, string studentName, University university,
+        private void init(Guid studentID, string userName, string password, University university,
             Major major, string areaOfStudies, int semester)
         {
             if (userName == null)
@@ -101,7 +93,6 @@ namespace WindowsFormsApp15.model
             this.studentID = studentID;
             this.userName = userName;
             this.password = password;
-            this.studentName = studentName;
             this.university = university;
             this.major = major;
             this.areaOfStudies = areaOfStudies;
@@ -119,7 +110,6 @@ namespace WindowsFormsApp15.model
             string info = StudentID.ToString() + ";" +
                 UserName + ";" +
                 Password + ";" +
-                StudentName + ";" +
                 University.UniversityID.ToString() + ";" +
                 Major.MajorID.ToString() + ";" +
                 AreaOfStudies + ";" +
