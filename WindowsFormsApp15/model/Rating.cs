@@ -11,14 +11,10 @@ namespace WindowsFormsApp15.model
         private Student student;
         private Course course;
 
-        //TODO: maybe make an enum out of this
+       
+        private Semester semester;
         /// <summary>
-        /// should consist of "SS" or "WS" and the year the course was taken in
-        /// E.g. "SS19" or "WS17/18"
-        /// </summary>
-        private string semester;
-        /// <summary>
-        /// score from 1-10
+        /// score from 1-5
         /// </summary>
         private int overallRating;
         private int contactHours;
@@ -58,7 +54,7 @@ namespace WindowsFormsApp15.model
         /// <param name="presentation">Number bewteen 1-5. can be null</param>
         /// <param name="comment">Number between 1-5. can be null</param>
         public Rating(Student student, Course course, 
-            string semester, int overallRating, int contactHours, int selfStudyHours, int organized, 
+            Semester semester, int overallRating, int contactHours, int selfStudyHours, int organized, 
             int learned, int interesting, int presentation, string comment)
         {
             DataSearch ds = new DataSearch();
@@ -75,12 +71,12 @@ namespace WindowsFormsApp15.model
         {
             DataSearch ds = new DataSearch();
             init(Guid.Parse(r[0]), ds.getByID<Student>(Guid.Parse(r[1])),
-                ds.getByID<Course>(Guid.Parse(r[2])), r[3], Int32.Parse(r[4]), Int32.Parse(r[5]),
-                Int32.Parse(r[6]), Int32.Parse(r[7]), Int32.Parse(r[8]), Int32.Parse(r[9]),
-                Int32.Parse(r[10]), r[11]);
+                ds.getByID<Course>(Guid.Parse(r[2])), EnumTranslator.stringToSemester[r[3]], 
+                Int32.Parse(r[4]), Int32.Parse(r[5]), Int32.Parse(r[6]), Int32.Parse(r[7]), 
+                Int32.Parse(r[8]), Int32.Parse(r[9]), Int32.Parse(r[10]), r[11]);
         }
 
-        public string Semester { get => semester; set => semester = value; }
+        public Semester Semester { get => semester; set => semester = value; }
         public int OverallRating { get => overallRating; set => overallRating = value; }
         public int ContactHours { get => contactHours; set => contactHours = value; }
         public int SelfStudyHours { get => selfStudyHours; set => selfStudyHours = value; }
@@ -107,22 +103,22 @@ namespace WindowsFormsApp15.model
         }
 
         private void init(Guid ratingID, Student student, Course course,
-            string semester, int overallRating, int contactHours, int selfStudyHours, int organized,
+            Semester semester, int overallRating, int contactHours, int selfStudyHours, int organized,
             int learned, int interesting, int presentation, string comment)
         {
             if (student == null) { throw new ArgumentNullException("student cannot be null"); }
             if (student == null) { throw new ArgumentNullException("student cannot be null"); }
             if (course == null) { throw new ArgumentNullException("course cannot be null"); }
-            if (semester == null) { throw new ArgumentNullException("semester cannot be null"); }
 
-            if (overallRating < 1 || overallRating > 10) { throw new ArgumentException("overallRating has to be between 1-10."); }
+            if (overallRating < 1 || overallRating > 5) { throw new ArgumentException("overallRating has to be between 1-10."); }
             if (contactHours < 0) { throw new ArgumentException("contactHours has to be positive"); }
             if (selfStudyHours < 0) { throw new ArgumentException("selfStudyHours has to be positive"); }
             if (organized < 1 || organized > 5) { throw new ArgumentException("organized has to be between 1-5"); }
             if (learned < 1 || learned > 5) { throw new ArgumentException("learned has to be between 1-5"); }
             if (interesting < 1 || interesting > 5) { throw new ArgumentException("interesting has to be between 1-5"); }
             if (presentation < 1 || presentation > 5) { throw new ArgumentException("presentation has to be between 1-5"); }
-            //TODO: check whether semester is smaller or equal the attribute since (semester)
+            if (semester.CompareTo(course.Since) > 0) { throw new ArgumentException(
+                "the semester the course was taken in can not be later than since when the course exists"); }
 
             this.ratingID = ratingID;
             this.student = student;

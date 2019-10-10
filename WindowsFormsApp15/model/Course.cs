@@ -12,8 +12,7 @@ namespace WindowsFormsApp15.model
         private University university;
         private Major major;
         private Lecturer lecturer;
-        private string since;
-
+        private Semester since;
 
         /// <summary>
         /// Construtor for the class Course without giving a courseID.
@@ -26,7 +25,7 @@ namespace WindowsFormsApp15.model
         /// <param name="lecturer">cannot be null</param>
         /// <param name="since">cannot be null</param>
         /// <param name="major">cannot be null</param>
-        public Course(string name, University university, Lecturer lecturer, string since, Major major)
+        public Course(string name, University university, Lecturer lecturer, Semester since, Major major)
         {
             DataSearch ds = new DataSearch();
             init(Guid.NewGuid(), name, university, lecturer, since, major);
@@ -40,18 +39,19 @@ namespace WindowsFormsApp15.model
         public Course(string[] line)
         {
             DataSearch ds = new DataSearch();
+                
             init(Guid.Parse(line[0]), line[1], ds.getByID<University>(Guid.Parse(line[2])),
-                ds.getByID<Lecturer>(Guid.Parse(line[3])), line[4], ds.getByID<Major>(Guid.Parse(line[5])));
+                ds.getByID<Lecturer>(Guid.Parse(line[3])), EnumTranslator.stringToSemester[line[4]], ds.getByID<Major>(Guid.Parse(line[5])));
         }
 
         public string Name { get => courseName; }
-        public string Since { get => since; }
+        public Semester Since { get => since; }
         public University University { get => university; }
         public Lecturer Lecturer { get => lecturer; }
         public Major Major { get => major; }
         public Guid CourseID { get => courseID; }
 
-        private void init(Guid courseID, string name, University university, Lecturer lecturer, string since, Major major)
+        private void init(Guid courseID, string name, University university, Lecturer lecturer, Semester since, Major major)
         {
             if (name == null)
                 throw new ArgumentNullException("name cannot be null.");
@@ -59,8 +59,6 @@ namespace WindowsFormsApp15.model
                 throw new ArgumentNullException("university cannot be null.");
             if (lecturer == null)
                 throw new ArgumentNullException("lecturer cannot be null.");
-            if (since == null)
-                throw new ArgumentNullException("since cannot be null.");
             if (major == null)
                 throw new ArgumentNullException("major cannot be null.");
 
@@ -83,7 +81,7 @@ namespace WindowsFormsApp15.model
                 Name + ";" +
                 University.UniversityID.ToString() + ";" +
                 Lecturer.LecturerID.ToString() + ";" +
-                Since + ";" +
+                EnumTranslator.semesterToString[Since] + ";" +
                 Major.MajorID.ToString() + "\n";
             return resultString;
         }
