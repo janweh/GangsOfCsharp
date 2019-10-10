@@ -146,7 +146,7 @@ namespace WindowsFormsApp15.model
             string info = RatingID.ToString() + ";" +
                 Student.StudentID.ToString() + ";" +
                 Course.CourseID.ToString() + ";" +
-                Semester + ";" +
+                EnumTranslator.semesterToString[Semester] + ";" +
                 OverallRating.ToString() + ";" +
                 ContactHours.ToString() + ";" +
                 SelfStudyHours.ToString() + ";" +

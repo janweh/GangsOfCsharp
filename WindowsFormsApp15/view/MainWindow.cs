@@ -43,6 +43,8 @@ namespace WindowsFormsApp15.view
         public MainWindow()
         {
             TestData test = new TestData();
+            //test.DeleteAllTestData();
+            //test.AddData();
             checker = new SearchConditionChecker(this);
             InitializeComponent();
             initComboBoxes();
