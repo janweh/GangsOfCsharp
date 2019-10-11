@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp15
+﻿namespace WindowsFormsApp15.view
 {
     partial class MainWindow
     {

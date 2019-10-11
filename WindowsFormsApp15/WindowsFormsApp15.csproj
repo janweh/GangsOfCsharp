@@ -52,8 +52,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\AddTestData.cs" />
     <Compile Include="Data\DataSearch.cs" />
+    <Compile Include="Data\DataUtility.cs" />
+    <Compile Include="Data\DataWriter.cs" />
+    <Compile Include="model\Course.cs" />
+    <Compile Include="model\EnumTranslator.cs" />
+    <Compile Include="model\Lecturer.cs" />
     <Compile Include="model\Major.cs" />
+    <Compile Include="model\Rating.cs" />
+    <Compile Include="model\Semester.cs" />
+    <Compile Include="model\Student.cs" />
+    <Compile Include="model\University.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="view\CourseNameSearchResultWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,17 +84,11 @@
     <Compile Include="view\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\RatingCourseWindow.cs">
+    <Compile Include="view\MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\RatingCourseWindow.Designer.cs">
-      <DependentUpon>RatingCourseWindow.cs</DependentUpon>
-    </Compile>
-    <Compile Include="view\SignUpWindow.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="view\SignUpWindow.Designer.cs">
-      <DependentUpon>SignUpWindow.cs</DependentUpon>
+    <Compile Include="view\MainWindow.Designer.cs">
+      <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="view\MajorSearchResultWindow.cs">
       <SubType>Form</SubType>
@@ -96,43 +102,25 @@
     <Compile Include="view\ProfessorSearchResultWindow.Designer.cs">
       <DependentUpon>ProfessorSearchResultWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="view\RatingCourseWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\RatingCourseWindow.Designer.cs">
+      <DependentUpon>RatingCourseWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\SearchConditionChecker.cs" />
+    <Compile Include="view\SignUpWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\SignUpWindow.Designer.cs">
+      <DependentUpon>SignUpWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\UniSearchResultWindow.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="view\UniSearchResultWindow.Designer.cs">
       <DependentUpon>UniSearchResultWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\MainWindow.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="view\MainWindow.Designer.cs">
-      <DependentUpon>MainWindow.cs</DependentUpon>
-    </Compile>
-    <Compile Include="model\Course.cs" />
-    <Compile Include="model\Lecturer.cs" />
-    <Compile Include="model\Rating.cs" />
-    <Compile Include="model\Student.cs" />
-    <Compile Include="model\University.cs" />
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="view\CourseNameSearchResultWindow.resx">
-      <DependentUpon>CourseNameSearchResultWindow.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="view\CourseSearchResultWindow.resx">
-      <DependentUpon>CourseSearchResultWindow.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="view\LoginForm.resx">
-      <DependentUpon>LoginForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="view\RatingCourseWindow.resx">
-      <DependentUpon>RatingCourseWindow.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="view\SignUpWindow.resx">
-      <DependentUpon>SignUpWindow.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="view\MainWindow.resx">
-      <DependentUpon>MainWindow.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -142,11 +130,29 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="view\CourseNameSearchResultWindow.resx">
+      <DependentUpon>CourseNameSearchResultWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\CourseSearchResultWindow.resx">
+      <DependentUpon>CourseSearchResultWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\MainWindow.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="view\MajorSearchResultWindow.resx">
       <DependentUpon>MajorSearchResultWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\ProfessorSearchResultWindow.resx">
       <DependentUpon>ProfessorSearchResultWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\RatingCourseWindow.resx">
+      <DependentUpon>RatingCourseWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\SignUpWindow.resx">
+      <DependentUpon>SignUpWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\UniSearchResultWindow.resx">
       <DependentUpon>UniSearchResultWindow.cs</DependentUpon>
@@ -172,6 +178,8 @@
     <Content Include="Data\MajorStorage.txt" />
     <Content Include="Data\RatingStorage.txt" />
     <Content Include="Data\StudentStorage.txt" />
+    <Content Include="Data\System.Data.SQLite_DLL\System.Data.SQLite.dll" />
+    <Content Include="Data\System.Data.SQLite_DLL\System.Data.SQLite.xml" />
     <Content Include="Data\UniversityStorage.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
