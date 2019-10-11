@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WindowsFormsApp15.model;
 
-namespace WindowsFormsApp15.Data 
+namespace WindowsFormsApp15.Data
 {
     class TestData
     {
