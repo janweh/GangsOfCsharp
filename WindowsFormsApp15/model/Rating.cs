@@ -120,6 +120,7 @@ namespace WindowsFormsApp15.model
             if (semester.CompareTo(course.Since) > 0) { throw new ArgumentException(
                 "the semester the course was taken in can not be later than since when the course exists"); }
 
+
             this.ratingID = ratingID;
             this.student = student;
             this.course = course;
