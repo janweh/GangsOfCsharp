@@ -203,5 +203,17 @@ namespace WindowsFormsApp15.view
         {
 
         }
+
+        private void LoginButton_Click(object sender, EventArgs e)
+        {
+            LoginForm lf = new LoginForm();
+            lf.Show();
+        }
+
+        private void RegisterButton_Click(object sender, EventArgs e)
+        {
+            SignUpWindow suw = new SignUpWindow();
+            suw.Show();
+        }
     }
 }
