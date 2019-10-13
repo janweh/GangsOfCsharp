@@ -1,4 +1,6 @@
-﻿namespace WindowsFormsApp15.view
+﻿using WindowsFormsApp15.model;
+
+namespace WindowsFormsApp15.view
 {
     partial class UniSearchResultWindow
     {
@@ -94,7 +96,7 @@
             // 
             // majorBindingSource
             // 
-            this.majorBindingSource.DataSource = typeof(GangsOfCsharp.Major);
+            this.majorBindingSource.DataSource = typeof(Major);
             // 
             // UniSearchResultWindow
             // 

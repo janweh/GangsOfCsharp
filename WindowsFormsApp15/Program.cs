@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp15.model;
+using WindowsFormsApp15.view;
 
 namespace WindowsFormsApp15
 {

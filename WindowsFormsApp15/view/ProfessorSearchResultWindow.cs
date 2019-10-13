@@ -1,8 +1,8 @@
-﻿using GangsOfCsharp;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
+using WindowsFormsApp15.Data;
 using WindowsFormsApp15.model;
 
 namespace WindowsFormsApp15.view
@@ -41,7 +41,7 @@ namespace WindowsFormsApp15.view
                 }
                 else
                 {
-                    row[1] = t.Item1.ToString("0.0") + "/10";
+                    row[1] = t.Item1.ToString("0.0") + "/5";
                 }
                 row[2] = t.Item2;
                 row[3] = course.Major.Name;

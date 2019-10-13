@@ -1,11 +1,11 @@
-﻿using System;
+﻿using System; 
 using System.Collections.Generic;
 
-namespace GangsOfCsharp
+namespace WindowsFormsApp15.model
 {
     public class University
     {
-        private int universityID;
+        private Guid universityID;
         private string universityName;
 
         /// <summary>
@@ -16,30 +16,47 @@ namespace GangsOfCsharp
         /// <param name="name">cannot be null</param>
         public University(string name)
         {
-            WindowsFormsApp15.model.DataSearch ds = new WindowsFormsApp15.model.DataSearch();
-            init(ds.getNextUniversityID(), name);
+            WindowsFormsApp15.Data.DataSearch ds = new WindowsFormsApp15.Data.DataSearch();
+            init(Guid.NewGuid(), name);
         }
 
         /// <summary>
-        /// Constructor for the class University with a manually assigned ID.
-        /// Should be used when recreating an object from the datafile
-        /// <param name="universityID">cannot be null</param>
-        /// <param name="name">cannot be null</param>
-        public University(int universityID, string name)
+        /// Constructs a new Entity of University from a line from the datafiles.
+        /// Should only be used when creating objects from files!
+        /// </summary>
+        /// <param name="line"></param>
+        public University(string[] line)
         {
-            init(universityID, name);
+            init(Guid.Parse(line[0]), line[1]);
         }
 
         public string UniversityName { get => universityName; }
-        public int UniversityID { get => universityID; }
+        public Guid UniversityID { get => universityID; }
 
-        private void init(int universityID, string name)
+        private void init(Guid universityID, string name)
         {
             if (name == null)
                 throw new ArgumentNullException("name cannot be null.");
 
             this.universityName = name;
             this.universityID = universityID;
+        }
+
+        /// <summary>
+        /// Returns a string containing the objects properties in the format:
+        /// "universityID;universityName".
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            string info = UniversityID.ToString() + ";" +
+                UniversityName + "\n";
+            return info;
+        }
+
+        public University()
+        {
+
         }
     }
 }
