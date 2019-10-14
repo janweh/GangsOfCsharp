@@ -37,6 +37,7 @@
             this.universitiesButton = new System.Windows.Forms.Button();
             this.homeButton = new System.Windows.Forms.Button();
             this.topHeaderPanel = new System.Windows.Forms.Panel();
+            this.openRatingLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.registerButton = new System.Windows.Forms.Button();
@@ -184,6 +185,7 @@
             // topHeaderPanel
             // 
             this.topHeaderPanel.BackColor = System.Drawing.Color.SteelBlue;
+            this.topHeaderPanel.Controls.Add(this.openRatingLabel);
             this.topHeaderPanel.Controls.Add(this.label2);
             this.topHeaderPanel.Controls.Add(this.label1);
             this.topHeaderPanel.Controls.Add(this.registerButton);
@@ -195,6 +197,16 @@
             this.topHeaderPanel.Size = new System.Drawing.Size(900, 115);
             this.topHeaderPanel.TabIndex = 1;
             this.topHeaderPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.TopHeaderPanel_Paint);
+            // 
+            // openRatingLabel
+            // 
+            this.openRatingLabel.AutoSize = true;
+            this.openRatingLabel.Location = new System.Drawing.Point(41, 53);
+            this.openRatingLabel.Name = "openRatingLabel";
+            this.openRatingLabel.Size = new System.Drawing.Size(99, 20);
+            this.openRatingLabel.TabIndex = 5;
+            this.openRatingLabel.Text = "Open Rating";
+            this.openRatingLabel.Click += new System.EventHandler(this.OpenRatingLabel_Click);
             // 
             // label2
             // 
@@ -485,6 +497,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox universityComboBox;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label openRatingLabel;
     }
 }
 

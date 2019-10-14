@@ -45,7 +45,6 @@ namespace WindowsFormsApp15.view
             TestData test = new TestData();
             //test.DeleteAllTestData();
             //test.AddData();
-            checker = new SearchConditionChecker(this);
             InitializeComponent();
             initComboBoxes();
         }
@@ -118,7 +117,7 @@ namespace WindowsFormsApp15.view
         /// <param name="e"></param>
         private void SearchButton_Click_1(object sender, EventArgs e)
         {
-             
+            checker = new SearchConditionChecker(this);
             if (checker.NoFieldsSelected())
             {
                 label9.Visible = true;
@@ -214,6 +213,15 @@ namespace WindowsFormsApp15.view
         {
             SignUpWindow suw = new SignUpWindow();
             suw.Show();
+        }
+
+        private void OpenRatingLabel_Click(object sender, EventArgs e)
+        {
+
+            RatingCourseWindow rcw = new RatingCourseWindow(
+                ds.getByID<Student>(Guid.Parse("313ae01f-07b8-4e5e-b113-77437e93fc79")),
+                ds.getByID<Course>(Guid.Parse("cfadaa5c-7da2-402c-a7fc-2eb6be380ff2")));
+            rcw.Show();
         }
     }
 }
