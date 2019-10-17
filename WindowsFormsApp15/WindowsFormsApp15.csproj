@@ -56,6 +56,7 @@
     <Compile Include="Data\DataSearch.cs" />
     <Compile Include="Data\DataUtility.cs" />
     <Compile Include="Data\DataWriter.cs" />
+    <Compile Include="Data\DuplicateDataException.cs" />
     <Compile Include="model\Course.cs" />
     <Compile Include="model\EnumTranslator.cs" />
     <Compile Include="model\Lecturer.cs" />
@@ -105,7 +106,7 @@
     <Compile Include="view\RatingCourseWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\RatingCourseWindow.Designer.cs">
+    <Compile Include="view\RatingCourseWindow.designer.cs">
       <DependentUpon>RatingCourseWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="view\SearchConditionChecker.cs" />

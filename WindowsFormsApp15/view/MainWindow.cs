@@ -25,15 +25,15 @@ namespace WindowsFormsApp15.view
         public Lecturer NoSelectedLecturer { get => noSelectedLecturer; }
         public University GetUniversityComboBox()
         {
-            return (University) universityComboBox.SelectedItem;
+            return (University)universityComboBox.SelectedItem;
         }
         public Major GetMajorComboBox()
         {
-            return (Major) majorComboBox.SelectedItem;
+            return (Major)majorComboBox.SelectedItem;
         }
         public Lecturer GetProfessorComboBox()
         {
-            return (Lecturer) professorComboBox.SelectedItem;
+            return (Lecturer)professorComboBox.SelectedItem;
         }
         public string GetCourseNameTextField()
         {
@@ -118,7 +118,6 @@ namespace WindowsFormsApp15.view
         /// <param name="e"></param>
         private void SearchButton_Click_1(object sender, EventArgs e)
         {
-             
             if (checker.NoFieldsSelected())
             {
                 label9.Visible = true;
@@ -126,21 +125,21 @@ namespace WindowsFormsApp15.view
             else if (checker.OnlyUniversitySelected())
             {
                 UniSearchResultWindow results = new UniSearchResultWindow(
-                    (University) universityComboBox.SelectedItem);
+                    (University)universityComboBox.SelectedItem);
                 results.Show();
                 label9.Visible = false;
             }
             else if (checker.MajorAndUniversitySelected())
             {
                 CourseSearchResultWindow results = new CourseSearchResultWindow(
-                    (University) universityComboBox.SelectedItem,
-                    (Major) majorComboBox.SelectedItem);
+                    (University)universityComboBox.SelectedItem,
+                    (Major)majorComboBox.SelectedItem);
                 results.Show();
                 label9.Visible = false;
             }
             else if (checker.ProfessorSelected())
             {
-                Lecturer l= (Lecturer) professorComboBox.SelectedItem;
+                Lecturer l = (Lecturer)professorComboBox.SelectedItem;
                 ProfessorSearchResultWindow results = new ProfessorSearchResultWindow(l);
                 results.Show();
                 label9.Visible = false;
@@ -148,13 +147,13 @@ namespace WindowsFormsApp15.view
             else if (checker.OnlyMajorSelected())
             {
                 MajorSearchResultWindow results = new MajorSearchResultWindow(
-                    (Major) majorComboBox.SelectedItem);
+                    (Major)majorComboBox.SelectedItem);
                 results.Show();
                 label9.Visible = false;
             }
             else if (checker.CourseNameEntered())
             {
-                CourseNameSearchResultWindow results = 
+                CourseNameSearchResultWindow results =
                     new CourseNameSearchResultWindow(courseNameTextBox.Text);
                 results.Show();
                 label9.Visible = false;
@@ -165,9 +164,9 @@ namespace WindowsFormsApp15.view
 
         private void UniversityComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(checker.EnableProfessor())
+            if (checker.EnableProfessor())
             {
-                List<Lecturer> lecturers = ds.getLecturersFromMajor((Major) majorComboBox.SelectedValue);
+                List<Lecturer> lecturers = ds.getLecturersFromMajor((Major)majorComboBox.SelectedValue);
                 noSelectedLecturer = new Lecturer("", noSelectedUniversity, noSelectedMajor);
                 lecturers.Insert(0, noSelectedLecturer);
                 professorComboBox.DataSource = lecturers;
@@ -215,6 +214,16 @@ namespace WindowsFormsApp15.view
             SignUpWindow suw = new SignUpWindow();
             suw.Show();
         }
+
+        private void OpenRatingLabel_Click(object sender, EventArgs e)
+        {
+
+            RatingCourseWindow rcw = new RatingCourseWindow(
+                ds.getByID<Student>(Guid.Parse("313ae01f-07b8-4e5e-b113-77437e93fc79")),
+                ds.getByID<Course>(Guid.Parse("cfadaa5c-7da2-402c-a7fc-2eb6be380ff2")));
+            rcw.Show();
+        }
+    
         Point lastPoint;
         private void topHeaderPanel_MouseMove(object sender, MouseEventArgs e)
         {

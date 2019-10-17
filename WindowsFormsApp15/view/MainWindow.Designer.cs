@@ -58,6 +58,7 @@
             this.majorComboBox = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.universityComboBox = new System.Windows.Forms.ComboBox();
+            this.openRatingLabel = new System.Windows.Forms.Label();
             this.leftSidebarPanel.SuspendLayout();
             this.topHeaderPanel.SuspendLayout();
             this.bottomGangsOfCsharpPanel.SuspendLayout();
@@ -179,6 +180,7 @@
             // topHeaderPanel
             // 
             this.topHeaderPanel.BackColor = System.Drawing.Color.SteelBlue;
+            this.topHeaderPanel.Controls.Add(this.openRatingLabel);
             this.topHeaderPanel.Controls.Add(this.label2);
             this.topHeaderPanel.Controls.Add(this.label1);
             this.topHeaderPanel.Controls.Add(this.registerButton);
@@ -191,6 +193,16 @@
             this.topHeaderPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.TopHeaderPanel_Paint);
             this.topHeaderPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.topHeaderPanel_MouseDown);
             this.topHeaderPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.topHeaderPanel_MouseMove);
+            // 
+            // openRatingLabel
+            // 
+            this.openRatingLabel.AutoSize = true;
+            this.openRatingLabel.Location = new System.Drawing.Point(41, 53);
+            this.openRatingLabel.Name = "openRatingLabel";
+            this.openRatingLabel.Size = new System.Drawing.Size(99, 20);
+            this.openRatingLabel.TabIndex = 5;
+            this.openRatingLabel.Text = "Open Rating";
+            this.openRatingLabel.Click += new System.EventHandler(this.OpenRatingLabel_Click);
             // 
             // label2
             // 
@@ -415,7 +427,7 @@
             // 
             // MainWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F); 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 481);
             this.Controls.Add(this.overallSearchPanel);
@@ -470,6 +482,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox universityComboBox;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label openRatingLabel;
+
     }
 }
 
