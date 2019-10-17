@@ -11,7 +11,7 @@ namespace WindowsFormsApp15.model
         private Student student;
         private Course course;
 
-       
+
         private Semester semester;
         /// <summary>
         /// score from 1-5
@@ -37,6 +37,8 @@ namespace WindowsFormsApp15.model
         private int presentation;
         private string comment;
 
+        private DataSearch ds;
+
         /// <summary>
         /// Constructor for the class Rating without giving a ratingID.
         /// ID will be generated automatically.
@@ -53,11 +55,11 @@ namespace WindowsFormsApp15.model
         /// <param name="interesting">Number between 1-5. can be null</param>
         /// <param name="presentation">Number bewteen 1-5. can be null</param>
         /// <param name="comment">Number between 1-5. can be null</param>
-        public Rating(Student student, Course course, 
-            Semester semester, int overallRating, int contactHours, int selfStudyHours, int organized, 
+        public Rating(Student student, Course course,
+            Semester semester, int overallRating, int contactHours, int selfStudyHours, int organized,
             int learned, int interesting, int presentation, string comment)
         {
-            DataSearch ds = new DataSearch();
+            ds = new DataSearch();
             init(Guid.NewGuid(), student, course, semester, overallRating, contactHours, selfStudyHours,
                 organized, learned, interesting, presentation, comment);
         }
@@ -69,10 +71,10 @@ namespace WindowsFormsApp15.model
         /// <param name="line"></param>
         public Rating(string[] r)
         {
-            DataSearch ds = new DataSearch();
+            ds = new DataSearch();
             init(Guid.Parse(r[0]), ds.getByID<Student>(Guid.Parse(r[1])),
-                ds.getByID<Course>(Guid.Parse(r[2])), EnumTranslator.stringToSemester[r[3]], 
-                Int32.Parse(r[4]), Int32.Parse(r[5]), Int32.Parse(r[6]), Int32.Parse(r[7]), 
+                ds.getByID<Course>(Guid.Parse(r[2])), EnumTranslator.stringToSemester[r[3]],
+                Int32.Parse(r[4]), Int32.Parse(r[5]), Int32.Parse(r[6]), Int32.Parse(r[7]),
                 Int32.Parse(r[8]), Int32.Parse(r[9]), Int32.Parse(r[10]), r[11]);
         }
 
@@ -117,8 +119,17 @@ namespace WindowsFormsApp15.model
             if (learned < 1 || learned > 5) { throw new ArgumentException("learned has to be between 1-5"); }
             if (interesting < 1 || interesting > 5) { throw new ArgumentException("interesting has to be between 1-5"); }
             if (presentation < 1 || presentation > 5) { throw new ArgumentException("presentation has to be between 1-5"); }
-            if (semester.CompareTo(course.Since) > 0) { throw new ArgumentException(
-                "the semester the course was taken in can not be later than since when the course exists"); }
+            if (semester.CompareTo(course.Since) > 0)
+            {
+                throw new ArgumentException(
+"the semester the course was taken in can not be later than since when the course exists");
+            }
+            Func<string[], bool> condition = (x) => (x[1].Equals(student.StudentID.ToString()) &&
+                x[2].Equals(course.CourseID.ToString()));
+            if (ds.ObjectExists<Rating>(condition))
+            {
+                throw new DuplicateDataException("This student has already given a Rating to this course!");
+            }
 
 
             this.ratingID = ratingID;

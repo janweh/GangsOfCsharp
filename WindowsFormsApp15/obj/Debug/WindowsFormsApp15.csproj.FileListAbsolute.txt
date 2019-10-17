@@ -17,7 +17,6 @@ C:\Users\janwe\Source\Repos\GangsOfCsharp\WindowsFormsApp15\obj\Debug\WindowsFor
 C:\Users\janwe\source\repos\GangsOfCsharp\WindowsFormsApp15\bin\Debug\WindowsFormsApp15.exe.config
 C:\Users\janwe\source\repos\GangsOfCsharp\WindowsFormsApp15\bin\Debug\WindowsFormsApp15.exe
 C:\Users\janwe\source\repos\GangsOfCsharp\WindowsFormsApp15\bin\Debug\WindowsFormsApp15.pdb
-C:\Users\janwe\source\repos\GangsOfCsharp\WindowsFormsApp15\obj\Debug\WindowsFormsApp15.MainWindow.resources
 C:\Users\janwe\source\repos\GangsOfCsharp\WindowsFormsApp15\bin\Debug\System.Data.SQLite.dll
 C:\Users\janwe\source\repos\GangsOfCsharp\WindowsFormsApp15\bin\Debug\System.Data.SQLite.xml
 C:\Users\janwe\source\repos\GangsOfCsharp\WindowsFormsApp15\bin\Debug\System.Data.SQLite.dll.config
@@ -92,3 +91,7 @@ C:\Users\Brn\Source\Repos\GangsOfCsharp1\WindowsFormsApp15\obj\Debug\WindowsForm
 C:\Users\Brn\Source\Repos\GangsOfCsharp1\WindowsFormsApp15\obj\Debug\WindowsFormsApp15.csproj.CopyComplete
 C:\Users\Brn\Source\Repos\GangsOfCsharp1\WindowsFormsApp15\obj\Debug\WindowsFormsApp15.exe
 C:\Users\Brn\Source\Repos\GangsOfCsharp1\WindowsFormsApp15\obj\Debug\WindowsFormsApp15.pdb
+C:\Users\janwe\Source\Repos\GangsOfCsharp\WindowsFormsApp15\obj\Debug\WindowsFormsApp15.view.LoginForm.resources
+C:\Users\janwe\Source\Repos\GangsOfCsharp\WindowsFormsApp15\obj\Debug\WindowsFormsApp15.view.MainWindow.resources
+C:\Users\janwe\Source\Repos\GangsOfCsharp\WindowsFormsApp15\obj\Debug\WindowsFormsApp15.view.RatingCourseWindow.resources
+C:\Users\janwe\Source\Repos\GangsOfCsharp\WindowsFormsApp15\obj\Debug\WindowsFormsApp15.view.SignUpWindow.resources
