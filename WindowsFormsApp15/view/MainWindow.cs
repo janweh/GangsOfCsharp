@@ -45,6 +45,7 @@ namespace WindowsFormsApp15.view
             TestData test = new TestData();
             //test.DeleteAllTestData();
             //test.AddData();
+            checker = new SearchConditionChecker(this);
             InitializeComponent();
             initComboBoxes();
         }
@@ -117,7 +118,6 @@ namespace WindowsFormsApp15.view
         /// <param name="e"></param>
         private void SearchButton_Click_1(object sender, EventArgs e)
         {
-            checker = new SearchConditionChecker(this);
             if (checker.NoFieldsSelected())
             {
                 label9.Visible = true;

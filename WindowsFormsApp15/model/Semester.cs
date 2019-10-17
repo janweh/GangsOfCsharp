@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,7 @@ namespace WindowsFormsApp15.model
 {
     public enum Semester
     {
+        [Description("Wintersemester 2019 2020")]
         WS1920, SS19,
         WS1819, SS18,
         WS1718, SS17,

@@ -50,58 +50,63 @@ namespace WindowsFormsApp15.view
         private void BtnSend_Click(object sender, EventArgs e)
         {
             if (!checkFields()) {return; }
-            Rating givenRating = new Rating(student, course, 
-                EnumTranslator.stringToSemester[(string) cmbBoxSemester.SelectedItem],
-                getRating(overallBoxes), (int) nupdContactHours.Value, (int) nupdSelfStudyHours.Value,
-                getRating(organizedBoxes), getRating(learnedBoxes), getRating(interestingBoxes),
-                getRating(presetedBoxes), txtBoxComments.Text);
-            DataWriter dw = new DataWriter();
-            dw.store(givenRating);
-
+            try
+            {
+                Rating givenRating = new Rating(student, course,
+                    EnumTranslator.stringToSemester[(string)cmbBoxSemester.SelectedItem],
+                    getRating(overallBoxes), (int)nupdContactHours.Value, (int)nupdSelfStudyHours.Value,
+                    getRating(organizedBoxes), getRating(learnedBoxes), getRating(interestingBoxes),
+                    getRating(presetedBoxes), txtBoxComments.Text);
+                DataWriter dw = new DataWriter();
+                dw.store(givenRating);
+                this.Close();
+            }
+            catch (DuplicateDataException)
+            {
+                MessageBox.Show("You have already rated this course.", "DuplicateDataException");
+            }
         }
 
         private bool checkFields()
         {
-            if (cmbBoxSemester.SelectedItem == null)
+            if (!countRatings(overallBoxes))
             {
-                errorLabel.Text = "Please select the semester when you attended this course.";
-                errorLabel.Visible = true;
+                MessageBox.Show("There has to be one Rating for how well the course was overall!");
+                return false;
+            }
+            else if (cmbBoxSemester.SelectedItem == null)
+            {
+                MessageBox.Show("Please select the semester when you attended this course.");
                 return false;
             }
             else if (nupdContactHours.Value < 0)
             {
-                errorLabel.Text = "The amount of contact hours has to be positive!";
-                errorLabel.Visible = true;
+                MessageBox.Show("The amount of contact hours has to be positive!");
                 return false;
             }
             else if (nupdSelfStudyHours.Value < 0)
             {
-                errorLabel.Text = "The amount of self study hours has to be positive!";
-                errorLabel.Visible = true;
+                MessageBox.Show("The amount of self study hours has to be positive!");
                 return false;
             }
             else if (!countRatings(organizedBoxes))
             {
-                errorLabel.Text = "There has to be one Rating for how well the course was organized!";
-                errorLabel.Visible = true;
+                MessageBox.Show("There has to be one Rating for how well the course was organized!");
                 return false;
             }
             else if (!countRatings(learnedBoxes))
             {
-                errorLabel.Text = "There has to be one Rating for how much you learned in this course!";
-                errorLabel.Visible = true;
+                MessageBox.Show("There has to be one Rating for how much you learned in this course!");
                 return false;
             }
             else if (!countRatings(interestingBoxes))
             {
-                errorLabel.Text = "There has to be one Rating for how interesting you found the course!!";
-                errorLabel.Visible = true;
+                MessageBox.Show("There has to be one Rating for how interesting you found the course!");
                 return false;
             }
             else if (!countRatings(presetedBoxes))
             {
-                errorLabel.Text = "There has to be one Rating for how well the lecturer presented the subject!!";
-                errorLabel.Visible = true;
+                MessageBox.Show("There has to be one Rating for how well the lecturer presented the subject!");
                 return false;
             }
             return true;

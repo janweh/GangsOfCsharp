@@ -108,6 +108,19 @@ namespace WindowsFormsApp15.Data
         }
 
         /// <summary>
+        /// Returns wether a object with the specified conditions exists in the files.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="condition"></param>
+        /// <returns></returns>
+        public bool ObjectExists<T>(Func<string[], bool> condition)
+        {
+            string path = du.getPath(typeof(T));
+            List<string[]> matchingLines = getAllMatchingLines(condition, path);
+            return matchingLines.Count > 0;
+        }
+
+        /// <summary>
         /// Finds all universities which offer a certain major.
         /// </summary>
         /// <param name="major"></param>
