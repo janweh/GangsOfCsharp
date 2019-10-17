@@ -38,7 +38,6 @@ C:\Users\dgdam\Source\Repos\GangsOfCsharp\WindowsFormsApp15\obj\Debug\WindowsFor
 C:\Users\dgdam\Source\Repos\GangsOfCsharp\WindowsFormsApp15\obj\Debug\WindowsFormsApp15.view.CourseSearchResultWindow.resources
 C:\Users\dgdam\Source\Repos\GangsOfCsharp\WindowsFormsApp15\obj\Debug\WindowsFormsApp15.view.LoginForm.resources
 C:\Users\dgdam\Source\Repos\GangsOfCsharp\WindowsFormsApp15\obj\Debug\WindowsFormsApp15.view.SignUpWindow.resources
-C:\Users\dgdam\Source\Repos\GangsOfCsharp\WindowsFormsApp15\obj\Debug\WindowsFormsApp15.MainWindow.resources
 C:\Users\dgdam\Source\Repos\GangsOfCsharp\WindowsFormsApp15\obj\Debug\WindowsFormsApp15.Properties.Resources.resources
 C:\Users\dgdam\Source\Repos\GangsOfCsharp\WindowsFormsApp15\obj\Debug\WindowsFormsApp15.view.MajorSearchResultWindow.resources
 C:\Users\dgdam\Source\Repos\GangsOfCsharp\WindowsFormsApp15\obj\Debug\WindowsFormsApp15.view.ProfessorSearchResultWindow.resources
@@ -71,3 +70,5 @@ C:\Users\janwe\Source\Repos\GangsOfCsharpMaster\WindowsFormsApp15\bin\Debug\Syst
 C:\Users\janwe\Source\Repos\GangsOfCsharpMaster\WindowsFormsApp15\bin\Debug\System.Data.SQLite.xml
 C:\Users\janwe\Source\Repos\GangsOfCsharpMaster\WindowsFormsApp15\bin\Debug\System.Data.SQLite.dll.config
 C:\Users\janwe\Source\Repos\GangsOfCsharpMaster\WindowsFormsApp15\obj\Debug\WindowsFormsApp15.csproj.CopyComplete
+C:\Users\dgdam\Source\Repos\GangsOfCsharp\WindowsFormsApp15\obj\Debug\WindowsFormsApp15.view.MainWindow.resources
+C:\Users\dgdam\Source\Repos\GangsOfCsharp\WindowsFormsApp15\obj\Debug\WindowsFormsApp15.view.UserControl1.resources

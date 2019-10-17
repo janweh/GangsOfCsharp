@@ -48,6 +48,7 @@ namespace WindowsFormsApp15.view
             checker = new SearchConditionChecker(this);
             InitializeComponent();
             initComboBoxes();
+          
         }
 
         private void initComboBoxes()
@@ -80,7 +81,7 @@ namespace WindowsFormsApp15.view
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+           
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
