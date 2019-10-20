@@ -37,6 +37,7 @@
             this.universitiesButton = new System.Windows.Forms.Button();
             this.homeButton = new System.Windows.Forms.Button();
             this.topHeaderPanel = new System.Windows.Forms.Panel();
+            this.openCourseViewLabel = new System.Windows.Forms.Label();
             this.openRatingLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -185,6 +186,7 @@
             // topHeaderPanel
             // 
             this.topHeaderPanel.BackColor = System.Drawing.Color.SteelBlue;
+            this.topHeaderPanel.Controls.Add(this.openCourseViewLabel);
             this.topHeaderPanel.Controls.Add(this.openRatingLabel);
             this.topHeaderPanel.Controls.Add(this.label2);
             this.topHeaderPanel.Controls.Add(this.label1);
@@ -197,6 +199,16 @@
             this.topHeaderPanel.Size = new System.Drawing.Size(900, 115);
             this.topHeaderPanel.TabIndex = 1;
             this.topHeaderPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.TopHeaderPanel_Paint);
+            // 
+            // openCourseViewLabel
+            // 
+            this.openCourseViewLabel.AutoSize = true;
+            this.openCourseViewLabel.Location = new System.Drawing.Point(171, 52);
+            this.openCourseViewLabel.Name = "openCourseViewLabel";
+            this.openCourseViewLabel.Size = new System.Drawing.Size(137, 20);
+            this.openCourseViewLabel.TabIndex = 6;
+            this.openCourseViewLabel.Text = "Open CourseView";
+            this.openCourseViewLabel.Click += new System.EventHandler(this.OpenCourseViewLabel_Click);
             // 
             // openRatingLabel
             // 
@@ -498,6 +510,7 @@
         private System.Windows.Forms.ComboBox universityComboBox;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label openRatingLabel;
+        private System.Windows.Forms.Label openCourseViewLabel;
     }
 }
 

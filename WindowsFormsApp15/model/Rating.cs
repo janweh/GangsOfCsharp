@@ -60,6 +60,13 @@ namespace WindowsFormsApp15.model
             int learned, int interesting, int presentation, string comment)
         {
             ds = new DataSearch();
+
+            Func<string[], bool> condition = (x) => (x[1].Equals(student.StudentID.ToString()) &&
+                x[2].Equals(course.CourseID.ToString()));
+            if (ds.ObjectExists<Rating>(condition))
+            {
+                throw new DuplicateDataException("This student has already given a Rating to this course!");
+            }
             init(Guid.NewGuid(), student, course, semester, overallRating, contactHours, selfStudyHours,
                 organized, learned, interesting, presentation, comment);
         }
@@ -121,12 +128,7 @@ namespace WindowsFormsApp15.model
             if (presentation < 1 || presentation > 5) { throw new ArgumentException("presentation has to be between 1-5"); }
             if (semester.CompareTo(course.Since) > 0) { throw new ArgumentException(
                 "the semester the course was taken in can not be later than since when the course exists"); }
-            Func<string[], bool> condition = (x) => (x[1].Equals(student.StudentID.ToString()) &&
-                x[2].Equals(course.CourseID.ToString()));
-            if (ds.ObjectExists<Rating>(condition))
-            {
-                throw new DuplicateDataException("This student has already given a Rating to this course!");
-            }
+            
 
 
             this.ratingID = ratingID;

@@ -223,5 +223,11 @@ namespace WindowsFormsApp15.view
                 ds.getByID<Course>(Guid.Parse("cfadaa5c-7da2-402c-a7fc-2eb6be380ff2")));
             rcw.Show();
         }
+
+        private void OpenCourseViewLabel_Click(object sender, EventArgs e)
+        {
+            CourseViewWindow cvw = new CourseViewWindow(ds.getByID<Course>(Guid.Parse("cfadaa5c-7da2-402c-a7fc-2eb6be380ff2")));
+            cvw.Show();
+        }
     }
 }

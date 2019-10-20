@@ -2,10 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\WindowsFormsApp15",
+    "\\WindowsFormsApp15\\Data",
     "\\WindowsFormsApp15\\Documents",
+    "\\WindowsFormsApp15\\model",
     "\\WindowsFormsApp15\\SQLite",
     "\\WindowsFormsApp15\\view"
   ],
-  "SelectedNode": "\\WindowsFormsApp15\\view\\SignUpWindow.resx",
+  "SelectedNode": "\\WindowsFormsApp15\\view\\MainWindow.Designer.cs",
   "PreviewInSolutionExplorer": false
 }

@@ -71,3 +71,4 @@ C:\Users\janwe\Source\Repos\GangsOfCsharpMaster\WindowsFormsApp15\bin\Debug\Syst
 C:\Users\janwe\Source\Repos\GangsOfCsharpMaster\WindowsFormsApp15\bin\Debug\System.Data.SQLite.xml
 C:\Users\janwe\Source\Repos\GangsOfCsharpMaster\WindowsFormsApp15\bin\Debug\System.Data.SQLite.dll.config
 C:\Users\janwe\Source\Repos\GangsOfCsharpMaster\WindowsFormsApp15\obj\Debug\WindowsFormsApp15.csproj.CopyComplete
+C:\Users\janwe\Source\Repos\GangsOfCsharpMaster\WindowsFormsApp15\obj\Debug\WindowsFormsApp15.view.CourseViewWindow.resources
