@@ -541,107 +541,107 @@
             this.errorLabel.Text = "label1";
             this.errorLabel.Visible = false;
             // 
-            // checkBox1
+            // overallRating1
             // 
             this.overallRating1.AutoSize = true;
             this.overallRating1.Location = new System.Drawing.Point(496, 277);
             this.overallRating1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.overallRating1.Name = "checkBox1";
+            this.overallRating1.Name = "overallRating1";
             this.overallRating1.Size = new System.Drawing.Size(22, 21);
             this.overallRating1.TabIndex = 80;
             this.overallRating1.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // overallRating2
             // 
             this.overallRating2.AutoSize = true;
             this.overallRating2.Location = new System.Drawing.Point(453, 277);
             this.overallRating2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.overallRating2.Name = "checkBox2";
+            this.overallRating2.Name = "overallRating2";
             this.overallRating2.Size = new System.Drawing.Size(22, 21);
             this.overallRating2.TabIndex = 79;
             this.overallRating2.UseVisualStyleBackColor = true;
             // 
-            // checkBox3
+            // overallRating3
             // 
             this.overallRating3.AutoSize = true;
             this.overallRating3.Location = new System.Drawing.Point(409, 277);
             this.overallRating3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.overallRating3.Name = "checkBox3";
+            this.overallRating3.Name = "overallRating3";
             this.overallRating3.Size = new System.Drawing.Size(22, 21);
             this.overallRating3.TabIndex = 78;
             this.overallRating3.UseVisualStyleBackColor = true;
             // 
-            // checkBox4
+            // overallRating4
             // 
             this.overallRating4.AutoSize = true;
             this.overallRating4.Location = new System.Drawing.Point(364, 277);
             this.overallRating4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.overallRating4.Name = "checkBox4";
+            this.overallRating4.Name = "overallRating4";
             this.overallRating4.Size = new System.Drawing.Size(22, 21);
             this.overallRating4.TabIndex = 77;
             this.overallRating4.UseVisualStyleBackColor = true;
             // 
-            // checkBox5
+            // overallRating5
             // 
             this.overallRating5.AutoSize = true;
             this.overallRating5.Location = new System.Drawing.Point(321, 277);
             this.overallRating5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.overallRating5.Name = "checkBox5";
+            this.overallRating5.Name = "overallRating5";
             this.overallRating5.Size = new System.Drawing.Size(22, 21);
             this.overallRating5.TabIndex = 76;
             this.overallRating5.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // overallLabel1
             // 
             this.overallLabel1.AutoSize = true;
             this.overallLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.overallLabel1.Location = new System.Drawing.Point(494, 241);
             this.overallLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.overallLabel1.Name = "label1";
+            this.overallLabel1.Name = "overallLabel1";
             this.overallLabel1.Size = new System.Drawing.Size(19, 20);
             this.overallLabel1.TabIndex = 75;
             this.overallLabel1.Text = "5";
             // 
-            // label2
+            // overallLabel2
             // 
             this.overallLabel2.AutoSize = true;
             this.overallLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.overallLabel2.Location = new System.Drawing.Point(451, 241);
             this.overallLabel2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.overallLabel2.Name = "label2";
+            this.overallLabel2.Name = "overallLabel2";
             this.overallLabel2.Size = new System.Drawing.Size(19, 20);
             this.overallLabel2.TabIndex = 74;
             this.overallLabel2.Text = "4";
             // 
-            // label3
+            // overallLabel3
             // 
             this.overallLabel3.AutoSize = true;
             this.overallLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.overallLabel3.Location = new System.Drawing.Point(408, 241);
             this.overallLabel3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.overallLabel3.Name = "label3";
+            this.overallLabel3.Name = "overallLabel3";
             this.overallLabel3.Size = new System.Drawing.Size(19, 20);
             this.overallLabel3.TabIndex = 73;
             this.overallLabel3.Text = "3";
             // 
-            // label4
+            // overallLabel4
             // 
             this.overallLabel4.AutoSize = true;
             this.overallLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.overallLabel4.Location = new System.Drawing.Point(362, 241);
             this.overallLabel4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.overallLabel4.Name = "label4";
+            this.overallLabel4.Name = "overallLabel4";
             this.overallLabel4.Size = new System.Drawing.Size(19, 20);
             this.overallLabel4.TabIndex = 72;
             this.overallLabel4.Text = "2";
             // 
-            // label5
+            // overallLabel5
             // 
             this.overallLabel5.AutoSize = true;
             this.overallLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.overallLabel5.Location = new System.Drawing.Point(319, 241);
             this.overallLabel5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.overallLabel5.Name = "label5";
+            this.overallLabel5.Name = "overallLabel5";
             this.overallLabel5.Size = new System.Drawing.Size(19, 20);
             this.overallLabel5.TabIndex = 71;
             this.overallLabel5.Text = "1";
@@ -650,6 +650,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(854, 951);
             this.Controls.Add(this.overallRating1);
