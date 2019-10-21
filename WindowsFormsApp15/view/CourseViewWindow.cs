@@ -234,5 +234,5 @@ namespace WindowsFormsApp15.view
             RatingCourseWindow rcw = new RatingCourseWindow(new Student(), course);
             rcw.Show();
         }
-    } 
+    }  
 }
