@@ -36,6 +36,7 @@ namespace WindowsFormsApp15.model
         /// </summary>
         private int presentation;
         private string comment;
+        private DateTime date;
 
         private DataSearch ds;
 
@@ -55,13 +56,21 @@ namespace WindowsFormsApp15.model
         /// <param name="interesting">Number between 1-5. can be null</param>
         /// <param name="presentation">Number bewteen 1-5. can be null</param>
         /// <param name="comment">Number between 1-5. can be null</param>
+        /// <param name="date"></param>
         public Rating(Student student, Course course,
             Semester semester, int overallRating, int contactHours, int selfStudyHours, int organized,
-            int learned, int interesting, int presentation, string comment)
+            int learned, int interesting, int presentation, string comment, DateTime date)
         {
             ds = new DataSearch();
+
+            Func<string[], bool> condition = (x) => (x[1].Equals(student.StudentID.ToString()) &&
+                x[2].Equals(course.CourseID.ToString()));
+            if (ds.ObjectExists<Rating>(condition))
+            {
+                throw new DuplicateDataException("This student has already given a Rating to this course!");
+            }
             init(Guid.NewGuid(), student, course, semester, overallRating, contactHours, selfStudyHours,
-                organized, learned, interesting, presentation, comment);
+                organized, learned, interesting, presentation, comment, date);
         }
 
         /// <summary>
@@ -75,7 +84,8 @@ namespace WindowsFormsApp15.model
             init(Guid.Parse(r[0]), ds.getByID<Student>(Guid.Parse(r[1])),
                 ds.getByID<Course>(Guid.Parse(r[2])), EnumTranslator.stringToSemester[r[3]],
                 Int32.Parse(r[4]), Int32.Parse(r[5]), Int32.Parse(r[6]), Int32.Parse(r[7]),
-                Int32.Parse(r[8]), Int32.Parse(r[9]), Int32.Parse(r[10]), r[11]);
+                Int32.Parse(r[8]), Int32.Parse(r[9]), Int32.Parse(r[10]), r[11],
+                DateTime.Parse(r[12]));
         }
 
         public Semester Semester { get => semester; set => semester = value; }
@@ -96,7 +106,7 @@ namespace WindowsFormsApp15.model
         }
         public Course Course { get => course; }
         public Guid RatingID { get => ratingID; }
-
+        public DateTime Date { get => date; }
         public void setCourse(Course course)
         {
             if (course == null)
@@ -106,7 +116,7 @@ namespace WindowsFormsApp15.model
 
         private void init(Guid ratingID, Student student, Course course,
             Semester semester, int overallRating, int contactHours, int selfStudyHours, int organized,
-            int learned, int interesting, int presentation, string comment)
+            int learned, int interesting, int presentation, string comment, DateTime date)
         {
             if (student == null) { throw new ArgumentNullException("student cannot be null"); }
             if (student == null) { throw new ArgumentNullException("student cannot be null"); }
@@ -124,12 +134,7 @@ namespace WindowsFormsApp15.model
                 throw new ArgumentException(
 "the semester the course was taken in can not be later than since when the course exists");
             }
-            Func<string[], bool> condition = (x) => (x[1].Equals(student.StudentID.ToString()) &&
-                x[2].Equals(course.CourseID.ToString()));
-            if (ds.ObjectExists<Rating>(condition))
-            {
-                throw new DuplicateDataException("This student has already given a Rating to this course!");
-            }
+
 
 
             this.ratingID = ratingID;
@@ -144,6 +149,7 @@ namespace WindowsFormsApp15.model
             this.interesting = interesting;
             this.presentation = presentation;
             this.comment = comment;
+            this.date = date;
         }
 
         /// <summary>
@@ -166,7 +172,8 @@ namespace WindowsFormsApp15.model
                 Learned.ToString() + ";" +
                 Interesting.ToString() + ";" +
                 Presentation.ToString() + ";" +
-                Comment + "\n";
+                Comment + ";" +
+                date.ToString() + "\n";
             return info;
         }
 

@@ -25,7 +25,7 @@ namespace WindowsFormsApp15.view
             this.university = university;
             this.major = major;
             label1.Text = university.UniversityName + ": " + major.Name;
-            label2.Text =  ds.averageRatingForMajor(major).ToString("0.0");
+            label2.Text = ds.averageRatingForMajor(major).ToString("0.0");
             addDataToTable();
 
         }
