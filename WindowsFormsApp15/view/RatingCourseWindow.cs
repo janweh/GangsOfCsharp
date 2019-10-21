@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using WindowsFormsApp15.Data;
-using WindowsFormsApp15.model; 
+using WindowsFormsApp15.model;
 
 namespace WindowsFormsApp15.view
 {
