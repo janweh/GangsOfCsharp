@@ -219,8 +219,8 @@ namespace WindowsFormsApp15.view
         {
 
             RatingCourseWindow rcw = new RatingCourseWindow(
-                ds.getByID<Student>(Guid.Parse("313ae01f-07b8-4e5e-b113-77437e93fc79")),
-                ds.getByID<Course>(Guid.Parse("cfadaa5c-7da2-402c-a7fc-2eb6be380ff2")));
+                ds.getByID<Student>(Guid.Parse("77f5d847-58e9-4b5b-af26-fc88bc51588d")),
+                ds.getByID<Course>(Guid.Parse("6f8be39e-7e1e-4703-b757-223c4193d7ca")));
             rcw.Show();
         }
 

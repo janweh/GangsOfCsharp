@@ -76,7 +76,7 @@ namespace WindowsFormsApp15.view
 
         private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //should open up a new CourseDisplayWindow
+            //CourseViewWindow cvw = new CourseViewWindow();
         }
     }
 }
