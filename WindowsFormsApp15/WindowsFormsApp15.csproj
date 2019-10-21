@@ -67,6 +67,7 @@
     <Compile Include="model\University.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="view\Comment.cs" />
     <Compile Include="view\CourseNameSearchResultWindow.cs">
       <SubType>Form</SubType>
     </Compile>

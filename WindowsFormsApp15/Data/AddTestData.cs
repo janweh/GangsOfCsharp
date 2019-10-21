@@ -29,8 +29,24 @@ namespace WindowsFormsApp15.Data
             Student s = new Student("TheGermanCodeMachine", "password1", u, m,
                 "business informatics", 6);
             dw.store(s);
-            Rating r = new Rating(s, c, Semester.WS1920, 5, 4, 8, 4, 5, 5, 4, "Nice");
+            Rating r = new Rating(s, c, Semester.WS1920, 5, 4, 8, 4, 5, 5, 4, "Nice", DateTime.Now);
             dw.store(r);
+            Student s1 = new Student("a", "b", u, m, "c", 6);
+            dw.store(s1);
+            Student s2 = new Student("a", "b", u, m, "c", 6);
+            dw.store(s2);
+            Student s3 = new Student("a", "b", u, m, "c", 6);
+            dw.store(s3);
+            Student s4 = new Student("a", "b", u, m, "c", 6);
+            dw.store(s4);
+            Rating r1 = new Rating(s1, c, Semester.WS1920, 5, 4, 8, 4, 5, 5, 4, "Nice lalallalallallallalallallallallallalallalallallalallallalallalallallalallallalallalallalalalla", DateTime.Now);
+            dw.store(r1);
+            Rating r2 = new Rating(s2, c, Semester.WS1920, 5, 4, 8, 4, 5, 5, 4, "Nice", DateTime.Now);
+            dw.store(r2);
+            Rating r3 = new Rating(s3, c, Semester.WS1920, 5, 4, 8, 4, 5, 5, 4, "Nice", DateTime.Now);
+            dw.store(r3);
+            Rating r4 = new Rating(s4, c, Semester.WS1920, 5, 4, 8, 4, 5, 5, 4, "Nice", DateTime.Now);
+            dw.store(r4);
         }
 
         public void DeleteAllTestData()

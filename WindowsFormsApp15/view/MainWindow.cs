@@ -226,7 +226,7 @@ namespace WindowsFormsApp15.view
 
         private void OpenCourseViewLabel_Click(object sender, EventArgs e)
         {
-            CourseViewWindow cvw = new CourseViewWindow(ds.getByID<Course>(Guid.Parse("cfadaa5c-7da2-402c-a7fc-2eb6be380ff2")));
+            CourseViewWindow cvw = new CourseViewWindow(ds.getByID<Course>(Guid.Parse("6f8be39e-7e1e-4703-b757-223c4193d7ca")));
             cvw.Show();
         }
     }
