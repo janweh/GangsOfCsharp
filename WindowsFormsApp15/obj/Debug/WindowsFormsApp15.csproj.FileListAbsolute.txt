@@ -95,3 +95,4 @@ C:\Users\janwe\Source\Repos\GangsOfCsharp\WindowsFormsApp15\obj\Debug\WindowsFor
 C:\Users\janwe\Source\Repos\GangsOfCsharp\WindowsFormsApp15\obj\Debug\WindowsFormsApp15.view.MainWindow.resources
 C:\Users\janwe\Source\Repos\GangsOfCsharp\WindowsFormsApp15\obj\Debug\WindowsFormsApp15.view.RatingCourseWindow.resources
 C:\Users\janwe\Source\Repos\GangsOfCsharp\WindowsFormsApp15\obj\Debug\WindowsFormsApp15.view.SignUpWindow.resources
+C:\Users\janwe\Source\Repos\GangsOfCsharp\WindowsFormsApp15\obj\Debug\WindowsFormsApp15.view.CourseViewWindow.resources

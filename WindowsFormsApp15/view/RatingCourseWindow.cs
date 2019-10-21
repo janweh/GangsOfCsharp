@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp15.Data;
 using WindowsFormsApp15.model;
@@ -28,7 +21,16 @@ namespace WindowsFormsApp15.view
             this.course = course;
             InitializeComponent();
             InitBoxArrays();
+            InitCourseValues();
             cmbBoxSemester.DataSource = EnumTranslator.allSemester;
+        }
+
+        private void InitCourseValues()
+        {
+            lblCourseName.Text = "Course Name: " + course.Name;
+            lblUniversity.Text = "Offered at: " + course.University.UniversityName;
+            lblBy.Text = "Held by: " + course.Lecturer.TitleAndName;
+            lblSince.Text = "Offered since: " + EnumTranslator.semesterToString[course.Since];
         }
 
         private void InitBoxArrays()
@@ -56,7 +58,7 @@ namespace WindowsFormsApp15.view
                     EnumTranslator.stringToSemester[(string)cmbBoxSemester.SelectedItem],
                     getRating(overallBoxes), (int)nupdContactHours.Value, (int)nupdSelfStudyHours.Value,
                     getRating(organizedBoxes), getRating(learnedBoxes), getRating(interestingBoxes),
-                    getRating(presetedBoxes), txtBoxComments.Text);
+                    getRating(presetedBoxes), txtBoxComments.Text, DateTime.Now);
                 DataWriter dw = new DataWriter();
                 dw.store(givenRating);
                 this.Close();
