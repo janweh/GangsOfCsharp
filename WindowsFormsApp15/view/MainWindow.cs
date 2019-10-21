@@ -262,5 +262,10 @@ namespace WindowsFormsApp15.view
                 this.Top += e.Y - lastPoint.Y;
             }
         }
+
+        private void exitBtns_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
