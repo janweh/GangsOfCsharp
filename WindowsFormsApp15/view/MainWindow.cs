@@ -229,5 +229,38 @@ namespace WindowsFormsApp15.view
             CourseViewWindow cvw = new CourseViewWindow(ds.getByID<Course>(Guid.Parse("6f8be39e-7e1e-4703-b757-223c4193d7ca")));
             cvw.Show();
         }
+
+        Point lastPoint;
+        private void topHeaderPanel_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.Left += e.X - lastPoint.X;
+                this.Top += e.Y - lastPoint.Y;
+            }
+        }
+
+        private void topHeaderPanel_MouseDown(object sender, MouseEventArgs e)
+        {
+            {
+                lastPoint = new Point(e.X, e.Y);
+            }
+        }
+
+        private void logoPanel_MouseDown(object sender, MouseEventArgs e)
+        {
+            {
+                lastPoint = new Point(e.X, e.Y);
+            }
+        }
+
+        private void logoPanel_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.Left += e.X - lastPoint.X;
+                this.Top += e.Y - lastPoint.Y;
+            }
+        }
     }
 }

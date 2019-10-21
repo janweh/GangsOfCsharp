@@ -96,6 +96,8 @@
             this.logoPanel.Size = new System.Drawing.Size(300, 249);
             this.logoPanel.TabIndex = 2;
             this.logoPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            this.logoPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.logoPanel_MouseDown);
+            this.logoPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.logoPanel_MouseMove);
             // 
             // contactButton
             // 
@@ -199,6 +201,8 @@
             this.topHeaderPanel.Size = new System.Drawing.Size(900, 115);
             this.topHeaderPanel.TabIndex = 1;
             this.topHeaderPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.TopHeaderPanel_Paint);
+            this.topHeaderPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.topHeaderPanel_MouseDown);                 // 
+            this.topHeaderPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.topHeaderPanel_MouseMove);
             // 
             // openCourseViewLabel
             // 
