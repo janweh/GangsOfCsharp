@@ -37,6 +37,7 @@
             this.universitiesButton = new System.Windows.Forms.Button();
             this.homeButton = new System.Windows.Forms.Button();
             this.topHeaderPanel = new System.Windows.Forms.Panel();
+            this.exitBtns = new System.Windows.Forms.Button();
             this.openCourseViewLabel = new System.Windows.Forms.Label();
             this.openRatingLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -60,7 +61,6 @@
             this.majorComboBox = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.universityComboBox = new System.Windows.Forms.ComboBox();
-            this.exitBtns = new System.Windows.Forms.Button();
             this.leftSidebarPanel.SuspendLayout();
             this.topHeaderPanel.SuspendLayout();
             this.bottomGangsOfCsharpPanel.SuspendLayout();
@@ -198,6 +198,16 @@
             this.topHeaderPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.topHeaderPanel_MouseDown);
             this.topHeaderPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.topHeaderPanel_MouseMove);
             // 
+            // exitBtns
+            // 
+            this.exitBtns.Location = new System.Drawing.Point(578, 2);
+            this.exitBtns.Name = "exitBtns";
+            this.exitBtns.Size = new System.Drawing.Size(19, 20);
+            this.exitBtns.TabIndex = 1;
+            this.exitBtns.Text = "X";
+            this.exitBtns.UseVisualStyleBackColor = true;
+            this.exitBtns.Click += new System.EventHandler(this.exitBtns_Click);
+            // 
             // openCourseViewLabel
             // 
             this.openCourseViewLabel.AutoSize = true;
@@ -249,7 +259,7 @@
             this.registerButton.Name = "registerButton";
             this.registerButton.Size = new System.Drawing.Size(70, 22);
             this.registerButton.TabIndex = 3;
-            this.registerButton.Text = "SIGN IN";
+            this.registerButton.Text = "SIGN UP";
             this.registerButton.UseVisualStyleBackColor = false;
             this.registerButton.Click += new System.EventHandler(this.RegisterButton_Click);
             // 
@@ -299,7 +309,7 @@
             // 
             this.overallSearchPanel.Controls.Add(this.searchResultPanel);
             this.overallSearchPanel.Location = new System.Drawing.Point(200, 68);
-            this.overallSearchPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.overallSearchPanel.Margin = new System.Windows.Forms.Padding(2);
             this.overallSearchPanel.Name = "overallSearchPanel";
             this.overallSearchPanel.Size = new System.Drawing.Size(600, 505);
             this.overallSearchPanel.TabIndex = 3;
@@ -309,7 +319,7 @@
             // 
             this.searchResultPanel.Controls.Add(this.searchPanel);
             this.searchResultPanel.Location = new System.Drawing.Point(5, 2);
-            this.searchResultPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.searchResultPanel.Margin = new System.Windows.Forms.Padding(2);
             this.searchResultPanel.Name = "searchResultPanel";
             this.searchResultPanel.Size = new System.Drawing.Size(584, 493);
             this.searchResultPanel.TabIndex = 1;
@@ -328,7 +338,7 @@
             this.searchPanel.Controls.Add(this.label4);
             this.searchPanel.Controls.Add(this.universityComboBox);
             this.searchPanel.Location = new System.Drawing.Point(88, 53);
-            this.searchPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.searchPanel.Margin = new System.Windows.Forms.Padding(2);
             this.searchPanel.Name = "searchPanel";
             this.searchPanel.Size = new System.Drawing.Size(429, 391);
             this.searchPanel.TabIndex = 0;
@@ -359,7 +369,7 @@
             // courseNameTextBox
             // 
             this.courseNameTextBox.Location = new System.Drawing.Point(176, 190);
-            this.courseNameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.courseNameTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.courseNameTextBox.Name = "courseNameTextBox";
             this.courseNameTextBox.Size = new System.Drawing.Size(168, 20);
             this.courseNameTextBox.TabIndex = 32;
@@ -440,16 +450,6 @@
             this.universityComboBox.Size = new System.Drawing.Size(168, 21);
             this.universityComboBox.TabIndex = 24;
             this.universityComboBox.SelectedIndexChanged += new System.EventHandler(this.UniversityComboBox_SelectedIndexChanged);
-            // 
-            // exitBtns
-            // 
-            this.exitBtns.Location = new System.Drawing.Point(578, 2);
-            this.exitBtns.Name = "exitBtns";
-            this.exitBtns.Size = new System.Drawing.Size(19, 20);
-            this.exitBtns.TabIndex = 1;
-            this.exitBtns.Text = "X";
-            this.exitBtns.UseVisualStyleBackColor = true;
-            this.exitBtns.Click += new System.EventHandler(this.exitBtns_Click);
             // 
             // MainWindow
             // 

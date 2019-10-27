@@ -211,8 +211,8 @@ namespace WindowsFormsApp15.view
 
         private void RegisterButton_Click(object sender, EventArgs e)
         {
-            SignUpWindow suw = new SignUpWindow();
-            suw.Show();
+            RegisterForm rf = new RegisterForm();
+            rf.Show();
         }
 
         private void OpenRatingLabel_Click(object sender, EventArgs e)
