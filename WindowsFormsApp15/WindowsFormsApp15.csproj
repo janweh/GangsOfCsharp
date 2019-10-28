@@ -35,6 +35,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=8.0.18.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\MySQL\MySQL Connector Net 8.0.18\Assemblies\v4.5.2\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SQLite, Version=1.0.111.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
@@ -57,6 +61,19 @@
     <Compile Include="Data\DataUtility.cs" />
     <Compile Include="Data\DataWriter.cs" />
     <Compile Include="Data\DuplicateDataException.cs" />
+    <Compile Include="model\DB.cs" />
+    <Compile Include="view\RegisterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\RegisterForm.Designer.cs">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="model\Course.cs" />
     <Compile Include="model\EnumTranslator.cs" />
     <Compile Include="model\Lecturer.cs" />
@@ -85,12 +102,6 @@
     </Compile>
     <Compile Include="view\CourseViewWindow.designer.cs">
       <DependentUpon>CourseViewWindow.cs</DependentUpon>
-    </Compile>
-    <Compile Include="view\LoginForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="view\LoginForm.Designer.cs">
-      <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="view\MainWindow.cs">
       <SubType>Form</SubType>
@@ -138,6 +149,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="view\RegisterForm.resx">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="view\CourseNameSearchResultWindow.resx">
       <DependentUpon>CourseNameSearchResultWindow.cs</DependentUpon>
     </EmbeddedResource>
