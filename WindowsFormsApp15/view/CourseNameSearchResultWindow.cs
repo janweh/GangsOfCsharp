@@ -30,31 +30,6 @@ namespace WindowsFormsApp15.view
         {
             ds = new DataSearch();
             this.courses = ds.getCoursesByKeyword(keyword);
-            /*DataTable dt = new DataTable();
-            dt.Columns.Add("Course");
-            dt.Columns.Add("Rating");
-            dt.Columns.Add("Number of Ratings");
-            dt.Columns.Add("Lecturer");
-            foreach (Course course in courses)
-            {
-                DataRow row = dt.NewRow();
-                Tuple<double, int> t = ds.averageRatingAmountRatingsForCourse(course);
-                row[0] = course.Name;
-                if (!(t.Item1 >= 0 && t.Item1 <= 10))
-                {
-                    row[1] = t.Item1.ToString("0.0");
-                }
-                else
-                {
-                    row[1] = t.Item1.ToString("0.0") + "/5";
-                }
-                row[2] = t.Item2;
-                row[3] = course.Lecturer.TitleAndName;
-                dt.Rows.Add(row);
-            }
-            BindingSource bs = new BindingSource();
-            bs.DataSource = dt;
-            dataGridView1.DataSource = bs;*/
             foreach (Course course in courses)
             {
                 object[] row = new object[4];
@@ -76,7 +51,9 @@ namespace WindowsFormsApp15.view
 
         private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //CourseViewWindow cvw = new CourseViewWindow();
+            Course selected = courses[e.RowIndex];
+            CourseViewWindow cvw = new CourseViewWindow(selected);
+            cvw.Show();
         }
     }
 }

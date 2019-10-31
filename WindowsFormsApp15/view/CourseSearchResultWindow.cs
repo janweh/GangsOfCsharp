@@ -32,15 +32,11 @@ namespace WindowsFormsApp15.view
 
         private void addDataToTable()
         {
+            ds = new DataSearch();
             this.courses = ds.getCoursesByMajor(major);
-            DataTable dt = new DataTable();
-            dt.Columns.Add("Course");
-            dt.Columns.Add("Rating");
-            dt.Columns.Add("Number of Ratings");
-            dt.Columns.Add("Lecturer");
             foreach (Course course in courses)
             {
-                DataRow row = dt.NewRow();
+                object[] row = new object[4];
                 Tuple<double, int> t = ds.averageRatingAmountRatingsForCourse(course);
                 row[0] = course.Name;
                 if (!(t.Item1 >= 0 && t.Item1 <= 10))
@@ -53,12 +49,15 @@ namespace WindowsFormsApp15.view
                 }
                 row[2] = t.Item2;
                 row[3] = course.Lecturer.TitleAndName;
-                dt.Rows.Add(row);
+                dataGridView1.Rows.Add(row);
             }
-            BindingSource bs = new BindingSource();
-            bs.DataSource = dt;
-            dataGridView1.DataSource = bs;
         }
 
+        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Course selected = courses[e.RowIndex];
+            CourseViewWindow cvw = new CourseViewWindow(selected);
+            cvw.Show();
+        }
     }
 }

@@ -33,15 +33,11 @@ namespace WindowsFormsApp15.view
 
         private void addDataToTable()
         {
+            ds = new DataSearch();
             this.majors = ds.getMajorsOfUniversity(this.university);
-            DataTable dt = new DataTable();
-            dt.Columns.Add("Major");
-            dt.Columns.Add("Rating");
-            dt.Columns.Add("Number of Courses");
-            dt.Columns.Add("Number of Professors");
             foreach (Major major in majors)
             {
-                DataRow row = dt.NewRow();
+                object[] row = new object[4];
                 Tuple<double, int, int> t = ds.averageRatingAmountCoursesAmountLecturersForMajor(major);
                 row[0] = major.Name;
                 if (!(t.Item1 >= 0 && t.Item1 <= 10))
@@ -51,14 +47,11 @@ namespace WindowsFormsApp15.view
                 else
                 {
                     row[1] = t.Item1.ToString("0.0") + "/5";
-                }   
-                row[2] = t.Item2;
-                row[3] = t.Item3;
-                dt.Rows.Add(row);
+                }
+                row[2] = t.Item2.ToString();
+                row[3] = t.Item3.ToString();
+                dataGridView1.Rows.Add(row);
             }
-            BindingSource bs = new BindingSource();
-            bs.DataSource = dt;
-            dataGridView1.DataSource = bs;
         }
 
         internal University University { get => university; set => university = value; }
@@ -70,7 +63,10 @@ namespace WindowsFormsApp15.view
 
         private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            Major selected = majors[e.RowIndex];
+            CourseSearchResultWindow csrw = new CourseSearchResultWindow(university, selected);
+            csrw.Show();
+            this.Close();
         }
     }
 }
