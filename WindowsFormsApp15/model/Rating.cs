@@ -63,7 +63,7 @@ namespace WindowsFormsApp15.model
         {
             ds = new DataSearch();
 
-            Func<string[], bool> condition = (x) => (x[1].Equals(student.StudentID.ToString()) &&
+            DataSearch.Matches condition = (x) => (x[1].Equals(student.StudentID.ToString()) &&
                 x[2].Equals(course.CourseID.ToString()));
             if (ds.ObjectExists<Rating>(condition))
             {

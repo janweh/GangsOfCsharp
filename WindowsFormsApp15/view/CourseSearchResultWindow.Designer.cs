@@ -33,6 +33,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.Course = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.Rating = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NumberOfRatings = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Lecturer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -51,12 +55,18 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Course,
+            this.Rating,
+            this.NumberOfRatings,
+            this.Lecturer});
             this.dataGridView1.Location = new System.Drawing.Point(0, 60);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
             this.dataGridView1.Size = new System.Drawing.Size(983, 484);
             this.dataGridView1.TabIndex = 3;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick);
             // 
             // label3
             // 
@@ -88,6 +98,34 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "label1";
             // 
+            // Course
+            // 
+            this.Course.HeaderText = "Course";
+            this.Course.MinimumWidth = 8;
+            this.Course.Name = "Course";
+            this.Course.Width = 150;
+            // 
+            // Rating
+            // 
+            this.Rating.HeaderText = "Rating";
+            this.Rating.MinimumWidth = 8;
+            this.Rating.Name = "Rating";
+            this.Rating.Width = 150;
+            // 
+            // NumberOfRatings
+            // 
+            this.NumberOfRatings.HeaderText = "Number of Ratings";
+            this.NumberOfRatings.MinimumWidth = 8;
+            this.NumberOfRatings.Name = "NumberOfRatings";
+            this.NumberOfRatings.Width = 150;
+            // 
+            // Lecturer
+            // 
+            this.Lecturer.HeaderText = "Lecturer";
+            this.Lecturer.MinimumWidth = 8;
+            this.Lecturer.Name = "Lecturer";
+            this.Lecturer.Width = 150;
+            // 
             // CourseSearchResultWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -110,5 +148,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewLinkColumn Course;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Rating;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NumberOfRatings;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Lecturer;
     }
 }

@@ -28,7 +28,7 @@ namespace WindowsFormsApp15.model
         public Course(string name, University university, Lecturer lecturer, Semester since, Major major)
         {
             DataSearch ds = new DataSearch();
-            init(Guid.NewGuid(), name, university, lecturer, since, major);
+            Init(Guid.NewGuid(), name, university, lecturer, since, major);
         }
 
         /// <summary>
@@ -40,7 +40,7 @@ namespace WindowsFormsApp15.model
         {
             DataSearch ds = new DataSearch();
                 
-            init(Guid.Parse(line[0]), line[1], ds.getByID<University>(Guid.Parse(line[2])),
+            Init(Guid.Parse(line[0]), line[1], ds.getByID<University>(Guid.Parse(line[2])),
                 ds.getByID<Lecturer>(Guid.Parse(line[3])), EnumTranslator.stringToSemester[line[4]], ds.getByID<Major>(Guid.Parse(line[5])));
         }
 
@@ -51,7 +51,7 @@ namespace WindowsFormsApp15.model
         public Major Major { get => major; }
         public Guid CourseID { get => courseID; }
 
-        private void init(Guid courseID, string name, University university, Lecturer lecturer, Semester since, Major major)
+        private void Init(Guid courseID, string name, University university, Lecturer lecturer, Semester since, Major major)
         {
             if (name == null)
                 throw new ArgumentNullException("name cannot be null.");
