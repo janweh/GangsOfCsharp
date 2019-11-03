@@ -59,16 +59,19 @@ namespace WindowsFormsApp15.view
                 presentedSum += rating.Presentation;
                 overallSum += rating.OverallRating;
             }
-            lblOverallRating.Text = "Overall Rating: " + 
-                (overallSum / count).ToString() + "/5";
-            lblContactHours.Text.Concat(" " + 
-                (contactHoursSum / count).ToString());
-            lblSelfStdyHours.Text.Concat(" " +
-                (selfStudySum / count).ToString());
-            organizedRatingLabel.Text = (organizedSum / count).ToString() + "/5";
-            learnedRatingLabel.Text = (learnedSum / count).ToString() + "/5";
-            interestingRatingLabel.Text = (interestingSum / count).ToString() + "/5";
-            presentedRatingLabel.Text = (presentedSum / count).ToString() + "/5";
+            if(count != 0)
+            {
+                lblOverallRating.Text = "Overall Rating: " + 
+                    (overallSum / count).ToString() + "/5";
+                lblContactHours.Text.Concat(" " + 
+                    (contactHoursSum / count).ToString());
+                lblSelfStdyHours.Text.Concat(" " +
+                    (selfStudySum / count).ToString());
+                organizedRatingLabel.Text = (organizedSum / count).ToString() + "/5";
+                learnedRatingLabel.Text = (learnedSum / count).ToString() + "/5";
+                interestingRatingLabel.Text = (interestingSum / count).ToString() + "/5";
+                presentedRatingLabel.Text = (presentedSum / count).ToString() + "/5";
+            }
 
         }
 
@@ -233,6 +236,26 @@ namespace WindowsFormsApp15.view
         {
             RatingCourseWindow rcw = new RatingCourseWindow(new Student(), course);
             rcw.Show();
+        }
+
+        private void CourseViewWindow_Load(object sender, EventArgs e)
+        {
+            if(LoginStatus.islogged)
+            {
+                rateCourseButton.Visible = true;
+            }
+        }
+
+        private void CourseViewWindow_Activated(object sender, EventArgs e)
+        {
+            if (LoginStatus.islogged)
+            {
+                rateCourseButton.Visible = true;
+            }
+            else
+            {
+                rateCourseButton.Visible = false;
+            }
         }
     }  
 }

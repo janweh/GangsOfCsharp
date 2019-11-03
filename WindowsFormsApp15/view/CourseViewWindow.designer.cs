@@ -96,10 +96,9 @@
             // 
             this.lblCourseName.AutoSize = true;
             this.lblCourseName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblCourseName.Location = new System.Drawing.Point(18, 28);
-            this.lblCourseName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCourseName.Location = new System.Drawing.Point(12, 18);
             this.lblCourseName.Name = "lblCourseName";
-            this.lblCourseName.Size = new System.Drawing.Size(187, 29);
+            this.lblCourseName.Size = new System.Drawing.Size(127, 20);
             this.lblCourseName.TabIndex = 0;
             this.lblCourseName.Text = "Course Name :";
             // 
@@ -107,10 +106,9 @@
             // 
             this.lblUniMajLect.AutoSize = true;
             this.lblUniMajLect.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblUniMajLect.Location = new System.Drawing.Point(27, 82);
-            this.lblUniMajLect.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUniMajLect.Location = new System.Drawing.Point(18, 53);
             this.lblUniMajLect.Name = "lblUniMajLect";
-            this.lblUniMajLect.Size = new System.Drawing.Size(216, 20);
+            this.lblUniMajLect.Size = new System.Drawing.Size(136, 13);
             this.lblUniMajLect.TabIndex = 1;
             this.lblUniMajLect.Text = "University, Major, Lecturer :";
             // 
@@ -118,10 +116,9 @@
             // 
             this.lblSince.AutoSize = true;
             this.lblSince.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblSince.Location = new System.Drawing.Point(27, 125);
-            this.lblSince.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSince.Location = new System.Drawing.Point(18, 81);
             this.lblSince.Name = "lblSince";
-            this.lblSince.Size = new System.Drawing.Size(61, 20);
+            this.lblSince.Size = new System.Drawing.Size(40, 13);
             this.lblSince.TabIndex = 2;
             this.lblSince.Text = "Since :";
             // 
@@ -129,10 +126,9 @@
             // 
             this.lblContactHours.AutoSize = true;
             this.lblContactHours.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblContactHours.Location = new System.Drawing.Point(27, 162);
-            this.lblContactHours.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblContactHours.Location = new System.Drawing.Point(18, 105);
             this.lblContactHours.Name = "lblContactHours";
-            this.lblContactHours.Size = new System.Drawing.Size(124, 20);
+            this.lblContactHours.Size = new System.Drawing.Size(79, 13);
             this.lblContactHours.TabIndex = 3;
             this.lblContactHours.Text = "Contact hours :";
             // 
@@ -140,10 +136,9 @@
             // 
             this.lblSelfStdyHours.AutoSize = true;
             this.lblSelfStdyHours.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblSelfStdyHours.Location = new System.Drawing.Point(27, 200);
-            this.lblSelfStdyHours.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSelfStdyHours.Location = new System.Drawing.Point(18, 130);
             this.lblSelfStdyHours.Name = "lblSelfStdyHours";
-            this.lblSelfStdyHours.Size = new System.Drawing.Size(147, 20);
+            this.lblSelfStdyHours.Size = new System.Drawing.Size(92, 13);
             this.lblSelfStdyHours.TabIndex = 4;
             this.lblSelfStdyHours.Text = "Self-Study Hours :";
             // 
@@ -151,10 +146,9 @@
             // 
             this.lblRatingOrganized.AutoSize = true;
             this.lblRatingOrganized.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblRatingOrganized.Location = new System.Drawing.Point(27, 243);
-            this.lblRatingOrganized.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblRatingOrganized.Location = new System.Drawing.Point(18, 158);
             this.lblRatingOrganized.Name = "lblRatingOrganized";
-            this.lblRatingOrganized.Size = new System.Drawing.Size(270, 20);
+            this.lblRatingOrganized.Size = new System.Drawing.Size(171, 13);
             this.lblRatingOrganized.TabIndex = 5;
             this.lblRatingOrganized.Text = "How well the course was orginzed:";
             // 
@@ -162,10 +156,9 @@
             // 
             this.lblRatingLearned.AutoSize = true;
             this.lblRatingLearned.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblRatingLearned.Location = new System.Drawing.Point(27, 277);
-            this.lblRatingLearned.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblRatingLearned.Location = new System.Drawing.Point(18, 180);
             this.lblRatingLearned.Name = "lblRatingLearned";
-            this.lblRatingLearned.Size = new System.Drawing.Size(291, 20);
+            this.lblRatingLearned.Size = new System.Drawing.Size(185, 13);
             this.lblRatingLearned.TabIndex = 12;
             this.lblRatingLearned.Text = "How much was learned in the course:";
             // 
@@ -173,10 +166,9 @@
             // 
             this.lblRatingInterested.AutoSize = true;
             this.lblRatingInterested.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblRatingInterested.Location = new System.Drawing.Point(27, 318);
-            this.lblRatingInterested.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblRatingInterested.Location = new System.Drawing.Point(18, 207);
             this.lblRatingInterested.Name = "lblRatingInterested";
-            this.lblRatingInterested.Size = new System.Drawing.Size(250, 20);
+            this.lblRatingInterested.Size = new System.Drawing.Size(158, 13);
             this.lblRatingInterested.TabIndex = 13;
             this.lblRatingInterested.Text = "How interesting the course was:";
             // 
@@ -184,10 +176,9 @@
             // 
             this.lblRatingPresented.AutoSize = true;
             this.lblRatingPresented.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblRatingPresented.Location = new System.Drawing.Point(27, 352);
-            this.lblRatingPresented.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblRatingPresented.Location = new System.Drawing.Point(18, 229);
             this.lblRatingPresented.Name = "lblRatingPresented";
-            this.lblRatingPresented.Size = new System.Drawing.Size(353, 20);
+            this.lblRatingPresented.Size = new System.Drawing.Size(224, 13);
             this.lblRatingPresented.TabIndex = 14;
             this.lblRatingPresented.Text = "How well  the lecturer presented the contents:";
             // 
@@ -195,11 +186,10 @@
             // 
             this.lblOverallRating.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblOverallRating.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblOverallRating.Location = new System.Drawing.Point(468, 32);
-            this.lblOverallRating.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblOverallRating.Location = new System.Drawing.Point(300, 21);
             this.lblOverallRating.Name = "lblOverallRating";
             this.lblOverallRating.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblOverallRating.Size = new System.Drawing.Size(256, 25);
+            this.lblOverallRating.Size = new System.Drawing.Size(171, 16);
             this.lblOverallRating.TabIndex = 33;
             this.lblOverallRating.Text = "Overall Rating :";
             this.lblOverallRating.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -207,20 +197,18 @@
             // overallRatingStar
             // 
             this.overallRatingStar.Image = ((System.Drawing.Image)(resources.GetObject("overallRatingStar.Image")));
-            this.overallRatingStar.Location = new System.Drawing.Point(778, 28);
-            this.overallRatingStar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.overallRatingStar.Location = new System.Drawing.Point(519, 18);
             this.overallRatingStar.Name = "overallRatingStar";
-            this.overallRatingStar.Size = new System.Drawing.Size(46, 46);
+            this.overallRatingStar.Size = new System.Drawing.Size(31, 30);
             this.overallRatingStar.TabIndex = 34;
             this.overallRatingStar.TabStop = false;
             // 
             // organizedRatingStar
             // 
             this.organizedRatingStar.Image = ((System.Drawing.Image)(resources.GetObject("organizedRatingStar.Image")));
-            this.organizedRatingStar.Location = new System.Drawing.Point(459, 232);
-            this.organizedRatingStar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.organizedRatingStar.Location = new System.Drawing.Point(306, 151);
             this.organizedRatingStar.Name = "organizedRatingStar";
-            this.organizedRatingStar.Size = new System.Drawing.Size(28, 31);
+            this.organizedRatingStar.Size = new System.Drawing.Size(19, 20);
             this.organizedRatingStar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.organizedRatingStar.TabIndex = 35;
             this.organizedRatingStar.TabStop = false;
@@ -228,10 +216,9 @@
             // learnedRatingStar
             // 
             this.learnedRatingStar.Image = ((System.Drawing.Image)(resources.GetObject("learnedRatingStar.Image")));
-            this.learnedRatingStar.Location = new System.Drawing.Point(459, 268);
-            this.learnedRatingStar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.learnedRatingStar.Location = new System.Drawing.Point(306, 174);
             this.learnedRatingStar.Name = "learnedRatingStar";
-            this.learnedRatingStar.Size = new System.Drawing.Size(28, 31);
+            this.learnedRatingStar.Size = new System.Drawing.Size(19, 20);
             this.learnedRatingStar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.learnedRatingStar.TabIndex = 36;
             this.learnedRatingStar.TabStop = false;
@@ -239,10 +226,9 @@
             // interestedRatingStar
             // 
             this.interestedRatingStar.Image = ((System.Drawing.Image)(resources.GetObject("interestedRatingStar.Image")));
-            this.interestedRatingStar.Location = new System.Drawing.Point(459, 308);
-            this.interestedRatingStar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.interestedRatingStar.Location = new System.Drawing.Point(306, 200);
             this.interestedRatingStar.Name = "interestedRatingStar";
-            this.interestedRatingStar.Size = new System.Drawing.Size(28, 31);
+            this.interestedRatingStar.Size = new System.Drawing.Size(19, 20);
             this.interestedRatingStar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.interestedRatingStar.TabIndex = 37;
             this.interestedRatingStar.TabStop = false;
@@ -250,10 +236,9 @@
             // lecturerRatingStar
             // 
             this.lecturerRatingStar.Image = ((System.Drawing.Image)(resources.GetObject("lecturerRatingStar.Image")));
-            this.lecturerRatingStar.Location = new System.Drawing.Point(459, 342);
-            this.lecturerRatingStar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.lecturerRatingStar.Location = new System.Drawing.Point(306, 222);
             this.lecturerRatingStar.Name = "lecturerRatingStar";
-            this.lecturerRatingStar.Size = new System.Drawing.Size(28, 31);
+            this.lecturerRatingStar.Size = new System.Drawing.Size(19, 20);
             this.lecturerRatingStar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.lecturerRatingStar.TabIndex = 38;
             this.lecturerRatingStar.TabStop = false;
@@ -261,38 +246,42 @@
             // organizedRatingLabel
             // 
             this.organizedRatingLabel.AutoSize = true;
-            this.organizedRatingLabel.Location = new System.Drawing.Point(386, 243);
+            this.organizedRatingLabel.Location = new System.Drawing.Point(257, 158);
+            this.organizedRatingLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.organizedRatingLabel.Name = "organizedRatingLabel";
-            this.organizedRatingLabel.Size = new System.Drawing.Size(51, 20);
+            this.organizedRatingLabel.Size = new System.Drawing.Size(27, 13);
             this.organizedRatingLabel.TabIndex = 39;
-            this.organizedRatingLabel.Text = "label1";
+            this.organizedRatingLabel.Text = "N/A";
             // 
             // learnedRatingLabel
             // 
             this.learnedRatingLabel.AutoSize = true;
-            this.learnedRatingLabel.Location = new System.Drawing.Point(386, 277);
+            this.learnedRatingLabel.Location = new System.Drawing.Point(257, 180);
+            this.learnedRatingLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.learnedRatingLabel.Name = "learnedRatingLabel";
-            this.learnedRatingLabel.Size = new System.Drawing.Size(51, 20);
+            this.learnedRatingLabel.Size = new System.Drawing.Size(27, 13);
             this.learnedRatingLabel.TabIndex = 40;
-            this.learnedRatingLabel.Text = "label2";
+            this.learnedRatingLabel.Text = "N/A";
             // 
             // interestingRatingLabel
             // 
             this.interestingRatingLabel.AutoSize = true;
-            this.interestingRatingLabel.Location = new System.Drawing.Point(386, 318);
+            this.interestingRatingLabel.Location = new System.Drawing.Point(257, 207);
+            this.interestingRatingLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.interestingRatingLabel.Name = "interestingRatingLabel";
-            this.interestingRatingLabel.Size = new System.Drawing.Size(51, 20);
+            this.interestingRatingLabel.Size = new System.Drawing.Size(27, 13);
             this.interestingRatingLabel.TabIndex = 41;
-            this.interestingRatingLabel.Text = "label3";
+            this.interestingRatingLabel.Text = "N/A";
             // 
             // presentedRatingLabel
             // 
             this.presentedRatingLabel.AutoSize = true;
-            this.presentedRatingLabel.Location = new System.Drawing.Point(386, 352);
+            this.presentedRatingLabel.Location = new System.Drawing.Point(257, 229);
+            this.presentedRatingLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.presentedRatingLabel.Name = "presentedRatingLabel";
-            this.presentedRatingLabel.Size = new System.Drawing.Size(51, 20);
+            this.presentedRatingLabel.Size = new System.Drawing.Size(27, 13);
             this.presentedRatingLabel.TabIndex = 42;
-            this.presentedRatingLabel.Text = "label4";
+            this.presentedRatingLabel.Text = "N/A";
             // 
             // commentPanel
             // 
@@ -310,9 +299,10 @@
             this.commentPanel.Controls.Add(this.page2button);
             this.commentPanel.Controls.Add(this.page1button);
             this.commentPanel.Controls.Add(this.lblCommentsHeader);
-            this.commentPanel.Location = new System.Drawing.Point(4, 388);
+            this.commentPanel.Location = new System.Drawing.Point(3, 252);
+            this.commentPanel.Margin = new System.Windows.Forms.Padding(2);
             this.commentPanel.Name = "commentPanel";
-            this.commentPanel.Size = new System.Drawing.Size(820, 678);
+            this.commentPanel.Size = new System.Drawing.Size(547, 441);
             this.commentPanel.TabIndex = 43;
             // 
             // comment4panel
@@ -321,19 +311,19 @@
             this.comment4panel.Controls.Add(this.commentDate4);
             this.comment4panel.Controls.Add(this.comment4txtBox);
             this.comment4panel.Controls.Add(this.lblUsername4);
-            this.comment4panel.Location = new System.Drawing.Point(2, 489);
+            this.comment4panel.Location = new System.Drawing.Point(1, 318);
+            this.comment4panel.Margin = new System.Windows.Forms.Padding(2);
             this.comment4panel.Name = "comment4panel";
-            this.comment4panel.Size = new System.Drawing.Size(818, 148);
+            this.comment4panel.Size = new System.Drawing.Size(545, 96);
             this.comment4panel.TabIndex = 64;
             // 
             // commentRating4
             // 
             this.commentRating4.AutoSize = true;
             this.commentRating4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.commentRating4.Location = new System.Drawing.Point(519, 5);
-            this.commentRating4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.commentRating4.Location = new System.Drawing.Point(346, 3);
             this.commentRating4.Name = "commentRating4";
-            this.commentRating4.Size = new System.Drawing.Size(78, 25);
+            this.commentRating4.Size = new System.Drawing.Size(53, 16);
             this.commentRating4.TabIndex = 55;
             this.commentRating4.Text = "Rating :";
             // 
@@ -341,30 +331,27 @@
             // 
             this.commentDate4.AutoSize = true;
             this.commentDate4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.commentDate4.Location = new System.Drawing.Point(574, 118);
-            this.commentDate4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.commentDate4.Location = new System.Drawing.Point(383, 77);
             this.commentDate4.Name = "commentDate4";
-            this.commentDate4.Size = new System.Drawing.Size(64, 25);
+            this.commentDate4.Size = new System.Drawing.Size(43, 16);
             this.commentDate4.TabIndex = 54;
             this.commentDate4.Text = "Date :";
             // 
             // comment4txtBox
             // 
-            this.comment4txtBox.Location = new System.Drawing.Point(27, 35);
-            this.comment4txtBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.comment4txtBox.Location = new System.Drawing.Point(18, 23);
             this.comment4txtBox.Multiline = true;
             this.comment4txtBox.Name = "comment4txtBox";
-            this.comment4txtBox.Size = new System.Drawing.Size(764, 79);
+            this.comment4txtBox.Size = new System.Drawing.Size(511, 53);
             this.comment4txtBox.TabIndex = 53;
             // 
             // lblUsername4
             // 
             this.lblUsername4.AutoSize = true;
             this.lblUsername4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblUsername4.Location = new System.Drawing.Point(32, 5);
-            this.lblUsername4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUsername4.Location = new System.Drawing.Point(21, 3);
             this.lblUsername4.Name = "lblUsername4";
-            this.lblUsername4.Size = new System.Drawing.Size(124, 25);
+            this.lblUsername4.Size = new System.Drawing.Size(84, 16);
             this.lblUsername4.TabIndex = 52;
             this.lblUsername4.Text = "Username 4:";
             // 
@@ -374,19 +361,19 @@
             this.comment3panel.Controls.Add(this.commentRating3);
             this.comment3panel.Controls.Add(this.comment3txtBox);
             this.comment3panel.Controls.Add(this.lblUsername3);
-            this.comment3panel.Location = new System.Drawing.Point(0, 332);
+            this.comment3panel.Location = new System.Drawing.Point(0, 216);
+            this.comment3panel.Margin = new System.Windows.Forms.Padding(2);
             this.comment3panel.Name = "comment3panel";
-            this.comment3panel.Size = new System.Drawing.Size(819, 146);
+            this.comment3panel.Size = new System.Drawing.Size(546, 95);
             this.comment3panel.TabIndex = 63;
             // 
             // commentDate3
             // 
             this.commentDate3.AutoSize = true;
             this.commentDate3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.commentDate3.Location = new System.Drawing.Point(574, 118);
-            this.commentDate3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.commentDate3.Location = new System.Drawing.Point(383, 77);
             this.commentDate3.Name = "commentDate3";
-            this.commentDate3.Size = new System.Drawing.Size(64, 25);
+            this.commentDate3.Size = new System.Drawing.Size(43, 16);
             this.commentDate3.TabIndex = 53;
             this.commentDate3.Text = "Date :";
             // 
@@ -394,30 +381,27 @@
             // 
             this.commentRating3.AutoSize = true;
             this.commentRating3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.commentRating3.Location = new System.Drawing.Point(504, 5);
-            this.commentRating3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.commentRating3.Location = new System.Drawing.Point(336, 3);
             this.commentRating3.Name = "commentRating3";
-            this.commentRating3.Size = new System.Drawing.Size(78, 25);
+            this.commentRating3.Size = new System.Drawing.Size(53, 16);
             this.commentRating3.TabIndex = 52;
             this.commentRating3.Text = "Rating :";
             // 
             // comment3txtBox
             // 
-            this.comment3txtBox.Location = new System.Drawing.Point(27, 34);
-            this.comment3txtBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.comment3txtBox.Location = new System.Drawing.Point(18, 22);
             this.comment3txtBox.Multiline = true;
             this.comment3txtBox.Name = "comment3txtBox";
-            this.comment3txtBox.Size = new System.Drawing.Size(764, 79);
+            this.comment3txtBox.Size = new System.Drawing.Size(511, 53);
             this.comment3txtBox.TabIndex = 51;
             // 
             // lblUsername3
             // 
             this.lblUsername3.AutoSize = true;
             this.lblUsername3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblUsername3.Location = new System.Drawing.Point(28, 5);
-            this.lblUsername3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUsername3.Location = new System.Drawing.Point(19, 3);
             this.lblUsername3.Name = "lblUsername3";
-            this.lblUsername3.Size = new System.Drawing.Size(124, 25);
+            this.lblUsername3.Size = new System.Drawing.Size(84, 16);
             this.lblUsername3.TabIndex = 50;
             this.lblUsername3.Text = "Username3 :";
             // 
@@ -427,19 +411,19 @@
             this.comment2panel.Controls.Add(this.commentRating2);
             this.comment2panel.Controls.Add(this.comment2txtBox);
             this.comment2panel.Controls.Add(this.lblUsername2);
-            this.comment2panel.Location = new System.Drawing.Point(0, 178);
+            this.comment2panel.Location = new System.Drawing.Point(0, 116);
+            this.comment2panel.Margin = new System.Windows.Forms.Padding(2);
             this.comment2panel.Name = "comment2panel";
-            this.comment2panel.Size = new System.Drawing.Size(819, 145);
+            this.comment2panel.Size = new System.Drawing.Size(546, 94);
             this.comment2panel.TabIndex = 62;
             // 
             // commentDate2
             // 
             this.commentDate2.AutoSize = true;
             this.commentDate2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.commentDate2.Location = new System.Drawing.Point(574, 122);
-            this.commentDate2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.commentDate2.Location = new System.Drawing.Point(383, 79);
             this.commentDate2.Name = "commentDate2";
-            this.commentDate2.Size = new System.Drawing.Size(64, 25);
+            this.commentDate2.Size = new System.Drawing.Size(43, 16);
             this.commentDate2.TabIndex = 51;
             this.commentDate2.Text = "Date :";
             // 
@@ -447,30 +431,27 @@
             // 
             this.commentRating2.AutoSize = true;
             this.commentRating2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.commentRating2.Location = new System.Drawing.Point(500, -2);
-            this.commentRating2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.commentRating2.Location = new System.Drawing.Point(333, -1);
             this.commentRating2.Name = "commentRating2";
-            this.commentRating2.Size = new System.Drawing.Size(78, 25);
+            this.commentRating2.Size = new System.Drawing.Size(53, 16);
             this.commentRating2.TabIndex = 50;
             this.commentRating2.Text = "Rating :";
             // 
             // comment2txtBox
             // 
-            this.comment2txtBox.Location = new System.Drawing.Point(27, 29);
-            this.comment2txtBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.comment2txtBox.Location = new System.Drawing.Point(18, 19);
             this.comment2txtBox.Multiline = true;
             this.comment2txtBox.Name = "comment2txtBox";
-            this.comment2txtBox.Size = new System.Drawing.Size(764, 79);
+            this.comment2txtBox.Size = new System.Drawing.Size(511, 53);
             this.comment2txtBox.TabIndex = 49;
             // 
             // lblUsername2
             // 
             this.lblUsername2.AutoSize = true;
             this.lblUsername2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblUsername2.Location = new System.Drawing.Point(27, 2);
-            this.lblUsername2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUsername2.Location = new System.Drawing.Point(18, 1);
             this.lblUsername2.Name = "lblUsername2";
-            this.lblUsername2.Size = new System.Drawing.Size(124, 25);
+            this.lblUsername2.Size = new System.Drawing.Size(84, 16);
             this.lblUsername2.TabIndex = 48;
             this.lblUsername2.Text = "Username 2:";
             // 
@@ -480,19 +461,19 @@
             this.comment1Panel.Controls.Add(this.commentRating1);
             this.comment1Panel.Controls.Add(this.comment1TxtBox);
             this.comment1Panel.Controls.Add(this.lblUsername1);
-            this.comment1Panel.Location = new System.Drawing.Point(2, 40);
+            this.comment1Panel.Location = new System.Drawing.Point(1, 26);
+            this.comment1Panel.Margin = new System.Windows.Forms.Padding(2);
             this.comment1Panel.Name = "comment1Panel";
-            this.comment1Panel.Size = new System.Drawing.Size(819, 132);
+            this.comment1Panel.Size = new System.Drawing.Size(546, 86);
             this.comment1Panel.TabIndex = 52;
             // 
             // commentDate1
             // 
             this.commentDate1.AutoSize = true;
             this.commentDate1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.commentDate1.Location = new System.Drawing.Point(579, 106);
-            this.commentDate1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.commentDate1.Location = new System.Drawing.Point(386, 69);
             this.commentDate1.Name = "commentDate1";
-            this.commentDate1.Size = new System.Drawing.Size(64, 25);
+            this.commentDate1.Size = new System.Drawing.Size(43, 16);
             this.commentDate1.TabIndex = 49;
             this.commentDate1.Text = "Date :";
             // 
@@ -500,38 +481,36 @@
             // 
             this.commentRating1.AutoSize = true;
             this.commentRating1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.commentRating1.Location = new System.Drawing.Point(502, 2);
-            this.commentRating1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.commentRating1.Location = new System.Drawing.Point(335, 1);
             this.commentRating1.Name = "commentRating1";
-            this.commentRating1.Size = new System.Drawing.Size(78, 25);
+            this.commentRating1.Size = new System.Drawing.Size(53, 16);
             this.commentRating1.TabIndex = 48;
             this.commentRating1.Text = "Rating :";
             // 
             // comment1TxtBox
             // 
-            this.comment1TxtBox.Location = new System.Drawing.Point(27, 32);
-            this.comment1TxtBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.comment1TxtBox.Location = new System.Drawing.Point(18, 21);
             this.comment1TxtBox.Multiline = true;
             this.comment1TxtBox.Name = "comment1TxtBox";
-            this.comment1TxtBox.Size = new System.Drawing.Size(764, 69);
+            this.comment1TxtBox.Size = new System.Drawing.Size(511, 46);
             this.comment1TxtBox.TabIndex = 47;
             // 
             // lblUsername1
             // 
             this.lblUsername1.AutoSize = true;
             this.lblUsername1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblUsername1.Location = new System.Drawing.Point(27, 2);
-            this.lblUsername1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUsername1.Location = new System.Drawing.Point(18, 1);
             this.lblUsername1.Name = "lblUsername1";
-            this.lblUsername1.Size = new System.Drawing.Size(124, 25);
+            this.lblUsername1.Size = new System.Drawing.Size(84, 16);
             this.lblUsername1.TabIndex = 46;
             this.lblUsername1.Text = "Username1 :";
             // 
             // page9button
             // 
-            this.page9button.Location = new System.Drawing.Point(266, 637);
+            this.page9button.Location = new System.Drawing.Point(177, 414);
+            this.page9button.Margin = new System.Windows.Forms.Padding(2);
             this.page9button.Name = "page9button";
-            this.page9button.Size = new System.Drawing.Size(27, 29);
+            this.page9button.Size = new System.Drawing.Size(18, 19);
             this.page9button.TabIndex = 57;
             this.page9button.Text = "9";
             this.page9button.UseVisualStyleBackColor = true;
@@ -540,9 +519,10 @@
             // 
             // page8button
             // 
-            this.page8button.Location = new System.Drawing.Point(232, 637);
+            this.page8button.Location = new System.Drawing.Point(155, 414);
+            this.page8button.Margin = new System.Windows.Forms.Padding(2);
             this.page8button.Name = "page8button";
-            this.page8button.Size = new System.Drawing.Size(27, 29);
+            this.page8button.Size = new System.Drawing.Size(18, 19);
             this.page8button.TabIndex = 56;
             this.page8button.Text = "8";
             this.page8button.UseVisualStyleBackColor = true;
@@ -551,9 +531,10 @@
             // 
             // page7button
             // 
-            this.page7button.Location = new System.Drawing.Point(200, 637);
+            this.page7button.Location = new System.Drawing.Point(133, 414);
+            this.page7button.Margin = new System.Windows.Forms.Padding(2);
             this.page7button.Name = "page7button";
-            this.page7button.Size = new System.Drawing.Size(27, 29);
+            this.page7button.Size = new System.Drawing.Size(18, 19);
             this.page7button.TabIndex = 55;
             this.page7button.Text = "7";
             this.page7button.UseVisualStyleBackColor = true;
@@ -562,9 +543,10 @@
             // 
             // page6button
             // 
-            this.page6button.Location = new System.Drawing.Point(166, 637);
+            this.page6button.Location = new System.Drawing.Point(111, 414);
+            this.page6button.Margin = new System.Windows.Forms.Padding(2);
             this.page6button.Name = "page6button";
-            this.page6button.Size = new System.Drawing.Size(27, 29);
+            this.page6button.Size = new System.Drawing.Size(18, 19);
             this.page6button.TabIndex = 54;
             this.page6button.Text = "6";
             this.page6button.UseVisualStyleBackColor = true;
@@ -573,9 +555,10 @@
             // 
             // page5button
             // 
-            this.page5button.Location = new System.Drawing.Point(134, 637);
+            this.page5button.Location = new System.Drawing.Point(89, 414);
+            this.page5button.Margin = new System.Windows.Forms.Padding(2);
             this.page5button.Name = "page5button";
-            this.page5button.Size = new System.Drawing.Size(27, 29);
+            this.page5button.Size = new System.Drawing.Size(18, 19);
             this.page5button.TabIndex = 53;
             this.page5button.Text = "5";
             this.page5button.UseVisualStyleBackColor = true;
@@ -584,9 +567,10 @@
             // 
             // page4button
             // 
-            this.page4button.Location = new System.Drawing.Point(100, 637);
+            this.page4button.Location = new System.Drawing.Point(67, 414);
+            this.page4button.Margin = new System.Windows.Forms.Padding(2);
             this.page4button.Name = "page4button";
-            this.page4button.Size = new System.Drawing.Size(27, 29);
+            this.page4button.Size = new System.Drawing.Size(18, 19);
             this.page4button.TabIndex = 52;
             this.page4button.Text = "4";
             this.page4button.UseVisualStyleBackColor = true;
@@ -595,9 +579,10 @@
             // 
             // page3button
             // 
-            this.page3button.Location = new System.Drawing.Point(68, 637);
+            this.page3button.Location = new System.Drawing.Point(45, 414);
+            this.page3button.Margin = new System.Windows.Forms.Padding(2);
             this.page3button.Name = "page3button";
-            this.page3button.Size = new System.Drawing.Size(27, 29);
+            this.page3button.Size = new System.Drawing.Size(18, 19);
             this.page3button.TabIndex = 51;
             this.page3button.Text = "3";
             this.page3button.UseVisualStyleBackColor = true;
@@ -607,9 +592,10 @@
             // page2button
             // 
             this.page2button.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.page2button.Location = new System.Drawing.Point(34, 637);
+            this.page2button.Location = new System.Drawing.Point(23, 414);
+            this.page2button.Margin = new System.Windows.Forms.Padding(2);
             this.page2button.Name = "page2button";
-            this.page2button.Size = new System.Drawing.Size(27, 29);
+            this.page2button.Size = new System.Drawing.Size(18, 19);
             this.page2button.TabIndex = 50;
             this.page2button.Text = "2";
             this.page2button.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -619,9 +605,10 @@
             // 
             // page1button
             // 
-            this.page1button.Location = new System.Drawing.Point(2, 637);
+            this.page1button.Location = new System.Drawing.Point(1, 414);
+            this.page1button.Margin = new System.Windows.Forms.Padding(2);
             this.page1button.Name = "page1button";
-            this.page1button.Size = new System.Drawing.Size(27, 29);
+            this.page1button.Size = new System.Drawing.Size(18, 19);
             this.page1button.TabIndex = 49;
             this.page1button.Text = "1";
             this.page1button.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -633,30 +620,31 @@
             // 
             this.lblCommentsHeader.AutoSize = true;
             this.lblCommentsHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblCommentsHeader.Location = new System.Drawing.Point(30, 8);
-            this.lblCommentsHeader.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCommentsHeader.Location = new System.Drawing.Point(20, 5);
             this.lblCommentsHeader.Name = "lblCommentsHeader";
-            this.lblCommentsHeader.Size = new System.Drawing.Size(177, 29);
+            this.lblCommentsHeader.Size = new System.Drawing.Size(118, 20);
             this.lblCommentsHeader.TabIndex = 48;
             this.lblCommentsHeader.Text = "COMMENTS :";
             // 
             // rateCourseButton
             // 
-            this.rateCourseButton.Location = new System.Drawing.Point(616, 337);
+            this.rateCourseButton.Location = new System.Drawing.Point(411, 219);
+            this.rateCourseButton.Margin = new System.Windows.Forms.Padding(2);
             this.rateCourseButton.Name = "rateCourseButton";
-            this.rateCourseButton.Size = new System.Drawing.Size(182, 35);
+            this.rateCourseButton.Size = new System.Drawing.Size(121, 23);
             this.rateCourseButton.TabIndex = 44;
             this.rateCourseButton.Text = "Rate this Course";
             this.rateCourseButton.UseVisualStyleBackColor = true;
+            this.rateCourseButton.Visible = false;
             this.rateCourseButton.Click += new System.EventHandler(this.RateCourseButton_Click);
             // 
             // CourseViewWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(834, 702);
+            this.ClientSize = new System.Drawing.Size(556, 456);
             this.Controls.Add(this.rateCourseButton);
             this.Controls.Add(this.commentPanel);
             this.Controls.Add(this.presentedRatingLabel);
@@ -678,9 +666,10 @@
             this.Controls.Add(this.lblSince);
             this.Controls.Add(this.lblUniMajLect);
             this.Controls.Add(this.lblCourseName);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "CourseViewWindow";
             this.Text = "CourseViewWindow";
+            this.Activated += new System.EventHandler(this.CourseViewWindow_Activated);
+            this.Load += new System.EventHandler(this.CourseViewWindow_Load);
             ((System.ComponentModel.ISupportInitialize)(this.overallRatingStar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.organizedRatingStar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.learnedRatingStar)).EndInit();
