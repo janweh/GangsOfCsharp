@@ -51,16 +51,16 @@ namespace WindowsFormsApp15.view
 
         private void BtnSend_Click(object sender, EventArgs e)
         {
-            if (!checkFields()) {return; }
+            if (!CheckFields()) {return; }
             try
             {
                 Rating givenRating = new Rating(student, course,
                     EnumTranslator.stringToSemester[(string)cmbBoxSemester.SelectedItem],
-                    getRating(overallBoxes), (int)nupdContactHours.Value, (int)nupdSelfStudyHours.Value,
-                    getRating(organizedBoxes), getRating(learnedBoxes), getRating(interestingBoxes),
-                    getRating(presetedBoxes), txtBoxComments.Text, DateTime.Now);
+                    GetRating(overallBoxes), (int)nupdContactHours.Value, (int)nupdSelfStudyHours.Value,
+                    GetRating(organizedBoxes), GetRating(learnedBoxes), GetRating(interestingBoxes),
+                    GetRating(presetedBoxes), txtBoxComments.Text, DateTime.Now);
                 DataWriter dw = new DataWriter();
-                dw.store(givenRating);
+                dw.Store(givenRating);
                 this.Close();
             }
             catch (DuplicateDataException)
@@ -69,9 +69,9 @@ namespace WindowsFormsApp15.view
             }
         }
 
-        private bool checkFields()
+        private bool CheckFields()
         {
-            if (!countRatings(overallBoxes))
+            if (!CountRatings(overallBoxes))
             {
                 MessageBox.Show("There has to be one Rating for how well the course was overall!");
                 return false;
@@ -91,22 +91,22 @@ namespace WindowsFormsApp15.view
                 MessageBox.Show("The amount of self study hours has to be positive!");
                 return false;
             }
-            else if (!countRatings(organizedBoxes))
+            else if (!CountRatings(organizedBoxes))
             {
                 MessageBox.Show("There has to be one Rating for how well the course was organized!");
                 return false;
             }
-            else if (!countRatings(learnedBoxes))
+            else if (!CountRatings(learnedBoxes))
             {
                 MessageBox.Show("There has to be one Rating for how much you learned in this course!");
                 return false;
             }
-            else if (!countRatings(interestingBoxes))
+            else if (!CountRatings(interestingBoxes))
             {
                 MessageBox.Show("There has to be one Rating for how interesting you found the course!");
                 return false;
             }
-            else if (!countRatings(presetedBoxes))
+            else if (!CountRatings(presetedBoxes))
             {
                 MessageBox.Show("There has to be one Rating for how well the lecturer presented the subject!");
                 return false;
@@ -114,7 +114,7 @@ namespace WindowsFormsApp15.view
             return true;
         }
 
-        private bool countRatings(CheckBox[] boxes)
+        private bool CountRatings(CheckBox[] boxes)
         {
             int ratings = 0;
             foreach(CheckBox box in boxes)
@@ -124,7 +124,7 @@ namespace WindowsFormsApp15.view
             return ratings == 1;
         }
 
-        private int getRating(CheckBox[] boxes)
+        private int GetRating(CheckBox[] boxes)
         {
             int count = 0;
             foreach(CheckBox box in boxes)

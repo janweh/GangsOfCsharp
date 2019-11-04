@@ -186,7 +186,7 @@
             // 
             this.lblOverallRating.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblOverallRating.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblOverallRating.Location = new System.Drawing.Point(300, 21);
+            this.lblOverallRating.Location = new System.Drawing.Point(294, 21);
             this.lblOverallRating.Name = "lblOverallRating";
             this.lblOverallRating.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.lblOverallRating.Size = new System.Drawing.Size(171, 16);

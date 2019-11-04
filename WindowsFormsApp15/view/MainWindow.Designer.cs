@@ -84,7 +84,7 @@ namespace WindowsFormsApp15.view
             this.leftSidebarPanel.Name = "leftSidebarPanel";
             this.leftSidebarPanel.Size = new System.Drawing.Size(200, 481);
             this.leftSidebarPanel.TabIndex = 0;
-            this.leftSidebarPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+          
             // 
             // logoPanel
             // 
@@ -95,9 +95,9 @@ namespace WindowsFormsApp15.view
             this.logoPanel.Name = "logoPanel";
             this.logoPanel.Size = new System.Drawing.Size(200, 162);
             this.logoPanel.TabIndex = 2;
-            this.logoPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
-            this.logoPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.logoPanel_MouseDown);
-            this.logoPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.logoPanel_MouseMove);
+            
+            this.logoPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LogoPanel_MouseDown);
+            this.logoPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.LogoPanel_MouseMove);
             // 
             // contactButton
             // 
@@ -178,7 +178,7 @@ namespace WindowsFormsApp15.view
             this.homeButton.Text = "HOME";
             this.homeButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.homeButton.UseVisualStyleBackColor = true;
-            this.homeButton.Click += new System.EventHandler(this.button1_Click);
+           
             // 
             // topHeaderPanel
             // 
@@ -194,9 +194,9 @@ namespace WindowsFormsApp15.view
             this.topHeaderPanel.Name = "topHeaderPanel";
             this.topHeaderPanel.Size = new System.Drawing.Size(600, 75);
             this.topHeaderPanel.TabIndex = 1;
-            this.topHeaderPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.TopHeaderPanel_Paint);
-            this.topHeaderPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.topHeaderPanel_MouseDown);
-            this.topHeaderPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.topHeaderPanel_MouseMove);
+           
+            this.topHeaderPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TopHeaderPanel_MouseDown);
+            this.topHeaderPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TopHeaderPanel_MouseMove);
             // 
             // exitBtns
             // 
@@ -206,7 +206,7 @@ namespace WindowsFormsApp15.view
             this.exitBtns.TabIndex = 1;
             this.exitBtns.Text = "X";
             this.exitBtns.UseVisualStyleBackColor = true;
-            this.exitBtns.Click += new System.EventHandler(this.exitBtns_Click);
+            this.exitBtns.Click += new System.EventHandler(this.ExitBtns_Click);
             // 
             // label2
             // 
@@ -291,7 +291,7 @@ namespace WindowsFormsApp15.view
             this.overallSearchPanel.Name = "overallSearchPanel";
             this.overallSearchPanel.Size = new System.Drawing.Size(600, 505);
             this.overallSearchPanel.TabIndex = 3;
-            this.overallSearchPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.OverallSearchPanel_Paint);
+           
             // 
             // searchResultPanel
             // 
@@ -457,7 +457,7 @@ namespace WindowsFormsApp15.view
             this.Name = "MainWindow";
             this.Text = "Form1";
             this.Activated += new System.EventHandler(this.MainWindow_Activated);
-            this.Load += new System.EventHandler(this.Form1_Load);
+        
             this.leftSidebarPanel.ResumeLayout(false);
             this.topHeaderPanel.ResumeLayout(false);
             this.topHeaderPanel.PerformLayout();

@@ -69,7 +69,7 @@ namespace WindowsFormsApp15
             this.buttonLogin.TabIndex = 2;
             this.buttonLogin.Text = "LOGIN";
             this.buttonLogin.UseVisualStyleBackColor = false;
-            this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
+            this.buttonLogin.Click += new System.EventHandler(this.ButtonLogin_Click);
             // 
             // panel3
             // 
@@ -142,9 +142,9 @@ namespace WindowsFormsApp15
             this.labelClose.Size = new System.Drawing.Size(21, 21);
             this.labelClose.TabIndex = 1;
             this.labelClose.Text = "X";
-            this.labelClose.MouseClick += new System.Windows.Forms.MouseEventHandler(this.labelClose_MouseClick);
-            this.labelClose.MouseEnter += new System.EventHandler(this.labelClose_MouseEnter);
-            this.labelClose.MouseLeave += new System.EventHandler(this.labelClose_MouseLeave);
+            this.labelClose.MouseClick += new System.Windows.Forms.MouseEventHandler(this.LabelClose_MouseClick);
+            this.labelClose.MouseEnter += new System.EventHandler(this.LabelClose_MouseEnter);
+            this.labelClose.MouseLeave += new System.EventHandler(this.LabelClose_MouseLeave);
             // 
             // label1
             // 
@@ -156,8 +156,8 @@ namespace WindowsFormsApp15
             this.label1.TabIndex = 0;
             this.label1.Text = "USER LOGIN";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label1_MouseDown);
-            this.label1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.label1_MouseMove);
+            this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Label1_MouseDown);
+            this.label1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Label1_MouseMove);
             // 
             // LoginForm
             // 

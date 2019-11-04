@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp15.Data;
 using WindowsFormsApp15.model;
@@ -21,19 +15,19 @@ namespace WindowsFormsApp15.view
         {
             this.keyword = keyword;
             InitializeComponent();
-            addDataToTable();
+            AddDataToTable();
             this.keywordLabel.Text = "Search: '" + keyword + "'";
             this.numberResultsLabel.Text = courses.Count.ToString();
         }
 
-        private void addDataToTable()
+        private void AddDataToTable()
         {
             ds = new DataSearch();
-            this.courses = ds.getCoursesByKeyword(keyword);
+            this.courses = ds.GetCoursesByKeyword(keyword);
             foreach (Course course in courses)
             {
                 object[] row = new object[4];
-                Tuple<double, int> t = ds.averageRatingAmountRatingsForCourse(course);
+                Tuple<double, int> t = ds.AverageRatingAmountRatingsForCourse(course);
                 row[0] = course.Name;
                 if (!(t.Item1 >= 0 && t.Item1 <= 10))
                 {

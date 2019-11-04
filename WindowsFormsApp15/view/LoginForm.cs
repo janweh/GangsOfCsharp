@@ -1,12 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp15.model;
 
@@ -27,22 +22,22 @@ namespace WindowsFormsApp15
         }
        
         
-        private void labelClose_MouseEnter(object sender, EventArgs e)
+        private void LabelClose_MouseEnter(object sender, EventArgs e)
         {
             labelClose.ForeColor = Color.Red;
         }
 
-        private void labelClose_MouseLeave(object sender, EventArgs e)
+        private void LabelClose_MouseLeave(object sender, EventArgs e)
         {
             labelClose.ForeColor = Color.Black;
         }
 
-        private void labelClose_MouseClick(object sender, MouseEventArgs e)
+        private void LabelClose_MouseClick(object sender, MouseEventArgs e)
         {
             this.Close();
         }
 
-        private void buttonLogin_Click(object sender, EventArgs e)
+        private void ButtonLogin_Click(object sender, EventArgs e)
         {
             DB db = new DB();
 
@@ -88,7 +83,7 @@ namespace WindowsFormsApp15
             }
         }
         Point lastPoint;
-        private void label1_MouseMove(object sender, MouseEventArgs e)
+        private void Label1_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -97,7 +92,7 @@ namespace WindowsFormsApp15
             }
         }
 
-        private void label1_MouseDown(object sender, MouseEventArgs e)
+        private void Label1_MouseDown(object sender, MouseEventArgs e)
         {
             {
                 lastPoint = new Point(e.X, e.Y);

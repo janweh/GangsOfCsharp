@@ -21,11 +21,11 @@ namespace WindowsFormsApp15.Data
         /// </summary>
         /// <param name="o"></param>
         /// <returns>true when storing was successfull. Otherwise false</returns>
-        public bool store(Object o)
+        public bool Store(Object o)
         {
             try
             {
-                string path = du.getPath(o);
+                string path = du.GetPath(o);
                 string info = o.ToString();
                 File.AppendAllText(path, info);
                 return true;
