@@ -230,6 +230,8 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "CREATE YOUR ACCOUNT";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label1_MouseDown);
+            this.label1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.label1_MouseMove);
             // 
             // RegisterForm
             // 

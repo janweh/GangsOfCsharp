@@ -62,6 +62,7 @@
     <Compile Include="Data\DataWriter.cs" />
     <Compile Include="Data\DuplicateDataException.cs" />
     <Compile Include="model\DB.cs" />
+    <Compile Include="model\LoginStatus.cs" />
     <Compile Include="view\RegisterForm.cs">
       <SubType>Form</SubType>
     </Compile>
