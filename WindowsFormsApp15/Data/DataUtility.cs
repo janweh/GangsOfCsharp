@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WindowsFormsApp15.model;
 
 namespace WindowsFormsApp15.Data
@@ -18,9 +15,9 @@ namespace WindowsFormsApp15.Data
         private string universitiesPath;
         public DataUtility()
         {
-            initPaths();
+            InitPaths();
         }
-        private void initPaths()
+        private void InitPaths()
         {
             string folder = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
             coursePath = Path.Combine(folder, @"Data\", "CourseStorage.txt");
@@ -37,7 +34,7 @@ namespace WindowsFormsApp15.Data
         /// </summary>
         /// <param name="o"></param>
         /// <returns></returns>
-        internal string getPath(Object o)
+        internal string GetPath(Object o)
         {
             switch (o)
             {
@@ -58,7 +55,7 @@ namespace WindowsFormsApp15.Data
                         "Entities", paramName: o.ToString());
             }
         }
-        internal string getPath(Type t)
+        internal string GetPath(Type t)
         {
             Dictionary<Type, string> dic = new Dictionary<Type, string>
             {

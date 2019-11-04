@@ -143,7 +143,7 @@ namespace WindowsFormsApp15.view
             this.Controls.Add(this.panel1);
             this.Name = "UniSearchResultWindow";
             this.Text = "UniSearchResultWindow";
-            this.Load += new System.EventHandler(this.UniSearchResultWindow_Load);
+            
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

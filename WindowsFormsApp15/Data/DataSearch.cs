@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SQLite;
 using System.IO;
 using System.Linq;
 using WindowsFormsApp15.model;
@@ -21,11 +20,11 @@ namespace WindowsFormsApp15.Data
         public DataSearch()
         {
             //initializes all the paths to the folders which hold the data
-            initPaths();
+            InitPaths();
             du = new DataUtility();
         }
 
-        private void initPaths()
+        private void InitPaths()
         {
             string folder = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
             coursePath = Path.Combine(folder, @"Data\", "CourseStorage.txt");
@@ -43,12 +42,12 @@ namespace WindowsFormsApp15.Data
         /// <typeparam name="T">The type of Object that should be returned</typeparam>
         /// <param name="id">The ID of the Object</param>
         /// <returns></returns>
-        public T getByID<T>(Guid id)
+        public T GetByID<T>(Guid id)
             where T : class, new()
         {
-            string path = du.getPath(typeof(T));
+            string path = du.GetPath(typeof(T));
             Matches matches = (x) => x[0].Equals(id.ToString());
-            List<string[]> matchingLines = getAllMatchingLines(matches, path);
+            List<string[]> matchingLines = GetAllMatchingLines(matches, path);
             if (matchingLines.Count == 0)
             {
                 throw new KeyNotFoundException("id did not match any id in the file.");
@@ -57,10 +56,10 @@ namespace WindowsFormsApp15.Data
             {
                 throw new DuplicateWaitObjectException("id occured multiple times in the file.");
             }
-            return createNew<T>(matchingLines.First(), new T());
+            return CreateNew<T>(matchingLines.First(), new T());
         }
 
-        private T createNew<T>(string[] lines, Object o)
+        private T CreateNew<T>(string[] lines, Object o)
         {
             switch (o)
             {
@@ -93,16 +92,16 @@ namespace WindowsFormsApp15.Data
         /// </summary>
         /// <typeparam name="T">Type of Objects that should be found.</typeparam>
         /// <returns></returns>
-        public List<T> getAll<T>()
+        public List<T> GetAll<T>()
             where T : class, new()
         {
             List<T> ts = new List<T>();
-            string path = du.getPath(typeof(T));
+            string path = du.GetPath(typeof(T));
             Matches matches = (x) => true;
-            List<string[]> matchingLines = getAllMatchingLines(matches, path);
+            List<string[]> matchingLines = GetAllMatchingLines(matches, path);
             foreach (string[] r in matchingLines)
             {
-                T t = createNew<T>(r, new T());
+                T t = CreateNew<T>(r, new T());
                 ts.Add(t);
             }
             return ts;
@@ -116,8 +115,8 @@ namespace WindowsFormsApp15.Data
         /// <returns></returns>
         public bool ObjectExists<T>(Matches condition)
         {
-            string path = du.getPath(typeof(T));
-            List<string[]> matchingLines = getAllMatchingLines(condition, path);
+            string path = du.GetPath(typeof(T));
+            List<string[]> matchingLines = GetAllMatchingLines(condition, path);
             return matchingLines.Count > 0;
         }
 
@@ -126,11 +125,11 @@ namespace WindowsFormsApp15.Data
         /// </summary>
         /// <param name="major"></param>
         /// <returns></returns>
-        public List<University> getUniversitiesWithMajor(Major major)
+        public List<University> GetUniversitiesWithMajor(Major major)
         {
             List<University> unis = new List<University>();
             Matches matches = (x) => x[1].Equals(major.Name);
-            List<string[]> matchingLines = getAllMatchingLines(matches, majorPath);
+            List<string[]> matchingLines = GetAllMatchingLines(matches, majorPath);
             List<Guid> foundUnis = new List<Guid>();
             foreach (string[] r in matchingLines)
             {
@@ -139,7 +138,7 @@ namespace WindowsFormsApp15.Data
             foundUnis = foundUnis.Distinct().ToList();
             foreach (Guid uniID in foundUnis)
             {
-                unis.Add(getByID<University>(uniID));
+                unis.Add(GetByID<University>(uniID));
             }
             return unis;
         }
@@ -149,11 +148,11 @@ namespace WindowsFormsApp15.Data
         /// </summary>
         /// <param name="university"></param>
         /// <returns></returns>
-        public List<Lecturer> getLecturersFromUniversity(University university)
+        public List<Lecturer> GetLecturersFromUniversity(University university)
         {
             List<Lecturer> lecturers = new List<Lecturer>();
             Matches matches = (x) => x[2].Equals(university.UniversityID.ToString());
-            List<string[]> matchingLines = getAllMatchingLines(matches, lecturerPath);
+            List<string[]> matchingLines = GetAllMatchingLines(matches, lecturerPath);
             foreach (string[] r in matchingLines)
             {
                 Lecturer lecturer = new Lecturer(r);
@@ -167,11 +166,11 @@ namespace WindowsFormsApp15.Data
         /// </summary>
         /// <param name="major"></param>
         /// <returns></returns>
-        public List<Lecturer> getLecturersFromMajor(Major major)
+        public List<Lecturer> GetLecturersFromMajor(Major major)
         {
             List<Lecturer> lecturers = new List<Lecturer>();
             Matches matches = (x) => x[3].Equals(major.MajorID.ToString());
-            List<string[]> matchingLines = getAllMatchingLines(matches, lecturerPath);
+            List<string[]> matchingLines = GetAllMatchingLines(matches, lecturerPath);
             foreach (string[] r in matchingLines)
             {
                 Lecturer lecturer = new Lecturer(r);
@@ -188,12 +187,12 @@ namespace WindowsFormsApp15.Data
         /// </summary>
         /// <param name="keyword"></param>
         /// <returns></returns>
-        public List<Course> getCoursesByKeyword(string keyword)
+        public List<Course> GetCoursesByKeyword(string keyword)
         {
             List<Course> courses = new List<Course>();
             //putting both strings as ToUpper() will make the search case insensitive
             Matches matches = (x) => x[1].ToUpper().Contains(keyword.ToUpper());
-            List<string[]> matchingLines = getAllMatchingLines(matches, coursePath);
+            List<string[]> matchingLines = GetAllMatchingLines(matches, coursePath);
             foreach (string[] r in matchingLines)
             {
                 Course course = new Course(r);
@@ -207,11 +206,11 @@ namespace WindowsFormsApp15.Data
         /// </summary>
         /// <param name="major"></param>
         /// <returns></returns>
-        public List<Course> getCoursesByMajor(Major major)
+        public List<Course> GetCoursesByMajor(Major major)
         {
             List<Course> courses = new List<Course>();
             Matches matches = (x) => x[5].Equals(major.MajorID.ToString());
-            List<string[]> matchingLines = getAllMatchingLines(matches, coursePath);
+            List<string[]> matchingLines = GetAllMatchingLines(matches, coursePath);
             foreach (string[] r in matchingLines)
             {
                 Course course = new Course(r);
@@ -225,11 +224,11 @@ namespace WindowsFormsApp15.Data
         /// </summary>
         /// <param name="lecturer"></param>
         /// <returns></returns>
-        public List<Course> getCoursesByLecturer(Lecturer lecturer)
+        public List<Course> GetCoursesByLecturer(Lecturer lecturer)
         {
             List<Course> courses = new List<Course>();
             Matches matches = (x) => x[3].Equals(lecturer.LecturerID.ToString());
-            List<string[]> matchingLines = getAllMatchingLines(matches, coursePath);
+            List<string[]> matchingLines = GetAllMatchingLines(matches, coursePath);
             foreach (string[] r in matchingLines)
             {
                 Course course = new Course(r);
@@ -243,11 +242,11 @@ namespace WindowsFormsApp15.Data
         /// </summary>
         /// <param name="course"></param>
         /// <returns></returns>
-        public List<Rating> getRatingsByCourse(Course course)
+        public List<Rating> GetRatingsByCourse(Course course)
         {
             List<Rating> ratings = new List<Rating>();
             Matches matches = (x) => x[2].Equals(course.CourseID.ToString());
-            List<string[]> matchingLines = getAllMatchingLines(matches, ratingPath);
+            List<string[]> matchingLines = GetAllMatchingLines(matches, ratingPath);
             foreach (string[] r in matchingLines)
             {
                 Rating rating = new Rating(r);
@@ -261,11 +260,11 @@ namespace WindowsFormsApp15.Data
         /// </summary>
         /// <param name="university"></param>
         /// <returns>List of majors of the university</returns>
-        public List<Major> getMajorsOfUniversity(University university)
+        public List<Major> GetMajorsOfUniversity(University university)
         {
             List<Major> majors = new List<Major>();
             Matches matches = (x) => x[2].Equals(university.UniversityID.ToString());
-            List<string[]> matchingLines = getAllMatchingLines(matches, majorPath);
+            List<string[]> matchingLines = GetAllMatchingLines(matches, majorPath);
             foreach (string[] r in matchingLines)
             {
                 Major major = new Major(r);
@@ -279,11 +278,11 @@ namespace WindowsFormsApp15.Data
         /// </summary>
         /// <param name="course"></param>
         /// <returns></returns>
-        public double averageRatingForCourse(Course course)
+        public double AverageRatingForCourse(Course course)
         {
             double sum = 0;
             Matches matches = (x) => x[2].Equals(course.CourseID.ToString());
-            List<string[]> matchingLines = getAllMatchingLines(matches, ratingPath);
+            List<string[]> matchingLines = GetAllMatchingLines(matches, ratingPath);
             foreach (string[] r in matchingLines)
             {
                 sum += Int32.Parse(r[4]);
@@ -297,13 +296,13 @@ namespace WindowsFormsApp15.Data
         /// </summary>
         /// <param name="major"></param>
         /// <returns></returns>
-        public double averageRatingForMajor(Major major)
+        public double AverageRatingForMajor(Major major)
         {
             double sum = 0;
-            List<Course> courses = getCoursesByMajor(major);
+            List<Course> courses = GetCoursesByMajor(major);
             foreach (Course course in courses)
             {
-                sum += averageRatingForCourse(course);
+                sum += AverageRatingForCourse(course);
             }
             return sum / courses.Count;
         }
@@ -314,13 +313,13 @@ namespace WindowsFormsApp15.Data
         /// </summary>
         /// <param name="university"></param>
         /// <returns></returns>
-        public double averageRatingForUniversity(University university)
+        public double AverageRatingForUniversity(University university)
         {
             double sum = 0;
-            List<Major> majors = getMajorsOfUniversity(university);
+            List<Major> majors = GetMajorsOfUniversity(university);
             foreach (Major major in majors)
             {
-                sum += averageRatingForMajor(major);
+                sum += AverageRatingForMajor(major);
             }
             return sum / majors.Count;
         }
@@ -331,13 +330,13 @@ namespace WindowsFormsApp15.Data
         /// </summary>
         /// <param name="lecturer"></param>
         /// <returns></returns>
-        public double averageRatingForLecturer(Lecturer lecturer)
+        public double AverageRatingForLecturer(Lecturer lecturer)
         {
             double sum = 0;
-            List<Course> courses = getCoursesByLecturer(lecturer);
+            List<Course> courses = GetCoursesByLecturer(lecturer);
             foreach (Course course in courses)
             {
-                sum += averageRatingForCourse(course);
+                sum += AverageRatingForCourse(course);
             }
             return sum / courses.Count;
         }
@@ -349,17 +348,17 @@ namespace WindowsFormsApp15.Data
         /// </summary>
         /// <param name="major"></param>
         /// <returns></returns>
-        public Tuple<double, int, int> averageRatingAmountCoursesAmountLecturersForMajor(Major major)
+        public Tuple<double, int, int> AverageRatingAmountCoursesAmountLecturersForMajor(Major major)
         {
             double sumCourses = 0;
-            List<Course> courses = getCoursesByMajor(major);
+            List<Course> courses = GetCoursesByMajor(major);
             foreach (Course course in courses)
             {
-                sumCourses += averageRatingForCourse(course);
+                sumCourses += AverageRatingForCourse(course);
             }
 
             Func<string[], bool> matches = (x) => x[3].Equals(major.MajorID.ToString());
-            int foundLecturers = getNumberOfMatchingLines(matches, lecturerPath);
+            int foundLecturers = GetNumberOfMatchingLines(matches, lecturerPath);
 
             return new Tuple<double, int, int>(sumCourses / courses.Count, courses.Count, foundLecturers);
         }
@@ -370,11 +369,11 @@ namespace WindowsFormsApp15.Data
         /// </summary>
         /// <param name="course"></param>
         /// <returns></returns>
-        public Tuple<double, int> averageRatingAmountRatingsForCourse(Course course)
+        public Tuple<double, int> AverageRatingAmountRatingsForCourse(Course course)
         {
             double sum = 0;
             Matches matches = (x) => x[2].Equals(course.CourseID.ToString());
-            List<string[]> matchingLines = getAllMatchingLines(matches, ratingPath);
+            List<string[]> matchingLines = GetAllMatchingLines(matches, ratingPath);
             foreach (string[] r in matchingLines)
             {
                 sum += Int32.Parse(r[4]);
@@ -389,25 +388,25 @@ namespace WindowsFormsApp15.Data
         /// </summary>
         /// <param name="university"></param>
         /// <returns></returns>
-        public Tuple<double, int, int, int> averageRatingAmountCoursesMajorsProfessors(University university)
+        public Tuple<double, int, int, int> AverageRatingAmountCoursesMajorsProfessors(University university)
         {
             Matches matchesMajor = (x) => x[2].Equals(university.UniversityID.ToString());
-            List<string[]> matchingMajors = getAllMatchingLines(matchesMajor, majorPath);
+            List<string[]> matchingMajors = GetAllMatchingLines(matchesMajor, majorPath);
 
             Func<string[], bool> matchesProfessor = (x) => x[2].Equals(university.UniversityID.ToString());
-            int amountProfessors = getNumberOfMatchingLines(matchesProfessor, lecturerPath);
+            int amountProfessors = GetNumberOfMatchingLines(matchesProfessor, lecturerPath);
             double ratingSum = 0;
             int countRatings = 0;
             int countCourses = 0;
             foreach (string[] major in matchingMajors)
             {
                 Matches matchesCourse = (x) => x[2].Equals(major);
-                List<string[]> matchingCourses = getAllMatchingLines(matchesCourse, coursePath);
+                List<string[]> matchingCourses = GetAllMatchingLines(matchesCourse, coursePath);
                 countCourses += matchingCourses.Count;
                 foreach (string[] course in matchingCourses)
                 {
                     Matches matchesRating = (x) => x[2].Equals(course[0]);
-                    List<string[]> matchingRatings = getAllMatchingLines(matchesRating, ratingPath);
+                    List<string[]> matchingRatings = GetAllMatchingLines(matchesRating, ratingPath);
                     countRatings += matchingRatings.Count;
                     foreach (string[] rating in matchingRatings)
                     {
@@ -419,7 +418,7 @@ namespace WindowsFormsApp15.Data
                 matchingMajors.Count, amountProfessors);
         }
 
-        private List<string[]> getAllMatchingLines(Matches match, string path)
+        private List<string[]> GetAllMatchingLines(Matches match, string path)
         {
             List<string[]> results = new List<string[]>();
             using (StreamReader sr = File.OpenText(path))
@@ -436,7 +435,7 @@ namespace WindowsFormsApp15.Data
             return results;
         }
 
-        private int getNumberOfMatchingLines(Func<string[], bool> match, string path)
+        private int GetNumberOfMatchingLines(Func<string[], bool> match, string path)
         {
             int number = 0;
             using (StreamReader sr = File.OpenText(path))

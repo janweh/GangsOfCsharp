@@ -1,5 +1,5 @@
 ﻿using System; 
-using System.Collections.Generic;
+
 
 namespace WindowsFormsApp15.model
 {
@@ -17,7 +17,7 @@ namespace WindowsFormsApp15.model
         public University(string name)
         {
             WindowsFormsApp15.Data.DataSearch ds = new WindowsFormsApp15.Data.DataSearch();
-            init(Guid.NewGuid(), name);
+            Init(Guid.NewGuid(), name);
         }
 
         /// <summary>
@@ -27,18 +27,15 @@ namespace WindowsFormsApp15.model
         /// <param name="line"></param>
         public University(string[] line)
         {
-            init(Guid.Parse(line[0]), line[1]);
+            Init(Guid.Parse(line[0]), line[1]);
         }
 
         public string UniversityName { get => universityName; }
         public Guid UniversityID { get => universityID; }
 
-        private void init(Guid universityID, string name)
+        private void Init(Guid universityID, string name)
         {
-            if (name == null)
-                throw new ArgumentNullException("name cannot be null.");
-
-            this.universityName = name;
+            this.universityName = name ?? throw new ArgumentNullException("name cannot be null.");
             this.universityID = universityID;
         }
 

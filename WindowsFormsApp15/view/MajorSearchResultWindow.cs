@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp15.Data;
 using WindowsFormsApp15.model;
@@ -22,17 +16,17 @@ namespace WindowsFormsApp15.view
             InitializeComponent();
             this.major = major;
             label1.Text = major.Name;
-            addDataToTable();
+            AddDataToTable();
         }
 
-        private void addDataToTable()
+        private void AddDataToTable()
         {
             ds = new DataSearch();
-            this.universities = ds.getUniversitiesWithMajor(this.major);
+            this.universities = ds.GetUniversitiesWithMajor(this.major);
             foreach (University university in universities)
             {
                 object[] row = new object[5];
-                Tuple<double, int, int, int> t = ds.averageRatingAmountCoursesMajorsProfessors(university);
+                Tuple<double, int, int, int> t = ds.AverageRatingAmountCoursesMajorsProfessors(university);
                 row[0] = University.Name;
                 if (!(t.Item1 >= 0 && t.Item1 <= 10))
                 {

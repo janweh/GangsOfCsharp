@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using WindowsFormsApp15.Data;
 
 namespace WindowsFormsApp15.model
@@ -23,7 +21,7 @@ namespace WindowsFormsApp15.model
         public Lecturer(string titleAndName, University university, Major major)
         {
             DataSearch ds = new DataSearch();
-            init(Guid.NewGuid(), titleAndName, university, major);
+            Init(Guid.NewGuid(), titleAndName, university, major);
         }
 
         /// <summary>
@@ -34,8 +32,8 @@ namespace WindowsFormsApp15.model
         public Lecturer(string[] line)
         {
             DataSearch ds = new DataSearch();
-            init(Guid.Parse(line[0]), line[1], ds.getByID<University>(Guid.Parse(line[2])),
-                    ds.getByID<Major>(Guid.Parse(line[3])));
+            Init(Guid.Parse(line[0]), line[1], ds.GetByID<University>(Guid.Parse(line[2])),
+                    ds.GetByID<Major>(Guid.Parse(line[3])));
         }
 
         public University University { get => university; }
@@ -43,23 +41,17 @@ namespace WindowsFormsApp15.model
         public string TitleAndName { get => titleAndName; }
         public Major Major { get => major; }
 
-        public void setUniversity(University university)
+        public void SetUniversity(University university)
         {
-            if (university == null)
-                throw new ArgumentNullException("university cannot be null.");
-            this.university = university;
+            this.university = university ?? throw new ArgumentNullException("university cannot be null.");
         }
 
-        private void init(Guid lecturerID, string titleAndName, University university, Major major)
+        private void Init(Guid lecturerID, string titleAndName, University university, Major major)
         {
-            if (titleAndName == null) { throw new ArgumentNullException("titleAndName cannot be null."); }
-            if (university == null) { throw new ArgumentNullException("university cannot be null."); }
-            if (major == null) { throw new ArgumentNullException("major cannot be null."); }
-
             this.lecturerID = lecturerID;
-            this.titleAndName = titleAndName;
-            this.university = university;
-            this.major = major;
+            this.titleAndName = titleAndName ?? throw new ArgumentNullException("titleAndName cannot be null.");
+            this.university = university ?? throw new ArgumentNullException("university cannot be null.");
+            this.major = major ?? throw new ArgumentNullException("major cannot be null.");
         }
 
         /// <summary>

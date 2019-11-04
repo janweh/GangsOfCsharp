@@ -81,8 +81,8 @@ namespace WindowsFormsApp15.model
         public Rating(string[] r)
         {
             ds = new DataSearch();
-            init(Guid.Parse(r[0]), ds.getByID<Student>(Guid.Parse(r[1])),
-                ds.getByID<Course>(Guid.Parse(r[2])), EnumTranslator.stringToSemester[r[3]],
+            init(Guid.Parse(r[0]), ds.GetByID<Student>(Guid.Parse(r[1])),
+                ds.GetByID<Course>(Guid.Parse(r[2])), EnumTranslator.stringToSemester[r[3]],
                 Int32.Parse(r[4]), Int32.Parse(r[5]), Int32.Parse(r[6]), Int32.Parse(r[7]),
                 Int32.Parse(r[8]), Int32.Parse(r[9]), Int32.Parse(r[10]), r[11],
                 DateTime.Parse(r[12]));
@@ -98,20 +98,16 @@ namespace WindowsFormsApp15.model
         public int Presentation { get => presentation; set => presentation = value; }
         public string Comment { get => comment; set => comment = value; }
         public Student Student { get => student; }
-        public void setStudent(Student student)
+        public void SetStudent(Student student)
         {
-            if (student == null)
-                throw new ArgumentNullException("student cannot be null.");
-            this.student = student;
+            this.student = student ?? throw new ArgumentNullException("student cannot be null.");
         }
         public Course Course { get => course; }
         public Guid RatingID { get => ratingID; }
         public DateTime Date { get => date; }
-        public void setCourse(Course course)
+        public void SetCourse(Course course)
         {
-            if (course == null)
-                throw new ArgumentNullException("course cannot be null.");
-            this.course = course;
+            this.course = course ?? throw new ArgumentNullException("course cannot be null.");
         }
 
         private void init(Guid ratingID, Student student, Course course,
@@ -119,7 +115,7 @@ namespace WindowsFormsApp15.model
             int learned, int interesting, int presentation, string comment, DateTime date)
         {
             if (student == null) { throw new ArgumentNullException("student cannot be null"); }
-            if (student == null) { throw new ArgumentNullException("student cannot be null"); }
+
             if (course == null) { throw new ArgumentNullException("course cannot be null"); }
 
             if (overallRating < 1 || overallRating > 5) { throw new ArgumentException("overallRating has to be between 1-10."); }
@@ -138,7 +134,7 @@ namespace WindowsFormsApp15.model
 
 
             this.ratingID = ratingID;
-            this.student = student;
+            this.student = student ?? throw new ArgumentNullException("student cannot be null");
             this.course = course;
             this.semester = semester;
             this.overallRating = overallRating;
