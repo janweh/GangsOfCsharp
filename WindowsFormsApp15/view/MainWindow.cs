@@ -43,7 +43,8 @@ namespace WindowsFormsApp15.view
         {
             TestData test = new TestData();
             //test.DeleteAllTestData();
-            //test.AddData();
+            //test.AddDataToTextFiles();
+            DatabaseConnection.Instance.InitDatabase();
             checker = new SearchConditionChecker(this);
             InitializeComponent();
             InitComboBoxes();

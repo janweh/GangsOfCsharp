@@ -64,23 +64,17 @@ namespace WindowsFormsApp15.Data
             switch (o)
             {
                 case University u:
-                    u = new University(lines);
-                    return (T)Convert.ChangeType(u, typeof(T));
+                    return (T)Convert.ChangeType(new University(lines), typeof(T));
                 case Course c:
-                    c = new Course(lines);
-                    return (T)Convert.ChangeType(c, typeof(T));
+                    return (T)Convert.ChangeType(new Course(lines), typeof(T));
                 case Major m:
-                    m = new Major(lines);
-                    return (T)Convert.ChangeType(m, typeof(T));
+                    return (T)Convert.ChangeType(new Major(lines), typeof(T));
                 case Rating r:
-                    r = new Rating(lines);
-                    return (T)Convert.ChangeType(r, typeof(T));
+                    return (T)Convert.ChangeType(new Rating(lines), typeof(T));
                 case Student s:
-                    s = new Student(lines);
-                    return (T)Convert.ChangeType(s, typeof(T));
+                    return (T)Convert.ChangeType(new Student(lines), typeof(T));
                 case Lecturer l:
-                    l = new Lecturer(lines);
-                    return (T)Convert.ChangeType(l, typeof(T));
+                    return (T)Convert.ChangeType(new Lecturer(lines), typeof(T));
                 default:
                     throw new ArgumentException(message: "Object does not match any of the storable" +
                         "Entities", paramName: o.ToString());
