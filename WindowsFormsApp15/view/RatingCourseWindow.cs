@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using WindowsFormsApp15.Data;
 using WindowsFormsApp15.model;
@@ -58,7 +59,8 @@ namespace WindowsFormsApp15.view
                     EnumTranslator.stringToSemester[(string)cmbBoxSemester.SelectedItem],
                     GetRating(overallBoxes), (int)nupdContactHours.Value, (int)nupdSelfStudyHours.Value,
                     GetRating(organizedBoxes), GetRating(learnedBoxes), GetRating(interestingBoxes),
-                    GetRating(presetedBoxes), txtBoxComments.Text, DateTime.Now);
+                    GetRating(presetedBoxes), txtBoxComments.Text, Int32.Parse(GradeTextBox.Text), 
+                    GetPassedFirstTime(), DateTime.Now);
                 DataWriter dw = new DataWriter();
                 dw.Store(givenRating);
                 this.Close();
@@ -110,6 +112,13 @@ namespace WindowsFormsApp15.view
             {
                 MessageBox.Show("There has to be one Rating for how well the lecturer presented the subject!");
                 return false;
+            } else if (!GradeTextBoxContainsGrade())
+            {
+                MessageBox.Show("Please enter the grade that you received in the course!");
+                return false;
+            } else if(!CheckPassedFirstTime()){
+                MessageBox.Show("Select either yes or no for wether you passed the course on the first try!");
+                return false;
             }
             return true;
         }
@@ -133,6 +142,59 @@ namespace WindowsFormsApp15.view
                 if (box.Checked) return count;
             }
             throw new ArgumentException("One of the boxes has to be checked.");
+        }
+
+        private bool GetPassedFirstTime()
+        {
+            if(yesCheckBox.Checked && !noCheckBox.Checked)
+            {
+                return true;
+            } else 
+                return false;
+        }
+
+        private void GradeTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if(GradeTextBoxContainsGrade())
+            {
+                yesCheckBox.Enabled = true;
+                noCheckBox.Enabled = true;
+            } else
+            {
+                yesCheckBox.Enabled = false;
+                noCheckBox.Enabled = false;
+            }
+        }
+
+        private bool GradeTextBoxContainsGrade()
+        {
+            Regex reg = new Regex(@"[1-9]|10");
+            Match match = reg.Match(GradeTextBox.Text);
+            return match.Success;
+        }
+
+        private bool CheckPassedFirstTime()
+        {
+            return (yesCheckBox.Checked == true && noCheckBox.Checked == false) ||
+                (yesCheckBox.Checked == false && noCheckBox.Checked == true);
+        }
+
+        private void YesCheckBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            yesCheckBox.Checked = true;
+            if(noCheckBox.Checked == true)
+            {
+                noCheckBox.Checked = false;
+            }
+        }
+
+        private void NoCheckBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            noCheckBox.Checked = true;
+            if (yesCheckBox.Checked == true)
+            {
+                yesCheckBox.Checked = false;
+            }
         }
     }
 }

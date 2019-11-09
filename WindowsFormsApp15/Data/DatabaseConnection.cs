@@ -38,6 +38,7 @@ namespace WindowsFormsApp15.Data
                 // Create a database command
                 using (var command = new SQLiteCommand(connection))
                 {
+                    connection.Open();
                     command.CommandText = @"CREATE TABLE IF NOT EXISTS [UniversityTable] (
                                             [UniversityID] INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
                                             [UniversityName] VARCHAR(200) NOT NULL)";
@@ -92,6 +93,7 @@ namespace WindowsFormsApp15.Data
 
                     command.CommandText = @"INSERT INTO UniversityTable (Name) VALUES ('Vilnius University')";
                     command.ExecuteNonQuery();
+                    connection.Close();
                 }
             }
         }

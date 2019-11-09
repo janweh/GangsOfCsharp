@@ -42,9 +42,9 @@ namespace WindowsFormsApp15.view
         public MainWindow()
         {
             TestData test = new TestData();
-            //test.DeleteAllTestData();
-            //test.AddDataToTextFiles();
-            DatabaseConnection.Instance.InitDatabase();
+            test.DeleteAllTestDataFromTextFiles();
+            test.AddDataToTextFiles();
+            //DatabaseConnection.Instance.InitDatabase();
             checker = new SearchConditionChecker(this);
             InitializeComponent();
             InitComboBoxes();
