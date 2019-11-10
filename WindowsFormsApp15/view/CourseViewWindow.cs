@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp15.Data;
 using WindowsFormsApp15.model;
@@ -24,8 +19,8 @@ namespace WindowsFormsApp15.view
             ds = new DataSearch();
             InitializeComponent();
             InitCourseProperties();
-            initComments();
-            initCommentPage(1);
+            InitComments();
+            InitCommentPage(1);
         }
 
         private void InitCourseProperties()
@@ -35,11 +30,11 @@ namespace WindowsFormsApp15.view
                 "        Major: " + course.Major.Name +
                 "        Lecturer: " + course.Lecturer.TitleAndName;
             lblSince.Text = "Since: " + EnumTranslator.semesterToString[course.Since];
-            ratings = ds.getRatingsByCourse(course);
-            addAverageRatings();
+            ratings = ds.GetRatingsByCourse(course);
+            AddAverageRatings();
         }
 
-        private void addAverageRatings()
+        private void AddAverageRatings()
         {
             int contactHoursSum, selfStudySum, organizedSum,
             learnedSum, interestingSum, presentedSum, 
@@ -59,20 +54,23 @@ namespace WindowsFormsApp15.view
                 presentedSum += rating.Presentation;
                 overallSum += rating.OverallRating;
             }
-            lblOverallRating.Text = "Overall Rating: " + 
-                (overallSum / count).ToString() + "/5";
-            lblContactHours.Text.Concat(" " + 
-                (contactHoursSum / count).ToString());
-            lblSelfStdyHours.Text.Concat(" " +
-                (selfStudySum / count).ToString());
-            organizedRatingLabel.Text = (organizedSum / count).ToString() + "/5";
-            learnedRatingLabel.Text = (learnedSum / count).ToString() + "/5";
-            interestingRatingLabel.Text = (interestingSum / count).ToString() + "/5";
-            presentedRatingLabel.Text = (presentedSum / count).ToString() + "/5";
+            if(count != 0)
+            {
+                lblOverallRating.Text = "Overall Rating: " + 
+                    (overallSum / count).ToString() + "/5";
+                lblContactHours.Text.Concat(" " + 
+                    (contactHoursSum / count).ToString());
+                lblSelfStdyHours.Text.Concat(" " +
+                    (selfStudySum / count).ToString());
+                organizedRatingLabel.Text = (organizedSum / count).ToString() + "/5";
+                learnedRatingLabel.Text = (learnedSum / count).ToString() + "/5";
+                interestingRatingLabel.Text = (interestingSum / count).ToString() + "/5";
+                presentedRatingLabel.Text = (presentedSum / count).ToString() + "/5";
+            }
 
         }
 
-        private void initComments()
+        private void InitComments()
         {
             this.comments = new List<Comment>();
             foreach (Rating rating in ratings)
@@ -118,7 +116,7 @@ namespace WindowsFormsApp15.view
             }
         }
 
-        private void initCommentPage(int pageNumber)
+        private void InitCommentPage(int pageNumber)
         {
             int positionOfFirstComment = ((pageNumber - 1) * 4) + 1;
             if (comments.Count < positionOfFirstComment
@@ -186,53 +184,73 @@ namespace WindowsFormsApp15.view
 
         private void Page1button_Click(object sender, EventArgs e)
         {
-            initCommentPage(1);
+            InitCommentPage(1);
         }
 
         private void Page2button_Click(object sender, EventArgs e)
         {
-            initCommentPage(2);
+            InitCommentPage(2);
         }
 
         private void Page3button_Click(object sender, EventArgs e)
         {
-            initCommentPage(3);
+            InitCommentPage(3);
         }
 
         private void Page4button_Click(object sender, EventArgs e)
         {
-            initCommentPage(4);
+            InitCommentPage(4);
         }
 
         private void Page5button_Click(object sender, EventArgs e)
         {
-            initCommentPage(5);
+            InitCommentPage(5);
         }
 
         private void Page6button_Click(object sender, EventArgs e)
         {
-            initCommentPage(6);
+            InitCommentPage(6);
         }
 
         private void Page7button_Click(object sender, EventArgs e)
         {
-            initCommentPage(7);
+            InitCommentPage(7);
         }
 
         private void Page8button_Click(object sender, EventArgs e)
         {
-            initCommentPage(8);
+            InitCommentPage(8);
         }
 
         private void Page9button_Click(object sender, EventArgs e)
         {
-            initCommentPage(9);
+            InitCommentPage(9);
         }
 
         private void RateCourseButton_Click(object sender, EventArgs e)
         {
             RatingCourseWindow rcw = new RatingCourseWindow(new Student(), course);
             rcw.Show();
+        }
+
+        private void CourseViewWindow_Load(object sender, EventArgs e)
+        {
+            if(LoginStatus.islogged)
+            {
+                rateCourseButton.Visible = true;
+            }
+        }
+
+        private void CourseViewWindow_Activated(object sender, EventArgs e)
+        {
+            if (LoginStatus.islogged)
+            {
+                rateCourseButton.Visible = true;
+            }
+            else
+            {
+                rateCourseButton.Visible = false;
+            }
         }
     }  
 }

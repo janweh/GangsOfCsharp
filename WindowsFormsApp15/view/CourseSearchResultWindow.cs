@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp15.Data;
 using WindowsFormsApp15.model;
@@ -25,23 +19,19 @@ namespace WindowsFormsApp15.view
             this.university = university;
             this.major = major;
             label1.Text = university.UniversityName + ": " + major.Name;
-            label2.Text = ds.averageRatingForMajor(major).ToString("0.0");
-            addDataToTable();
+            label2.Text = ds.AverageRatingForMajor(major).ToString("0.0");
+            AddDataToTable();
 
         }
 
-        private void addDataToTable()
+        private void AddDataToTable()
         {
-            this.courses = ds.getCoursesByMajor(major);
-            DataTable dt = new DataTable();
-            dt.Columns.Add("Course");
-            dt.Columns.Add("Rating");
-            dt.Columns.Add("Number of Ratings");
-            dt.Columns.Add("Lecturer");
+            ds = new DataSearch();
+            this.courses = ds.GetCoursesByMajor(major);
             foreach (Course course in courses)
             {
-                DataRow row = dt.NewRow();
-                Tuple<double, int> t = ds.averageRatingAmountRatingsForCourse(course);
+                object[] row = new object[4];
+                Tuple<double, int> t = ds.AverageRatingAmountRatingsForCourse(course);
                 row[0] = course.Name;
                 if (!(t.Item1 >= 0 && t.Item1 <= 10))
                 {
@@ -53,12 +43,15 @@ namespace WindowsFormsApp15.view
                 }
                 row[2] = t.Item2;
                 row[3] = course.Lecturer.TitleAndName;
-                dt.Rows.Add(row);
+                dataGridView1.Rows.Add(row);
             }
-            BindingSource bs = new BindingSource();
-            bs.DataSource = dt;
-            dataGridView1.DataSource = bs;
         }
 
+        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Course selected = courses[e.RowIndex];
+            CourseViewWindow cvw = new CourseViewWindow(selected);
+            cvw.Show();
+        }
     }
 }

@@ -207,7 +207,7 @@
             this.Controls.Add(this.lblUniversity);
             this.Name = "SignUpWindow";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.SignUpWindow_Load);
+           
             this.ResumeLayout(false);
             this.PerformLayout();
 

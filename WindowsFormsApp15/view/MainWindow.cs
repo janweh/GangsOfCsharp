@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp15.Data;
 using WindowsFormsApp15.model;
 
 namespace WindowsFormsApp15.view
 {
+
+
     public partial class MainWindow : Form
     {
         DataSearch ds = new DataSearch();
@@ -20,20 +17,22 @@ namespace WindowsFormsApp15.view
         Major noSelectedMajor;
         Lecturer noSelectedLecturer;
 
+        
+
         public University NoSelectedUniversity { get => noSelectedUniversity; }
         public Major NoSelectedMajor { get => noSelectedMajor; }
         public Lecturer NoSelectedLecturer { get => noSelectedLecturer; }
         public University GetUniversityComboBox()
         {
-            return (University) universityComboBox.SelectedItem;
+            return (University)universityComboBox.SelectedItem;
         }
         public Major GetMajorComboBox()
         {
-            return (Major) majorComboBox.SelectedItem;
+            return (Major)majorComboBox.SelectedItem;
         }
         public Lecturer GetProfessorComboBox()
         {
-            return (Lecturer) professorComboBox.SelectedItem;
+            return (Lecturer)professorComboBox.SelectedItem;
         }
         public string GetCourseNameTextField()
         {
@@ -47,19 +46,19 @@ namespace WindowsFormsApp15.view
             //test.AddData();
             checker = new SearchConditionChecker(this);
             InitializeComponent();
-            initComboBoxes();
+            InitComboBoxes();
         }
 
-        private void initComboBoxes()
+        private void InitComboBoxes()
         {
-            List<University> unis = ds.getAll<University>();
+            List<University> unis = ds.GetAll<University>();
             noSelectedUniversity = new University("");
             //noSelectedLecturer = new Lecturer(0, "", noSelectedUniversity, noSelectedMajor);
             unis.Insert(0, noSelectedUniversity);
             universityComboBox.DataSource = unis;
             universityComboBox.DisplayMember = "UniversityName";
 
-            List<Major> majors = ds.getAll<Major>();
+            List<Major> majors = ds.GetAll<Major>();
             noSelectedMajor = new Major("", noSelectedUniversity);
             majors.Insert(0, noSelectedMajor);
             majorComboBox.DataSource = majors;
@@ -68,25 +67,6 @@ namespace WindowsFormsApp15.view
             professorComboBox.Enabled = false;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         /// <summary>
         /// backToSearchButton pressed
@@ -100,15 +80,8 @@ namespace WindowsFormsApp15.view
 
         }
 
-        private void Panel5_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
-
-        private void TopHeaderPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        
 
         /// <summary>
         /// Gets called when the SearchButton is clicked.
@@ -125,21 +98,21 @@ namespace WindowsFormsApp15.view
             else if (checker.OnlyUniversitySelected())
             {
                 UniSearchResultWindow results = new UniSearchResultWindow(
-                    (University) universityComboBox.SelectedItem);
+                    (University)universityComboBox.SelectedItem);
                 results.Show();
                 label9.Visible = false;
             }
             else if (checker.MajorAndUniversitySelected())
             {
                 CourseSearchResultWindow results = new CourseSearchResultWindow(
-                    (University) universityComboBox.SelectedItem,
-                    (Major) majorComboBox.SelectedItem);
+                    (University)universityComboBox.SelectedItem,
+                    (Major)majorComboBox.SelectedItem);
                 results.Show();
                 label9.Visible = false;
             }
             else if (checker.ProfessorSelected())
             {
-                Lecturer l= (Lecturer) professorComboBox.SelectedItem;
+                Lecturer l = (Lecturer)professorComboBox.SelectedItem;
                 ProfessorSearchResultWindow results = new ProfessorSearchResultWindow(l);
                 results.Show();
                 label9.Visible = false;
@@ -147,13 +120,13 @@ namespace WindowsFormsApp15.view
             else if (checker.OnlyMajorSelected())
             {
                 MajorSearchResultWindow results = new MajorSearchResultWindow(
-                    (Major) majorComboBox.SelectedItem);
+                    (Major)majorComboBox.SelectedItem);
                 results.Show();
                 label9.Visible = false;
             }
             else if (checker.CourseNameEntered())
             {
-                CourseNameSearchResultWindow results = 
+                CourseNameSearchResultWindow results =
                     new CourseNameSearchResultWindow(courseNameTextBox.Text);
                 results.Show();
                 label9.Visible = false;
@@ -164,9 +137,9 @@ namespace WindowsFormsApp15.view
 
         private void UniversityComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(checker.EnableProfessor())
+            if (checker.EnableProfessor())
             {
-                List<Lecturer> lecturers = ds.getLecturersFromMajor((Major) majorComboBox.SelectedValue);
+                List<Lecturer> lecturers = ds.GetLecturersFromMajor((Major)majorComboBox.SelectedValue);
                 noSelectedLecturer = new Lecturer("", noSelectedUniversity, noSelectedMajor);
                 lecturers.Insert(0, noSelectedLecturer);
                 professorComboBox.DataSource = lecturers;
@@ -184,7 +157,7 @@ namespace WindowsFormsApp15.view
         {
             if (checker.EnableProfessor())
             {
-                List<Lecturer> lecturers = ds.getLecturersFromMajor((Major)majorComboBox.SelectedValue);
+                List<Lecturer> lecturers = ds.GetLecturersFromMajor((Major)majorComboBox.SelectedValue);
                 noSelectedLecturer = new Lecturer("", noSelectedUniversity, noSelectedMajor);
                 lecturers.Insert(0, noSelectedLecturer);
                 professorComboBox.DataSource = lecturers;
@@ -198,40 +171,39 @@ namespace WindowsFormsApp15.view
             }
         }
 
-        private void OverallSearchPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
+        
         private void LoginButton_Click(object sender, EventArgs e)
         {
+
             LoginForm lf = new LoginForm();
             lf.Show();
+            
         }
 
         private void RegisterButton_Click(object sender, EventArgs e)
         {
             RegisterForm rf = new RegisterForm();
             rf.Show();
+
         }
 
         private void OpenRatingLabel_Click(object sender, EventArgs e)
         {
 
             RatingCourseWindow rcw = new RatingCourseWindow(
-                ds.getByID<Student>(Guid.Parse("77f5d847-58e9-4b5b-af26-fc88bc51588d")),
-                ds.getByID<Course>(Guid.Parse("6f8be39e-7e1e-4703-b757-223c4193d7ca")));
+                ds.GetByID<Student>(Guid.Parse("77f5d847-58e9-4b5b-af26-fc88bc51588d")),
+                ds.GetByID<Course>(Guid.Parse("6f8be39e-7e1e-4703-b757-223c4193d7ca")));
             rcw.Show();
         }
 
         private void OpenCourseViewLabel_Click(object sender, EventArgs e)
         {
-            CourseViewWindow cvw = new CourseViewWindow(ds.getByID<Course>(Guid.Parse("6f8be39e-7e1e-4703-b757-223c4193d7ca")));
+            CourseViewWindow cvw = new CourseViewWindow(ds.GetByID<Course>(Guid.Parse("6f8be39e-7e1e-4703-b757-223c4193d7ca")));
             cvw.Show();
         }
 
         Point lastPoint;
-        private void topHeaderPanel_MouseMove(object sender, MouseEventArgs e)
+        private void TopHeaderPanel_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -240,21 +212,21 @@ namespace WindowsFormsApp15.view
             }
         }
 
-        private void topHeaderPanel_MouseDown(object sender, MouseEventArgs e)
+        private void TopHeaderPanel_MouseDown(object sender, MouseEventArgs e)
         {
             {
                 lastPoint = new Point(e.X, e.Y);
             }
         }
 
-        private void logoPanel_MouseDown(object sender, MouseEventArgs e)
+        private void LogoPanel_MouseDown(object sender, MouseEventArgs e)
         {
             {
                 lastPoint = new Point(e.X, e.Y);
             }
         }
 
-        private void logoPanel_MouseMove(object sender, MouseEventArgs e)
+        private void LogoPanel_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -263,9 +235,29 @@ namespace WindowsFormsApp15.view
             }
         }
 
-        private void exitBtns_Click(object sender, EventArgs e)
+        private void ExitBtns_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void MainWindow_Activated(object sender, EventArgs e)
+        {
+            if (LoginStatus.islogged)
+            {
+                loginButton.Visible = false;
+                registerButton.Visible = false;
+                LogOut.Visible = true;
+            }
+            
+        }
+
+        private void LogOut_Click(object sender, EventArgs e)
+        {
+            LoginStatus.islogged = false;
+            loginButton.Visible = true;
+            registerButton.Visible = true;
+            LogOut.Visible = false;
+            MessageBox.Show("You have logged out", "Log Out", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

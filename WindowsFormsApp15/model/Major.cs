@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WindowsFormsApp15.Data;
 
 namespace WindowsFormsApp15.model
@@ -23,7 +19,7 @@ namespace WindowsFormsApp15.model
         public Major(string name, University university)
         {
             DataSearch ds = new DataSearch();
-            init(Guid.NewGuid(), name, university);
+            Init(Guid.NewGuid(), name, university);
         }
 
         /// <summary>
@@ -34,23 +30,18 @@ namespace WindowsFormsApp15.model
         public Major(string[] line)
         {
             DataSearch ds = new DataSearch();
-            init(Guid.Parse(line[0]), line[1], ds.getByID<University>(Guid.Parse(line[2]))); ;
+            Init(Guid.Parse(line[0]), line[1], ds.GetByID<University>(Guid.Parse(line[2]))); ;
         }
 
         public Guid MajorID { get => majorID; }
         public string Name { get => majorName; }
         public University University { get => university; }
 
-        private void init(Guid majorID, string name, University university)
+        private void Init(Guid majorID, string name, University university)
         {
-            if (university == null)
-                throw new ArgumentNullException("university cannot be null!");
-            if (name == null)
-                throw new ArgumentNullException("name cannot be null!");
-
-            this.majorName = name;
+            this.majorName = name ?? throw new ArgumentNullException("name cannot be null!");
             this.majorID = majorID;
-            this.university = university;
+            this.university = university ?? throw new ArgumentNullException("university cannot be null!");
         }
 
         /// <summary>

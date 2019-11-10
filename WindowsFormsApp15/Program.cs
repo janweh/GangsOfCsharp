@@ -21,7 +21,7 @@ namespace WindowsFormsApp15
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainWindow());
-            
+
         }
     }
 }

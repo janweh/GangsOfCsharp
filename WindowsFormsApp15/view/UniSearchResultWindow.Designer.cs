@@ -37,6 +37,10 @@ namespace WindowsFormsApp15.view
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.majorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Major = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.Rating = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NumberOfCourses = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NumberOfProfessors = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.majorBindingSource)).BeginInit();
@@ -56,6 +60,11 @@ namespace WindowsFormsApp15.view
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Major,
+            this.Rating,
+            this.NumberOfCourses,
+            this.NumberOfProfessors});
             this.dataGridView1.Location = new System.Drawing.Point(0, 60);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
@@ -96,7 +105,35 @@ namespace WindowsFormsApp15.view
             // 
             // majorBindingSource
             // 
-            this.majorBindingSource.DataSource = typeof(Major);
+            this.majorBindingSource.DataSource = typeof(WindowsFormsApp15.model.Major);
+            // 
+            // Major
+            // 
+            this.Major.HeaderText = "Major";
+            this.Major.MinimumWidth = 8;
+            this.Major.Name = "Major";
+            this.Major.Width = 150;
+            // 
+            // Rating
+            // 
+            this.Rating.HeaderText = "Rating";
+            this.Rating.MinimumWidth = 8;
+            this.Rating.Name = "Rating";
+            this.Rating.Width = 150;
+            // 
+            // NumberOfCourses
+            // 
+            this.NumberOfCourses.HeaderText = "Number of Courses";
+            this.NumberOfCourses.MinimumWidth = 8;
+            this.NumberOfCourses.Name = "NumberOfCourses";
+            this.NumberOfCourses.Width = 150;
+            // 
+            // NumberOfProfessors
+            // 
+            this.NumberOfProfessors.HeaderText = "Number of Professors";
+            this.NumberOfProfessors.MinimumWidth = 8;
+            this.NumberOfProfessors.Name = "NumberOfProfessors";
+            this.NumberOfProfessors.Width = 150;
             // 
             // UniSearchResultWindow
             // 
@@ -106,7 +143,7 @@ namespace WindowsFormsApp15.view
             this.Controls.Add(this.panel1);
             this.Name = "UniSearchResultWindow";
             this.Text = "UniSearchResultWindow";
-            this.Load += new System.EventHandler(this.UniSearchResultWindow_Load);
+            
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -123,5 +160,9 @@ namespace WindowsFormsApp15.view
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource majorBindingSource;
+        private System.Windows.Forms.DataGridViewLinkColumn Major;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Rating;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NumberOfCourses;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NumberOfProfessors;
     }
 }

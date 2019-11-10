@@ -74,7 +74,7 @@
             this.buttonCreateAccount.TabIndex = 9;
             this.buttonCreateAccount.Text = "CREATE ACCOUNT";
             this.buttonCreateAccount.UseVisualStyleBackColor = false;
-            this.buttonCreateAccount.Click += new System.EventHandler(this.buttonCreateAccount_Click);
+            this.buttonCreateAccount.Click += new System.EventHandler(this.ButtonCreateAccount_Click);
             // 
             // panel3
             // 
@@ -102,8 +102,8 @@
             this.textBoxMajor.Size = new System.Drawing.Size(405, 35);
             this.textBoxMajor.TabIndex = 5;
             this.textBoxMajor.Text = "major";
-            this.textBoxMajor.Enter += new System.EventHandler(this.textBoxMajor_Enter);
-            this.textBoxMajor.Leave += new System.EventHandler(this.textBoxMajor_Leave);
+            this.textBoxMajor.Enter += new System.EventHandler(this.TextBoxMajor_Enter);
+            this.textBoxMajor.Leave += new System.EventHandler(this.TextBoxMajor_Leave);
             // 
             // textBoxFirstName
             // 
@@ -115,8 +115,8 @@
             this.textBoxFirstName.Size = new System.Drawing.Size(181, 35);
             this.textBoxFirstName.TabIndex = 1;
             this.textBoxFirstName.Text = "first name";
-            this.textBoxFirstName.Enter += new System.EventHandler(this.textBoxFirstName_Enter);
-            this.textBoxFirstName.Leave += new System.EventHandler(this.textBoxFirstName_Leave);
+            this.textBoxFirstName.Enter += new System.EventHandler(this.TextBoxFirstName_Enter);
+            this.textBoxFirstName.Leave += new System.EventHandler(this.TextBoxFirstName_Leave);
             // 
             // textBoxRepeatPassword
             // 
@@ -127,8 +127,8 @@
             this.textBoxRepeatPassword.Size = new System.Drawing.Size(405, 38);
             this.textBoxRepeatPassword.TabIndex = 10;
             this.textBoxRepeatPassword.Text = "confirm password";
-            this.textBoxRepeatPassword.Enter += new System.EventHandler(this.textBoxRepeatPassword_Enter);
-            this.textBoxRepeatPassword.Leave += new System.EventHandler(this.textBoxRepeatPassword_Leave);
+            this.textBoxRepeatPassword.Enter += new System.EventHandler(this.TextBoxRepeatPassword_Enter);
+            this.textBoxRepeatPassword.Leave += new System.EventHandler(this.TextBoxRepeatPassword_Leave);
             // 
             // textBoxLastName
             // 
@@ -140,8 +140,8 @@
             this.textBoxLastName.Size = new System.Drawing.Size(202, 35);
             this.textBoxLastName.TabIndex = 2;
             this.textBoxLastName.Text = "last name";
-            this.textBoxLastName.Enter += new System.EventHandler(this.textBoxLastName_Enter);
-            this.textBoxLastName.Leave += new System.EventHandler(this.textBoxLastName_Leave);
+            this.textBoxLastName.Enter += new System.EventHandler(this.TextBoxLastName_Enter);
+            this.textBoxLastName.Leave += new System.EventHandler(this.TextBoxLastName_Leave);
             // 
             // textBoxEmail
             // 
@@ -153,8 +153,8 @@
             this.textBoxEmail.Size = new System.Drawing.Size(405, 35);
             this.textBoxEmail.TabIndex = 3;
             this.textBoxEmail.Text = "email adress";
-            this.textBoxEmail.Enter += new System.EventHandler(this.textBoxEmail_Enter);
-            this.textBoxEmail.Leave += new System.EventHandler(this.textBoxEmail_Leave);
+            this.textBoxEmail.Enter += new System.EventHandler(this.TextBoxEmail_Enter);
+            this.textBoxEmail.Leave += new System.EventHandler(this.TextBoxEmail_Leave);
             // 
             // textBoxUniversity
             // 
@@ -166,8 +166,8 @@
             this.textBoxUniversity.Size = new System.Drawing.Size(405, 36);
             this.textBoxUniversity.TabIndex = 4;
             this.textBoxUniversity.Text = "university";
-            this.textBoxUniversity.Enter += new System.EventHandler(this.textBoxUniversity_Enter);
-            this.textBoxUniversity.Leave += new System.EventHandler(this.textBoxUniversity_Leave);
+            this.textBoxUniversity.Enter += new System.EventHandler(this.TextBoxUniversity_Enter);
+            this.textBoxUniversity.Leave += new System.EventHandler(this.TextBoxUniversity_Leave);
             // 
             // textBoxPassword
             // 
@@ -178,8 +178,8 @@
             this.textBoxPassword.Size = new System.Drawing.Size(405, 38);
             this.textBoxPassword.TabIndex = 9;
             this.textBoxPassword.Text = "password";
-            this.textBoxPassword.Enter += new System.EventHandler(this.textBoxPassword_Enter);
-            this.textBoxPassword.Leave += new System.EventHandler(this.textBoxPassword_Leave);
+            this.textBoxPassword.Enter += new System.EventHandler(this.TextBoxPassword_Enter);
+            this.textBoxPassword.Leave += new System.EventHandler(this.TextBoxPassword_Leave);
             // 
             // textBoxUsername
             // 
@@ -191,8 +191,8 @@
             this.textBoxUsername.Size = new System.Drawing.Size(405, 35);
             this.textBoxUsername.TabIndex = 6;
             this.textBoxUsername.Text = "username";
-            this.textBoxUsername.Enter += new System.EventHandler(this.textBoxUsername_Enter);
-            this.textBoxUsername.Leave += new System.EventHandler(this.textBoxUsername_Leave);
+            this.textBoxUsername.Enter += new System.EventHandler(this.TextBoxUsername_Enter);
+            this.textBoxUsername.Leave += new System.EventHandler(this.TextBoxUsername_Leave);
             // 
             // panel2
             // 
@@ -215,9 +215,9 @@
             this.labelClose.Size = new System.Drawing.Size(21, 21);
             this.labelClose.TabIndex = 12;
             this.labelClose.Text = "X";
-            this.labelClose.Click += new System.EventHandler(this.labelClose_Click);
-            this.labelClose.MouseEnter += new System.EventHandler(this.labelClose_MouseEnter);
-            this.labelClose.MouseLeave += new System.EventHandler(this.labelClose_MouseLeave);
+            this.labelClose.Click += new System.EventHandler(this.LabelClose_Click);
+            this.labelClose.MouseEnter += new System.EventHandler(this.LabelClose_MouseEnter);
+            this.labelClose.MouseLeave += new System.EventHandler(this.LabelClose_MouseLeave);
             // 
             // label1
             // 
@@ -230,6 +230,8 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "CREATE YOUR ACCOUNT";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Label1_MouseDown);
+            this.label1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Label1_MouseMove);
             // 
             // RegisterForm
             // 

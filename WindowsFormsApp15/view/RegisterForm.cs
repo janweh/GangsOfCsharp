@@ -1,12 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp15
@@ -18,7 +13,7 @@ namespace WindowsFormsApp15
             InitializeComponent();
         }
 
-        private void textBoxFirstName_Enter(object sender, EventArgs e)
+        private void TextBoxFirstName_Enter(object sender, EventArgs e)
         {
             String fname = textBoxFirstName.Text;
             if (fname.ToLower().Trim().Equals("first name"))
@@ -28,7 +23,7 @@ namespace WindowsFormsApp15
             } 
         }
 
-        private void textBoxFirstName_Leave(object sender, EventArgs e)
+        private void TextBoxFirstName_Leave(object sender, EventArgs e)
         {
             String fname = textBoxFirstName.Text;
             if (fname.ToLower().Trim().Equals("first name") || fname.Trim().Equals(""))
@@ -38,7 +33,7 @@ namespace WindowsFormsApp15
             }
         }
 
-        private void textBoxLastName_Enter(object sender, EventArgs e)
+        private void TextBoxLastName_Enter(object sender, EventArgs e)
         {
             String lname = textBoxLastName.Text;
             if (lname.ToLower().Trim().Equals("last name"))
@@ -48,7 +43,7 @@ namespace WindowsFormsApp15
             }
         }
 
-        private void textBoxLastName_Leave(object sender, EventArgs e)
+        private void TextBoxLastName_Leave(object sender, EventArgs e)
         {
             String lname = textBoxLastName.Text;
             if (lname.ToLower().Trim().Equals("last name") || lname.Trim().Equals(""))
@@ -58,7 +53,7 @@ namespace WindowsFormsApp15
             }
         }
 
-        private void textBoxEmail_Enter(object sender, EventArgs e)
+        private void TextBoxEmail_Enter(object sender, EventArgs e)
         {
             String email = textBoxEmail.Text;
             if (email.ToLower().Trim().Equals("email adress"))
@@ -69,7 +64,7 @@ namespace WindowsFormsApp15
 
         }
 
-        private void textBoxEmail_Leave(object sender, EventArgs e)
+        private void TextBoxEmail_Leave(object sender, EventArgs e)
         {
             String email = textBoxEmail.Text;
             if (email.ToLower().Trim().Equals("email adress") || email.Trim().Equals(""))
@@ -79,7 +74,7 @@ namespace WindowsFormsApp15
             }
         }
 
-        private void textBoxUsername_Enter(object sender, EventArgs e)
+        private void TextBoxUsername_Enter(object sender, EventArgs e)
         {
             String uname = textBoxUsername.Text;
             if (uname.ToLower().Trim().Equals("username"))
@@ -89,7 +84,7 @@ namespace WindowsFormsApp15
             }
         }
 
-        private void textBoxUsername_Leave(object sender, EventArgs e)
+        private void TextBoxUsername_Leave(object sender, EventArgs e)
         {
             String uname = textBoxUsername.Text;
             if (uname.ToLower().Trim().Equals("username") || uname.Trim().Equals(""))
@@ -99,7 +94,7 @@ namespace WindowsFormsApp15
             }
         }
 
-        private void textBoxUniversity_Enter(object sender, EventArgs e)
+        private void TextBoxUniversity_Enter(object sender, EventArgs e)
         {
             String uni = textBoxUniversity.Text;
             if (uni.ToLower().Trim().Equals("university"))
@@ -109,7 +104,7 @@ namespace WindowsFormsApp15
             }
         }
 
-        private void textBoxUniversity_Leave(object sender, EventArgs e)
+        private void TextBoxUniversity_Leave(object sender, EventArgs e)
         {
             String uni = textBoxUniversity.Text;
             if (uni.ToLower().Trim().Equals("university") || uni.Trim().Equals(""))
@@ -119,7 +114,7 @@ namespace WindowsFormsApp15
             }
         }
 
-        private void textBoxMajor_Enter(object sender, EventArgs e)
+        private void TextBoxMajor_Enter(object sender, EventArgs e)
         {
             String major = textBoxMajor.Text;
             if (major.ToLower().Trim().Equals("major"))
@@ -129,7 +124,7 @@ namespace WindowsFormsApp15
             }
         }
 
-        private void textBoxMajor_Leave(object sender, EventArgs e)
+        private void TextBoxMajor_Leave(object sender, EventArgs e)
         {
             String major = textBoxMajor.Text;
             if (major.ToLower().Trim().Equals("major") || major.Trim().Equals(""))
@@ -139,7 +134,7 @@ namespace WindowsFormsApp15
             }
         }
 
-        private void textBoxPassword_Enter(object sender, EventArgs e)
+        private void TextBoxPassword_Enter(object sender, EventArgs e)
         {
             String password = textBoxPassword.Text;
             if (password.ToLower().Trim().Equals("password"))
@@ -150,7 +145,7 @@ namespace WindowsFormsApp15
             }
         }
 
-        private void textBoxPassword_Leave(object sender, EventArgs e)
+        private void TextBoxPassword_Leave(object sender, EventArgs e)
         {
             String password = textBoxPassword.Text;
             if (password.ToLower().Trim().Equals("password") || password.Trim().Equals(""))
@@ -161,7 +156,7 @@ namespace WindowsFormsApp15
             }
         }
 
-        private void textBoxRepeatPassword_Enter(object sender, EventArgs e)
+        private void TextBoxRepeatPassword_Enter(object sender, EventArgs e)
         {
             String repeatpassword = textBoxRepeatPassword.Text;
             if (repeatpassword.ToLower().Trim().Equals("confirm password"))
@@ -172,7 +167,7 @@ namespace WindowsFormsApp15
             }
         }
 
-        private void textBoxRepeatPassword_Leave(object sender, EventArgs e)
+        private void TextBoxRepeatPassword_Leave(object sender, EventArgs e)
         {
             String repeatpassword = textBoxRepeatPassword.Text;
             if (repeatpassword.ToLower().Trim().Equals("confirm password") ||
@@ -185,22 +180,22 @@ namespace WindowsFormsApp15
             }
         }
 
-        private void labelClose_Click(object sender, EventArgs e)
+        private void LabelClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void labelClose_MouseEnter(object sender, EventArgs e)
+        private void LabelClose_MouseEnter(object sender, EventArgs e)
         {
             labelClose.ForeColor = Color.Red;
         }
 
-        private void labelClose_MouseLeave(object sender, EventArgs e)
+        private void LabelClose_MouseLeave(object sender, EventArgs e)
         {
             labelClose.ForeColor = Color.Black;
         }
 
-        private void buttonCreateAccount_Click(object sender, EventArgs e)
+        private void ButtonCreateAccount_Click(object sender, EventArgs e)
         {
             //add new user
 
@@ -217,15 +212,15 @@ namespace WindowsFormsApp15
 
             //open connection to db
 
-            db.openConnection();
+            db.OpenConnection();
 
             //check if text boxes contain defaul values
-            if (!checkTextBoxesValues()) {
+            if (!CheckTextBoxesValues()) {
                 //check if password == confirm pasword
                 if (textBoxPassword.Text.Equals(textBoxRepeatPassword.Text))
                 {
                     //check if the username already exists
-                    if (checkUsername())
+                    if (CheckUsername())
                     {
                         MessageBox.Show("This Username Already Exists, Select A Different One", "Duplicate username", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
                     }
@@ -255,10 +250,10 @@ namespace WindowsFormsApp15
             }
             //close connection
 
-            db.closeConnection();
+            db.CloseConnection();
         }
 
-        public Boolean checkUsername()
+        public Boolean CheckUsername()
         {
             DB db = new DB();
 
@@ -288,7 +283,7 @@ namespace WindowsFormsApp15
             }
         }
         // check if text boxes contain default values
-        public Boolean checkTextBoxesValues()
+        public Boolean CheckTextBoxesValues()
         {
             String fname = textBoxFirstName.Text;
             String lname = textBoxLastName.Text;
@@ -308,6 +303,24 @@ namespace WindowsFormsApp15
             {
                 return false;
             } 
+        }
+
+        Point lastPoint;
+
+        private void Label1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.Left += e.X - lastPoint.X;
+                this.Top += e.Y - lastPoint.Y;
+            }
+        }
+
+        private void Label1_MouseDown(object sender, MouseEventArgs e)
+        {
+            {
+                lastPoint = new Point(e.X, e.Y);
+            }
         }
     }
 }

@@ -80,7 +80,6 @@
             this.page1button = new System.Windows.Forms.Button();
             this.lblCommentsHeader = new System.Windows.Forms.Label();
             this.rateCourseButton = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.overallRatingStar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.organizedRatingStar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.learnedRatingStar)).BeginInit();
@@ -187,7 +186,7 @@
             // 
             this.lblOverallRating.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblOverallRating.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblOverallRating.Location = new System.Drawing.Point(319, 21);
+            this.lblOverallRating.Location = new System.Drawing.Point(294, 21);
             this.lblOverallRating.Name = "lblOverallRating";
             this.lblOverallRating.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.lblOverallRating.Size = new System.Drawing.Size(171, 16);
@@ -250,9 +249,9 @@
             this.organizedRatingLabel.Location = new System.Drawing.Point(257, 158);
             this.organizedRatingLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.organizedRatingLabel.Name = "organizedRatingLabel";
-            this.organizedRatingLabel.Size = new System.Drawing.Size(35, 13);
+            this.organizedRatingLabel.Size = new System.Drawing.Size(27, 13);
             this.organizedRatingLabel.TabIndex = 39;
-            this.organizedRatingLabel.Text = "label1";
+            this.organizedRatingLabel.Text = "N/A";
             // 
             // learnedRatingLabel
             // 
@@ -260,9 +259,9 @@
             this.learnedRatingLabel.Location = new System.Drawing.Point(257, 180);
             this.learnedRatingLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.learnedRatingLabel.Name = "learnedRatingLabel";
-            this.learnedRatingLabel.Size = new System.Drawing.Size(35, 13);
+            this.learnedRatingLabel.Size = new System.Drawing.Size(27, 13);
             this.learnedRatingLabel.TabIndex = 40;
-            this.learnedRatingLabel.Text = "label2";
+            this.learnedRatingLabel.Text = "N/A";
             // 
             // interestingRatingLabel
             // 
@@ -270,9 +269,9 @@
             this.interestingRatingLabel.Location = new System.Drawing.Point(257, 207);
             this.interestingRatingLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.interestingRatingLabel.Name = "interestingRatingLabel";
-            this.interestingRatingLabel.Size = new System.Drawing.Size(35, 13);
+            this.interestingRatingLabel.Size = new System.Drawing.Size(27, 13);
             this.interestingRatingLabel.TabIndex = 41;
-            this.interestingRatingLabel.Text = "label3";
+            this.interestingRatingLabel.Text = "N/A";
             // 
             // presentedRatingLabel
             // 
@@ -280,9 +279,9 @@
             this.presentedRatingLabel.Location = new System.Drawing.Point(257, 229);
             this.presentedRatingLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.presentedRatingLabel.Name = "presentedRatingLabel";
-            this.presentedRatingLabel.Size = new System.Drawing.Size(35, 13);
+            this.presentedRatingLabel.Size = new System.Drawing.Size(27, 13);
             this.presentedRatingLabel.TabIndex = 42;
-            this.presentedRatingLabel.Text = "label4";
+            this.presentedRatingLabel.Text = "N/A";
             // 
             // commentPanel
             // 
@@ -636,16 +635,8 @@
             this.rateCourseButton.TabIndex = 44;
             this.rateCourseButton.Text = "Rate this Course";
             this.rateCourseButton.UseVisualStyleBackColor = true;
+            this.rateCourseButton.Visible = false;
             this.rateCourseButton.Click += new System.EventHandler(this.RateCourseButton_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Location = new System.Drawing.Point(248, 12);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(141, 122);
-            this.panel1.TabIndex = 45;
             // 
             // CourseViewWindow
             // 
@@ -654,7 +645,6 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(556, 456);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.rateCourseButton);
             this.Controls.Add(this.commentPanel);
             this.Controls.Add(this.presentedRatingLabel);
@@ -678,6 +668,8 @@
             this.Controls.Add(this.lblCourseName);
             this.Name = "CourseViewWindow";
             this.Text = "CourseViewWindow";
+            this.Activated += new System.EventHandler(this.CourseViewWindow_Activated);
+            this.Load += new System.EventHandler(this.CourseViewWindow_Load);
             ((System.ComponentModel.ISupportInitialize)(this.overallRatingStar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.organizedRatingStar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.learnedRatingStar)).EndInit();
@@ -751,6 +743,5 @@
         private System.Windows.Forms.TextBox comment1TxtBox;
         private System.Windows.Forms.Label lblUsername1;
         private System.Windows.Forms.Button rateCourseButton;
-        private System.Windows.Forms.Panel panel1;
     }
 }

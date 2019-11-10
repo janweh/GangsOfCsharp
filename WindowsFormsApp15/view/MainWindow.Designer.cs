@@ -1,4 +1,6 @@
-﻿namespace WindowsFormsApp15.view
+﻿using WindowsFormsApp15;
+using WindowsFormsApp15.model;
+namespace WindowsFormsApp15.view
 {
     partial class MainWindow
     {
@@ -38,8 +40,6 @@
             this.homeButton = new System.Windows.Forms.Button();
             this.topHeaderPanel = new System.Windows.Forms.Panel();
             this.exitBtns = new System.Windows.Forms.Button();
-            this.openCourseViewLabel = new System.Windows.Forms.Label();
-            this.openRatingLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.registerButton = new System.Windows.Forms.Button();
@@ -61,6 +61,7 @@
             this.majorComboBox = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.universityComboBox = new System.Windows.Forms.ComboBox();
+            this.LogOut = new System.Windows.Forms.Button();
             this.leftSidebarPanel.SuspendLayout();
             this.topHeaderPanel.SuspendLayout();
             this.bottomGangsOfCsharpPanel.SuspendLayout();
@@ -83,7 +84,7 @@
             this.leftSidebarPanel.Name = "leftSidebarPanel";
             this.leftSidebarPanel.Size = new System.Drawing.Size(200, 481);
             this.leftSidebarPanel.TabIndex = 0;
-            this.leftSidebarPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+          
             // 
             // logoPanel
             // 
@@ -94,9 +95,9 @@
             this.logoPanel.Name = "logoPanel";
             this.logoPanel.Size = new System.Drawing.Size(200, 162);
             this.logoPanel.TabIndex = 2;
-            this.logoPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
-            this.logoPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.logoPanel_MouseDown);
-            this.logoPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.logoPanel_MouseMove);
+            
+            this.logoPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LogoPanel_MouseDown);
+            this.logoPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.LogoPanel_MouseMove);
             // 
             // contactButton
             // 
@@ -177,14 +178,13 @@
             this.homeButton.Text = "HOME";
             this.homeButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.homeButton.UseVisualStyleBackColor = true;
-            this.homeButton.Click += new System.EventHandler(this.button1_Click);
+           
             // 
             // topHeaderPanel
             // 
             this.topHeaderPanel.BackColor = System.Drawing.Color.SteelBlue;
+            this.topHeaderPanel.Controls.Add(this.LogOut);
             this.topHeaderPanel.Controls.Add(this.exitBtns);
-            this.topHeaderPanel.Controls.Add(this.openCourseViewLabel);
-            this.topHeaderPanel.Controls.Add(this.openRatingLabel);
             this.topHeaderPanel.Controls.Add(this.label2);
             this.topHeaderPanel.Controls.Add(this.label1);
             this.topHeaderPanel.Controls.Add(this.registerButton);
@@ -194,9 +194,9 @@
             this.topHeaderPanel.Name = "topHeaderPanel";
             this.topHeaderPanel.Size = new System.Drawing.Size(600, 75);
             this.topHeaderPanel.TabIndex = 1;
-            this.topHeaderPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.TopHeaderPanel_Paint);
-            this.topHeaderPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.topHeaderPanel_MouseDown);
-            this.topHeaderPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.topHeaderPanel_MouseMove);
+           
+            this.topHeaderPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TopHeaderPanel_MouseDown);
+            this.topHeaderPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TopHeaderPanel_MouseMove);
             // 
             // exitBtns
             // 
@@ -206,29 +206,7 @@
             this.exitBtns.TabIndex = 1;
             this.exitBtns.Text = "X";
             this.exitBtns.UseVisualStyleBackColor = true;
-            this.exitBtns.Click += new System.EventHandler(this.exitBtns_Click);
-            // 
-            // openCourseViewLabel
-            // 
-            this.openCourseViewLabel.AutoSize = true;
-            this.openCourseViewLabel.Location = new System.Drawing.Point(114, 34);
-            this.openCourseViewLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.openCourseViewLabel.Name = "openCourseViewLabel";
-            this.openCourseViewLabel.Size = new System.Drawing.Size(92, 13);
-            this.openCourseViewLabel.TabIndex = 6;
-            this.openCourseViewLabel.Text = "Open CourseView";
-            this.openCourseViewLabel.Click += new System.EventHandler(this.OpenCourseViewLabel_Click);
-            // 
-            // openRatingLabel
-            // 
-            this.openRatingLabel.AutoSize = true;
-            this.openRatingLabel.Location = new System.Drawing.Point(27, 34);
-            this.openRatingLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.openRatingLabel.Name = "openRatingLabel";
-            this.openRatingLabel.Size = new System.Drawing.Size(67, 13);
-            this.openRatingLabel.TabIndex = 5;
-            this.openRatingLabel.Text = "Open Rating";
-            this.openRatingLabel.Click += new System.EventHandler(this.OpenRatingLabel_Click);
+            this.exitBtns.Click += new System.EventHandler(this.ExitBtns_Click);
             // 
             // label2
             // 
@@ -313,7 +291,7 @@
             this.overallSearchPanel.Name = "overallSearchPanel";
             this.overallSearchPanel.Size = new System.Drawing.Size(600, 505);
             this.overallSearchPanel.TabIndex = 3;
-            this.overallSearchPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.OverallSearchPanel_Paint);
+           
             // 
             // searchResultPanel
             // 
@@ -451,6 +429,21 @@
             this.universityComboBox.TabIndex = 24;
             this.universityComboBox.SelectedIndexChanged += new System.EventHandler(this.UniversityComboBox_SelectedIndexChanged);
             // 
+            // LogOut
+            // 
+            this.LogOut.BackColor = System.Drawing.Color.Silver;
+            this.LogOut.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.LogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LogOut.Location = new System.Drawing.Point(477, 28);
+            this.LogOut.Name = "LogOut";
+            this.LogOut.Size = new System.Drawing.Size(66, 22);
+            this.LogOut.TabIndex = 5;
+            this.LogOut.Text = "LOG OUT";
+            this.LogOut.UseVisualStyleBackColor = false;
+            this.LogOut.Visible = false;
+            this.LogOut.Click += new System.EventHandler(this.LogOut_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -463,7 +456,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainWindow";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Activated += new System.EventHandler(this.MainWindow_Activated);
+        
             this.leftSidebarPanel.ResumeLayout(false);
             this.topHeaderPanel.ResumeLayout(false);
             this.topHeaderPanel.PerformLayout();
@@ -490,6 +484,7 @@
         private System.Windows.Forms.Button homeButton;
         private System.Windows.Forms.Button registerButton;
         private System.Windows.Forms.Button loginButton;
+        
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -508,9 +503,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox universityComboBox;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label openRatingLabel;
-        private System.Windows.Forms.Label openCourseViewLabel;
         private System.Windows.Forms.Button exitBtns;
+        private System.Windows.Forms.Button LogOut;
     }
 }
 

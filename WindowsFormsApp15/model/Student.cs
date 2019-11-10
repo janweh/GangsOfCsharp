@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using WindowsFormsApp15.Data;
 
 namespace WindowsFormsApp15.model
@@ -23,8 +21,8 @@ namespace WindowsFormsApp15.model
         public Student(string[] r)
         {
             DataSearch ds = new DataSearch();
-            init(Guid.Parse(r[0]), r[1], r[2], ds.getByID<University>(Guid.Parse(r[3])),
-                ds.getByID<Major>(Guid.Parse(r[4])), r[5], Int32.Parse(r[6]));
+            Init(Guid.Parse(r[0]), r[1], r[2], ds.GetByID<University>(Guid.Parse(r[3])),
+                ds.GetByID<Major>(Guid.Parse(r[4])), r[5], Int32.Parse(r[6]));
         }
 
         /// <summary>
@@ -42,59 +40,42 @@ namespace WindowsFormsApp15.model
         public Student(string userName, string password, University university,
             Major major, string areaOfStudies, int semester)
         {
-            init(Guid.NewGuid(), userName, password, university, major, areaOfStudies, semester);
+            Init(Guid.NewGuid(), userName, password, university, major, areaOfStudies, semester);
         }
 
         public string UserName { get => userName; }
-        public void setUserName(string userName)
+        public void SetUserName(string userName)
         {
-            if (userName == null)
-                throw new ArgumentNullException("userName cannot be set to null.");
-            this.userName = userName;
+            this.userName = userName ?? throw new ArgumentNullException("userName cannot be set to null.");
         }
         public string Password { get => password; }
-        public void setPassword(string password)
+        public void SetPassword(string password)
         {
-            if (password == null)
-                throw new ArgumentNullException("password cannot be set to null.");
-            this.password = password;
+            this.password = password ?? throw new ArgumentNullException("password cannot be set to null.");
         }
         public string AreaOfStudies { get => areaOfStudies; }
-        public void setAreaOfStudies(string areaOfStudies)
+        public void SetAreaOfStudies(string areaOfStudies)
         {
-            if (areaOfStudies == null)
-                throw new ArgumentNullException("areaOfStudies cannot be set to null.");
-            this.areaOfStudies = areaOfStudies;
+            this.areaOfStudies = areaOfStudies ?? throw new ArgumentNullException("areaOfStudies cannot be set to null.");
         }
         public int Semester { get => currentSemester; }
         public Guid StudentID { get => studentID; }
         public University University { get => university; }
         public Major Major { get => major; }
 
-        public void setSemester(int semester)
+        public void SetSemester(int semester)
         {
             this.currentSemester = semester;
         }
 
-        private void init(Guid studentID, string userName, string password, University university,
+        private void Init(Guid studentID, string userName, string password, University university,
             Major major, string areaOfStudies, int semester)
         {
-            if (userName == null)
-            {
-                throw new ArgumentNullException("UserName cannot be null");
-            }
-            if (password == null)
-            {
-                throw new ArgumentNullException("password cannot be null");
-            }
-            if (university == null) { throw new ArgumentNullException("university cannot be null!"); }
-            if (major == null) { throw new ArgumentNullException("major cannot be null!"); }
-
             this.studentID = studentID;
-            this.userName = userName;
-            this.password = password;
-            this.university = university;
-            this.major = major;
+            this.userName = userName ?? throw new ArgumentNullException("UserName cannot be null");
+            this.password = password ?? throw new ArgumentNullException("password cannot be null");
+            this.university = university ?? throw new ArgumentNullException("university cannot be null!");
+            this.major = major ?? throw new ArgumentNullException("major cannot be null!");
             this.areaOfStudies = areaOfStudies;
             this.currentSemester = semester;
         }
