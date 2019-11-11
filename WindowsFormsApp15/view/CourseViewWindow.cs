@@ -11,7 +11,6 @@ namespace WindowsFormsApp15.view
     {
         private Course course;
         private List<Rating> ratings;
-        private DataSearch ds;
         public CourseViewWindow(Course course)
         {
             this.course = course;

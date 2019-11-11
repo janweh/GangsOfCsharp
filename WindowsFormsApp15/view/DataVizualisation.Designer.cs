@@ -65,11 +65,40 @@
             this.averageLearnedRatingLabel = new System.Windows.Forms.Label();
             this.learnedRatingChart = new LiveCharts.WinForms.CartesianChart();
             this.learnedRatingLabel = new System.Windows.Forms.Label();
+            this.contactHourPanel = new System.Windows.Forms.Panel();
+            this.varianceConactHourLabel = new System.Windows.Forms.Label();
+            this.medianConactHourLabel = new System.Windows.Forms.Label();
+            this.mostCommonConactHourLabel = new System.Windows.Forms.Label();
+            this.averageConactHourLabel = new System.Windows.Forms.Label();
+            this.contactHourChart = new LiveCharts.WinForms.CartesianChart();
+            this.conactHourLabel = new System.Windows.Forms.Label();
+            this.selfStudyHoursPanel = new System.Windows.Forms.Panel();
+            this.varianceSelfStudyHoursLabel = new System.Windows.Forms.Label();
+            this.medianSelfStudyHoursLabel = new System.Windows.Forms.Label();
+            this.mostCommonSelfStudyHoursLabel = new System.Windows.Forms.Label();
+            this.averageSelfStudyHoursLabel = new System.Windows.Forms.Label();
+            this.selfStudyHoursChart = new LiveCharts.WinForms.CartesianChart();
+            this.selfStudyHoursLabel = new System.Windows.Forms.Label();
+            this.gradePanel = new System.Windows.Forms.Panel();
+            this.varianceGradeLabel = new System.Windows.Forms.Label();
+            this.medianGradeLabel = new System.Windows.Forms.Label();
+            this.mostCommonGradeLabel = new System.Windows.Forms.Label();
+            this.averageGradeLabel = new System.Windows.Forms.Label();
+            this.gradeChart = new LiveCharts.WinForms.CartesianChart();
+            this.gradeLabel = new System.Windows.Forms.Label();
+            this.passedPanel = new System.Windows.Forms.Panel();
+            this.passedLabel = new System.Windows.Forms.Label();
+            this.passedChart = new LiveCharts.WinForms.PieChart();
+            this.openDetailedCourseButton = new System.Windows.Forms.Button();
             this.overallRatingPanel.SuspendLayout();
             this.organizedRatingPanel.SuspendLayout();
             this.interestingRatingPanel.SuspendLayout();
             this.presentedRatingPanel.SuspendLayout();
             this.learnedRatingPanel.SuspendLayout();
+            this.contactHourPanel.SuspendLayout();
+            this.selfStudyHoursPanel.SuspendLayout();
+            this.gradePanel.SuspendLayout();
+            this.passedPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // overallRatingPanel
@@ -427,11 +456,252 @@
             this.learnedRatingLabel.TabIndex = 0;
             this.learnedRatingLabel.Text = "Presented Ratings:";
             // 
+            // contactHourPanel
+            // 
+            this.contactHourPanel.Controls.Add(this.varianceConactHourLabel);
+            this.contactHourPanel.Controls.Add(this.medianConactHourLabel);
+            this.contactHourPanel.Controls.Add(this.mostCommonConactHourLabel);
+            this.contactHourPanel.Controls.Add(this.averageConactHourLabel);
+            this.contactHourPanel.Controls.Add(this.contactHourChart);
+            this.contactHourPanel.Controls.Add(this.conactHourLabel);
+            this.contactHourPanel.Location = new System.Drawing.Point(19, 2113);
+            this.contactHourPanel.Name = "contactHourPanel";
+            this.contactHourPanel.Size = new System.Drawing.Size(802, 407);
+            this.contactHourPanel.TabIndex = 10;
+            // 
+            // varianceConactHourLabel
+            // 
+            this.varianceConactHourLabel.AutoSize = true;
+            this.varianceConactHourLabel.Location = new System.Drawing.Point(537, 170);
+            this.varianceConactHourLabel.Name = "varianceConactHourLabel";
+            this.varianceConactHourLabel.Size = new System.Drawing.Size(76, 20);
+            this.varianceConactHourLabel.TabIndex = 5;
+            this.varianceConactHourLabel.Text = "Variance:";
+            // 
+            // medianConactHourLabel
+            // 
+            this.medianConactHourLabel.AutoSize = true;
+            this.medianConactHourLabel.Location = new System.Drawing.Point(537, 130);
+            this.medianConactHourLabel.Name = "medianConactHourLabel";
+            this.medianConactHourLabel.Size = new System.Drawing.Size(65, 20);
+            this.medianConactHourLabel.TabIndex = 4;
+            this.medianConactHourLabel.Text = "Median:";
+            // 
+            // mostCommonConactHourLabel
+            // 
+            this.mostCommonConactHourLabel.AutoSize = true;
+            this.mostCommonConactHourLabel.Location = new System.Drawing.Point(537, 89);
+            this.mostCommonConactHourLabel.Name = "mostCommonConactHourLabel";
+            this.mostCommonConactHourLabel.Size = new System.Drawing.Size(113, 20);
+            this.mostCommonConactHourLabel.TabIndex = 3;
+            this.mostCommonConactHourLabel.Text = "Most common:";
+            // 
+            // averageConactHourLabel
+            // 
+            this.averageConactHourLabel.AutoSize = true;
+            this.averageConactHourLabel.Location = new System.Drawing.Point(537, 52);
+            this.averageConactHourLabel.Name = "averageConactHourLabel";
+            this.averageConactHourLabel.Size = new System.Drawing.Size(72, 20);
+            this.averageConactHourLabel.TabIndex = 2;
+            this.averageConactHourLabel.Text = "Average:";
+            // 
+            // contactHourChart
+            // 
+            this.contactHourChart.Location = new System.Drawing.Point(12, 33);
+            this.contactHourChart.Name = "contactHourChart";
+            this.contactHourChart.Size = new System.Drawing.Size(470, 371);
+            this.contactHourChart.TabIndex = 1;
+            this.contactHourChart.Text = "cartesianChart1";
+            // 
+            // conactHourLabel
+            // 
+            this.conactHourLabel.AutoSize = true;
+            this.conactHourLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.conactHourLabel.Location = new System.Drawing.Point(13, 5);
+            this.conactHourLabel.Name = "conactHourLabel";
+            this.conactHourLabel.Size = new System.Drawing.Size(143, 25);
+            this.conactHourLabel.TabIndex = 0;
+            this.conactHourLabel.Text = "Contact Hours:";
+            // 
+            // selfStudyHoursPanel
+            // 
+            this.selfStudyHoursPanel.Controls.Add(this.varianceSelfStudyHoursLabel);
+            this.selfStudyHoursPanel.Controls.Add(this.medianSelfStudyHoursLabel);
+            this.selfStudyHoursPanel.Controls.Add(this.mostCommonSelfStudyHoursLabel);
+            this.selfStudyHoursPanel.Controls.Add(this.averageSelfStudyHoursLabel);
+            this.selfStudyHoursPanel.Controls.Add(this.selfStudyHoursChart);
+            this.selfStudyHoursPanel.Controls.Add(this.selfStudyHoursLabel);
+            this.selfStudyHoursPanel.Location = new System.Drawing.Point(19, 2526);
+            this.selfStudyHoursPanel.Name = "selfStudyHoursPanel";
+            this.selfStudyHoursPanel.Size = new System.Drawing.Size(802, 407);
+            this.selfStudyHoursPanel.TabIndex = 11;
+            // 
+            // varianceSelfStudyHoursLabel
+            // 
+            this.varianceSelfStudyHoursLabel.AutoSize = true;
+            this.varianceSelfStudyHoursLabel.Location = new System.Drawing.Point(537, 170);
+            this.varianceSelfStudyHoursLabel.Name = "varianceSelfStudyHoursLabel";
+            this.varianceSelfStudyHoursLabel.Size = new System.Drawing.Size(76, 20);
+            this.varianceSelfStudyHoursLabel.TabIndex = 5;
+            this.varianceSelfStudyHoursLabel.Text = "Variance:";
+            // 
+            // medianSelfStudyHoursLabel
+            // 
+            this.medianSelfStudyHoursLabel.AutoSize = true;
+            this.medianSelfStudyHoursLabel.Location = new System.Drawing.Point(537, 130);
+            this.medianSelfStudyHoursLabel.Name = "medianSelfStudyHoursLabel";
+            this.medianSelfStudyHoursLabel.Size = new System.Drawing.Size(65, 20);
+            this.medianSelfStudyHoursLabel.TabIndex = 4;
+            this.medianSelfStudyHoursLabel.Text = "Median:";
+            // 
+            // mostCommonSelfStudyHoursLabel
+            // 
+            this.mostCommonSelfStudyHoursLabel.AutoSize = true;
+            this.mostCommonSelfStudyHoursLabel.Location = new System.Drawing.Point(537, 89);
+            this.mostCommonSelfStudyHoursLabel.Name = "mostCommonSelfStudyHoursLabel";
+            this.mostCommonSelfStudyHoursLabel.Size = new System.Drawing.Size(113, 20);
+            this.mostCommonSelfStudyHoursLabel.TabIndex = 3;
+            this.mostCommonSelfStudyHoursLabel.Text = "Most common:";
+            // 
+            // averageSelfStudyHoursLabel
+            // 
+            this.averageSelfStudyHoursLabel.AutoSize = true;
+            this.averageSelfStudyHoursLabel.Location = new System.Drawing.Point(537, 52);
+            this.averageSelfStudyHoursLabel.Name = "averageSelfStudyHoursLabel";
+            this.averageSelfStudyHoursLabel.Size = new System.Drawing.Size(72, 20);
+            this.averageSelfStudyHoursLabel.TabIndex = 2;
+            this.averageSelfStudyHoursLabel.Text = "Average:";
+            // 
+            // selfStudyHoursChart
+            // 
+            this.selfStudyHoursChart.Location = new System.Drawing.Point(12, 33);
+            this.selfStudyHoursChart.Name = "selfStudyHoursChart";
+            this.selfStudyHoursChart.Size = new System.Drawing.Size(470, 371);
+            this.selfStudyHoursChart.TabIndex = 1;
+            this.selfStudyHoursChart.Text = "cartesianChart1";
+            // 
+            // selfStudyHoursLabel
+            // 
+            this.selfStudyHoursLabel.AutoSize = true;
+            this.selfStudyHoursLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.selfStudyHoursLabel.Location = new System.Drawing.Point(13, 5);
+            this.selfStudyHoursLabel.Name = "selfStudyHoursLabel";
+            this.selfStudyHoursLabel.Size = new System.Drawing.Size(165, 25);
+            this.selfStudyHoursLabel.TabIndex = 0;
+            this.selfStudyHoursLabel.Text = "Self Study Hours:";
+            // 
+            // gradePanel
+            // 
+            this.gradePanel.Controls.Add(this.varianceGradeLabel);
+            this.gradePanel.Controls.Add(this.medianGradeLabel);
+            this.gradePanel.Controls.Add(this.mostCommonGradeLabel);
+            this.gradePanel.Controls.Add(this.averageGradeLabel);
+            this.gradePanel.Controls.Add(this.gradeChart);
+            this.gradePanel.Controls.Add(this.gradeLabel);
+            this.gradePanel.Location = new System.Drawing.Point(19, 2939);
+            this.gradePanel.Name = "gradePanel";
+            this.gradePanel.Size = new System.Drawing.Size(802, 407);
+            this.gradePanel.TabIndex = 12;
+            // 
+            // varianceGradeLabel
+            // 
+            this.varianceGradeLabel.AutoSize = true;
+            this.varianceGradeLabel.Location = new System.Drawing.Point(537, 170);
+            this.varianceGradeLabel.Name = "varianceGradeLabel";
+            this.varianceGradeLabel.Size = new System.Drawing.Size(76, 20);
+            this.varianceGradeLabel.TabIndex = 5;
+            this.varianceGradeLabel.Text = "Variance:";
+            // 
+            // medianGradeLabel
+            // 
+            this.medianGradeLabel.AutoSize = true;
+            this.medianGradeLabel.Location = new System.Drawing.Point(537, 130);
+            this.medianGradeLabel.Name = "medianGradeLabel";
+            this.medianGradeLabel.Size = new System.Drawing.Size(65, 20);
+            this.medianGradeLabel.TabIndex = 4;
+            this.medianGradeLabel.Text = "Median:";
+            // 
+            // mostCommonGradeLabel
+            // 
+            this.mostCommonGradeLabel.AutoSize = true;
+            this.mostCommonGradeLabel.Location = new System.Drawing.Point(537, 89);
+            this.mostCommonGradeLabel.Name = "mostCommonGradeLabel";
+            this.mostCommonGradeLabel.Size = new System.Drawing.Size(113, 20);
+            this.mostCommonGradeLabel.TabIndex = 3;
+            this.mostCommonGradeLabel.Text = "Most common:";
+            // 
+            // averageGradeLabel
+            // 
+            this.averageGradeLabel.AutoSize = true;
+            this.averageGradeLabel.Location = new System.Drawing.Point(537, 52);
+            this.averageGradeLabel.Name = "averageGradeLabel";
+            this.averageGradeLabel.Size = new System.Drawing.Size(72, 20);
+            this.averageGradeLabel.TabIndex = 2;
+            this.averageGradeLabel.Text = "Average:";
+            // 
+            // gradeChart
+            // 
+            this.gradeChart.Location = new System.Drawing.Point(12, 33);
+            this.gradeChart.Name = "gradeChart";
+            this.gradeChart.Size = new System.Drawing.Size(470, 371);
+            this.gradeChart.TabIndex = 1;
+            this.gradeChart.Text = "cartesianChart1";
+            // 
+            // gradeLabel
+            // 
+            this.gradeLabel.AutoSize = true;
+            this.gradeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gradeLabel.Location = new System.Drawing.Point(13, 5);
+            this.gradeLabel.Name = "gradeLabel";
+            this.gradeLabel.Size = new System.Drawing.Size(82, 25);
+            this.gradeLabel.TabIndex = 0;
+            this.gradeLabel.Text = "Grades:";
+            // 
+            // passedPanel
+            // 
+            this.passedPanel.Controls.Add(this.passedChart);
+            this.passedPanel.Controls.Add(this.passedLabel);
+            this.passedPanel.Location = new System.Drawing.Point(19, 3352);
+            this.passedPanel.Name = "passedPanel";
+            this.passedPanel.Size = new System.Drawing.Size(802, 407);
+            this.passedPanel.TabIndex = 13;
+            // 
+            // passedLabel
+            // 
+            this.passedLabel.AutoSize = true;
+            this.passedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passedLabel.Location = new System.Drawing.Point(13, 5);
+            this.passedLabel.Name = "passedLabel";
+            this.passedLabel.Size = new System.Drawing.Size(84, 25);
+            this.passedLabel.TabIndex = 0;
+            this.passedLabel.Text = "Passed:";
+            // 
+            // passedChart
+            // 
+            this.passedChart.Location = new System.Drawing.Point(12, 34);
+            this.passedChart.Name = "passedChart";
+            this.passedChart.Size = new System.Drawing.Size(443, 330);
+            this.passedChart.TabIndex = 1;
+            this.passedChart.Text = "pieChart1";
+            // 
+            // openDetailedCourseButton
+            // 
+            this.openDetailedCourseButton.Location = new System.Drawing.Point(321, 25);
+            this.openDetailedCourseButton.Name = "openDetailedCourseButton";
+            this.openDetailedCourseButton.Size = new System.Drawing.Size(180, 26);
+            this.openDetailedCourseButton.TabIndex = 14;
+            this.openDetailedCourseButton.Text = "Back to normal Data";
+            this.openDetailedCourseButton.UseVisualStyleBackColor = true;
+            // 
             // DataVizualisation
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.Controls.Add(this.openDetailedCourseButton);
+            this.Controls.Add(this.passedPanel);
+            this.Controls.Add(this.gradePanel);
+            this.Controls.Add(this.selfStudyHoursPanel);
+            this.Controls.Add(this.contactHourPanel);
             this.Controls.Add(this.learnedRatingPanel);
             this.Controls.Add(this.presentedRatingPanel);
             this.Controls.Add(this.interestingRatingPanel);
@@ -441,6 +711,7 @@
             this.Controls.Add(this.courseNameLabel);
             this.Name = "DataVizualisation";
             this.Size = new System.Drawing.Size(850, 4000);
+            this.Load += new System.EventHandler(this.DataVizualisation_Load);
             this.overallRatingPanel.ResumeLayout(false);
             this.overallRatingPanel.PerformLayout();
             this.organizedRatingPanel.ResumeLayout(false);
@@ -451,6 +722,14 @@
             this.presentedRatingPanel.PerformLayout();
             this.learnedRatingPanel.ResumeLayout(false);
             this.learnedRatingPanel.PerformLayout();
+            this.contactHourPanel.ResumeLayout(false);
+            this.contactHourPanel.PerformLayout();
+            this.selfStudyHoursPanel.ResumeLayout(false);
+            this.selfStudyHoursPanel.PerformLayout();
+            this.gradePanel.ResumeLayout(false);
+            this.gradePanel.PerformLayout();
+            this.passedPanel.ResumeLayout(false);
+            this.passedPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -495,5 +774,30 @@
         private System.Windows.Forms.Label averageLearnedRatingLabel;
         private LiveCharts.WinForms.CartesianChart learnedRatingChart;
         private System.Windows.Forms.Label learnedRatingLabel;
+        private System.Windows.Forms.Panel contactHourPanel;
+        private System.Windows.Forms.Label varianceConactHourLabel;
+        private System.Windows.Forms.Label medianConactHourLabel;
+        private System.Windows.Forms.Label mostCommonConactHourLabel;
+        private System.Windows.Forms.Label averageConactHourLabel;
+        private LiveCharts.WinForms.CartesianChart contactHourChart;
+        private System.Windows.Forms.Label conactHourLabel;
+        private System.Windows.Forms.Panel selfStudyHoursPanel;
+        private System.Windows.Forms.Label varianceSelfStudyHoursLabel;
+        private System.Windows.Forms.Label medianSelfStudyHoursLabel;
+        private System.Windows.Forms.Label mostCommonSelfStudyHoursLabel;
+        private System.Windows.Forms.Label averageSelfStudyHoursLabel;
+        private LiveCharts.WinForms.CartesianChart selfStudyHoursChart;
+        private System.Windows.Forms.Label selfStudyHoursLabel;
+        private System.Windows.Forms.Panel gradePanel;
+        private System.Windows.Forms.Label varianceGradeLabel;
+        private System.Windows.Forms.Label medianGradeLabel;
+        private System.Windows.Forms.Label mostCommonGradeLabel;
+        private System.Windows.Forms.Label averageGradeLabel;
+        private LiveCharts.WinForms.CartesianChart gradeChart;
+        private System.Windows.Forms.Label gradeLabel;
+        private System.Windows.Forms.Panel passedPanel;
+        private LiveCharts.WinForms.PieChart passedChart;
+        private System.Windows.Forms.Label passedLabel;
+        private System.Windows.Forms.Button openDetailedCourseButton;
     }
 }

@@ -28,26 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.detailedCourseStatistics1 = new WindowsFormsApp15.view.DetailedCourseStatistics();
             this.dataVizualisation1 = new WindowsFormsApp15.view.DataVizualisation();
+            this.detailedCourseStatistics1 = new WindowsFormsApp15.view.DetailedCourseStatistics();
             this.SuspendLayout();
+            // 
+            // dataVizualisation1
+            // 
+            this.dataVizualisation1.AutoScroll = true;
+            this.dataVizualisation1.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.dataVizualisation1.Location = new System.Drawing.Point(2, -1);
+            this.dataVizualisation1.Name = "dataVizualisation1";
+            this.dataVizualisation1.Size = new System.Drawing.Size(1014, 824);
+            this.dataVizualisation1.TabIndex = 1;
+            this.dataVizualisation1.Visible = false;
             // 
             // detailedCourseStatistics1
             // 
             this.detailedCourseStatistics1.BackColor = System.Drawing.Color.LightSteelBlue;
             this.detailedCourseStatistics1.Location = new System.Drawing.Point(-13, -1);
             this.detailedCourseStatistics1.Name = "detailedCourseStatistics1";
-            this.detailedCourseStatistics1.Size = new System.Drawing.Size(900, 1065);
+            this.detailedCourseStatistics1.Size = new System.Drawing.Size(1029, 1065);
             this.detailedCourseStatistics1.TabIndex = 0;
-            // 
-            // dataVizualisation1
-            // 
-            this.dataVizualisation1.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.dataVizualisation1.Location = new System.Drawing.Point(2, -1);
-            this.dataVizualisation1.Name = "dataVizualisation1";
-            this.dataVizualisation1.Size = new System.Drawing.Size(850, 751);
-            this.dataVizualisation1.TabIndex = 1;
-            this.dataVizualisation1.Visible = false;
             // 
             // CourseViewWindow
             // 
@@ -55,7 +56,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(964, 820);
+            this.ClientSize = new System.Drawing.Size(1016, 820);
             this.Controls.Add(this.dataVizualisation1);
             this.Controls.Add(this.detailedCourseStatistics1);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
