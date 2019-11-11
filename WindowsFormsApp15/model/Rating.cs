@@ -36,9 +36,11 @@ namespace WindowsFormsApp15.model
         /// </summary>
         private int presentation;
         private string comment;
+        private int grade;
+        private bool passedFirstTime;
         private DateTime date;
 
-        private DataSearch ds;
+        private readonly DataSearch ds;
 
         /// <summary>
         /// Constructor for the class Rating without giving a ratingID.
@@ -56,10 +58,13 @@ namespace WindowsFormsApp15.model
         /// <param name="interesting">Number between 1-5. can be null</param>
         /// <param name="presentation">Number bewteen 1-5. can be null</param>
         /// <param name="comment">Number between 1-5. can be null</param>
+        /// <param name="grade">Number between 1-10. can be null</param>
+        /// <param name="passedFirstTime">True or false. can be null</param>
         /// <param name="date"></param>
         public Rating(Student student, Course course,
             Semester semester, int overallRating, int contactHours, int selfStudyHours, int organized,
-            int learned, int interesting, int presentation, string comment, DateTime date)
+            int learned, int interesting, int presentation, string comment, int grade, 
+            bool passedFirstTime, DateTime date)
         {
             ds = new DataSearch();
 
@@ -69,8 +74,8 @@ namespace WindowsFormsApp15.model
             {
                 throw new DuplicateDataException("This student has already given a Rating to this course!");
             }
-            init(Guid.NewGuid(), student, course, semester, overallRating, contactHours, selfStudyHours,
-                organized, learned, interesting, presentation, comment, date);
+            Init(Guid.NewGuid(), student, course, semester, overallRating, contactHours, selfStudyHours,
+                organized, learned, interesting, presentation, comment, grade, passedFirstTime, date);
         }
 
         /// <summary>
@@ -81,11 +86,11 @@ namespace WindowsFormsApp15.model
         public Rating(string[] r)
         {
             ds = new DataSearch();
-            init(Guid.Parse(r[0]), ds.GetByID<Student>(Guid.Parse(r[1])),
+            Init(Guid.Parse(r[0]), ds.GetByID<Student>(Guid.Parse(r[1])),
                 ds.GetByID<Course>(Guid.Parse(r[2])), EnumTranslator.stringToSemester[r[3]],
                 Int32.Parse(r[4]), Int32.Parse(r[5]), Int32.Parse(r[6]), Int32.Parse(r[7]),
-                Int32.Parse(r[8]), Int32.Parse(r[9]), Int32.Parse(r[10]), r[11],
-                DateTime.Parse(r[12]));
+                Int32.Parse(r[8]), Int32.Parse(r[9]), Int32.Parse(r[10]), r[11], Int32.Parse(r[12]),
+                Boolean.Parse(r[13]), DateTime.Parse(r[14]));
         }
 
         public Semester Semester { get => semester; set => semester = value; }
@@ -105,14 +110,18 @@ namespace WindowsFormsApp15.model
         public Course Course { get => course; }
         public Guid RatingID { get => ratingID; }
         public DateTime Date { get => date; }
+        public bool PassedFirstTime { get => passedFirstTime; }
+        public int Grade { get => grade; }
+
         public void SetCourse(Course course)
         {
             this.course = course ?? throw new ArgumentNullException("course cannot be null.");
         }
 
-        private void init(Guid ratingID, Student student, Course course,
+        private void Init(Guid ratingID, Student student, Course course,
             Semester semester, int overallRating, int contactHours, int selfStudyHours, int organized,
-            int learned, int interesting, int presentation, string comment, DateTime date)
+            int learned, int interesting, int presentation, string comment, int grade, bool passedFirstTime,
+            DateTime date)
         {
             if (student == null) { throw new ArgumentNullException("student cannot be null"); }
 
@@ -125,11 +134,13 @@ namespace WindowsFormsApp15.model
             if (learned < 1 || learned > 5) { throw new ArgumentException("learned has to be between 1-5"); }
             if (interesting < 1 || interesting > 5) { throw new ArgumentException("interesting has to be between 1-5"); }
             if (presentation < 1 || presentation > 5) { throw new ArgumentException("presentation has to be between 1-5"); }
+            if (grade < 1 || grade > 10) { throw new ArgumentException("Grade has to be between 1-10"); }
             if (semester.CompareTo(course.Since) > 0)
             {
                 throw new ArgumentException(
 "the semester the course was taken in can not be later than since when the course exists");
             }
+
 
 
 
@@ -145,6 +156,8 @@ namespace WindowsFormsApp15.model
             this.interesting = interesting;
             this.presentation = presentation;
             this.comment = comment;
+            this.grade = grade;
+            this.passedFirstTime = passedFirstTime;
             this.date = date;
         }
 
@@ -169,6 +182,8 @@ namespace WindowsFormsApp15.model
                 Interesting.ToString() + ";" +
                 Presentation.ToString() + ";" +
                 Comment + ";" +
+                Grade.ToString() + ";" +
+                passedFirstTime.ToString() + ";" +
                 date.ToString() + "\n";
             return info;
         }
