@@ -24,7 +24,7 @@ namespace WindowsFormsApp15.model
             University u;
             try
             {
-                u = ds.GetByID<University>(Guid.Parse(r[2]));
+                u = ds.GetByID<University>(Guid.Parse(r[3]));
             }
             catch (DuplicateDataException)
             {
@@ -33,7 +33,7 @@ namespace WindowsFormsApp15.model
             Major m;
             try
             {
-                m = ds.GetByID<Major>(Guid.Parse(r[5]));
+                m = ds.GetByID<Major>(Guid.Parse(r[4]));
             }
             catch (DuplicateDataException)
             {
