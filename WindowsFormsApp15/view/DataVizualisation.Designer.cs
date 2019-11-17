@@ -87,8 +87,8 @@
             this.gradeChart = new LiveCharts.WinForms.CartesianChart();
             this.gradeLabel = new System.Windows.Forms.Label();
             this.passedPanel = new System.Windows.Forms.Panel();
-            this.passedLabel = new System.Windows.Forms.Label();
             this.passedChart = new LiveCharts.WinForms.PieChart();
+            this.passedLabel = new System.Windows.Forms.Label();
             this.openDetailedCourseButton = new System.Windows.Forms.Button();
             this.overallRatingPanel.SuspendLayout();
             this.organizedRatingPanel.SuspendLayout();
@@ -111,7 +111,7 @@
             this.overallRatingPanel.Controls.Add(this.overallRatingLabel);
             this.overallRatingPanel.Location = new System.Drawing.Point(19, 54);
             this.overallRatingPanel.Name = "overallRatingPanel";
-            this.overallRatingPanel.Size = new System.Drawing.Size(802, 407);
+            this.overallRatingPanel.Size = new System.Drawing.Size(802, 280);
             this.overallRatingPanel.TabIndex = 5;
             // 
             // varianceOverallRatingLabel
@@ -119,7 +119,7 @@
             this.varianceOverallRatingLabel.AutoSize = true;
             this.varianceOverallRatingLabel.Location = new System.Drawing.Point(537, 170);
             this.varianceOverallRatingLabel.Name = "varianceOverallRatingLabel";
-            this.varianceOverallRatingLabel.Size = new System.Drawing.Size(76, 20);
+            this.varianceOverallRatingLabel.Size = new System.Drawing.Size(52, 13);
             this.varianceOverallRatingLabel.TabIndex = 5;
             this.varianceOverallRatingLabel.Text = "Variance:";
             // 
@@ -128,7 +128,7 @@
             this.medianOverallRatingLabel.AutoSize = true;
             this.medianOverallRatingLabel.Location = new System.Drawing.Point(537, 130);
             this.medianOverallRatingLabel.Name = "medianOverallRatingLabel";
-            this.medianOverallRatingLabel.Size = new System.Drawing.Size(65, 20);
+            this.medianOverallRatingLabel.Size = new System.Drawing.Size(45, 13);
             this.medianOverallRatingLabel.TabIndex = 4;
             this.medianOverallRatingLabel.Text = "Median:";
             // 
@@ -137,7 +137,7 @@
             this.mostCommonOverallRatingLabel.AutoSize = true;
             this.mostCommonOverallRatingLabel.Location = new System.Drawing.Point(537, 89);
             this.mostCommonOverallRatingLabel.Name = "mostCommonOverallRatingLabel";
-            this.mostCommonOverallRatingLabel.Size = new System.Drawing.Size(113, 20);
+            this.mostCommonOverallRatingLabel.Size = new System.Drawing.Size(76, 13);
             this.mostCommonOverallRatingLabel.TabIndex = 3;
             this.mostCommonOverallRatingLabel.Text = "Most common:";
             // 
@@ -146,7 +146,7 @@
             this.averageOverallRatingLabel.AutoSize = true;
             this.averageOverallRatingLabel.Location = new System.Drawing.Point(537, 52);
             this.averageOverallRatingLabel.Name = "averageOverallRatingLabel";
-            this.averageOverallRatingLabel.Size = new System.Drawing.Size(72, 20);
+            this.averageOverallRatingLabel.Size = new System.Drawing.Size(50, 13);
             this.averageOverallRatingLabel.TabIndex = 2;
             this.averageOverallRatingLabel.Text = "Average:";
             // 
@@ -154,7 +154,7 @@
             // 
             this.overallRatingChart.Location = new System.Drawing.Point(12, 33);
             this.overallRatingChart.Name = "overallRatingChart";
-            this.overallRatingChart.Size = new System.Drawing.Size(470, 371);
+            this.overallRatingChart.Size = new System.Drawing.Size(373, 244);
             this.overallRatingChart.TabIndex = 1;
             this.overallRatingChart.Text = "cartesianChart1";
             // 
@@ -164,7 +164,7 @@
             this.overallRatingLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.overallRatingLabel.Location = new System.Drawing.Point(13, 5);
             this.overallRatingLabel.Name = "overallRatingLabel";
-            this.overallRatingLabel.Size = new System.Drawing.Size(150, 25);
+            this.overallRatingLabel.Size = new System.Drawing.Size(109, 17);
             this.overallRatingLabel.TabIndex = 0;
             this.overallRatingLabel.Text = "Overall Ratings:";
             // 
@@ -174,7 +174,7 @@
             this.numberOfRatingsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numberOfRatingsLabel.Location = new System.Drawing.Point(574, 25);
             this.numberOfRatingsLabel.Name = "numberOfRatingsLabel";
-            this.numberOfRatingsLabel.Size = new System.Drawing.Size(178, 25);
+            this.numberOfRatingsLabel.Size = new System.Drawing.Size(130, 17);
             this.numberOfRatingsLabel.TabIndex = 4;
             this.numberOfRatingsLabel.Text = "Number of Ratings:";
             // 
@@ -184,7 +184,7 @@
             this.courseNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.courseNameLabel.Location = new System.Drawing.Point(31, 19);
             this.courseNameLabel.Name = "courseNameLabel";
-            this.courseNameLabel.Size = new System.Drawing.Size(199, 32);
+            this.courseNameLabel.Size = new System.Drawing.Size(138, 24);
             this.courseNameLabel.TabIndex = 3;
             this.courseNameLabel.Text = "Course Name";
             // 
@@ -196,9 +196,9 @@
             this.organizedRatingPanel.Controls.Add(this.averageOrganizedRatingLabel);
             this.organizedRatingPanel.Controls.Add(this.organizedRatingChart);
             this.organizedRatingPanel.Controls.Add(this.organizedRatingLabel);
-            this.organizedRatingPanel.Location = new System.Drawing.Point(19, 467);
+            this.organizedRatingPanel.Location = new System.Drawing.Point(19, 355);
             this.organizedRatingPanel.Name = "organizedRatingPanel";
-            this.organizedRatingPanel.Size = new System.Drawing.Size(802, 407);
+            this.organizedRatingPanel.Size = new System.Drawing.Size(802, 282);
             this.organizedRatingPanel.TabIndex = 6;
             // 
             // varianceOrganizedRatingLabel
@@ -206,7 +206,7 @@
             this.varianceOrganizedRatingLabel.AutoSize = true;
             this.varianceOrganizedRatingLabel.Location = new System.Drawing.Point(537, 170);
             this.varianceOrganizedRatingLabel.Name = "varianceOrganizedRatingLabel";
-            this.varianceOrganizedRatingLabel.Size = new System.Drawing.Size(76, 20);
+            this.varianceOrganizedRatingLabel.Size = new System.Drawing.Size(52, 13);
             this.varianceOrganizedRatingLabel.TabIndex = 5;
             this.varianceOrganizedRatingLabel.Text = "Variance:";
             // 
@@ -215,7 +215,7 @@
             this.medianOrganizedRatingLabel.AutoSize = true;
             this.medianOrganizedRatingLabel.Location = new System.Drawing.Point(537, 130);
             this.medianOrganizedRatingLabel.Name = "medianOrganizedRatingLabel";
-            this.medianOrganizedRatingLabel.Size = new System.Drawing.Size(65, 20);
+            this.medianOrganizedRatingLabel.Size = new System.Drawing.Size(45, 13);
             this.medianOrganizedRatingLabel.TabIndex = 4;
             this.medianOrganizedRatingLabel.Text = "Median:";
             // 
@@ -224,7 +224,7 @@
             this.mostCommonOrganizedRatingLabel.AutoSize = true;
             this.mostCommonOrganizedRatingLabel.Location = new System.Drawing.Point(537, 89);
             this.mostCommonOrganizedRatingLabel.Name = "mostCommonOrganizedRatingLabel";
-            this.mostCommonOrganizedRatingLabel.Size = new System.Drawing.Size(113, 20);
+            this.mostCommonOrganizedRatingLabel.Size = new System.Drawing.Size(76, 13);
             this.mostCommonOrganizedRatingLabel.TabIndex = 3;
             this.mostCommonOrganizedRatingLabel.Text = "Most common:";
             // 
@@ -233,7 +233,7 @@
             this.averageOrganizedRatingLabel.AutoSize = true;
             this.averageOrganizedRatingLabel.Location = new System.Drawing.Point(537, 52);
             this.averageOrganizedRatingLabel.Name = "averageOrganizedRatingLabel";
-            this.averageOrganizedRatingLabel.Size = new System.Drawing.Size(72, 20);
+            this.averageOrganizedRatingLabel.Size = new System.Drawing.Size(50, 13);
             this.averageOrganizedRatingLabel.TabIndex = 2;
             this.averageOrganizedRatingLabel.Text = "Average:";
             // 
@@ -241,7 +241,7 @@
             // 
             this.organizedRatingChart.Location = new System.Drawing.Point(12, 33);
             this.organizedRatingChart.Name = "organizedRatingChart";
-            this.organizedRatingChart.Size = new System.Drawing.Size(470, 371);
+            this.organizedRatingChart.Size = new System.Drawing.Size(373, 244);
             this.organizedRatingChart.TabIndex = 1;
             this.organizedRatingChart.Text = "cartesianChart1";
             // 
@@ -251,7 +251,7 @@
             this.organizedRatingLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.organizedRatingLabel.Location = new System.Drawing.Point(13, 5);
             this.organizedRatingLabel.Name = "organizedRatingLabel";
-            this.organizedRatingLabel.Size = new System.Drawing.Size(179, 25);
+            this.organizedRatingLabel.Size = new System.Drawing.Size(130, 17);
             this.organizedRatingLabel.TabIndex = 0;
             this.organizedRatingLabel.Text = "Organized Ratings:";
             // 
@@ -263,9 +263,9 @@
             this.interestingRatingPanel.Controls.Add(this.averageInterestingRatingLabel);
             this.interestingRatingPanel.Controls.Add(this.interestingRatingChart);
             this.interestingRatingPanel.Controls.Add(this.interestingRatingLabel);
-            this.interestingRatingPanel.Location = new System.Drawing.Point(19, 877);
+            this.interestingRatingPanel.Location = new System.Drawing.Point(19, 658);
             this.interestingRatingPanel.Name = "interestingRatingPanel";
-            this.interestingRatingPanel.Size = new System.Drawing.Size(802, 407);
+            this.interestingRatingPanel.Size = new System.Drawing.Size(802, 289);
             this.interestingRatingPanel.TabIndex = 7;
             // 
             // varianceInterestingRatingLabel
@@ -273,7 +273,7 @@
             this.varianceInterestingRatingLabel.AutoSize = true;
             this.varianceInterestingRatingLabel.Location = new System.Drawing.Point(537, 170);
             this.varianceInterestingRatingLabel.Name = "varianceInterestingRatingLabel";
-            this.varianceInterestingRatingLabel.Size = new System.Drawing.Size(76, 20);
+            this.varianceInterestingRatingLabel.Size = new System.Drawing.Size(52, 13);
             this.varianceInterestingRatingLabel.TabIndex = 5;
             this.varianceInterestingRatingLabel.Text = "Variance:";
             // 
@@ -282,7 +282,7 @@
             this.medianInterestingRatingLabel.AutoSize = true;
             this.medianInterestingRatingLabel.Location = new System.Drawing.Point(537, 130);
             this.medianInterestingRatingLabel.Name = "medianInterestingRatingLabel";
-            this.medianInterestingRatingLabel.Size = new System.Drawing.Size(65, 20);
+            this.medianInterestingRatingLabel.Size = new System.Drawing.Size(45, 13);
             this.medianInterestingRatingLabel.TabIndex = 4;
             this.medianInterestingRatingLabel.Text = "Median:";
             // 
@@ -291,7 +291,7 @@
             this.mostCommonInterestingRatingLabel.AutoSize = true;
             this.mostCommonInterestingRatingLabel.Location = new System.Drawing.Point(537, 89);
             this.mostCommonInterestingRatingLabel.Name = "mostCommonInterestingRatingLabel";
-            this.mostCommonInterestingRatingLabel.Size = new System.Drawing.Size(113, 20);
+            this.mostCommonInterestingRatingLabel.Size = new System.Drawing.Size(76, 13);
             this.mostCommonInterestingRatingLabel.TabIndex = 3;
             this.mostCommonInterestingRatingLabel.Text = "Most common:";
             // 
@@ -300,7 +300,7 @@
             this.averageInterestingRatingLabel.AutoSize = true;
             this.averageInterestingRatingLabel.Location = new System.Drawing.Point(537, 52);
             this.averageInterestingRatingLabel.Name = "averageInterestingRatingLabel";
-            this.averageInterestingRatingLabel.Size = new System.Drawing.Size(72, 20);
+            this.averageInterestingRatingLabel.Size = new System.Drawing.Size(50, 13);
             this.averageInterestingRatingLabel.TabIndex = 2;
             this.averageInterestingRatingLabel.Text = "Average:";
             // 
@@ -308,7 +308,7 @@
             // 
             this.interestingRatingChart.Location = new System.Drawing.Point(12, 33);
             this.interestingRatingChart.Name = "interestingRatingChart";
-            this.interestingRatingChart.Size = new System.Drawing.Size(470, 371);
+            this.interestingRatingChart.Size = new System.Drawing.Size(373, 244);
             this.interestingRatingChart.TabIndex = 1;
             this.interestingRatingChart.Text = "cartesianChart1";
             // 
@@ -318,7 +318,7 @@
             this.interestingRatingLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.interestingRatingLabel.Location = new System.Drawing.Point(13, 5);
             this.interestingRatingLabel.Name = "interestingRatingLabel";
-            this.interestingRatingLabel.Size = new System.Drawing.Size(178, 25);
+            this.interestingRatingLabel.Size = new System.Drawing.Size(130, 17);
             this.interestingRatingLabel.TabIndex = 0;
             this.interestingRatingLabel.Text = "Interesting Ratings:";
             // 
@@ -330,9 +330,9 @@
             this.presentedRatingPanel.Controls.Add(this.averagePresentedRatingLabel);
             this.presentedRatingPanel.Controls.Add(this.presentedRatingChart);
             this.presentedRatingPanel.Controls.Add(this.presentedRatingLabel);
-            this.presentedRatingPanel.Location = new System.Drawing.Point(19, 1287);
+            this.presentedRatingPanel.Location = new System.Drawing.Point(19, 967);
             this.presentedRatingPanel.Name = "presentedRatingPanel";
-            this.presentedRatingPanel.Size = new System.Drawing.Size(802, 407);
+            this.presentedRatingPanel.Size = new System.Drawing.Size(802, 284);
             this.presentedRatingPanel.TabIndex = 8;
             // 
             // variancePresentedRatingLabel
@@ -340,7 +340,7 @@
             this.variancePresentedRatingLabel.AutoSize = true;
             this.variancePresentedRatingLabel.Location = new System.Drawing.Point(537, 170);
             this.variancePresentedRatingLabel.Name = "variancePresentedRatingLabel";
-            this.variancePresentedRatingLabel.Size = new System.Drawing.Size(76, 20);
+            this.variancePresentedRatingLabel.Size = new System.Drawing.Size(52, 13);
             this.variancePresentedRatingLabel.TabIndex = 5;
             this.variancePresentedRatingLabel.Text = "Variance:";
             // 
@@ -349,7 +349,7 @@
             this.medianPresentedRatingLabel.AutoSize = true;
             this.medianPresentedRatingLabel.Location = new System.Drawing.Point(537, 130);
             this.medianPresentedRatingLabel.Name = "medianPresentedRatingLabel";
-            this.medianPresentedRatingLabel.Size = new System.Drawing.Size(65, 20);
+            this.medianPresentedRatingLabel.Size = new System.Drawing.Size(45, 13);
             this.medianPresentedRatingLabel.TabIndex = 4;
             this.medianPresentedRatingLabel.Text = "Median:";
             // 
@@ -358,7 +358,7 @@
             this.mostCommonPresentedRatingLabel.AutoSize = true;
             this.mostCommonPresentedRatingLabel.Location = new System.Drawing.Point(537, 89);
             this.mostCommonPresentedRatingLabel.Name = "mostCommonPresentedRatingLabel";
-            this.mostCommonPresentedRatingLabel.Size = new System.Drawing.Size(113, 20);
+            this.mostCommonPresentedRatingLabel.Size = new System.Drawing.Size(76, 13);
             this.mostCommonPresentedRatingLabel.TabIndex = 3;
             this.mostCommonPresentedRatingLabel.Text = "Most common:";
             // 
@@ -367,7 +367,7 @@
             this.averagePresentedRatingLabel.AutoSize = true;
             this.averagePresentedRatingLabel.Location = new System.Drawing.Point(537, 52);
             this.averagePresentedRatingLabel.Name = "averagePresentedRatingLabel";
-            this.averagePresentedRatingLabel.Size = new System.Drawing.Size(72, 20);
+            this.averagePresentedRatingLabel.Size = new System.Drawing.Size(50, 13);
             this.averagePresentedRatingLabel.TabIndex = 2;
             this.averagePresentedRatingLabel.Text = "Average:";
             // 
@@ -375,7 +375,7 @@
             // 
             this.presentedRatingChart.Location = new System.Drawing.Point(12, 33);
             this.presentedRatingChart.Name = "presentedRatingChart";
-            this.presentedRatingChart.Size = new System.Drawing.Size(470, 371);
+            this.presentedRatingChart.Size = new System.Drawing.Size(373, 244);
             this.presentedRatingChart.TabIndex = 1;
             this.presentedRatingChart.Text = "cartesianChart1";
             // 
@@ -385,7 +385,7 @@
             this.presentedRatingLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.presentedRatingLabel.Location = new System.Drawing.Point(13, 5);
             this.presentedRatingLabel.Name = "presentedRatingLabel";
-            this.presentedRatingLabel.Size = new System.Drawing.Size(177, 25);
+            this.presentedRatingLabel.Size = new System.Drawing.Size(129, 17);
             this.presentedRatingLabel.TabIndex = 0;
             this.presentedRatingLabel.Text = "Presented Ratings:";
             // 
@@ -397,9 +397,9 @@
             this.learnedRatingPanel.Controls.Add(this.averageLearnedRatingLabel);
             this.learnedRatingPanel.Controls.Add(this.learnedRatingChart);
             this.learnedRatingPanel.Controls.Add(this.learnedRatingLabel);
-            this.learnedRatingPanel.Location = new System.Drawing.Point(19, 1700);
+            this.learnedRatingPanel.Location = new System.Drawing.Point(19, 1282);
             this.learnedRatingPanel.Name = "learnedRatingPanel";
-            this.learnedRatingPanel.Size = new System.Drawing.Size(802, 407);
+            this.learnedRatingPanel.Size = new System.Drawing.Size(802, 293);
             this.learnedRatingPanel.TabIndex = 9;
             // 
             // varianceLearnedRatingLabel
@@ -407,7 +407,7 @@
             this.varianceLearnedRatingLabel.AutoSize = true;
             this.varianceLearnedRatingLabel.Location = new System.Drawing.Point(537, 170);
             this.varianceLearnedRatingLabel.Name = "varianceLearnedRatingLabel";
-            this.varianceLearnedRatingLabel.Size = new System.Drawing.Size(76, 20);
+            this.varianceLearnedRatingLabel.Size = new System.Drawing.Size(52, 13);
             this.varianceLearnedRatingLabel.TabIndex = 5;
             this.varianceLearnedRatingLabel.Text = "Variance:";
             // 
@@ -416,7 +416,7 @@
             this.medianLearnedRatingLabel.AutoSize = true;
             this.medianLearnedRatingLabel.Location = new System.Drawing.Point(537, 130);
             this.medianLearnedRatingLabel.Name = "medianLearnedRatingLabel";
-            this.medianLearnedRatingLabel.Size = new System.Drawing.Size(65, 20);
+            this.medianLearnedRatingLabel.Size = new System.Drawing.Size(45, 13);
             this.medianLearnedRatingLabel.TabIndex = 4;
             this.medianLearnedRatingLabel.Text = "Median:";
             // 
@@ -425,7 +425,7 @@
             this.mostCommonLearnedRatingLabel.AutoSize = true;
             this.mostCommonLearnedRatingLabel.Location = new System.Drawing.Point(537, 89);
             this.mostCommonLearnedRatingLabel.Name = "mostCommonLearnedRatingLabel";
-            this.mostCommonLearnedRatingLabel.Size = new System.Drawing.Size(113, 20);
+            this.mostCommonLearnedRatingLabel.Size = new System.Drawing.Size(76, 13);
             this.mostCommonLearnedRatingLabel.TabIndex = 3;
             this.mostCommonLearnedRatingLabel.Text = "Most common:";
             // 
@@ -434,7 +434,7 @@
             this.averageLearnedRatingLabel.AutoSize = true;
             this.averageLearnedRatingLabel.Location = new System.Drawing.Point(537, 52);
             this.averageLearnedRatingLabel.Name = "averageLearnedRatingLabel";
-            this.averageLearnedRatingLabel.Size = new System.Drawing.Size(72, 20);
+            this.averageLearnedRatingLabel.Size = new System.Drawing.Size(50, 13);
             this.averageLearnedRatingLabel.TabIndex = 2;
             this.averageLearnedRatingLabel.Text = "Average:";
             // 
@@ -442,7 +442,7 @@
             // 
             this.learnedRatingChart.Location = new System.Drawing.Point(12, 33);
             this.learnedRatingChart.Name = "learnedRatingChart";
-            this.learnedRatingChart.Size = new System.Drawing.Size(470, 371);
+            this.learnedRatingChart.Size = new System.Drawing.Size(373, 244);
             this.learnedRatingChart.TabIndex = 1;
             this.learnedRatingChart.Text = "cartesianChart1";
             // 
@@ -452,7 +452,7 @@
             this.learnedRatingLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.learnedRatingLabel.Location = new System.Drawing.Point(13, 5);
             this.learnedRatingLabel.Name = "learnedRatingLabel";
-            this.learnedRatingLabel.Size = new System.Drawing.Size(177, 25);
+            this.learnedRatingLabel.Size = new System.Drawing.Size(129, 17);
             this.learnedRatingLabel.TabIndex = 0;
             this.learnedRatingLabel.Text = "Presented Ratings:";
             // 
@@ -464,9 +464,9 @@
             this.contactHourPanel.Controls.Add(this.averageConactHourLabel);
             this.contactHourPanel.Controls.Add(this.contactHourChart);
             this.contactHourPanel.Controls.Add(this.conactHourLabel);
-            this.contactHourPanel.Location = new System.Drawing.Point(19, 2113);
+            this.contactHourPanel.Location = new System.Drawing.Point(19, 1600);
             this.contactHourPanel.Name = "contactHourPanel";
-            this.contactHourPanel.Size = new System.Drawing.Size(802, 407);
+            this.contactHourPanel.Size = new System.Drawing.Size(802, 296);
             this.contactHourPanel.TabIndex = 10;
             // 
             // varianceConactHourLabel
@@ -474,7 +474,7 @@
             this.varianceConactHourLabel.AutoSize = true;
             this.varianceConactHourLabel.Location = new System.Drawing.Point(537, 170);
             this.varianceConactHourLabel.Name = "varianceConactHourLabel";
-            this.varianceConactHourLabel.Size = new System.Drawing.Size(76, 20);
+            this.varianceConactHourLabel.Size = new System.Drawing.Size(52, 13);
             this.varianceConactHourLabel.TabIndex = 5;
             this.varianceConactHourLabel.Text = "Variance:";
             // 
@@ -483,7 +483,7 @@
             this.medianConactHourLabel.AutoSize = true;
             this.medianConactHourLabel.Location = new System.Drawing.Point(537, 130);
             this.medianConactHourLabel.Name = "medianConactHourLabel";
-            this.medianConactHourLabel.Size = new System.Drawing.Size(65, 20);
+            this.medianConactHourLabel.Size = new System.Drawing.Size(45, 13);
             this.medianConactHourLabel.TabIndex = 4;
             this.medianConactHourLabel.Text = "Median:";
             // 
@@ -492,7 +492,7 @@
             this.mostCommonConactHourLabel.AutoSize = true;
             this.mostCommonConactHourLabel.Location = new System.Drawing.Point(537, 89);
             this.mostCommonConactHourLabel.Name = "mostCommonConactHourLabel";
-            this.mostCommonConactHourLabel.Size = new System.Drawing.Size(113, 20);
+            this.mostCommonConactHourLabel.Size = new System.Drawing.Size(76, 13);
             this.mostCommonConactHourLabel.TabIndex = 3;
             this.mostCommonConactHourLabel.Text = "Most common:";
             // 
@@ -501,7 +501,7 @@
             this.averageConactHourLabel.AutoSize = true;
             this.averageConactHourLabel.Location = new System.Drawing.Point(537, 52);
             this.averageConactHourLabel.Name = "averageConactHourLabel";
-            this.averageConactHourLabel.Size = new System.Drawing.Size(72, 20);
+            this.averageConactHourLabel.Size = new System.Drawing.Size(50, 13);
             this.averageConactHourLabel.TabIndex = 2;
             this.averageConactHourLabel.Text = "Average:";
             // 
@@ -509,7 +509,7 @@
             // 
             this.contactHourChart.Location = new System.Drawing.Point(12, 33);
             this.contactHourChart.Name = "contactHourChart";
-            this.contactHourChart.Size = new System.Drawing.Size(470, 371);
+            this.contactHourChart.Size = new System.Drawing.Size(373, 244);
             this.contactHourChart.TabIndex = 1;
             this.contactHourChart.Text = "cartesianChart1";
             // 
@@ -519,7 +519,7 @@
             this.conactHourLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.conactHourLabel.Location = new System.Drawing.Point(13, 5);
             this.conactHourLabel.Name = "conactHourLabel";
-            this.conactHourLabel.Size = new System.Drawing.Size(143, 25);
+            this.conactHourLabel.Size = new System.Drawing.Size(102, 17);
             this.conactHourLabel.TabIndex = 0;
             this.conactHourLabel.Text = "Contact Hours:";
             // 
@@ -531,9 +531,9 @@
             this.selfStudyHoursPanel.Controls.Add(this.averageSelfStudyHoursLabel);
             this.selfStudyHoursPanel.Controls.Add(this.selfStudyHoursChart);
             this.selfStudyHoursPanel.Controls.Add(this.selfStudyHoursLabel);
-            this.selfStudyHoursPanel.Location = new System.Drawing.Point(19, 2526);
+            this.selfStudyHoursPanel.Location = new System.Drawing.Point(19, 1920);
             this.selfStudyHoursPanel.Name = "selfStudyHoursPanel";
-            this.selfStudyHoursPanel.Size = new System.Drawing.Size(802, 407);
+            this.selfStudyHoursPanel.Size = new System.Drawing.Size(802, 282);
             this.selfStudyHoursPanel.TabIndex = 11;
             // 
             // varianceSelfStudyHoursLabel
@@ -541,7 +541,7 @@
             this.varianceSelfStudyHoursLabel.AutoSize = true;
             this.varianceSelfStudyHoursLabel.Location = new System.Drawing.Point(537, 170);
             this.varianceSelfStudyHoursLabel.Name = "varianceSelfStudyHoursLabel";
-            this.varianceSelfStudyHoursLabel.Size = new System.Drawing.Size(76, 20);
+            this.varianceSelfStudyHoursLabel.Size = new System.Drawing.Size(52, 13);
             this.varianceSelfStudyHoursLabel.TabIndex = 5;
             this.varianceSelfStudyHoursLabel.Text = "Variance:";
             // 
@@ -550,7 +550,7 @@
             this.medianSelfStudyHoursLabel.AutoSize = true;
             this.medianSelfStudyHoursLabel.Location = new System.Drawing.Point(537, 130);
             this.medianSelfStudyHoursLabel.Name = "medianSelfStudyHoursLabel";
-            this.medianSelfStudyHoursLabel.Size = new System.Drawing.Size(65, 20);
+            this.medianSelfStudyHoursLabel.Size = new System.Drawing.Size(45, 13);
             this.medianSelfStudyHoursLabel.TabIndex = 4;
             this.medianSelfStudyHoursLabel.Text = "Median:";
             // 
@@ -559,7 +559,7 @@
             this.mostCommonSelfStudyHoursLabel.AutoSize = true;
             this.mostCommonSelfStudyHoursLabel.Location = new System.Drawing.Point(537, 89);
             this.mostCommonSelfStudyHoursLabel.Name = "mostCommonSelfStudyHoursLabel";
-            this.mostCommonSelfStudyHoursLabel.Size = new System.Drawing.Size(113, 20);
+            this.mostCommonSelfStudyHoursLabel.Size = new System.Drawing.Size(76, 13);
             this.mostCommonSelfStudyHoursLabel.TabIndex = 3;
             this.mostCommonSelfStudyHoursLabel.Text = "Most common:";
             // 
@@ -568,7 +568,7 @@
             this.averageSelfStudyHoursLabel.AutoSize = true;
             this.averageSelfStudyHoursLabel.Location = new System.Drawing.Point(537, 52);
             this.averageSelfStudyHoursLabel.Name = "averageSelfStudyHoursLabel";
-            this.averageSelfStudyHoursLabel.Size = new System.Drawing.Size(72, 20);
+            this.averageSelfStudyHoursLabel.Size = new System.Drawing.Size(50, 13);
             this.averageSelfStudyHoursLabel.TabIndex = 2;
             this.averageSelfStudyHoursLabel.Text = "Average:";
             // 
@@ -576,7 +576,7 @@
             // 
             this.selfStudyHoursChart.Location = new System.Drawing.Point(12, 33);
             this.selfStudyHoursChart.Name = "selfStudyHoursChart";
-            this.selfStudyHoursChart.Size = new System.Drawing.Size(470, 371);
+            this.selfStudyHoursChart.Size = new System.Drawing.Size(373, 244);
             this.selfStudyHoursChart.TabIndex = 1;
             this.selfStudyHoursChart.Text = "cartesianChart1";
             // 
@@ -586,7 +586,7 @@
             this.selfStudyHoursLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.selfStudyHoursLabel.Location = new System.Drawing.Point(13, 5);
             this.selfStudyHoursLabel.Name = "selfStudyHoursLabel";
-            this.selfStudyHoursLabel.Size = new System.Drawing.Size(165, 25);
+            this.selfStudyHoursLabel.Size = new System.Drawing.Size(118, 17);
             this.selfStudyHoursLabel.TabIndex = 0;
             this.selfStudyHoursLabel.Text = "Self Study Hours:";
             // 
@@ -598,9 +598,9 @@
             this.gradePanel.Controls.Add(this.averageGradeLabel);
             this.gradePanel.Controls.Add(this.gradeChart);
             this.gradePanel.Controls.Add(this.gradeLabel);
-            this.gradePanel.Location = new System.Drawing.Point(19, 2939);
+            this.gradePanel.Location = new System.Drawing.Point(19, 2243);
             this.gradePanel.Name = "gradePanel";
-            this.gradePanel.Size = new System.Drawing.Size(802, 407);
+            this.gradePanel.Size = new System.Drawing.Size(802, 298);
             this.gradePanel.TabIndex = 12;
             // 
             // varianceGradeLabel
@@ -608,7 +608,7 @@
             this.varianceGradeLabel.AutoSize = true;
             this.varianceGradeLabel.Location = new System.Drawing.Point(537, 170);
             this.varianceGradeLabel.Name = "varianceGradeLabel";
-            this.varianceGradeLabel.Size = new System.Drawing.Size(76, 20);
+            this.varianceGradeLabel.Size = new System.Drawing.Size(52, 13);
             this.varianceGradeLabel.TabIndex = 5;
             this.varianceGradeLabel.Text = "Variance:";
             // 
@@ -617,7 +617,7 @@
             this.medianGradeLabel.AutoSize = true;
             this.medianGradeLabel.Location = new System.Drawing.Point(537, 130);
             this.medianGradeLabel.Name = "medianGradeLabel";
-            this.medianGradeLabel.Size = new System.Drawing.Size(65, 20);
+            this.medianGradeLabel.Size = new System.Drawing.Size(45, 13);
             this.medianGradeLabel.TabIndex = 4;
             this.medianGradeLabel.Text = "Median:";
             // 
@@ -626,7 +626,7 @@
             this.mostCommonGradeLabel.AutoSize = true;
             this.mostCommonGradeLabel.Location = new System.Drawing.Point(537, 89);
             this.mostCommonGradeLabel.Name = "mostCommonGradeLabel";
-            this.mostCommonGradeLabel.Size = new System.Drawing.Size(113, 20);
+            this.mostCommonGradeLabel.Size = new System.Drawing.Size(76, 13);
             this.mostCommonGradeLabel.TabIndex = 3;
             this.mostCommonGradeLabel.Text = "Most common:";
             // 
@@ -635,7 +635,7 @@
             this.averageGradeLabel.AutoSize = true;
             this.averageGradeLabel.Location = new System.Drawing.Point(537, 52);
             this.averageGradeLabel.Name = "averageGradeLabel";
-            this.averageGradeLabel.Size = new System.Drawing.Size(72, 20);
+            this.averageGradeLabel.Size = new System.Drawing.Size(50, 13);
             this.averageGradeLabel.TabIndex = 2;
             this.averageGradeLabel.Text = "Average:";
             // 
@@ -643,7 +643,7 @@
             // 
             this.gradeChart.Location = new System.Drawing.Point(12, 33);
             this.gradeChart.Name = "gradeChart";
-            this.gradeChart.Size = new System.Drawing.Size(470, 371);
+            this.gradeChart.Size = new System.Drawing.Size(373, 244);
             this.gradeChart.TabIndex = 1;
             this.gradeChart.Text = "cartesianChart1";
             // 
@@ -653,7 +653,7 @@
             this.gradeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gradeLabel.Location = new System.Drawing.Point(13, 5);
             this.gradeLabel.Name = "gradeLabel";
-            this.gradeLabel.Size = new System.Drawing.Size(82, 25);
+            this.gradeLabel.Size = new System.Drawing.Size(59, 17);
             this.gradeLabel.TabIndex = 0;
             this.gradeLabel.Text = "Grades:";
             // 
@@ -661,10 +661,18 @@
             // 
             this.passedPanel.Controls.Add(this.passedChart);
             this.passedPanel.Controls.Add(this.passedLabel);
-            this.passedPanel.Location = new System.Drawing.Point(19, 3352);
+            this.passedPanel.Location = new System.Drawing.Point(19, 2605);
             this.passedPanel.Name = "passedPanel";
-            this.passedPanel.Size = new System.Drawing.Size(802, 407);
+            this.passedPanel.Size = new System.Drawing.Size(802, 313);
             this.passedPanel.TabIndex = 13;
+            // 
+            // passedChart
+            // 
+            this.passedChart.Location = new System.Drawing.Point(12, 34);
+            this.passedChart.Name = "passedChart";
+            this.passedChart.Size = new System.Drawing.Size(373, 244);
+            this.passedChart.TabIndex = 1;
+            this.passedChart.Text = "pieChart1";
             // 
             // passedLabel
             // 
@@ -672,23 +680,15 @@
             this.passedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.passedLabel.Location = new System.Drawing.Point(13, 5);
             this.passedLabel.Name = "passedLabel";
-            this.passedLabel.Size = new System.Drawing.Size(84, 25);
+            this.passedLabel.Size = new System.Drawing.Size(59, 17);
             this.passedLabel.TabIndex = 0;
             this.passedLabel.Text = "Passed:";
             // 
-            // passedChart
-            // 
-            this.passedChart.Location = new System.Drawing.Point(12, 34);
-            this.passedChart.Name = "passedChart";
-            this.passedChart.Size = new System.Drawing.Size(443, 330);
-            this.passedChart.TabIndex = 1;
-            this.passedChart.Text = "pieChart1";
-            // 
             // openDetailedCourseButton
             // 
-            this.openDetailedCourseButton.Location = new System.Drawing.Point(321, 25);
+            this.openDetailedCourseButton.Location = new System.Drawing.Point(421, 19);
             this.openDetailedCourseButton.Name = "openDetailedCourseButton";
-            this.openDetailedCourseButton.Size = new System.Drawing.Size(180, 26);
+            this.openDetailedCourseButton.Size = new System.Drawing.Size(147, 26);
             this.openDetailedCourseButton.TabIndex = 14;
             this.openDetailedCourseButton.Text = "Back to normal Data";
             this.openDetailedCourseButton.UseVisualStyleBackColor = true;
@@ -710,7 +710,7 @@
             this.Controls.Add(this.numberOfRatingsLabel);
             this.Controls.Add(this.courseNameLabel);
             this.Name = "DataVizualisation";
-            this.Size = new System.Drawing.Size(850, 4000);
+            this.Size = new System.Drawing.Size(850, 3000);
             this.Load += new System.EventHandler(this.DataVizualisation_Load);
             this.overallRatingPanel.ResumeLayout(false);
             this.overallRatingPanel.PerformLayout();
