@@ -88,6 +88,7 @@
     <Compile Include="model\ComputeStatistics.cs" />
     <Compile Include="model\DB.cs" />
     <Compile Include="model\LoginStatus.cs" />
+    <Compile Include="model\Storable.cs" />
     <Compile Include="view\DataVizualisation.cs">
       <SubType>UserControl</SubType>
     </Compile>

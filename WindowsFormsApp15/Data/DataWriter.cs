@@ -9,7 +9,7 @@ namespace WindowsFormsApp15.Data
 {
     class DataWriter
     {
-        private DataUtility du;
+        readonly DataUtility du;
         public DataWriter()
         {
             du = new DataUtility();
