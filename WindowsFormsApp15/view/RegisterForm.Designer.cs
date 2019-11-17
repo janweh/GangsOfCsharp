@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonCreateAccount = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -42,9 +43,11 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.labelClose = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -87,9 +90,9 @@
             this.panel3.Controls.Add(this.textBoxUniversity);
             this.panel3.Controls.Add(this.textBoxPassword);
             this.panel3.Controls.Add(this.textBoxUsername);
-            this.panel3.Location = new System.Drawing.Point(22, 86);
+            this.panel3.Location = new System.Drawing.Point(12, 86);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(416, 301);
+            this.panel3.Size = new System.Drawing.Size(442, 301);
             this.panel3.TabIndex = 11;
             // 
             // textBoxMajor
@@ -233,6 +236,10 @@
             this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Label1_MouseDown);
             this.label1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Label1_MouseMove);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // RegisterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -247,6 +254,7 @@
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -267,5 +275,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label labelClose;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
