@@ -2,9 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\WindowsFormsApp15",
+    "\\WindowsFormsApp15\\Data",
     "\\WindowsFormsApp15\\Documents",
-    "\\WindowsFormsApp15\\SQLite",
+    "\\WindowsFormsApp15\\model",
     "\\WindowsFormsApp15\\view"
   ],
+  "SelectedNode": "\\WindowsFormsApp15\\view\\DetailedCourseWindow.cs",
   "PreviewInSolutionExplorer": false
 }

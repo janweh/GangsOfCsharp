@@ -71,7 +71,6 @@
             this.RatingPresent1 = new System.Windows.Forms.CheckBox();
             this.btnSend = new System.Windows.Forms.Button();
             this.cmbBoxSemester = new System.Windows.Forms.ComboBox();
-            this.errorLabel = new System.Windows.Forms.Label();
             this.overallRating1 = new System.Windows.Forms.CheckBox();
             this.overallRating2 = new System.Windows.Forms.CheckBox();
             this.overallRating3 = new System.Windows.Forms.CheckBox();
@@ -82,6 +81,13 @@
             this.overallLabel3 = new System.Windows.Forms.Label();
             this.overallLabel4 = new System.Windows.Forms.Label();
             this.overallLabel5 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.GradeLabel = new System.Windows.Forms.Label();
+            this.GradeTextBox = new System.Windows.Forms.TextBox();
+            this.passedFirstTimeLabel = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.yesCheckBox = new System.Windows.Forms.CheckBox();
+            this.noCheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.nupdContactHours)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupdSelfStudyHours)).BeginInit();
             this.SuspendLayout();
@@ -222,7 +228,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label13.Location = new System.Drawing.Point(38, 630);
+            this.label13.Location = new System.Drawing.Point(38, 703);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(128, 25);
@@ -232,7 +238,7 @@
             // txtBoxComments
             // 
             this.txtBoxComments.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtBoxComments.Location = new System.Drawing.Point(42, 682);
+            this.txtBoxComments.Location = new System.Drawing.Point(42, 755);
             this.txtBoxComments.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtBoxComments.Name = "txtBoxComments";
             this.txtBoxComments.Size = new System.Drawing.Size(770, 148);
@@ -512,7 +518,7 @@
             // 
             // btnSend
             // 
-            this.btnSend.Location = new System.Drawing.Point(700, 902);
+            this.btnSend.Location = new System.Drawing.Point(700, 975);
             this.btnSend.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(112, 35);
@@ -529,17 +535,6 @@
             this.cmbBoxSemester.Name = "cmbBoxSemester";
             this.cmbBoxSemester.Size = new System.Drawing.Size(180, 28);
             this.cmbBoxSemester.TabIndex = 69;
-            // 
-            // errorLabel
-            // 
-            this.errorLabel.AutoSize = true;
-            this.errorLabel.ForeColor = System.Drawing.Color.Red;
-            this.errorLabel.Location = new System.Drawing.Point(38, 852);
-            this.errorLabel.Name = "errorLabel";
-            this.errorLabel.Size = new System.Drawing.Size(51, 20);
-            this.errorLabel.TabIndex = 70;
-            this.errorLabel.Text = "label1";
-            this.errorLabel.Visible = false;
             // 
             // overallRating1
             // 
@@ -646,13 +641,89 @@
             this.overallLabel5.TabIndex = 71;
             this.overallLabel5.Text = "1";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(51, 20);
+            this.label1.TabIndex = 81;
+            this.label1.Text = "label1";
+            // 
+            // GradeLabel
+            // 
+            this.GradeLabel.AutoSize = true;
+            this.GradeLabel.Location = new System.Drawing.Point(39, 634);
+            this.GradeLabel.Name = "GradeLabel";
+            this.GradeLabel.Size = new System.Drawing.Size(121, 20);
+            this.GradeLabel.TabIndex = 82;
+            this.GradeLabel.Text = "Grade received:";
+            // 
+            // GradeTextBox
+            // 
+            this.GradeTextBox.Location = new System.Drawing.Point(166, 631);
+            this.GradeTextBox.Name = "GradeTextBox";
+            this.GradeTextBox.Size = new System.Drawing.Size(38, 26);
+            this.GradeTextBox.TabIndex = 83;
+            this.GradeTextBox.TextChanged += new System.EventHandler(this.GradeTextBox_TextChanged);
+            // 
+            // passedFirstTimeLabel
+            // 
+            this.passedFirstTimeLabel.AutoSize = true;
+            this.passedFirstTimeLabel.Location = new System.Drawing.Point(39, 669);
+            this.passedFirstTimeLabel.Name = "passedFirstTimeLabel";
+            this.passedFirstTimeLabel.Size = new System.Drawing.Size(288, 20);
+            this.passedFirstTimeLabel.TabIndex = 84;
+            this.passedFirstTimeLabel.Text = "Did you pass the course on the first try?";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(0, 0);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(113, 24);
+            this.checkBox1.TabIndex = 85;
+            this.checkBox1.Text = "checkBox1";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // yesCheckBox
+            // 
+            this.yesCheckBox.AutoSize = true;
+            this.yesCheckBox.Enabled = false;
+            this.yesCheckBox.Location = new System.Drawing.Point(333, 669);
+            this.yesCheckBox.Name = "yesCheckBox";
+            this.yesCheckBox.Size = new System.Drawing.Size(59, 24);
+            this.yesCheckBox.TabIndex = 86;
+            this.yesCheckBox.Text = "yes";
+            this.yesCheckBox.UseVisualStyleBackColor = true;
+            this.yesCheckBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.YesCheckBox_MouseClick);
+            // 
+            // noCheckBox
+            // 
+            this.noCheckBox.AutoSize = true;
+            this.noCheckBox.Enabled = false;
+            this.noCheckBox.Location = new System.Drawing.Point(400, 669);
+            this.noCheckBox.Name = "noCheckBox";
+            this.noCheckBox.Size = new System.Drawing.Size(53, 24);
+            this.noCheckBox.TabIndex = 87;
+            this.noCheckBox.Text = "no";
+            this.noCheckBox.UseVisualStyleBackColor = true;
+            this.noCheckBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.NoCheckBox_MouseClick);
+            // 
             // RatingCourseWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.SteelBlue;
-            this.ClientSize = new System.Drawing.Size(854, 951);
+            this.ClientSize = new System.Drawing.Size(854, 1028);
+            this.Controls.Add(this.noCheckBox);
+            this.Controls.Add(this.yesCheckBox);
+            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.passedFirstTimeLabel);
+            this.Controls.Add(this.GradeTextBox);
+            this.Controls.Add(this.GradeLabel);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.overallRating1);
             this.Controls.Add(this.overallRating2);
             this.Controls.Add(this.overallRating3);
@@ -663,7 +734,6 @@
             this.Controls.Add(this.overallLabel3);
             this.Controls.Add(this.overallLabel4);
             this.Controls.Add(this.overallLabel5);
-            this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.cmbBoxSemester);
             this.Controls.Add(this.btnSend);
             this.Controls.Add(this.RatingPresent5);
@@ -762,7 +832,6 @@
         private System.Windows.Forms.CheckBox RatingPresent1;
         private System.Windows.Forms.Button btnSend;
         private System.Windows.Forms.ComboBox cmbBoxSemester;
-        private System.Windows.Forms.Label errorLabel;
         private System.Windows.Forms.CheckBox overallRating1;
         private System.Windows.Forms.CheckBox overallRating2;
         private System.Windows.Forms.CheckBox overallRating3;
@@ -773,5 +842,12 @@
         private System.Windows.Forms.Label overallLabel3;
         private System.Windows.Forms.Label overallLabel4;
         private System.Windows.Forms.Label overallLabel5;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label GradeLabel;
+        private System.Windows.Forms.TextBox GradeTextBox;
+        private System.Windows.Forms.Label passedFirstTimeLabel;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox yesCheckBox;
+        private System.Windows.Forms.CheckBox noCheckBox;
     }
 }

@@ -13,6 +13,7 @@ namespace WindowsFormsApp15.Data
         private string ratingPath;
         private string studentPath;
         private string universitiesPath;
+
         public DataUtility()
         {
             InitPaths();
