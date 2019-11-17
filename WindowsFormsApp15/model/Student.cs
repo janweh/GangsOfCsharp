@@ -3,7 +3,7 @@ using WindowsFormsApp15.Data;
 
 namespace WindowsFormsApp15.model
 {
-    public class Student
+    public class Student : Storable
     {
         private Guid studentID;
         private University university;
@@ -21,8 +21,25 @@ namespace WindowsFormsApp15.model
         public Student(string[] r)
         {
             DataSearch ds = new DataSearch();
-            Init(Guid.Parse(r[0]), r[1], r[2], ds.GetByID<University>(Guid.Parse(r[3])),
-                ds.GetByID<Major>(Guid.Parse(r[4])), r[5], Int32.Parse(r[6]));
+            University u;
+            try
+            {
+                u = ds.GetByID<University>(Guid.Parse(r[2]));
+            }
+            catch (DuplicateDataException)
+            {
+                u = new University();
+            }
+            Major m;
+            try
+            {
+                m = ds.GetByID<Major>(Guid.Parse(r[5]));
+            }
+            catch (DuplicateDataException)
+            {
+                m = new Major();
+            }
+            Init(Guid.Parse(r[0]), r[1], r[2], u, m, r[5], Int32.Parse(r[6]));
         }
 
         /// <summary>
@@ -59,7 +76,7 @@ namespace WindowsFormsApp15.model
             this.areaOfStudies = areaOfStudies ?? throw new ArgumentNullException("areaOfStudies cannot be set to null.");
         }
         public int Semester { get => currentSemester; }
-        public Guid StudentID { get => studentID; }
+        public override Guid ID { get => studentID; }
         public University University { get => university; }
         public Major Major { get => major; }
 
@@ -88,19 +105,16 @@ namespace WindowsFormsApp15.model
         /// <returns></returns>
         public override string ToString()
         {
-            string info = StudentID.ToString() + ";" +
+            string info = ID.ToString() + ";" +
                 UserName + ";" +
                 Password + ";" +
-                University.UniversityID.ToString() + ";" +
-                Major.MajorID.ToString() + ";" +
+                University.ID.ToString() + ";" +
+                Major.ID.ToString() + ";" +
                 AreaOfStudies + ";" +
                 Semester.ToString() + "\n";
             return info;
         }
 
-        public Student()
-        {
-
-        }
+        public Student() : base() { }
     }
 }

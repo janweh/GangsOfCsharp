@@ -3,17 +3,16 @@ using System;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
+using WindowsFormsApp15.Data;
 using WindowsFormsApp15.model;
-
+using static WindowsFormsApp15.Data.DataSearch;
 
 namespace WindowsFormsApp15
 {
-    public delegate void LogedOnDelegate(object sender, EventArgs args);
-
     public partial class LoginForm : Form
     {
 
-        
+
         public LoginForm()
         {
             InitializeComponent();
@@ -22,8 +21,8 @@ namespace WindowsFormsApp15
             this.textBoxPassword.AutoSize = false;
             this.textBoxPassword.Size = new Size(this.textBoxPassword.Size.Width, 40);
         }
-       
-        
+
+
         private void LabelClose_MouseEnter(object sender, EventArgs e)
         {
             labelClose.ForeColor = Color.Red;
@@ -39,14 +38,13 @@ namespace WindowsFormsApp15
             this.Close();
         }
 
-
         private void ButtonLogin_Click(object sender, EventArgs e)
         {
             DB db = new DB();
 
             String username = textBoxUsername.Text;
             String password = textBoxPassword.Text;
-            
+
             DataTable table = new DataTable();
 
             MySqlDataAdapter adapter = new MySqlDataAdapter();
@@ -61,16 +59,25 @@ namespace WindowsFormsApp15
             adapter.Fill(table);
 
             //check if the user exists or not.
-            if(table.Rows.Count > 0)
+            if (table.Rows.Count > 0)
             {
                 MessageBox.Show("You are logged on!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoginStatus.isLogged = true;
-                if(LogenOn != null)
+                object[] values = table.Rows[0].ItemArray;
+                DataSearch ds = new DataSearch();
+                Matches matchesUniName = (x) => x[1].Equals(values[3]);
+                University uni = ds.GetAllMatching<University>(matchesUniName)[0];
+                Major major = new Major();
+                foreach (Major m in ds.GetMajorsOfUniversity(uni))
                 {
-                    LogenOn(this, new EventArgs());
+                    if (m.Name.Equals(values[4]))
+                    {
+                        major = m;
+                    }
                 }
-                this.Close();
-                
+                LoginStatus.CurrentUser = new Student(username, password, uni, major, values[5].ToString(),
+                    -1);
+
             }
             else
             {
@@ -89,9 +96,6 @@ namespace WindowsFormsApp15
 
             }
         }
-
-        public event LogedOnDelegate LogenOn;
-
         Point lastPoint;
         private void Label1_MouseMove(object sender, MouseEventArgs e)
         {

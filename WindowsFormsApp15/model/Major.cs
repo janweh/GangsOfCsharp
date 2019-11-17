@@ -3,7 +3,7 @@ using WindowsFormsApp15.Data;
 
 namespace WindowsFormsApp15.model
 {
-    public class Major
+    public class Major : Storable
     {
         private University university;
         private Guid majorID;
@@ -30,12 +30,21 @@ namespace WindowsFormsApp15.model
         public Major(string[] line)
         {
             DataSearch ds = new DataSearch();
-            Init(Guid.Parse(line[0]), line[1], ds.GetByID<University>(Guid.Parse(line[2]))); ;
+            University u;
+            try
+            {
+                u = ds.GetByID<University>(Guid.Parse(line[2]));
+            }
+            catch (DuplicateDataException)
+            {
+                u = new University();
+            }
+            Init(Guid.Parse(line[0]), line[1], u); ;
         }
 
-        public Guid MajorID { get => majorID; }
         public string Name { get => majorName; }
         public University University { get => university; }
+        public override Guid ID { get => majorID; }
 
         private void Init(Guid majorID, string name, University university)
         {
@@ -51,15 +60,12 @@ namespace WindowsFormsApp15.model
         /// <returns></returns>
         public override string ToString()
         {
-            string info = MajorID.ToString() + ";" +
+            string info = ID.ToString() + ";" +
                 Name + ";" +
-                University.UniversityID.ToString() + "\n";
+                University.ID.ToString() + "\n";
             return info;
         }
 
-        public Major()
-        {
-
-        }
+        public Major() : base() { }
     }
 }
