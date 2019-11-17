@@ -188,21 +188,6 @@ namespace WindowsFormsApp15.view
 
         }
 
-        private void OpenRatingLabel_Click(object sender, EventArgs e)
-        {
-
-            RatingCourseWindow rcw = new RatingCourseWindow(
-                ds.GetByID<Student>(Guid.Parse("77f5d847-58e9-4b5b-af26-fc88bc51588d")),
-                ds.GetByID<Course>(Guid.Parse("6f8be39e-7e1e-4703-b757-223c4193d7ca")));
-            rcw.Show();
-        }
-
-        private void OpenCourseViewLabel_Click(object sender, EventArgs e)
-        {
-            CourseViewWindow cvw = new CourseViewWindow(ds.GetByID<Course>(Guid.Parse("6f8be39e-7e1e-4703-b757-223c4193d7ca")));
-            cvw.Show();
-        }
-
         Point lastPoint;
         private void TopHeaderPanel_MouseMove(object sender, MouseEventArgs e)
         {

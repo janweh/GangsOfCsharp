@@ -87,8 +87,8 @@
             this.gradeChart = new LiveCharts.WinForms.CartesianChart();
             this.gradeLabel = new System.Windows.Forms.Label();
             this.passedPanel = new System.Windows.Forms.Panel();
-            this.passedLabel = new System.Windows.Forms.Label();
             this.passedChart = new LiveCharts.WinForms.PieChart();
+            this.passedLabel = new System.Windows.Forms.Label();
             this.openDetailedCourseButton = new System.Windows.Forms.Button();
             this.overallRatingPanel.SuspendLayout();
             this.organizedRatingPanel.SuspendLayout();
@@ -666,6 +666,14 @@
             this.passedPanel.Size = new System.Drawing.Size(802, 407);
             this.passedPanel.TabIndex = 13;
             // 
+            // passedChart
+            // 
+            this.passedChart.Location = new System.Drawing.Point(12, 34);
+            this.passedChart.Name = "passedChart";
+            this.passedChart.Size = new System.Drawing.Size(443, 330);
+            this.passedChart.TabIndex = 1;
+            this.passedChart.Text = "pieChart1";
+            // 
             // passedLabel
             // 
             this.passedLabel.AutoSize = true;
@@ -676,14 +684,6 @@
             this.passedLabel.TabIndex = 0;
             this.passedLabel.Text = "Passed:";
             // 
-            // passedChart
-            // 
-            this.passedChart.Location = new System.Drawing.Point(12, 34);
-            this.passedChart.Name = "passedChart";
-            this.passedChart.Size = new System.Drawing.Size(443, 330);
-            this.passedChart.TabIndex = 1;
-            this.passedChart.Text = "pieChart1";
-            // 
             // openDetailedCourseButton
             // 
             this.openDetailedCourseButton.Location = new System.Drawing.Point(321, 25);
@@ -692,6 +692,7 @@
             this.openDetailedCourseButton.TabIndex = 14;
             this.openDetailedCourseButton.Text = "Back to normal Data";
             this.openDetailedCourseButton.UseVisualStyleBackColor = true;
+            //this.openDetailedCourseButton.Click += new System.EventHandler(this.OpenDetailedCourseButton_Click);
             // 
             // DataVizualisation
             // 
@@ -711,7 +712,6 @@
             this.Controls.Add(this.courseNameLabel);
             this.Name = "DataVizualisation";
             this.Size = new System.Drawing.Size(850, 4000);
-            this.Load += new System.EventHandler(this.DataVizualisation_Load);
             this.overallRatingPanel.ResumeLayout(false);
             this.overallRatingPanel.PerformLayout();
             this.organizedRatingPanel.ResumeLayout(false);

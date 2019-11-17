@@ -41,7 +41,6 @@ namespace WindowsFormsApp15.view
             this.cvw = cvw;
             GetValuesFromCourses();
             InitGUI();
-            InitGUI();
         }
 
         private void InitGUI()
@@ -469,9 +468,9 @@ namespace WindowsFormsApp15.view
             };
         }
 
-        private void DataVizualisation_Load(object sender, EventArgs e)
+        /*private void OpenDetailedCourseButton_Click(object sender, EventArgs e)
         {
-            cvw.CloseVizualisationView();
-        }
+         //   cvw.CloseVizualisationView();
+        }*/
     }
 }

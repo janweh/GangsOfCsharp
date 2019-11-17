@@ -8,8 +8,8 @@ namespace WindowsFormsApp15.view
 {
     public partial class RatingCourseWindow : Form
     {
-        Student student;
-        Course course;
+        readonly Student student;
+        readonly Course course;
 
         private CheckBox[] overallBoxes;
         private CheckBox[] organizedBoxes;
@@ -62,8 +62,15 @@ namespace WindowsFormsApp15.view
                     GetRating(presetedBoxes), txtBoxComments.Text, Int32.Parse(GradeTextBox.Text), 
                     GetPassedFirstTime(), DateTime.Now);
                 DataWriter dw = new DataWriter();
-                dw.Store(givenRating);
-                this.Close();
+                if (!dw.Store(givenRating))
+                {
+                    //if storing is unsuccesfull
+                    MessageBox.Show("Saving the rating was unsuccesfull!");
+                }
+                else
+                {
+                    this.Close();
+                }
             }
             catch (DuplicateDataException)
             {

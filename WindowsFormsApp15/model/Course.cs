@@ -3,7 +3,7 @@ using WindowsFormsApp15.Data;
 
 namespace WindowsFormsApp15.model
 {
-    public class Course
+    public class Course : Storable
     {
         private Guid courseID;
         private string courseName;
@@ -25,7 +25,6 @@ namespace WindowsFormsApp15.model
         /// <param name="major">cannot be null</param>
         public Course(string name, University university, Lecturer lecturer, Semester since, Major major)
         {
-            DataSearch ds = new DataSearch();
             Init(Guid.NewGuid(), name, university, lecturer, since, major);
         }
 
@@ -37,9 +36,36 @@ namespace WindowsFormsApp15.model
         public Course(string[] line)
         {
             DataSearch ds = new DataSearch();
-                
-            Init(Guid.Parse(line[0]), line[1], ds.GetByID<University>(Guid.Parse(line[2])),
-                ds.GetByID<Lecturer>(Guid.Parse(line[3])), EnumTranslator.stringToSemester[line[4]], ds.GetByID<Major>(Guid.Parse(line[5])));
+
+            University u;
+            try
+            {
+                u = ds.GetByID<University>(Guid.Parse(line[2]));
+            }
+            catch (DuplicateDataException)
+            {
+                u = new University();
+            }
+            Lecturer l;
+            try
+            {
+                l = ds.GetByID<Lecturer>(Guid.Parse(line[3]));
+            }
+            catch (DuplicateDataException)
+            {
+                l = new Lecturer();
+            }
+            Major m;
+            try
+            {
+                m = ds.GetByID<Major>(Guid.Parse(line[5]));
+            }
+            catch (DuplicateDataException)
+            {
+                m = new Major();
+            }
+            Init(Guid.Parse(line[0]), line[1], u,
+                l, EnumTranslator.stringToSemester[line[4]], m);
         }
 
         public string Name { get => courseName; }
@@ -47,7 +73,7 @@ namespace WindowsFormsApp15.model
         public University University { get => university; }
         public Lecturer Lecturer { get => lecturer; }
         public Major Major { get => major; }
-        public Guid CourseID { get => courseID; }
+        public override Guid ID { get => courseID; }
 
         private void Init(Guid courseID, string name, University university, Lecturer lecturer, Semester since, Major major)
         {
@@ -66,18 +92,15 @@ namespace WindowsFormsApp15.model
         /// <returns></returns>
         public override string ToString()
         {
-            string resultString = CourseID.ToString() + ";" +
+            string resultString = ID.ToString() + ";" +
                 Name + ";" +
-                University.UniversityID.ToString() + ";" +
-                Lecturer.LecturerID.ToString() + ";" +
+                University.ID.ToString() + ";" +
+                Lecturer.ID.ToString() + ";" +
                 EnumTranslator.semesterToString[Since] + ";" +
-                Major.MajorID.ToString() + "\n";
+                Major.ID.ToString() + "\n";
             return resultString;
         }
 
-        public Course()
-        {
-
-        }
+        public Course() : base() { }
     }
 }

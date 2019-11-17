@@ -2,20 +2,20 @@
 
 namespace WindowsFormsApp15.view
 {
-    class Comment
+    struct Comment
     {
         private string username;
         private string date;
         private string rating;
         private string text;
 
-        public Comment(string username, DateTime date, string rating,
-            string text)
+        public Comment(string name, DateTime dateTime, string overall,
+            string comment)
         {
-            this.Username = username;
-            this.Date = date.Date.ToString("d");
-            this.Rating = rating + "/5";
-            this.Text = text;
+            username = name;
+            date = dateTime.Date.ToString("d");
+            rating = overall + "/5";
+            text = comment;
         }
 
         public string Username { get => username; set => username = value; }
