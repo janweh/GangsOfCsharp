@@ -44,7 +44,7 @@ namespace WindowsFormsApp15.model
             Major m;
             try
             {
-                m = ds.GetByID<Major>(Guid.Parse(line[5]));
+                m = ds.GetByID<Major>(Guid.Parse(line[3]));
             }
             catch (DuplicateDataException)
             {

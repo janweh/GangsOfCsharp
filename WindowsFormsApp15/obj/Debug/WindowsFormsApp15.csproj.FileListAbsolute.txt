@@ -92,7 +92,6 @@ C:\Users\Brn\Source\Repos\GangsOfCsharp1\WindowsFormsApp15\obj\Debug\WindowsForm
 C:\Users\Brn\Source\Repos\GangsOfCsharp1\WindowsFormsApp15\obj\Debug\WindowsFormsApp15.pdb
 C:\Users\janwe\Source\Repos\GangsOfCsharp\WindowsFormsApp15\obj\Debug\WindowsFormsApp15.view.MainWindow.resources
 C:\Users\janwe\Source\Repos\GangsOfCsharp\WindowsFormsApp15\obj\Debug\WindowsFormsApp15.view.RatingCourseWindow.resources
-C:\Users\janwe\Source\Repos\GangsOfCsharp\WindowsFormsApp15\obj\Debug\WindowsFormsApp15.view.SignUpWindow.resources
 C:\Users\janwe\Source\Repos\GangsOfCsharp\WindowsFormsApp15\obj\Debug\WindowsFormsApp15.view.CourseViewWindow.resources
 C:\Users\Brn\source\repos\GangsOfCsharpd\WindowsFormsApp15\bin\Debug\WindowsFormsApp15.exe.config
 C:\Users\Brn\source\repos\GangsOfCsharpd\WindowsFormsApp15\bin\Debug\WindowsFormsApp15.exe
