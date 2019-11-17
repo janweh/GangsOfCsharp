@@ -83,6 +83,25 @@ namespace WindowsFormsApp15.Data
         }
 
         /// <summary>
+        /// Return all Objects that are stored of that Entity.
+        /// </summary>
+        /// <typeparam name="T">Type of Objects that should be found.</typeparam>
+        /// <returns></returns>
+        public List<T> GetAllMatching<T>(Matches match)
+            where T : Storable, new()
+        {
+            List<T> ts = new List<T>();
+            string path = du.GetPath(typeof(T));
+            List<string[]> matchingLines = GetAllMatchingLines(match, path);
+            foreach (string[] r in matchingLines)
+            {
+                T t = CreateNew<T>(r, new T());
+                ts.Add(t);
+            }
+            return ts;
+        }
+
+        /// <summary>
         /// Returns wether a object with the specified conditions exists in the files.
         /// </summary>
         /// <typeparam name="T"></typeparam>
@@ -332,7 +351,7 @@ namespace WindowsFormsApp15.Data
                 sumCourses += AverageRatingForCourse(course);
             }
 
-            Func<string[], bool> matches = (x) => x[3].Equals(major.ID.ToString());
+            Matches matches = (x) => x[3].Equals(major.ID.ToString());
             int foundLecturers = GetNumberOfMatchingLines(matches, du.LecturerPath);
 
             return new Tuple<double, int, int>(sumCourses / courses.Count, courses.Count, foundLecturers);
@@ -368,7 +387,7 @@ namespace WindowsFormsApp15.Data
             Matches matchesMajor = (x) => x[2].Equals(university.ID.ToString());
             List<string[]> matchingMajors = GetAllMatchingLines(matchesMajor, du.MajorPath);
 
-            Func<string[], bool> matchesProfessor = (x) => x[2].Equals(university.ID.ToString());
+            Matches matchesProfessor = (x) => x[2].Equals(university.ID.ToString());
             int amountProfessors = GetNumberOfMatchingLines(matchesProfessor, du.LecturerPath);
             double ratingSum = 0;
             int countRatings = 0;
@@ -410,7 +429,7 @@ namespace WindowsFormsApp15.Data
             return results;
         }
 
-        private int GetNumberOfMatchingLines(Func<string[], bool> match, string path)
+        private int GetNumberOfMatchingLines(Matches match, string path)
         {
             int number = 0;
             using (StreamReader sr = File.OpenText(path))

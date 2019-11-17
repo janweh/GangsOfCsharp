@@ -44,12 +44,12 @@ namespace WindowsFormsApp15.model
 
         public string Name { get => majorName; }
         public University University { get => university; }
-        public override Guid ID { get => majorID; set => majorID = value; }
+        public override Guid ID { get => majorID; }
 
         private void Init(Guid majorID, string name, University university)
         {
             this.majorName = name ?? throw new ArgumentNullException("name cannot be null!");
-            this.ID = majorID;
+            this.majorID = majorID;
             this.university = university ?? throw new ArgumentNullException("university cannot be null!");
         }
 

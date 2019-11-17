@@ -184,3 +184,4 @@ C:\Users\janwe\Source\Repos\GangsOfCsharpMaster\WindowsFormsApp15\obj\Debug\Wind
 C:\Users\janwe\Source\Repos\GangsOfCsharpMaster\WindowsFormsApp15\obj\Debug\WindowsFormsApp15.RegisterForm.resources
 C:\Users\janwe\Source\Repos\GangsOfCsharpMaster\WindowsFormsApp15\obj\Debug\WindowsFormsApp15.view.CourseViewWindow.resources
 C:\Users\janwe\Source\Repos\GangsOfCsharpMaster\WindowsFormsApp15\obj\Debug\WindowsFormsApp15.LoginForm.resources
+C:\Users\janwe\Source\Repos\GangsOfCsharpMaster\WindowsFormsApp15\obj\Debug\WindowsFormsApp15.csprojAssemblyReference.cache

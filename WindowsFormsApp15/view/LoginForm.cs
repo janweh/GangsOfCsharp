@@ -3,8 +3,9 @@ using System;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
+using WindowsFormsApp15.Data;
 using WindowsFormsApp15.model;
-
+using static WindowsFormsApp15.Data.DataSearch;
 
 namespace WindowsFormsApp15
 {
@@ -61,8 +62,21 @@ namespace WindowsFormsApp15
             if(table.Rows.Count > 0)
             {
                 MessageBox.Show("You are logged on!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoginStatus.islogged = true;
-                
+                LoginStatus.isLogged = true;
+                object[] values = table.Rows[0].ItemArray;
+                DataSearch ds = new DataSearch();
+                Matches matchesUniName = (x) => x[1].Equals(values[3]);
+                University uni = ds.GetAllMatching<University>(matchesUniName)[0];
+                Major major = new Major();
+                foreach(Major m in ds.GetMajorsOfUniversity(uni))
+                {
+                    if (m.Name.Equals(values[4]))
+                    {
+                        major = m;
+                    }
+                }
+                LoginStatus.CurrentUser = new Student(username, password, uni, major, values[5].ToString(),
+                    -1);
                 
             }
             else

@@ -228,7 +228,7 @@ namespace WindowsFormsApp15.view
 
         private void MainWindow_Activated(object sender, EventArgs e)
         {
-            if (LoginStatus.islogged)
+            if (LoginStatus.isLogged)
             {
                 loginButton.Visible = false;
                 registerButton.Visible = false;
@@ -239,7 +239,7 @@ namespace WindowsFormsApp15.view
 
         private void LogOut_Click(object sender, EventArgs e)
         {
-            LoginStatus.islogged = false;
+            LoginStatus.isLogged = false;
             loginButton.Visible = true;
             registerButton.Visible = true;
             LogOut.Visible = false;
