@@ -178,6 +178,7 @@ namespace WindowsFormsApp15.view
 
             LoginForm lf = new LoginForm();
             lf.Show();
+            lf.LogenOn += OnLogedOn;
             
         }
 
@@ -241,24 +242,20 @@ namespace WindowsFormsApp15.view
             this.Close();
         }
 
-        private void MainWindow_Activated(object sender, EventArgs e)
-        {
-            if (LoginStatus.islogged)
-            {
-                loginButton.Visible = false;
-                registerButton.Visible = false;
-                LogOut.Visible = true;
-            }
-            
-        }
-
         private void LogOut_Click(object sender, EventArgs e)
         {
-            LoginStatus.islogged = false;
+            LoginStatus.isLogged = false;
             loginButton.Visible = true;
             registerButton.Visible = true;
             LogOut.Visible = false;
             MessageBox.Show("You have logged out", "Log Out", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void OnLogedOn(Object sender, EventArgs e)
+        {
+            loginButton.Visible = false;
+            registerButton.Visible = false;
+            LogOut.Visible = true;
         }
     }
 }

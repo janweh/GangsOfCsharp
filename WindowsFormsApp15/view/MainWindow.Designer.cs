@@ -456,8 +456,6 @@ namespace WindowsFormsApp15.view
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainWindow";
             this.Text = "Form1";
-            this.Activated += new System.EventHandler(this.MainWindow_Activated);
-        
             this.leftSidebarPanel.ResumeLayout(false);
             this.topHeaderPanel.ResumeLayout(false);
             this.topHeaderPanel.PerformLayout();

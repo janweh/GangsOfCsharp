@@ -8,6 +8,8 @@ using WindowsFormsApp15.model;
 
 namespace WindowsFormsApp15
 {
+    public delegate void LogedOnDelegate(object sender, EventArgs args);
+
     public partial class LoginForm : Form
     {
 
@@ -37,6 +39,7 @@ namespace WindowsFormsApp15
             this.Close();
         }
 
+
         private void ButtonLogin_Click(object sender, EventArgs e)
         {
             DB db = new DB();
@@ -61,8 +64,12 @@ namespace WindowsFormsApp15
             if(table.Rows.Count > 0)
             {
                 MessageBox.Show("You are logged on!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoginStatus.islogged = true;
-                
+                LoginStatus.isLogged = true;
+                if(LogenOn != null)
+                {
+                    LogenOn(this, new EventArgs());
+                }
+                this.Close();
                 
             }
             else
@@ -82,6 +89,9 @@ namespace WindowsFormsApp15
 
             }
         }
+
+        public event LogedOnDelegate LogenOn;
+
         Point lastPoint;
         private void Label1_MouseMove(object sender, MouseEventArgs e)
         {

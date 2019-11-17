@@ -201,7 +201,7 @@ namespace WindowsFormsApp15.view
 
         private void CourseViewWindow_Load(object sender, EventArgs e)
         {
-            if (LoginStatus.islogged)
+            if (LoginStatus.isLogged)
             {
                 rateCourseButton.Visible = true;
             }
@@ -209,7 +209,7 @@ namespace WindowsFormsApp15.view
 
         private void CourseViewWindow_Activated(object sender, EventArgs e)
         {
-            if (LoginStatus.islogged)
+            if (LoginStatus.isLogged)
             {
                 rateCourseButton.Visible = true;
             }

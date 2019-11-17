@@ -2,6 +2,7 @@
 using System;
 using System.Data;
 using System.Drawing;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp15
@@ -66,11 +67,24 @@ namespace WindowsFormsApp15
 
         private void TextBoxEmail_Leave(object sender, EventArgs e)
         {
+            string pattern = @"^[\w!#$%&'*+\-/=?\^_`{|}~]+(\.[\w!#$%&'*+\-/=?\^_`{|}~]+)*"
+                            + "@"
+                            + @"((([\-\w]+\.)+[a-zA-Z]{2,4})|(([0-9]{1,3}\.){3}[0-9]{1,3}))$";
             String email = textBoxEmail.Text;
             if (email.ToLower().Trim().Equals("email adress") || email.Trim().Equals(""))
             {
                 textBoxEmail.Text = "email adress";
                 textBoxEmail.ForeColor = Color.Gray;
+            }
+            if (Regex.IsMatch(textBoxEmail.Text, pattern))
+            {
+                errorProvider1.Clear();
+                buttonCreateAccount.Enabled = true;
+            }
+            else
+            {
+                errorProvider1.SetError(this.textBoxEmail, "Please provide valid email adress");
+                buttonCreateAccount.Enabled = false;
             }
         }
 
@@ -231,6 +245,7 @@ namespace WindowsFormsApp15
                         if (command.ExecuteNonQuery() == 1)
                         {
                             MessageBox.Show("Your Account Has Been Created", "Account Created", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.Close();
                         }
                         else
                         {
@@ -322,5 +337,6 @@ namespace WindowsFormsApp15
                 lastPoint = new Point(e.X, e.Y);
             }
         }
+
     }
 }

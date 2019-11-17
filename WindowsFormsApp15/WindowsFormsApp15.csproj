@@ -166,12 +166,6 @@
       <DependentUpon>RatingCourseWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="view\SearchConditionChecker.cs" />
-    <Compile Include="view\SignUpWindow.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="view\SignUpWindow.Designer.cs">
-      <DependentUpon>SignUpWindow.cs</DependentUpon>
-    </Compile>
     <Compile Include="view\UniSearchResultWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -219,9 +213,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="view\RatingCourseWindow.resx">
       <DependentUpon>RatingCourseWindow.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="view\SignUpWindow.resx">
-      <DependentUpon>SignUpWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\UniSearchResultWindow.resx">
       <DependentUpon>UniSearchResultWindow.cs</DependentUpon>
