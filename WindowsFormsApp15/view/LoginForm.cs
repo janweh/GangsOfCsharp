@@ -9,6 +9,9 @@ using static WindowsFormsApp15.Data.DataSearch;
 
 namespace WindowsFormsApp15
 {
+
+    public delegate void LogenOnDelegate(object sender, EventArgs args);
+
     public partial class LoginForm : Form
     {
 
@@ -65,18 +68,25 @@ namespace WindowsFormsApp15
                 LoginStatus.isLogged = true;
                 object[] values = table.Rows[0].ItemArray;
                 DataSearch ds = new DataSearch();
-                Matches matchesUniName = (x) => x[1].Equals(values[3]);
+                Matches matchesUniName = (x) => x[1].Equals(values[4]);
                 University uni = ds.GetAllMatching<University>(matchesUniName)[0];
                 Major major = new Major();
                 foreach (Major m in ds.GetMajorsOfUniversity(uni))
                 {
-                    if (m.Name.Equals(values[4]))
+                    if (m.Name.Equals(values[5]))
                     {
                         major = m;
                     }
                 }
                 LoginStatus.CurrentUser = new Student(username, password, uni, major, values[5].ToString(),
                     -1);
+
+                if(LogenOn != null)
+                {
+                    LogenOn(this, new EventArgs());
+                }
+
+                this.Close();
 
             }
             else
@@ -96,6 +106,9 @@ namespace WindowsFormsApp15
 
             }
         }
+
+        public event LogenOnDelegate LogenOn;
+
         Point lastPoint;
         private void Label1_MouseMove(object sender, MouseEventArgs e)
         {

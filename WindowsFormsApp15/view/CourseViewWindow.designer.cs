@@ -37,7 +37,7 @@
             this.dataVizualisation1.AutoScroll = true;
             this.dataVizualisation1.BackColor = System.Drawing.Color.LightSteelBlue;
             this.dataVizualisation1.Location = new System.Drawing.Point(1, -1);
-            this.dataVizualisation1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataVizualisation1.Margin = new System.Windows.Forms.Padding(2);
             this.dataVizualisation1.Name = "dataVizualisation1";
             this.dataVizualisation1.Size = new System.Drawing.Size(850, 3000);
             this.dataVizualisation1.TabIndex = 1;
@@ -47,7 +47,7 @@
             // 
             this.detailedCourseStatistics1.BackColor = System.Drawing.Color.LightSteelBlue;
             this.detailedCourseStatistics1.Location = new System.Drawing.Point(-9, -1);
-            this.detailedCourseStatistics1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.detailedCourseStatistics1.Margin = new System.Windows.Forms.Padding(1);
             this.detailedCourseStatistics1.Name = "detailedCourseStatistics1";
             this.detailedCourseStatistics1.Size = new System.Drawing.Size(686, 692);
             this.detailedCourseStatistics1.TabIndex = 0;
@@ -58,7 +58,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(834, 749);
+            this.ClientSize = new System.Drawing.Size(851, 718);
             this.Controls.Add(this.dataVizualisation1);
             this.Controls.Add(this.detailedCourseStatistics1);
             this.Name = "CourseViewWindow";

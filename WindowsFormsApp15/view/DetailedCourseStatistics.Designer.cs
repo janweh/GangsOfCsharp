@@ -95,7 +95,7 @@
             // DetailedStatisticsButton
             // 
             this.DetailedStatisticsButton.Location = new System.Drawing.Point(436, 101);
-            this.DetailedStatisticsButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DetailedStatisticsButton.Margin = new System.Windows.Forms.Padding(2);
             this.DetailedStatisticsButton.Name = "DetailedStatisticsButton";
             this.DetailedStatisticsButton.Size = new System.Drawing.Size(174, 35);
             this.DetailedStatisticsButton.TabIndex = 78;
@@ -106,13 +106,14 @@
             // rateCourseButton
             // 
             this.rateCourseButton.Location = new System.Drawing.Point(436, 151);
-            this.rateCourseButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rateCourseButton.Margin = new System.Windows.Forms.Padding(2);
             this.rateCourseButton.Name = "rateCourseButton";
             this.rateCourseButton.Size = new System.Drawing.Size(153, 36);
             this.rateCourseButton.TabIndex = 77;
             this.rateCourseButton.Text = "Rate this Course";
             this.rateCourseButton.UseVisualStyleBackColor = true;
             this.rateCourseButton.Visible = false;
+            this.rateCourseButton.Click += new System.EventHandler(this.rateCourseButton_Click_1);
             // 
             // commentPanel
             // 
@@ -131,7 +132,7 @@
             this.commentPanel.Controls.Add(this.page1button);
             this.commentPanel.Controls.Add(this.lblCommentsHeader);
             this.commentPanel.Location = new System.Drawing.Point(7, 246);
-            this.commentPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.commentPanel.Margin = new System.Windows.Forms.Padding(2);
             this.commentPanel.Name = "commentPanel";
             this.commentPanel.Size = new System.Drawing.Size(841, 441);
             this.commentPanel.TabIndex = 76;
@@ -143,7 +144,7 @@
             this.comment4panel.Controls.Add(this.comment4txtBox);
             this.comment4panel.Controls.Add(this.lblUsername4);
             this.comment4panel.Location = new System.Drawing.Point(1, 318);
-            this.comment4panel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comment4panel.Margin = new System.Windows.Forms.Padding(2);
             this.comment4panel.Name = "comment4panel";
             this.comment4panel.Size = new System.Drawing.Size(838, 96);
             this.comment4panel.TabIndex = 64;
@@ -193,7 +194,7 @@
             this.comment3panel.Controls.Add(this.comment3txtBox);
             this.comment3panel.Controls.Add(this.lblUsername3);
             this.comment3panel.Location = new System.Drawing.Point(0, 216);
-            this.comment3panel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comment3panel.Margin = new System.Windows.Forms.Padding(2);
             this.comment3panel.Name = "comment3panel";
             this.comment3panel.Size = new System.Drawing.Size(841, 95);
             this.comment3panel.TabIndex = 63;
@@ -243,7 +244,7 @@
             this.comment2panel.Controls.Add(this.comment2txtBox);
             this.comment2panel.Controls.Add(this.lblUsername2);
             this.comment2panel.Location = new System.Drawing.Point(0, 116);
-            this.comment2panel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comment2panel.Margin = new System.Windows.Forms.Padding(2);
             this.comment2panel.Name = "comment2panel";
             this.comment2panel.Size = new System.Drawing.Size(839, 94);
             this.comment2panel.TabIndex = 62;
@@ -293,7 +294,7 @@
             this.comment1Panel.Controls.Add(this.comment1TxtBox);
             this.comment1Panel.Controls.Add(this.lblUsername1);
             this.comment1Panel.Location = new System.Drawing.Point(1, 26);
-            this.comment1Panel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comment1Panel.Margin = new System.Windows.Forms.Padding(2);
             this.comment1Panel.Name = "comment1Panel";
             this.comment1Panel.Size = new System.Drawing.Size(838, 86);
             this.comment1Panel.TabIndex = 52;
@@ -339,7 +340,7 @@
             // page9button
             // 
             this.page9button.Location = new System.Drawing.Point(177, 414);
-            this.page9button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.page9button.Margin = new System.Windows.Forms.Padding(2);
             this.page9button.Name = "page9button";
             this.page9button.Size = new System.Drawing.Size(18, 19);
             this.page9button.TabIndex = 57;
@@ -351,7 +352,7 @@
             // page8button
             // 
             this.page8button.Location = new System.Drawing.Point(155, 414);
-            this.page8button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.page8button.Margin = new System.Windows.Forms.Padding(2);
             this.page8button.Name = "page8button";
             this.page8button.Size = new System.Drawing.Size(18, 19);
             this.page8button.TabIndex = 56;
@@ -363,7 +364,7 @@
             // page7button
             // 
             this.page7button.Location = new System.Drawing.Point(133, 414);
-            this.page7button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.page7button.Margin = new System.Windows.Forms.Padding(2);
             this.page7button.Name = "page7button";
             this.page7button.Size = new System.Drawing.Size(18, 19);
             this.page7button.TabIndex = 55;
@@ -375,7 +376,7 @@
             // page6button
             // 
             this.page6button.Location = new System.Drawing.Point(111, 414);
-            this.page6button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.page6button.Margin = new System.Windows.Forms.Padding(2);
             this.page6button.Name = "page6button";
             this.page6button.Size = new System.Drawing.Size(18, 19);
             this.page6button.TabIndex = 54;
@@ -387,7 +388,7 @@
             // page5button
             // 
             this.page5button.Location = new System.Drawing.Point(89, 414);
-            this.page5button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.page5button.Margin = new System.Windows.Forms.Padding(2);
             this.page5button.Name = "page5button";
             this.page5button.Size = new System.Drawing.Size(18, 19);
             this.page5button.TabIndex = 53;
@@ -399,7 +400,7 @@
             // page4button
             // 
             this.page4button.Location = new System.Drawing.Point(67, 414);
-            this.page4button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.page4button.Margin = new System.Windows.Forms.Padding(2);
             this.page4button.Name = "page4button";
             this.page4button.Size = new System.Drawing.Size(18, 19);
             this.page4button.TabIndex = 52;
@@ -411,7 +412,7 @@
             // page3button
             // 
             this.page3button.Location = new System.Drawing.Point(45, 414);
-            this.page3button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.page3button.Margin = new System.Windows.Forms.Padding(2);
             this.page3button.Name = "page3button";
             this.page3button.Size = new System.Drawing.Size(18, 19);
             this.page3button.TabIndex = 51;
@@ -424,7 +425,7 @@
             // 
             this.page2button.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.page2button.Location = new System.Drawing.Point(23, 414);
-            this.page2button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.page2button.Margin = new System.Windows.Forms.Padding(2);
             this.page2button.Name = "page2button";
             this.page2button.Size = new System.Drawing.Size(18, 19);
             this.page2button.TabIndex = 50;
@@ -437,7 +438,7 @@
             // page1button
             // 
             this.page1button.Location = new System.Drawing.Point(1, 414);
-            this.page1button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.page1button.Margin = new System.Windows.Forms.Padding(2);
             this.page1button.Name = "page1button";
             this.page1button.Size = new System.Drawing.Size(18, 19);
             this.page1button.TabIndex = 49;
@@ -621,9 +622,11 @@
             this.Controls.Add(this.lblUniMajLect);
             this.Controls.Add(this.lblCourseName);
             this.Controls.Add(this.overallRatingStar);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "DetailedCourseStatistics";
             this.Size = new System.Drawing.Size(850, 3000);
+            this.Load += new System.EventHandler(this.DetailedCourseStatistics_Load);
+            this.Click += new System.EventHandler(this.DetailedCourseStatistics_Click);
             ((System.ComponentModel.ISupportInitialize)(this.overallRatingStar)).EndInit();
             this.commentPanel.ResumeLayout(false);
             this.commentPanel.PerformLayout();
