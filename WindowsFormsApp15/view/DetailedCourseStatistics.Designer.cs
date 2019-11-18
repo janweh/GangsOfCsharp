@@ -113,7 +113,7 @@
             this.rateCourseButton.Text = "Rate this Course";
             this.rateCourseButton.UseVisualStyleBackColor = true;
             this.rateCourseButton.Visible = false;
-            this.rateCourseButton.Click += new System.EventHandler(this.rateCourseButton_Click_1);
+            this.rateCourseButton.Click += new System.EventHandler(this.RateCourseButton_Click_1);
             // 
             // commentPanel
             // 

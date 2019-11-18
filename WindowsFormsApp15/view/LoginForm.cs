@@ -70,21 +70,12 @@ namespace WindowsFormsApp15
                 DataSearch ds = new DataSearch();
                 Matches matchesUniName = (x) => x[1].Equals(values[4]);
                 University uni = ds.GetAllMatching<University>(matchesUniName)[0];
-                Major major = new Major();
-                foreach (Major m in ds.GetMajorsOfUniversity(uni))
-                {
-                    if (m.Name.Equals(values[5]))
-                    {
-                        major = m;
-                    }
-                }
-                LoginStatus.CurrentUser = new Student(username, password, uni, major, values[5].ToString(),
-                    -1);
+                Matches matchesMajorName = (x) => x[1].Equals(values[5]);
+                Major major = ds.GetAllMatching<Major>(matchesMajorName)[0];
+                
+                LoginStatus.CurrentUser = new Student(username, password, uni, major, values[5].ToString(),-1);
 
-                if(LogenOn != null)
-                {
-                    LogenOn(this, new EventArgs());
-                }
+                LogenOn?.Invoke(this, new EventArgs());
 
                 this.Close();
 
