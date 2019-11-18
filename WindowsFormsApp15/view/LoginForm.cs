@@ -75,8 +75,7 @@ namespace WindowsFormsApp15
                         major = m;
                     }
                 }
-                LoginStatus.CurrentUser = new Student(username, password, uni, major, values[5].ToString(),
-                    -1);
+                LoginStatus.CurrentUser = new Student(username, password, uni, major, values[5].ToString());
 
             }
             else
