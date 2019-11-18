@@ -7,7 +7,7 @@ namespace WindowsFormsApp15
     class DB
     {
 
-        private MySqlConnection connection = new MySqlConnection("server=localhost;port=3306;username=root;password=;database=csharp_users_db");
+        private  readonly MySqlConnection connection = new MySqlConnection("server=localhost;port=3306;username=root;password=;database=csharp_users_db");
 
         // function to open connection to db
         public void OpenConnection()

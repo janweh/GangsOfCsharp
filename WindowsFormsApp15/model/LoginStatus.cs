@@ -15,8 +15,14 @@ namespace WindowsFormsApp15.model
         {
             get
             {
-                if (!isLogged) { return null; }
-                else { return CurrentUser; }
+                if (!isLogged) 
+                {
+                    return null;
+                }
+                else
+                { 
+                    return currentUser;
+                }
             }
             set => currentUser = value;
         }

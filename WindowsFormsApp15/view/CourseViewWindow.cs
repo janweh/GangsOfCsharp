@@ -9,7 +9,7 @@ namespace WindowsFormsApp15.view
 {
     public partial class CourseViewWindow : Form
     {
-        private Course course;
+        private Course course { get; }
         private List<Rating> ratings;
         public CourseViewWindow(Course course)
         {

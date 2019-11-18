@@ -473,5 +473,10 @@ namespace WindowsFormsApp15.view
         {
             cvw.CloseVizualisationView();
         }
+
+        private void OpenDetailedCourseButton_Click(object sender, EventArgs e)
+        {
+            cvw.CloseVizualisationView();
+        }
     }
 }

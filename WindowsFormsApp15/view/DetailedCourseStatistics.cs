@@ -193,31 +193,6 @@ namespace WindowsFormsApp15.view
             }
         }
 
-        private void RateCourseButton_Click(object sender, EventArgs e)
-        {
-            RatingCourseWindow rcw = new RatingCourseWindow(LoginStatus.CurrentUser, course);
-            rcw.Show();
-        }
-
-        private void CourseViewWindow_Load(object sender, EventArgs e)
-        {
-            if (LoginStatus.isLogged)
-            {
-                rateCourseButton.Visible = true;
-            }
-        }
-
-        private void CourseViewWindow_Activated(object sender, EventArgs e)
-        {
-            if (LoginStatus.isLogged)
-            {
-                rateCourseButton.Visible = true;
-            }
-            else
-            {
-                rateCourseButton.Visible = false;
-            }
-        }
 
 
 
@@ -269,6 +244,32 @@ namespace WindowsFormsApp15.view
         private void DetailedStatisticsButton_Click(object sender, EventArgs e)
         {
             cvw.OpenVizualisationView();
+        }
+
+        private void RateCourseButton_Click_1(object sender, EventArgs e)
+        {
+            RatingCourseWindow rcw = new RatingCourseWindow(LoginStatus.CurrentUser, course);
+            rcw.Show();
+        }
+
+        private void DetailedCourseStatistics_Load(object sender, EventArgs e)
+        {
+            if (LoginStatus.isLogged)
+            {
+                rateCourseButton.Visible = true;
+            }
+        }
+
+        private void DetailedCourseStatistics_Click(object sender, EventArgs e)
+        {
+            if (LoginStatus.isLogged)
+            {
+                rateCourseButton.Visible = true;
+            }
+            else
+            {
+                rateCourseButton.Visible = false;
+            }
         }
     }
 }

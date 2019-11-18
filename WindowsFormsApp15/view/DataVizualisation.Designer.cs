@@ -692,6 +692,7 @@
             this.openDetailedCourseButton.TabIndex = 14;
             this.openDetailedCourseButton.Text = "Back to normal Data";
             this.openDetailedCourseButton.UseVisualStyleBackColor = true;
+            this.openDetailedCourseButton.Click += new System.EventHandler(this.OpenDetailedCourseButton_Click);
             // 
             // DataVizualisation
             // 
