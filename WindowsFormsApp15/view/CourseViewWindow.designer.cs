@@ -36,30 +36,31 @@
             // 
             this.dataVizualisation1.AutoScroll = true;
             this.dataVizualisation1.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.dataVizualisation1.Location = new System.Drawing.Point(2, -1);
+            this.dataVizualisation1.Location = new System.Drawing.Point(1, -1);
+            this.dataVizualisation1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataVizualisation1.Name = "dataVizualisation1";
-            this.dataVizualisation1.Size = new System.Drawing.Size(1014, 824);
+            this.dataVizualisation1.Size = new System.Drawing.Size(850, 3000);
             this.dataVizualisation1.TabIndex = 1;
             this.dataVizualisation1.Visible = false;
             // 
             // detailedCourseStatistics1
             // 
             this.detailedCourseStatistics1.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.detailedCourseStatistics1.Location = new System.Drawing.Point(-13, -1);
+            this.detailedCourseStatistics1.Location = new System.Drawing.Point(-9, -1);
+            this.detailedCourseStatistics1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.detailedCourseStatistics1.Name = "detailedCourseStatistics1";
-            this.detailedCourseStatistics1.Size = new System.Drawing.Size(1029, 1065);
+            this.detailedCourseStatistics1.Size = new System.Drawing.Size(686, 692);
             this.detailedCourseStatistics1.TabIndex = 0;
             // 
             // CourseViewWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(1016, 820);
+            this.ClientSize = new System.Drawing.Size(834, 749);
             this.Controls.Add(this.dataVizualisation1);
             this.Controls.Add(this.detailedCourseStatistics1);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "CourseViewWindow";
             this.Text = "CourseViewWindow";
             this.ResumeLayout(false);
