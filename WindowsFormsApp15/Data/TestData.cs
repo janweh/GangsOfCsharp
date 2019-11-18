@@ -23,18 +23,18 @@ namespace WindowsFormsApp15.Data
             dw.Store(l);
             Course c = new Course("Applied Object Oriented Programming", u, l, Semester.WS1819, m);
             dw.Store(c);
-            Student s = new Student("TheGermanCodeMachine", "password1", u, m,
-                "business informatics", 6);
+            Student s = new Student("TheGermanCodeMachine", "password1", u,
+                "business informatics");
             dw.Store(s);
             Rating r = new Rating(s, c, Semester.WS1920, 5, 4, 8, 4, 5, 5, 4, "Nice", 8, true, DateTime.Now);
             dw.Store(r);
-            Student s1 = new Student("a", "b", u, m, "c", 6);
+            Student s1 = new Student("a", "b", u, "c");
             dw.Store(s1);
-            Student s2 = new Student("a", "b", u, m, "c", 6);
+            Student s2 = new Student("a", "b", u, "c");
             dw.Store(s2);
-            Student s3 = new Student("a", "b", u, m, "c", 6);
+            Student s3 = new Student("a", "b", u, "c");
             dw.Store(s3);
-            Student s4 = new Student("a", "b", u, m, "c", 6);
+            Student s4 = new Student("a", "b", u, "c");
             dw.Store(s4);
             Rating r1 = new Rating(s1, c, Semester.WS1920, 1, 1, 8, 4, 5, 5, 4, "Nice lalallalallallallalallallallallallalallalallallalallallalallalallallalallallalallalallalalalla", 10, true, DateTime.Now);
             dw.Store(r1);

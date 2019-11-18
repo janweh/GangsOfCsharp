@@ -1,17 +1,52 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using WindowsFormsApp15.Data;
+using WindowsFormsApp15.model;
 
 namespace WindowsFormsApp15
 {
     public partial class RegisterForm : Form
     {
+        University noSelectedUniversity;
         public RegisterForm()
         {
+            DataSearch ds = new DataSearch();
             InitializeComponent();
+            List<University> unis = ds.GetAll<University>();
+            noSelectedUniversity = new University("-select uni-");
+            //noSelectedLecturer = new Lecturer(0, "", noSelectedUniversity, noSelectedMajor);
+            unis.Insert(0, noSelectedUniversity);
+            universityComboBox.DataSource = unis;
+            universityComboBox.DisplayMember = "UniversityName";
+
+            BindingSource bs = new BindingSource();
+            bs.DataSource = new List<string>
+            {
+                " ",
+                "Agriculture, forestry and fishery",
+                "Architecture and town planning",
+                "Arts and Humanities",
+                "Business administration and management",
+                "Communication",
+                "Education and Teacher Training",
+                "Engineering",
+                "Environmental Sciences",
+                "Fine and applied arts",
+                "Law",
+                "Mathematics and computer sciences",
+                "Medical and health sciences",
+                "Natural sciences",
+                "Other",
+                "Service, Tourism and Leisure",
+                "Social and behavioural sciences",
+                "Transport and communication"
+            };
+            areaOfStudiesComboBox.DataSource = bs;
         }
 
         private void TextBoxFirstName_Enter(object sender, EventArgs e)
@@ -21,7 +56,7 @@ namespace WindowsFormsApp15
             {
                 textBoxFirstName.Text = "";
                 textBoxFirstName.ForeColor = Color.Black;
-            } 
+            }
         }
 
         private void TextBoxFirstName_Leave(object sender, EventArgs e)
@@ -108,45 +143,9 @@ namespace WindowsFormsApp15
             }
         }
 
-        private void TextBoxUniversity_Enter(object sender, EventArgs e)
-        {
-            String uni = textBoxUniversity.Text;
-            if (uni.ToLower().Trim().Equals("university"))
-            {
-                textBoxUniversity.Text = "";
-                textBoxUniversity.ForeColor = Color.Black;
-            }
-        }
 
-        private void TextBoxUniversity_Leave(object sender, EventArgs e)
-        {
-            String uni = textBoxUniversity.Text;
-            if (uni.ToLower().Trim().Equals("university") || uni.Trim().Equals(""))
-            {
-                textBoxUniversity.Text = "university";
-                textBoxUniversity.ForeColor = Color.Gray;
-            }
-        }
 
-        private void TextBoxMajor_Enter(object sender, EventArgs e)
-        {
-            String major = textBoxMajor.Text;
-            if (major.ToLower().Trim().Equals("major"))
-            {
-                textBoxMajor.Text = "";
-                textBoxMajor.ForeColor = Color.Black;
-            }
-        }
 
-        private void TextBoxMajor_Leave(object sender, EventArgs e)
-        {
-            String major = textBoxMajor.Text;
-            if (major.ToLower().Trim().Equals("major") || major.Trim().Equals(""))
-            {
-                textBoxMajor.Text = "major";
-                textBoxMajor.ForeColor = Color.Gray;
-            }
-        }
 
         private void TextBoxPassword_Enter(object sender, EventArgs e)
         {
@@ -186,7 +185,7 @@ namespace WindowsFormsApp15
             String repeatpassword = textBoxRepeatPassword.Text;
             if (repeatpassword.ToLower().Trim().Equals("confirm password") ||
                 repeatpassword.Trim().Equals("") ||
-                repeatpassword.Trim().Equals("password")) 
+                repeatpassword.Trim().Equals("password"))
             {
                 textBoxRepeatPassword.Text = "confirm password";
                 textBoxRepeatPassword.UseSystemPasswordChar = false;
@@ -209,18 +208,24 @@ namespace WindowsFormsApp15
             labelClose.ForeColor = Color.Black;
         }
 
+        private string getUniFromComboBox()
+        {
+            University selected = (University)universityComboBox.SelectedItem;
+            return selected.ID.ToString();
+        }
+
         private void ButtonCreateAccount_Click(object sender, EventArgs e)
         {
             //add new user
 
             DB db = new DB();
-            MySqlCommand command = new MySqlCommand("INSERT INTO `users`( `firstname`, `lastname`, `email`, `university`, `major`, `username`, `password`) VALUES (@fn, @ln, @email, @uni, @major, @usn, @pass) ", db.GetConnection());
+            MySqlCommand command = new MySqlCommand("INSERT INTO `users`( `firstname`, `lastname`, `email`, `university`, `areaOfStudies`, `username`, `password`) VALUES (@fn, @ln, @email, @uni, @area, @usn, @pass) ", db.GetConnection());
 
             command.Parameters.Add("@fn", MySqlDbType.VarChar).Value = textBoxFirstName.Text;
             command.Parameters.Add("@ln", MySqlDbType.VarChar).Value = textBoxLastName.Text;
             command.Parameters.Add("@email", MySqlDbType.VarChar).Value = textBoxEmail.Text;
-            command.Parameters.Add("@uni", MySqlDbType.VarChar).Value = textBoxUniversity.Text;
-            command.Parameters.Add("@major", MySqlDbType.VarChar).Value = textBoxMajor.Text;
+            command.Parameters.Add("@uni", MySqlDbType.VarChar).Value = getUniFromComboBox();
+            command.Parameters.Add("@area", MySqlDbType.VarChar).Value = (string)areaOfStudiesComboBox.SelectedItem;
             command.Parameters.Add("@usn", MySqlDbType.VarChar).Value = textBoxUsername.Text;
             command.Parameters.Add("@pass", MySqlDbType.VarChar).Value = textBoxPassword.Text;
 
@@ -229,7 +234,8 @@ namespace WindowsFormsApp15
             db.OpenConnection();
 
             //check if text boxes contain defaul values
-            if (!CheckTextBoxesValues()) {
+            if (!CheckTextBoxesValues())
+            {
                 //check if password == confirm pasword
                 if (textBoxPassword.Text.Equals(textBoxRepeatPassword.Text))
                 {
@@ -255,10 +261,10 @@ namespace WindowsFormsApp15
                 }
                 else
                 {
-                    MessageBox.Show("Passwords Do Not Match", "Password Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Error) ;
+                    MessageBox.Show("Passwords Do Not Match", "Password Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
                 }
             }
-               
+
             else
             {
                 MessageBox.Show("Enter Your Information First", "Empty Data", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
@@ -303,21 +309,22 @@ namespace WindowsFormsApp15
             String fname = textBoxFirstName.Text;
             String lname = textBoxLastName.Text;
             String email = textBoxEmail.Text;
-            String university = textBoxUniversity.Text;
-            String mjr = textBoxMajor.Text;
             String usn = textBoxUsername.Text;
             String pass = textBoxPassword.Text;
+            University uni = (University)universityComboBox.SelectedValue;
+            string areaOfStudies = areaOfStudiesComboBox.SelectedText;
 
 
-            if (fname.Equals("first name") || lname.Equals("last name") || email.Equals("email adress") || university.Equals("university")
-                || mjr.Equals("major") || usn.Equals("username") || pass.Equals("password"))
+            if (fname.Equals("first name") || lname.Equals("last name") || email.Equals("email adress") ||
+                uni == noSelectedUniversity || areaOfStudies.Equals(" ") ||
+                 usn.Equals("username") || pass.Equals("password"))
             {
                 return true;
             }
             else
             {
                 return false;
-            } 
+            }
         }
 
         Point lastPoint;

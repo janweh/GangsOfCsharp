@@ -68,12 +68,9 @@ namespace WindowsFormsApp15
                 LoginStatus.isLogged = true;
                 object[] values = table.Rows[0].ItemArray;
                 DataSearch ds = new DataSearch();
-                Matches matchesUniName = (x) => x[1].Equals(values[4]);
-                University uni = ds.GetAllMatching<University>(matchesUniName)[0];
-                Matches matchesMajorName = (x) => x[1].Equals(values[5]);
-                Major major = ds.GetAllMatching<Major>(matchesMajorName)[0];
+                University uni = ds.GetByID<University>(Guid.Parse(values[4].ToString()));
                 
-                LoginStatus.CurrentUser = new Student(username, password, uni, major, values[5].ToString(),-1);
+                LoginStatus.CurrentUser = new Student(username, password, uni, values[5].ToString());
 
                 LogenOn?.Invoke(this, new EventArgs());
 

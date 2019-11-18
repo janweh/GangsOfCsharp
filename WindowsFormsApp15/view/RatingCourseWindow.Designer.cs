@@ -81,11 +81,9 @@
             this.overallLabel3 = new System.Windows.Forms.Label();
             this.overallLabel4 = new System.Windows.Forms.Label();
             this.overallLabel5 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.GradeLabel = new System.Windows.Forms.Label();
             this.GradeTextBox = new System.Windows.Forms.TextBox();
             this.passedFirstTimeLabel = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.yesCheckBox = new System.Windows.Forms.CheckBox();
             this.noCheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.nupdContactHours)).BeginInit();
@@ -641,15 +639,6 @@
             this.overallLabel5.TabIndex = 71;
             this.overallLabel5.Text = "1";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 20);
-            this.label1.TabIndex = 81;
-            this.label1.Text = "label1";
-            // 
             // GradeLabel
             // 
             this.GradeLabel.AutoSize = true;
@@ -675,16 +664,6 @@
             this.passedFirstTimeLabel.Size = new System.Drawing.Size(288, 20);
             this.passedFirstTimeLabel.TabIndex = 84;
             this.passedFirstTimeLabel.Text = "Did you pass the course on the first try?";
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(0, 0);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(113, 24);
-            this.checkBox1.TabIndex = 85;
-            this.checkBox1.Text = "checkBox1";
-            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // yesCheckBox
             // 
@@ -719,11 +698,9 @@
             this.ClientSize = new System.Drawing.Size(854, 1028);
             this.Controls.Add(this.noCheckBox);
             this.Controls.Add(this.yesCheckBox);
-            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.passedFirstTimeLabel);
             this.Controls.Add(this.GradeTextBox);
             this.Controls.Add(this.GradeLabel);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.overallRating1);
             this.Controls.Add(this.overallRating2);
             this.Controls.Add(this.overallRating3);
@@ -842,11 +819,9 @@
         private System.Windows.Forms.Label overallLabel3;
         private System.Windows.Forms.Label overallLabel4;
         private System.Windows.Forms.Label overallLabel5;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label GradeLabel;
         private System.Windows.Forms.TextBox GradeTextBox;
         private System.Windows.Forms.Label passedFirstTimeLabel;
-        private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckBox yesCheckBox;
         private System.Windows.Forms.CheckBox noCheckBox;
     }

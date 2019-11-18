@@ -7,11 +7,9 @@ namespace WindowsFormsApp15.model
     {
         private Guid studentID;
         private University university;
-        private Major major;
         private string userName;
         private string password;
         private string areaOfStudies;
-        private int currentSemester;
 
         /// <summary>
         /// Constructs a new Entity of Student from a line from the datafiles.
@@ -30,16 +28,7 @@ namespace WindowsFormsApp15.model
             {
                 u = new University();
             }
-            Major m;
-            try
-            {
-                m = ds.GetByID<Major>(Guid.Parse(r[4]));
-            }
-            catch (DuplicateDataException)
-            {
-                m = new Major();
-            }
-            Init(Guid.Parse(r[0]), r[1], r[2], u, m, r[5], Int32.Parse(r[6]));
+            Init(Guid.Parse(r[0]), r[1], r[2], u, r[5]);
         }
 
         /// <summary>
@@ -49,15 +38,13 @@ namespace WindowsFormsApp15.model
         /// <param name="studentID">cannot be null</param>
         /// <param name="studentName">cannot be null</param>
         /// <param name="university">cannot be null</param>
-        /// <param name="major">cannot be null</param>
         /// <param name="userName">cannot be null</param>
         /// <param name="password">cannot be null</param>
         /// <param name="areaOfStudies">can be null</param>
-        /// <param name="semester">can be null</param>
         public Student(string userName, string password, University university,
-            Major major, string areaOfStudies, int semester)
+            string areaOfStudies)
         {
-            Init(Guid.NewGuid(), userName, password, university, major, areaOfStudies, semester);
+            Init(Guid.NewGuid(), userName, password, university, areaOfStudies);
         }
 
         public string UserName { get => userName; }
@@ -75,26 +62,17 @@ namespace WindowsFormsApp15.model
         {
             this.areaOfStudies = areaOfStudies ?? throw new ArgumentNullException("areaOfStudies cannot be set to null.");
         }
-        public int Semester { get => currentSemester; }
         public override Guid ID { get => studentID; }
         public University University { get => university; }
-        public Major Major { get => major; }
-
-        public void SetSemester(int semester)
-        {
-            this.currentSemester = semester;
-        }
 
         private void Init(Guid studentID, string userName, string password, University university,
-            Major major, string areaOfStudies, int semester)
+             string areaOfStudies)
         {
             this.studentID = studentID;
             this.userName = userName ?? throw new ArgumentNullException("UserName cannot be null");
             this.password = password ?? throw new ArgumentNullException("password cannot be null");
             this.university = university ?? throw new ArgumentNullException("university cannot be null!");
-            this.major = major ?? throw new ArgumentNullException("major cannot be null!");
             this.areaOfStudies = areaOfStudies;
-            this.currentSemester = semester;
         }
 
         /// <summary>
@@ -109,9 +87,7 @@ namespace WindowsFormsApp15.model
                 UserName + ";" +
                 Password + ";" +
                 University.ID.ToString() + ";" +
-                Major.ID.ToString() + ";" +
-                AreaOfStudies + ";" +
-                Semester.ToString() + "\n";
+                AreaOfStudies + ";" + "\n";
             return info;
         }
 
