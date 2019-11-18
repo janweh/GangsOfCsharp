@@ -70,7 +70,7 @@ namespace WindowsFormsApp15
                 DataSearch ds = new DataSearch();
                 University uni = ds.GetByID<University>(Guid.Parse(values[4].ToString()));
                 
-                LoginStatus.CurrentUser = new Student(username, password, uni, new Major(), values[5].ToString());
+                LoginStatus.CurrentUser = new Student(username, password, uni, values[5].ToString());
 
                 LogenOn?.Invoke(this, new EventArgs());
 
