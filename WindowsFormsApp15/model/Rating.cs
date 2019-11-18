@@ -5,7 +5,7 @@ using WindowsFormsApp15.Data;
 
 namespace WindowsFormsApp15.model
 {
-    public class Rating
+    public class Rating : Storable
     {
         private Guid ratingID;
         private Student student;
@@ -63,13 +63,13 @@ namespace WindowsFormsApp15.model
         /// <param name="date"></param>
         public Rating(Student student, Course course,
             Semester semester, int overallRating, int contactHours, int selfStudyHours, int organized,
-            int learned, int interesting, int presentation, string comment, int grade, 
+            int learned, int interesting, int presentation, string comment, int grade,
             bool passedFirstTime, DateTime date)
         {
             ds = new DataSearch();
 
-            DataSearch.Matches condition = (x) => (x[1].Equals(student.StudentID.ToString()) &&
-                x[2].Equals(course.CourseID.ToString()));
+            DataSearch.Matches condition = (x) => (x[1].Equals(student.ID.ToString()) &&
+                x[2].Equals(course.ID.ToString()));
             if (ds.ObjectExists<Rating>(condition))
             {
                 throw new DuplicateDataException("This student has already given a Rating to this course!");
@@ -86,8 +86,26 @@ namespace WindowsFormsApp15.model
         public Rating(string[] r)
         {
             ds = new DataSearch();
-            Init(Guid.Parse(r[0]), ds.GetByID<Student>(Guid.Parse(r[1])),
-                ds.GetByID<Course>(Guid.Parse(r[2])), EnumTranslator.stringToSemester[r[3]],
+            Student s;
+            try
+            {
+                s = ds.GetByID<Student>(Guid.Parse(r[1]));
+            }
+            catch (DuplicateDataException)
+            {
+
+                s = new Student();
+            }
+            Course c;
+            try
+            {
+                c = ds.GetByID<Course>(Guid.Parse(r[2]));
+            }
+            catch (DuplicateDataException)
+            {
+                c = new Course();
+            }
+            Init(Guid.Parse(r[0]), s, c, EnumTranslator.stringToSemester[r[3]],
                 Int32.Parse(r[4]), Int32.Parse(r[5]), Int32.Parse(r[6]), Int32.Parse(r[7]),
                 Int32.Parse(r[8]), Int32.Parse(r[9]), Int32.Parse(r[10]), r[11], Int32.Parse(r[12]),
                 Boolean.Parse(r[13]), DateTime.Parse(r[14]));
@@ -108,7 +126,7 @@ namespace WindowsFormsApp15.model
             this.student = student ?? throw new ArgumentNullException("student cannot be null.");
         }
         public Course Course { get => course; }
-        public Guid RatingID { get => ratingID; }
+        public override Guid ID { get => ratingID; }
         public DateTime Date { get => date; }
         public bool PassedFirstTime { get => passedFirstTime; }
         public int Grade { get => grade; }
@@ -170,9 +188,9 @@ namespace WindowsFormsApp15.model
         /// <returns></returns>
         public override string ToString()
         {
-            string info = RatingID.ToString() + ";" +
-                Student.StudentID.ToString() + ";" +
-                Course.CourseID.ToString() + ";" +
+            string info = ID.ToString() + ";" +
+                Student.ID.ToString() + ";" +
+                Course.ID.ToString() + ";" +
                 EnumTranslator.semesterToString[Semester] + ";" +
                 OverallRating.ToString() + ";" +
                 ContactHours.ToString() + ";" +
@@ -188,9 +206,6 @@ namespace WindowsFormsApp15.model
             return info;
         }
 
-        public Rating()
-        {
-
-        }
+        public Rating() : base() { }
     }
 }

@@ -14,7 +14,7 @@ namespace WindowsFormsApp15.view
 {
     public partial class DetailedCourseStatistics : UserControl
     {
-        
+
         private Course course;
         private List<Rating> ratings;
         private List<Comment> comments;
@@ -67,9 +67,9 @@ namespace WindowsFormsApp15.view
             }
             if (count != 0)
             {
-                lblOverallRating.Text = lblOverallRating.Text + 
+                lblOverallRating.Text = lblOverallRating.Text +
                     (overallSum / count).ToString() + "/5";
-                lblContactHours.Text = lblContactHours.Text + " " + 
+                lblContactHours.Text = lblContactHours.Text + " " +
                     (contactHoursSum / count).ToString();
                 lblSelfStdyHours.Text = lblSelfStdyHours.Text + " " +
                     (selfStudySum / count).ToString();
@@ -195,7 +195,7 @@ namespace WindowsFormsApp15.view
 
         private void RateCourseButton_Click(object sender, EventArgs e)
         {
-            RatingCourseWindow rcw = new RatingCourseWindow(new Student(), course);
+            RatingCourseWindow rcw = new RatingCourseWindow(LoginStatus.CurrentUser, course);
             rcw.Show();
         }
 
@@ -219,7 +219,7 @@ namespace WindowsFormsApp15.view
             }
         }
 
-        
+
 
         private void Page1button_Click_1(object sender, EventArgs e)
         {

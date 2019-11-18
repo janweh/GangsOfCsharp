@@ -3,7 +3,7 @@ using WindowsFormsApp15.Data;
 
 namespace WindowsFormsApp15.model
 {
-    public class Lecturer
+    public class Lecturer : Storable
     {
         private Guid lecturerID;
         private string titleAndName;
@@ -32,12 +32,29 @@ namespace WindowsFormsApp15.model
         public Lecturer(string[] line)
         {
             DataSearch ds = new DataSearch();
-            Init(Guid.Parse(line[0]), line[1], ds.GetByID<University>(Guid.Parse(line[2])),
-                    ds.GetByID<Major>(Guid.Parse(line[3])));
+            University u;
+            try
+            {
+                u = ds.GetByID<University>(Guid.Parse(line[2]));
+            }
+            catch (DuplicateDataException)
+            {
+                u = new University();
+            }
+            Major m;
+            try
+            {
+                m = ds.GetByID<Major>(Guid.Parse(line[3]));
+            }
+            catch (DuplicateDataException)
+            {
+                m = new Major();
+            }
+            Init(Guid.Parse(line[0]), line[1], u, m);
         }
 
         public University University { get => university; }
-        public Guid LecturerID { get => lecturerID; }
+        public override Guid ID { get => lecturerID; }
         public string TitleAndName { get => titleAndName; }
         public Major Major { get => major; }
 
@@ -61,16 +78,13 @@ namespace WindowsFormsApp15.model
         /// <returns></returns>
         public override string ToString()
         {
-            string info = LecturerID.ToString() + ";" +
+            string info = ID.ToString() + ";" +
                 TitleAndName + ";" +
-                University.UniversityID.ToString() + ";" +
-                Major.MajorID.ToString() + "\n";
+                University.ID.ToString() + ";" +
+                Major.ID.ToString() + "\n";
             return info;
         }
 
-        public Lecturer()
-        {
-
-        }
+        public Lecturer() : base() { }
     }
 }

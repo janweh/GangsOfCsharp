@@ -1,9 +1,9 @@
-﻿using System; 
+﻿using System;
 
 
 namespace WindowsFormsApp15.model
 {
-    public class University
+    public class University : Storable
     {
         private Guid universityID;
         private string universityName;
@@ -31,7 +31,7 @@ namespace WindowsFormsApp15.model
         }
 
         public string UniversityName { get => universityName; }
-        public Guid UniversityID { get => universityID; }
+        public override Guid ID { get => universityID; }
 
         private void Init(Guid universityID, string name)
         {
@@ -46,14 +46,11 @@ namespace WindowsFormsApp15.model
         /// <returns></returns>
         public override string ToString()
         {
-            string info = UniversityID.ToString() + ";" +
+            string info = ID.ToString() + ";" +
                 UniversityName + "\n";
             return info;
         }
 
-        public University()
-        {
-
-        }
+        public University() : base() { }
     }
 }

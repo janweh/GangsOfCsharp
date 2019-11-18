@@ -14,6 +14,13 @@ namespace WindowsFormsApp15.Data
         private string studentPath;
         private string universitiesPath;
 
+        public string CoursePath { get => coursePath; }
+        public string LecturerPath { get => lecturerPath; }
+        public string MajorPath { get => majorPath; }
+        public string RatingPath { get => ratingPath; }
+        public string StudentPath { get => studentPath; }
+        public string UniversitiesPath { get => universitiesPath; }
+
         public DataUtility()
         {
             InitPaths();
@@ -40,17 +47,17 @@ namespace WindowsFormsApp15.Data
             switch (o)
             {
                 case University u:
-                    return universitiesPath;
+                    return UniversitiesPath;
                 case Course c:
                     return coursePath;
                 case Major m:
-                    return majorPath;
+                    return MajorPath;
                 case Rating r:
-                    return ratingPath;
+                    return RatingPath;
                 case Student s:
-                    return studentPath;
+                    return StudentPath;
                 case Lecturer l:
-                    return lecturerPath;
+                    return LecturerPath;
                 default:
                     throw new ArgumentException(message: "Object does not match any of the storable" +
                         "Entities", paramName: o.ToString());
@@ -60,12 +67,12 @@ namespace WindowsFormsApp15.Data
         {
             Dictionary<Type, string> dic = new Dictionary<Type, string>
             {
-                {typeof(University), universitiesPath },
-                {typeof(Course), coursePath },
-                {typeof(Lecturer), lecturerPath },
-                {typeof(Major), majorPath },
-                {typeof(Rating), ratingPath },
-                {typeof(Student), studentPath }
+                {typeof(University), UniversitiesPath },
+                {typeof(Course), CoursePath },
+                {typeof(Lecturer), LecturerPath },
+                {typeof(Major), MajorPath },
+                {typeof(Rating), RatingPath },
+                {typeof(Student), StudentPath }
             };
             return dic[t];
         }

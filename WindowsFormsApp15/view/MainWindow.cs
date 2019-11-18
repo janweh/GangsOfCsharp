@@ -17,7 +17,7 @@ namespace WindowsFormsApp15.view
         Major noSelectedMajor;
         Lecturer noSelectedLecturer;
 
-        
+
 
         public University NoSelectedUniversity { get => noSelectedUniversity; }
         public Major NoSelectedMajor { get => noSelectedMajor; }
@@ -82,7 +82,7 @@ namespace WindowsFormsApp15.view
         }
 
 
-        
+
 
         /// <summary>
         /// Gets called when the SearchButton is clicked.
@@ -172,14 +172,13 @@ namespace WindowsFormsApp15.view
             }
         }
 
-        
+
         private void LoginButton_Click(object sender, EventArgs e)
         {
 
             LoginForm lf = new LoginForm();
             lf.Show();
-            lf.LogenOn += OnLogedOn;
-            
+
         }
 
         private void RegisterButton_Click(object sender, EventArgs e)
@@ -187,21 +186,6 @@ namespace WindowsFormsApp15.view
             RegisterForm rf = new RegisterForm();
             rf.Show();
 
-        }
-
-        private void OpenRatingLabel_Click(object sender, EventArgs e)
-        {
-
-            RatingCourseWindow rcw = new RatingCourseWindow(
-                ds.GetByID<Student>(Guid.Parse("77f5d847-58e9-4b5b-af26-fc88bc51588d")),
-                ds.GetByID<Course>(Guid.Parse("6f8be39e-7e1e-4703-b757-223c4193d7ca")));
-            rcw.Show();
-        }
-
-        private void OpenCourseViewLabel_Click(object sender, EventArgs e)
-        {
-            CourseViewWindow cvw = new CourseViewWindow(ds.GetByID<Course>(Guid.Parse("6f8be39e-7e1e-4703-b757-223c4193d7ca")));
-            cvw.Show();
         }
 
         Point lastPoint;
@@ -242,6 +226,17 @@ namespace WindowsFormsApp15.view
             this.Close();
         }
 
+        private void MainWindow_Activated(object sender, EventArgs e)
+        {
+            if (LoginStatus.isLogged)
+            {
+                loginButton.Visible = false;
+                registerButton.Visible = false;
+                LogOut.Visible = true;
+            }
+
+        }
+
         private void LogOut_Click(object sender, EventArgs e)
         {
             LoginStatus.isLogged = false;
@@ -249,13 +244,6 @@ namespace WindowsFormsApp15.view
             registerButton.Visible = true;
             LogOut.Visible = false;
             MessageBox.Show("You have logged out", "Log Out", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private void OnLogedOn(Object sender, EventArgs e)
-        {
-            loginButton.Visible = false;
-            registerButton.Visible = false;
-            LogOut.Visible = true;
         }
     }
 }
